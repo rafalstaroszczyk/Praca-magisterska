@@ -1,3 +1,13 @@
 % Define your macros here using \newcommand
 % E.g. a short alias for mono-spaced font:
-\newcommand{\mono}[1]{\texttt{#1}}
+\newcommand{\mono}[2]{\texttt{#1}}
+\newcommand{\dbar}{\mathrm{d\mkern-8mu\mathchar'26\mkern-2mu}}
+\NewDifferential{\idif}{\dbar}
+
+\makeatletter
+%\newcommand\vb[1]{\@ifstar\boldsymbol\mathbf{#1}}
+\newcommand\vb[1]{\@ifstar\boldsymbol\mathbf{#1}}
+\newcommand\va[1]{\@ifstar{\vec{#1}}{\vec{\mathrm{#1}}}}
+\newcommand\vu[1]{%
+	\@ifstar{\hat{\boldsymbol{#1}}}{\hat{\boldsymbol{#1}}}}
+\makeatother
