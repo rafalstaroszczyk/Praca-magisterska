@@ -1,0 +1,29 @@
+\section{Twierdzenie Carnota}
+Udowodnimy teraz, że dla danych dwóch zbiorników ciepła o temperaturach zimniejszego $T_1$ i cieplejeszego $T_2$ silnik odwracalny zawsze będzie miał maksymalną sprawność. Przyjmijmy, że mamy jeden silnik odwracalny, może być to silnik Carnota, pracujący w obiegu lewobieżnym, który oznaczymy C, oraz dowolny inny silnik X pracujący w obiegu prawobieżnym. Mają one sprawności odpowiednio $\eta_C$ oraz $\eta_X$. Są one ze sobą połączone tak, że cała praca wytworzona przez silnik X jest wykorzystywana przez silnik C. Niech ciepło dostarczone do zbiornika ciepłego przez silnik C jest równa $Q$. Wtedy praca wytworzona przez X będzie według równania \eqref{eq:def_sprawnosc_silnika} równa $\eta_C Q$, a ciepło pobrane przez silnik C ze zbiornika zimnego będzie równe $\pab{1 - \eta_C}Q$. Dla silnika X ciepło pobrane ze zbiornika ciepłego i oddane do zimnego są równe odpowiednio $\frac{W}{\eta_X} = \frac{\eta_C}{\eta_X}Q$ oraz $\pab{\frac{\eta_C}{\eta_X} - \eta_C}Q$. Całkowite ciepło pobrane ze zbiornika ciepłego i oddane do zbiornika zimnego jest równe $\pab{\frac{\eta_C}{\eta_X} - 1}Q$. Z drugiej zasady termodynamiki wiemy, że niemożliwym jest, aby w jakimkolwiek procesie jedynym skutkiem było przepłynięcie ciepła ze zbiornika zimniejszego do cieplejszego. Stąd, ponieważ $Q > 0$ otrzymujemy $\pab{\frac{\eta_C}{\eta_X} - 1} \geq 1$, co sprowadza się do:
+\begin{equation}\label{eq:tw_carnot}
+\eta_C \geq \eta_X.
+\end{equation}
+Sprawność dowolnego silnika nie może być większa od sprawności silnika odwracalnego. W szczególności sprawność każdego silnika odwracalnego jest sobie równa i jest zależna jedynie od temperatur zbiorników;
+\begin{equation}
+\eta = 1 - \frac{Q_1}{Q_2} = 1 - f\pab{T_1, T_2}.
+\end{equation}
+W układzie trzech zbiorników o temperaturach spełniających $T_1 < T_2 < T_3$ możemy umieścić dwa silniki Carnota między odpowiednio $T_3$ i $T_2$ oraz $T_2$ i $T_1$. Z górnego zbiornika pobieramy ciepło $Q_3$, wykonujemy pracę $W_2 = \bab{1 - f\pab{T_2, T_3}}Q_3$ i oddajemy ciepło $Q_2 = f\pab{T_2, T_3}Q_3$ do środkowego zbiornika. Drugi silnik pobiera ciepło $Q_2$ z środkowego zbiornika i podobnie wykonuje pracę $W_1 = \bab{1 - f\pab{T_1, T_2}}Q_2$ oddając ciepło $Q_1 = f\pab{T_1, T_2}Q_2$. Całkowita wykonana praca jest równa
+\begin{equation}
+W = \bab{1 - f\pab{T_2, T_3}}Q_3 + \bab{1 - f\pab{T_1, T_2}}f\pab{T_2, T_3}Q_3 = \bab{1 - f\pab{T_1, T_2}f\pab{T_2, T_3}}Q_3.
+\end{equation}
+Ponieważ silnik górny odprowadza do zbiornika o temperaturze $T_2$ takie samo ciepło, jak to pobrane przez silnik górny możemy ten układ zamienić jednym silnikiem Carnota umieszczonego między  temperaturami $T_3$ i $T_1$. Praca wykonana przez ten silnik jest równa
+\begin{equation}
+W = \pab{1 - f\pab{T_1, T_3}}Q_3.
+\end{equation}
+Obydwie prace muszą być sobie równe, stąd po przekształceniach otrzymujemy:
+\begin{equation}
+f\pab{T_1, T_2}f\pab{T_2, T_3} = f\pab{T_1, T_3}.
+\end{equation}
+Zależność ta jest spełniona przez
+\begin{equation}
+f\pab{T_1, T_2} = \frac{T_1}{T_2},
+\end{equation}
+którą wybieramy w tej postaci, aby występująca tu temperatura pokrywała się z temperaturą zdefiniowaną poprzez gaz doskonały opisany wzorem $pV = nRT$. Z tej zależności otrzymujemy sprawność silnika Carnota pracującego między temperaturami $T_2$ i $T_1$ jako:
+\begin{equation}\label{eq:sprawnosc_carnot}
+\eta_C = 1 - \frac{T_1}{T_2}.
+\end{equation}
