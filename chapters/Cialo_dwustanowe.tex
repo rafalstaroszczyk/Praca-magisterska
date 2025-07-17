@@ -1,0 +1,31 @@
+\section{Ciało o dwóch stanach}
+Stany ciała są oznaczone \(g\) dla stanu podstawowego oraz \(e\) dla stanu wzbudzonego. Przejścia między stanami są możliwe na trzy sposoby: absorpcja kwantu pola elektromagnetycznego o energii \(E_f = h\nu = E_e - E_g\) przez ciało w stanie podstwowym; emisja wymuszona tym samym kwantem ze stanu wzbudzonego na podstawowy z emisją dodatkowego kwantu; oraz emisja spontaniczna ze stanu wzbudzonego na podstawowy z emisją tego samego kwantu. Dynamika populacji obu stanów wyrażona jest wzorami:
+\begin{align}
+	\odv{n_g}{t} &=   \pab{A_{eg} + B_{eg} u}n_e - B_{ge} u n_g, \\
+	\odv{n_e}{t} &= - \pab{A_{eg} + B_{eg} u}n_e + B_{ge} u n_g,
+\end{align}
+gdzie \(A_{eg}\), \(B_{eg}\), \(B_{ge}\) to współczynniki Einsteina określające odpowiednio emisję spontaniczną, emisję wymuszoną oraz wzbudzenie. Szybkość drugiego i trzeciego z tych procesów jest zależna od gęstości promieniowania elektromagnetycznego, ponieważ zachodzą one pod wpływem interakcji z istniejącymi już kwantami. W stanie stacjonarnym mamy \(\odv{n_g}{t} = \odv{n_g}{t} = 0\), co prowadzi do równania:
+\begin{gather}
+	  \pab{A_{eg} + B_{eg} u}n_e - B_{ge} u n_g = 0 \\
+	- \pab{A_{eg} + B_{eg} u}n_e + B_{ge} u n_g = 0 \\
+	A_{eg} n_e + B_{eg} u n_e = B_{ge} u n_g \\
+	\pab{A_{eg} + B_{eg} u} n_e = B_{ge} u n_g \\
+	\frac{n_e}{n_g} = \frac{B_{ge} u}{A_{eg} + B_{eg} u} \\
+	\frac{n_e}{n_g} = \frac{\frac{B_{ge}}{B_{eg}}}{\frac{A_{eg}}{B_{eg}}\inv{u} + 1} \\
+	u = \frac{2h\nu^3}{c^2}\inv{\exp\pab{\frac{h\nu}{kT}} - 1} \\
+	\inv{u} = \frac{c^2}{2h\nu^3}\bab{\exp\pab{\frac{h\nu}{kT}} - 1} \\
+	\frac{n_e}{n_g} = \frac{\frac{B_{ge}}{B_{eg}}}{\frac{A_{eg}}{B_{eg}}\inv{u} + 1} \\
+\end{gather}
+
+Współczynniki Einsteina:
+\begin{gather*}
+	\odv{n_1}{t} = - B_{12} u n_1 + \pab{A_{21} + B_{21} u} n_2 \\
+	\odv{n_2}{t} =   B_{12} u n_1 - \pab{A_{21} + B_{21} u} n_2 \\
+	\frac{n_1}{n} = \frac{g_1}{Z}\exp\pab{-\frac{E_1}{kT}} \\
+	\frac{n_2}{n} = \frac{g_2}{Z}\exp\pab{-\frac{E_2}{kT}} \\
+	\frac{n}{n_2} = \frac{Z}{g_2}\exp\pab{\frac{E_2}{kT}} \\
+	\frac{n_1}{n_2} = \frac{g_1}{g_2}\exp\pab{\frac{E_2 - E_1}{kT}} = \frac{g_1}{g_2}\exp\pab{\frac{h\nu}{kT}} \\
+	A_{21} + B_{21} u = B_{12} u \frac{n_1}{n_2} \\
+	A_{21}g_{2} \exp\pab{-\frac{h\nu}{kT}} + B_{21}g_{2} \exp\pab{-\frac{h\nu}{kT}} u = B_{12}g_{1} u \\
+	u = \frac{\frac{2h\nu^3}{c^3}}{mianownik}
+\end{gather*}

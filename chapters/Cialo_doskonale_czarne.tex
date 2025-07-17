@@ -1,0 +1,38 @@
+\section{Ciało doskonale czarne}
+Jednym z ostatnich nierozwiązanych problemów fizyki pod koniec XIX wieku było promieniowanie elektromagnetyczne pochodzące od rozgranych ciał. Idealistycznym przykładem takiego ciała jest ciało doskonale czarne. Ma ono zdolność absorpyjną niezależną od częstotliwości, lub długości fali, oraz równą jedności: \(A\pab{\nu, T} = A\pab{\lambda, T} = 1\) \cite{planck_theory_of_heat}. Dla takiego ciała w równowadze termodynamicznej z otaczającym promieniowaniem ma ono formę wyznaczoną prawem Kirchhoffa:
+\begin{align}\label{eq:kirchhoff}
+	B_{\nu} &= \frac{E_{\nu}}{A_{\nu}}, & 
+	B_{\lambda} &= \frac{E_{\lambda}}{A_{\lambda}},
+\end{align}
+skąd radiancja \(B_{\nu}, B_{\lambda}\) jest równa zdolności emisyjnej ciała doskonale czarnego. W teorii klasycznej istniały dwa rozwiązania problemu spektrum tego ciała: Rayleigh'a\textendash Jeans'a; oraz Wiena. 
+
+Pierwsze z nich można otrzymać przyjmując, że pole elektromagnetyczne jest układem oscylatorów harmonicznych, a następnie zastosowanie statystycznego czynnika Boltzmanna na ich populację \cite{bohm}. Otrzymana zależność
+\begin{align*}
+	B_{\nu}\pab{\nu, T} &= \frac{2\nu^2kT}{c^2}, & 
+	B_{\lambda}\pab{\lambda, T} &= \frac{2ckT}{\lambda^4}
+\end{align*}
+rozbiega się jednak dla fal krótkich, a cała energia promieniowania jest nieograniczona. Niedokładność ta została później nazwana katastrofą w nadfiolecie. 
+
+Drugie z rozwiązań zostało podane przez Wiena. Wyprowadził on prawo przesunięć zakładając adiabatyczną przemianę promieniowania w cylidrze oraz prawo Stefana\textendash Boltzmanna \cite{wien_displacement_law}, a następnie wykorzystał je by zapisać równanie jakie musi spełniać promieniowanie: 
+\begin{align*}
+	B_{\nu}\pab{\nu, T} &\propto \nu^3 f_{\nu}\pab{\frac{\nu}{T}}, & 
+	B_{\lambda}\pab{\lambda, T} &\propto \lambda^{-5} f_{\lambda}\pab{\lambda T}.
+\end{align*}
+Zakładając, że częstotliwość promieniowania jest proporcjonalna prędkości cząstek zapronowował wzór \cite{wien_law}:
+\begin{align*}
+	B_{\nu}\pab{\nu, T} &\propto \nu^3 \exp\pab{\frac{c_{\nu}\nu}{T}}, & 
+	B_{\lambda}\pab{\lambda, T} &\propto \lambda^{-5} \exp\pab{\frac{c_{\lambda}}{\lambda T}}.
+\end{align*}
+Wzór ten jest zbieżny z doświadczeniem dla fal krótkich, ale nie długich, więc tak samo jak wzór Rayleigh'a\textendash Jeans'a jest niepełny. 
+
+Pełne rozwiązanie podał Planck wyprowadzając je półempirycznie, ale bez dobrego wytłumaczenia fizycznego. Aby takie znaleźć konieczne stało się wprowadzenie kwantu energii i zapoczątkowanie mechaniki kwantowej. 
+\begin{align}
+	B_{cz, \nu}\pab{\nu, T} &= \frac{2h\nu^3}{c^3}\inv{\exp\pab{\frac{h\nu}{kT}} - 1}, & 
+	B_{cz, \lambda}\pab{\lambda, T} &= \frac{2hc^2}{\lambda^5}\inv{\exp\pab{\frac{hc}{\lambda kT}} - 1}.
+\end{align}
+
+Jeśli kilka ciał jest w kontakcie z pewnym promieniowaniem, to zależność \eqref{eq:kirchhoff} musi być spełniona dla każdego z tych ciał. Ciała, które nie są doskonale czarne emitują promieniowanie o spektrum podanym przez wzór:
+\begin{align*}
+	B_{\nu}\pab{\nu, T} =& A_{\nu} B_{cz, \nu}\pab{\nu, T} = A_{\nu} \frac{2h\nu^3}{c^3}\inv{\exp\pab{\frac{h\nu}{kT}} - 1}, \\
+	B_{\lambda}\pab{\lambda, T} =& A_{\nu} B_{cz, \lambda}\pab{\lambda, T} = A_{\nu} \frac{2hc^2}{\lambda^5}\inv{\exp\pab{\frac{hc}{\lambda kT}} - 1}.
+\end{align*}

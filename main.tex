@@ -1,6 +1,10 @@
 \documentclass[10pt,twoside]{report}
 \usepackage{config/preamble}
 
+\usepackage{csquotes}
+\usepackage[sorting=none,giveninits=true]{biblatex}
+\addbibresource{config/bibliography.bib}
+
 \begin{document}
 
 \pagenumbering{gobble}  % Do not number the first pages
@@ -31,7 +35,11 @@
 \chapter{Termodynamika klasyczna}
 \input{chapters/Silnik_Carnot.tex}
 \input{chapters/Twierdzenie_Carnot.tex}
+\input{chapters/Cialo_doskonale_czarne.tex}
+\input{chapters/Cialo_dwustanowe.tex}
+\input{figures/pv_silnik_carnot.tex}
 
+\nocite{*}
 \printbibliography[title={Wykaz literatury},heading=bibintoc]
 
 \listoffigures
