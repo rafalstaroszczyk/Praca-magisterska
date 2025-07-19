@@ -1,0 +1,35 @@
+\begin{tikzpicture}
+	\begin{axis}[width=\textwidth,
+		xlabel=$V$,
+		ylabel=$p$,
+		axis x line=bottom,
+		axis y line=middle,
+		xmin=0,
+		xmax=1.2,
+		ymin=0,
+		ymax=1.2,
+		ticks=none,
+		every axis x label/.style={at={(current axis.right of origin)},anchor=north east},
+		every axis y label/.style={at={(current axis.above origin)},anchor=north east},
+		declare function={
+			r = 2;
+			tau = 2;
+			f = 3;
+			kappa = 1 + 2/f;
+			V1 = 1/r;
+			V2 = 1;
+			p1 = 1/r^kappa * 1/tau;
+			p2 = 1/tau;
+			p3 = 1;
+			p4 = 1/r^kappa;
+		}]
+		\addplot[mark=*] coordinates {(V2,p1)} node[anchor=north west]{$1$};
+		\addplot[mark=*] coordinates {(V1,p2)} node[anchor=north east]{$2$};
+		\addplot[mark=*] coordinates {(V1,p3)} node[anchor=south east]{$3$};
+		\addplot[mark=*] coordinates {(V2,p4)} node[anchor=south west]{$4$};
+		\addplot[domain=V1:V2] {1/r^kappa * 1/tau / x^kappa} node [pos=0.5, below, sloped] {$Q=0$};
+		\addplot[mark=none] coordinates {(V1, p2) (V1, p3)};
+		\addplot[domain=V1:V2] {1/r^kappa / x^kappa}         node [pos=0.5, above, sloped] {$Q=0$};
+		\addplot[mark=none] coordinates {(V2, p4) (V2, p1)};
+	\end{axis}
+\end{tikzpicture}

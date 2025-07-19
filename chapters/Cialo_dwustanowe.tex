@@ -27,5 +27,15 @@ Współczynniki Einsteina:
 	\frac{n_1}{n_2} = \frac{g_1}{g_2}\exp\pab{\frac{E_2 - E_1}{kT}} = \frac{g_1}{g_2}\exp\pab{\frac{h\nu}{kT}} \\
 	A_{21} + B_{21} u = B_{12} u \frac{n_1}{n_2} \\
 	A_{21}g_{2} \exp\pab{-\frac{h\nu}{kT}} + B_{21}g_{2} \exp\pab{-\frac{h\nu}{kT}} u = B_{12}g_{1} u \\
-	u = \frac{\frac{2h\nu^3}{c^3}}{mianownik}
+	u = \frac{\frac{2h\nu^3}{c^3}}{\exp\pab{\frac{h\nu}{kT}} - 1} \\
+	A_{21}g_{2} \exp\pab{-\frac{h\nu}{kT}} + B_{21}g_{2} \exp\pab{-\frac{h\nu}{kT}} \frac{\frac{2h\nu^3}{c^3}}{\exp\pab{\frac{h\nu}{kT}} - 1} = B_{12}g_{1} \frac{\frac{2h\nu^3}{c^3}}{\exp\pab{\frac{h\nu}{kT}} - 1} \\
+	A_{21}g_{2} \exp\pab{-\frac{h\nu}{kT}} \pab{\exp\pab{\frac{h\nu}{kT}} - 1} + B_{21}g_{2} \exp\pab{-\frac{h\nu}{kT}} \frac{2h\nu^3}{c^3} = B_{12}g_{1} \frac{2h\nu^3}{c^3} \\
+	A_{21}g_{2} \bab{1 - \exp\pab{-\frac{h\nu}{kT}}} + B_{21}g_{2} \exp\pab{-\frac{h\nu}{kT}} \frac{2h\nu^3}{c^3} = B_{12}g_{1} \frac{2h\nu^3}{c^3} \\
+	T \rightarrow 0 \quad\Rightarrow\quad 
+	A_{21}g_{2} = B_{12}g_{1} \frac{2h\nu^3}{c^3} \\
+	T \rightarrow \infty \Rightarrow 
+	B_{21}g_{2} = B_{12}g_{1} \\
+	B_{12} = B_{21}\frac{g_{2}}{g_{1}} \\
+	\frac{A_{21}}{B_{21}} = \frac{2h\nu^3}{c^3} \\
+	\frac{B_{21}}{B_{12}} = \frac{g_1}{g_2}
 \end{gather*}
