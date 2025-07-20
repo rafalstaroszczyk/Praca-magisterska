@@ -1,4 +1,4 @@
-*.pdf
+#*.pdf
 
 # Default ignores for TeX below
 # https://github.com/github/gitignore/blob/master/TeX.gitignore
