@@ -1,0 +1,35 @@
+\begin{tikzpicture}[x=0.5cm, y=0.5cm]
+	\tikzmath{
+	\tankwidth = 10;
+	\tanksep = 5;
+	\tankthickness = 1;
+	\engwidth = 1;
+	\engsep = 5;
+	\radius = 2;
+	\chansep = 1;
+	}
+	\draw[color=red, thick] (-\tankwidth, \tanksep) -- (\tankwidth, \tanksep) node[anchor=south, pos=0.5]{\(T_h\)};
+	\draw[color=red, thick] (-\tankwidth, \tanksep) -- (-\tankwidth, \tanksep+\tankthickness);
+	\draw[color=red, thick] (\tankwidth, \tanksep) -- (\tankwidth, \tanksep+\tankthickness);
+	\fill[color=red, opacity=0.2] (-\tankwidth, \tanksep) rectangle (\tankwidth, \tanksep+\tankthickness);
+	
+	\draw[color=blue, thick] (-\tankwidth, -\tanksep) -- (\tankwidth, -\tanksep) node[anchor=north, pos=0.5]{\(T_c\)};
+	\draw[color=blue, thick] (-\tankwidth, -\tanksep) -- (-\tankwidth, -\tanksep-\tankthickness);
+	\draw[color=blue, thick] (\tankwidth, -\tanksep) -- (\tankwidth, -\tanksep-\tankthickness);
+	\fill[color=blue, opacity=0.2] (-\tankwidth, -\tanksep) rectangle (\tankwidth, -\tanksep-\tankthickness);
+	
+	\draw[black] (-\engsep-\engwidth, -\tanksep) -- (-\engsep-\engwidth, \tanksep) node[anchor=west, pos=0.5]{\(\eta_X\)};
+	\draw[black] (-\engsep+\engwidth, -\tanksep) -- (-\engsep+\engwidth, -\chansep-\radius);
+	\draw[black] (-\engsep+\engwidth, \chansep+\radius) -- (-\engsep+\engwidth, \tanksep);
+	\draw[black] (-\engsep+\engwidth, -\chansep-\radius) arc (180:90:\radius);
+	\draw[black] (-\engsep+\engwidth, \chansep+\radius) arc (180:270:\radius);
+	
+	\draw[black] (\engsep+\engwidth, -\tanksep) -- (\engsep+\engwidth, \tanksep) node[anchor=east, pos=0.5]{\(\eta_C\)};
+	\draw[black] (\engsep-\engwidth, -\tanksep) -- (\engsep-\engwidth, -\chansep-\radius);
+	\draw[black] (\engsep-\engwidth, \chansep+\radius) -- (\engsep-\engwidth, \tanksep);
+	\draw[black] (\engsep-\engwidth, -\chansep-\radius) arc (0:90:\radius);
+	\draw[black] (\engsep-\engwidth, \chansep+\radius) arc (360:270:\radius);
+	
+	\draw[black] (-\engsep+\engwidth+\radius, -\chansep) -- (\engsep-\engwidth-\radius, -\chansep);
+	\draw[black] (-\engsep+\engwidth+\radius, \chansep) -- (\engsep-\engwidth-\radius, \chansep);
+\end{tikzpicture}
