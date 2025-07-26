@@ -1,0 +1,18 @@
+\section{Macierz gęstości}
+Mechanika kwantowa jest teorią falową, więc funkcja falowa ma kluczowe znaczenie. Zawiera ona całą informację o rozpatrywanym układzie. Funkcja falowa jest wektorem w przestrzeni Hilberta, a więc można ją wyrazić za pomocą dowolnej bazy, na której dana przestrzeń jest rozciągnięta. Częstym wyborem są funckcje własne operatorów parami komutujących opisujących dane zagadnienie. W ogólności operatory te, poza dyskretnymi wartościami własnymi (widmo dyskretne), mogą mieć również widmo ciągłe lub mieszane. Dowolna funckja może być wtedy zapisana jako suma kombinacji liniowej i całki \cite{davydov_mechanika_kwantowa}:
+\begin{equation}\label{eq:funkcja_falowa_w_bazie_ogolna}
+	\ket{\Psi} = \sum_{n} a_{n} \ket{\psi_{n}} + \int a_{F} \ket{\psi_{F}} \d{F},
+\end{equation}
+gdzie wektory bazy są wzajemnie ortogonalne. Typowo rozpatruje się układy ograniczone do jedynie widma dyskretnego. Wtedy:
+\begin{equation}\label{eq:funkcja_falowa_w_bazie_dyskretna}
+	\ket{\Psi} = \sum_{n} a_{n} \ket{\psi_{n}}.
+\end{equation}
+Funckję falową można przeskalować bez zmiany ważnych własności, jak na przykład wartości własne, dlatego typowo normalizuje się ja do jedności:
+\begin{equation}\label{eq:funkcja_falowa_normalizacja}
+	\braket{\Psi}{\Psi} = 
+	\sum_{nk} a_{k}^{*}a_{n} \braket{\psi_{k}}{\psi_{n}} = 
+	\sum_{nk} a_{k}^{*}a_{n} \delta{nk} = 
+	\sum_{n} a_{n}^{*}a_{n} = 
+	\sum_{n} \vab{a_{n}}^2 = 1.
+\end{equation}
+Wielkości \(\vab{a_{n}}^2\) mają interpretację prawdopodobieństwa znalezienia układu w stanie \(\ket{\psi_{n}}\). Faza wielkości \(a_{n}\) nie wpływa na to prawdopodobieństwo, dlatego niemożliwe jest jej określenie znając jedynie mierzalne prawdopodobieństwa. Alternatywnym podejściem jest formalizm macierzy gęstości zamiast wektorów falowych. 
