@@ -1,18 +1,27 @@
 \section{Macierz gęstości}
 Mechanika kwantowa jest teorią falową, więc funkcja falowa ma kluczowe znaczenie. Zawiera ona całą informację o rozpatrywanym układzie. Funkcja falowa jest wektorem w przestrzeni Hilberta, a więc można ją wyrazić za pomocą dowolnej bazy, na której dana przestrzeń jest rozciągnięta. Częstym wyborem są funckcje własne operatorów parami komutujących opisujących dane zagadnienie. W ogólności operatory te, poza dyskretnymi wartościami własnymi (widmo dyskretne), mogą mieć również widmo ciągłe lub mieszane. Dowolna funckja może być wtedy zapisana jako suma kombinacji liniowej i całki \cite{davydov_mechanika_kwantowa}:
 \begin{equation}\label{eq:funkcja_falowa_w_bazie_ogolna}
-	\ket{\Psi} = \sum_{n} a_{n} \ket{\psi_{n}} + \int a_{F} \ket{\psi_{F}} \d{F},
+	\ket{\Psi} = \sum_{n} c_{n} \ket{\psi_{n}} + \int c_{F} \ket{\psi_{F}} \d{F},
 \end{equation}
 gdzie wektory bazy są wzajemnie ortogonalne. Typowo rozpatruje się układy ograniczone do jedynie widma dyskretnego. Wtedy:
 \begin{equation}\label{eq:funkcja_falowa_w_bazie_dyskretna}
-	\ket{\Psi} = \sum_{n} a_{n} \ket{\psi_{n}}.
+	\ket{\Psi} = \sum_{n} c_{n} \ket{\psi_{n}}.
 \end{equation}
 Funckję falową można przeskalować bez zmiany ważnych własności, jak na przykład wartości własne, dlatego typowo normalizuje się ja do jedności:
 \begin{equation}\label{eq:funkcja_falowa_normalizacja}
 	\braket{\Psi}{\Psi} = 
-	\sum_{nk} a_{k}^{*}a_{n} \braket{\psi_{k}}{\psi_{n}} = 
-	\sum_{nk} a_{k}^{*}a_{n} \delta{nk} = 
-	\sum_{n} a_{n}^{*}a_{n} = 
-	\sum_{n} \vab{a_{n}}^2 = 1.
+	\sum_{nk} c_{k}^{*}c_{n} \braket{\psi_{k}}{\psi_{n}} = 
+	\sum_{nk} c_{k}^{*}c_{n} \delta{nk} = 
+	\sum_{n} c_{n}^{*}c_{n} = 
+	\sum_{n} \vab{c_{n}}^2 = 1.
 \end{equation}
-Wielkości \(\vab{a_{n}}^2\) mają interpretację prawdopodobieństwa znalezienia układu w stanie \(\ket{\psi_{n}}\). Faza wielkości \(a_{n}\) nie wpływa na to prawdopodobieństwo, dlatego niemożliwe jest jej określenie znając jedynie mierzalne prawdopodobieństwa. Alternatywnym podejściem jest formalizm macierzy gęstości zamiast wektorów falowych. 
+Wielkości \(\vab{c_{n}}^2\) mają interpretację prawdopodobieństwa znalezienia układu w stanie \(\ket{\psi_{n}}\). Faza wielkości \(c_{n}\) nie wpływa na to prawdopodobieństwo, dlatego niemożliwe jest jej określenie znając jedynie mierzalne prawdopodobieństwa. Alternatywnym podejściem jest formalizm macierzy gęstości zamiast wektorów falowych. 
+
+\subsection{Wartość oczekiwana}
+Wartość oczekiwana operatora \(\vu{A}\) o wektorach własnych \(\vu{A}\ket{\psi_{n}} = a_{n}\ket{\psi_{n}}\) ma przy powyższej interpretacji \(c_{n}\) ma postać \cite{townsend_a_modern_approach_to_quantum_mechanics}:
+\begin{equation}\label{eq:wartosc_oczekiwana}
+\begin{split}
+	\braket[1]{A} = \sum_{n} \vab{c_{n}}^{2} a_{n} = \sum_{nk} c_{k}^{*} a_{n} \delta_{nk} c_{n} = \sum_{nk} \braket{\Psi}{\psi_{k}} \braket[3]{\psi_{k}}{A}{\psi_{n}} \braket{\psi_{n}}{\Psi} = \\ = \bra{\Psi}\pab{\sum_{k}\ketbra{\psi_{k}}{\psi_{k}}} A \pab{\sum_{n}\ketbra{\psi_{n}}{\psi_{n}}} \ket{\Psi} = \braket[3]{\Psi}{A}{\Psi}.
+\end{split}
+\end{equation}
+Końcowy wynik jest niezależny od wyboru konkretnej bazy i jest wzorem ogólnym. 
