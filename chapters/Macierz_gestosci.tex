@@ -19,9 +19,84 @@ Wielkości \(\vab{c_{n}}^2\) mają interpretację prawdopodobieństwa znalezieni
 
 \subsection{Wartość oczekiwana}
 Wartość oczekiwana operatora \(\vu{A}\) o wektorach własnych \(\vu{A}\ket{\psi_{n}} = a_{n}\ket{\psi_{n}}\) ma przy powyższej interpretacji \(c_{n}\) ma postać \cite{townsend_a_modern_approach_to_quantum_mechanics}:
-\begin{equation}\label{eq:wartosc_oczekiwana}
+\begin{equation}\label{eq:wartosc_oczekiwana_wektor}
 \begin{split}
 	\braket[1]{A} = \sum_{n} \vab{c_{n}}^{2} a_{n} = \sum_{nk} c_{k}^{*} a_{n} \delta_{nk} c_{n} = \sum_{nk} \braket{\Psi}{\psi_{k}} \braket[3]{\psi_{k}}{A}{\psi_{n}} \braket{\psi_{n}}{\Psi} = \\ = \bra{\Psi}\pab{\sum_{k}\ketbra{\psi_{k}}{\psi_{k}}} A \pab{\sum_{n}\ketbra{\psi_{n}}{\psi_{n}}} \ket{\Psi} = \braket[3]{\Psi}{A}{\Psi}.
 \end{split}
 \end{equation}
 Końcowy wynik jest niezależny od wyboru konkretnej bazy i jest wzorem ogólnym. 
+
+\subsection{Reprezentacja macierzowa}
+Funkcje gęstości są wektorami w przestrzeni Hilberta i nie są właściwie zdefiniowane składowymi. Jeśli jednak wybierzemy pewną bazę \(\ket{i}\), będącą wektorami własnymi operatora \(B\), to wektor \(\ket{\Psi}\) możemy zapisać jako:
+\begin{equation*}
+	\ket{\Psi} \overset{B}{\rightarrow} 
+	\begin{pmatrix}
+		\braket{1}{\Psi} \\
+		\braket{2}{\Psi} \\
+		\vdots
+	\end{pmatrix}.
+\end{equation*}
+Podobnie dla wektora \(\bra{\Psi}\):
+\begin{equation*}
+	\bra{\Psi} \overset{B}{\rightarrow} 
+	\begin{pmatrix}
+		\braket{\Psi}{1} &
+		\braket{\Psi}{2} &
+		\ldots
+	\end{pmatrix}.
+\end{equation*}
+Operatory w tej reprezentacji są macierzami o elementach \(\braket[3]{i}{A}{j}\):
+\begin{equation*}
+	A \overset{B}{\rightarrow} 
+	\begin{pmatrix}
+		\braket[3]{1}{\Psi}{1} & \braket[3]{1}{\Psi}{2} & \ldots \\
+		\braket[3]{2}{\Psi}{1} & \braket[3]{2}{\Psi}{2} & \ldots \\
+		\vdots & \vdots & \ddots \\
+	\end{pmatrix}.
+\end{equation*}
+W podanych reprezentacjach wzór \eqref{eq:wartosc_oczekiwana_wektor} jest zwykłym mnożeniem wektorowym. 
+
+\subsection{Stany czyste}
+Jeśli stan układu jest dokładnie znany to nazywany jest on czystym. Może on mimo to być superpozycją stanów własnych operatorów opisujacych układ, czyli wyniki pomiarów nie są deterministyczne. Możemy dla takiej funkcji falowej zdefiniować macierz gęstości \cite{townsend_a_modern_approach_to_quantum_mechanics}:
+\begin{equation}\label{eq:macierz_gestosci_czysty}
+	\vu{\rho} = \ketbra{\Psi}{\Psi}.
+\end{equation}
+Macierz ta jest hermitowska:
+\begin{equation*}
+	\vu{\rho}^{*} = \ketbra{\Psi}{\Psi}^{*} = \ketbra{\Psi}{\Psi} = \vu{\rho};
+\end{equation*}
+o śladzie równym jeden:
+\begin{equation*}
+	\Tr\pab{\vu{\rho}} = \sum_{i} \rho_{ii} = \sum_{i} \braket[3]{i}{\vu{\rho}}{i} = \sum_{i} \braket{i}{\Psi}\braket{\Psi}{i} = \sum_{i} \braket{\Psi}{i}\braket{i}{\Psi} = \bra{\Psi}\pab{\sum_{i} \ketbra{i}{i}}\ket{\Psi} = \braket{\Psi}{\Psi} = 1.
+\end{equation*}
+Wartość oczekiwana ma formę:
+\begin{equation}\label{eq:wartosc_oczekiwana_macierz_gestosci_czysty}
+\begin{split}
+	\braket[1]{A} = \braket[3]{\Psi}{A}{\Psi} = \sum_{ij} \braket{\Psi}{i} \braket[3]{i}{A}{j} \braket{j}{\Psi} = \sum_{ij} \braket[3]{i}{A}{j} \braket{j}{\Psi} \braket{\Psi}{i} = \sum_{ij} \braket[3]{i}{A}{j} \braket[3]{j}{\vu{\rho}}{i} = \\ = 
+	\sum_{ij} A_{ij} \rho_{ji} = \sum_{i} \pab{A\rho}_{ii} = \Tr\pab{A\rho} = \Tr\pab{\rho A}.
+\end{split}
+\end{equation}
+
+\subsection{Stany mieszane}
+Jeśli nie są znane współczynniki \(c_{n}\), ale znane są ich kwadraty \(c_{n}^{2} = p_{n}\) można zdefiniować macierz gęstości alternatywnie jako \cite{townsend_a_modern_approach_to_quantum_mechanics}:
+\begin{equation}\label{eq:macierz_gestosci_mieszany}
+	\vu{\rho} = \sum_{n} p_{n}\ketbra{\psi_{n}}{\psi_{n}}.
+\end{equation}
+Elementy macierzy w bazie \(\bra{\psi_{n}}\) mają wzór:
+\begin{gather*}
+	\rho_{ii} = \braket[3]{i}{\vu{\rho}}{i} = \sum_{n} p_{n}\braket{i}{\psi_{n}}\braket{\psi_{n}}{i} = \sum_{n} p_{n}\delta_{in}\delta_{in} = p_{i},
+\end{gather*}
+podobnie jak w przypadku stanu czystego, ale elementy pozadiagonalne są równe \(0\).
+Wartość oczekiwana dana jest wzorem \eqref{eq:wartosc_oczekiwana_macierz_gestosci_czysty}:
+\begin{equation}\label{eq:wartosc_oczekiwana_macierz_gestosci_mieszany}
+	\Tr\pab{A\rho} = 
+	\sum_{i} \pab{A\rho}_{ii} = 
+	\sum_{ij} A_{ij}\rho_{ji} = 
+	\sum_{ij} \braket[3]{i}{A}{j}\bra{j}\pab{sum_{k} p_{k}\ketbra{k}{k}}\ket{i} = 
+	\sum_{ijk} p_{k} \braket[3]{i}{A}{j} \braket{j}{k}\braket{k}{i} = 
+	\sum_{ijk} p_{k} \braket[3]{i}{A}{j} \delta{jk}\delta{ik} = 
+	\sum_{ij} p_{i} \braket[3]{i}{A}{j} \delta{ij} = 
+	\sum_{ij} p_{i} \braket[3]{i}{A}{i} = 
+	\braket[1]{A},
+\end{equation}
+gdzie ostatnia równość zachodzi, ponieważ suma wartości oczekiwanej w danym stanie ważona prawdopodobieństwem danego stanu jest całkowitą wartością oczekiwaną. 
