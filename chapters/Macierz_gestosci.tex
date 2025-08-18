@@ -89,14 +89,16 @@ Elementy macierzy w bazie \(\bra{\psi_{n}}\) mają wzór:
 podobnie jak w przypadku stanu czystego, ale elementy pozadiagonalne są równe \(0\).
 Wartość oczekiwana dana jest wzorem \eqref{eq:wartosc_oczekiwana_macierz_gestosci_czysty}:
 \begin{equation}\label{eq:wartosc_oczekiwana_macierz_gestosci_mieszany}
+\begin{split}
 	\Tr\pab{A\rho} = 
 	\sum_{i} \pab{A\rho}_{ii} = 
 	\sum_{ij} A_{ij}\rho_{ji} = 
 	\sum_{ij} \braket[3]{i}{A}{j}\bra{j}\pab{sum_{k} p_{k}\ketbra{k}{k}}\ket{i} = 
 	\sum_{ijk} p_{k} \braket[3]{i}{A}{j} \braket{j}{k}\braket{k}{i} = 
 	\sum_{ijk} p_{k} \braket[3]{i}{A}{j} \delta{jk}\delta{ik} = 
-	\sum_{ij} p_{i} \braket[3]{i}{A}{j} \delta{ij} = 
+	\sum_{ij} p_{i} \braket[3]{i}{A}{j} \delta{ij} = \\ =
 	\sum_{ij} p_{i} \braket[3]{i}{A}{i} = 
 	\braket[1]{A},
+\end{split}
 \end{equation}
 gdzie ostatnia równość zachodzi, ponieważ suma wartości oczekiwanej w danym stanie ważona prawdopodobieństwem danego stanu jest całkowitą wartością oczekiwaną. 
