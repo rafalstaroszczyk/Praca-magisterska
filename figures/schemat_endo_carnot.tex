@@ -1,0 +1,37 @@
+\begin{tikzpicture}[x=0.5cm, y=0.5cm]
+	\tikzmath{
+		\tankwidth = 10;
+		\tanksep = 6;
+		\tankthickness = 1;
+		\engwidth = 1;
+		\engsep = 5;
+		\radius = 2;
+		\chansep = 1;
+		\auxtanksep = 5;
+	}
+	\draw[color=red, thick] (-\tankwidth, \tanksep) -- (\tankwidth, \tanksep) node[anchor=south, pos=0.5]{\(T_h\)};
+	\draw[color=red, thick] (0, \auxtanksep) -- (\tankwidth, \auxtanksep) node[anchor=south, pos=0.5]{\(T_{hw}\)};
+	\draw[color=red, thick] (-\tankwidth, \tanksep) -- (-\tankwidth, \tanksep+\tankthickness);
+	\draw[color=red, thick] (\tankwidth, \tanksep) -- (\tankwidth, \tanksep+\tankthickness);
+	\fill[color=red, opacity=0.2] (-\tankwidth, \tanksep) rectangle (\tankwidth, \tanksep+\tankthickness);
+	
+	\draw[color=blue, thick] (-\tankwidth, -\tanksep) -- (\tankwidth, -\tanksep) node[anchor=north, pos=0.5]{\(T_c\)};
+	\draw[color=blue, thick] (0, -\auxtanksep) -- (\tankwidth, -\auxtanksep) node[anchor=north, pos=0.5]{\(T_{cw}\)};
+	\draw[color=blue, thick] (-\tankwidth, -\tanksep) -- (-\tankwidth, -\tanksep-\tankthickness);
+	\draw[color=blue, thick] (\tankwidth, -\tanksep) -- (\tankwidth, -\tanksep-\tankthickness);
+	\fill[color=blue, opacity=0.2] (-\tankwidth, -\tanksep) rectangle (\tankwidth, -\tanksep-\tankthickness);
+	\node[anchor=center] at (-\engsep, 0) {\(\eta_C\)};
+	
+	\draw[black] (-\engsep-\engwidth, -\tanksep) -- (-\engsep-\engwidth, \tanksep);
+	\draw[black] (-\engsep+\engwidth, -\tanksep) -- (-\engsep+\engwidth, -\chansep-\radius);
+	\draw[black] (-\engsep+\engwidth, \chansep+\radius) -- (-\engsep+\engwidth, \tanksep);
+	\draw[black] (-\engsep+\engwidth, -\chansep-\radius) arc (180:90:\radius);
+	\draw[black] (-\engsep+\engwidth, \chansep+\radius) arc (180:270:\radius);
+	\node[anchor=center] at (\engsep, 0) {\(\eta_C'\)};
+	
+	\draw[black] (\engsep-\engwidth, -\auxtanksep) -- (\engsep-\engwidth, \auxtanksep);
+	\draw[black] (\engsep+\engwidth, -\auxtanksep) -- (\engsep+\engwidth, -\chansep-\radius);
+	\draw[black] (\engsep+\engwidth, \chansep+\radius) -- (\engsep+\engwidth, \auxtanksep);
+	\draw[black] (\engsep+\engwidth, -\chansep-\radius) arc (180:90:\radius);
+	\draw[black] (\engsep+\engwidth, \chansep+\radius) arc (180:270:\radius);
+\end{tikzpicture}
