@@ -66,14 +66,33 @@ które ma dwa rozwiązania rzeczywiste, ale tylko jedno z nich jest fizyczne i s
 \end{align}
 
 Sprawność teoretycznego silnika Carnota wynosi \(\eta_C = 1 - \frac{T_{c}}{T_{h}}\), podobnie dla rozpatrywanego:
-\begin{equation*}
+\begin{equation}\label{eq:endo_carnot_eta_def}
 	\eta_C' = 1 - \frac{T_{cw}}{T_{hw}} = 
 	1 - \frac{T_{c} + y}{T_{h} - x} = 
 	1 - \frac{T_{c}}{T_{h}}\frac{1 + \frac{y}{T_{c}}}{1 - \frac{x}{T_{h}}}.
-\end{equation*}
+\end{equation}
 Po podstawieniu \eqref{eq:endo_carnot_xy} i dłuższej manipulacji mamy:
 \begin{equation}\label{eq:endo_carnot_eta}
 	\eta_C' = 1 - \sqrt{\frac{T_{c}}{T_{h}}} = \frac{1 - \frac{T_{c}}{T_{h}}}{1 + \sqrt{\frac{T_{c}}{T_{h}}}} < 
 	1 - \frac{T_{c}}{T_{h}} = \eta_C.
 \end{equation}
-Sprawność ta jest mniejsza od sprawności silnika idealnego, ale wciąż jest jedynie funkcją stosunku temperatur \(\frac{T_{c}}{T_{h}}\).
+Sprawność ta jest mniejsza od sprawności silnika idealnego, ale wciąż jest jedynie funkcją stosunku temperatur \(\frac{T_{c}}{T_{h}}\) i niezależna od innych parametrów opisujących silnik.
+
+Z porównania \eqref{eq:endo_carnot_eta_def} oraz \eqref{eq:endo_carnot_eta} otrzymujemy równość:
+\begin{equation}\label{eq:endo_carnot_frac_Tw}
+	\frac{T_{cw}}{T_{hw}} = \sqrt{\frac{T_{c}}{T_{h}}},
+\end{equation}
+a z podstawienia \eqref{eq:endo_carnot_xy} do \eqref{eq:endo_carnot_tau} oraz wykorzystując \eqref{eq:endo_carnot_frac_Tw} mamy:
+\begin{equation*}
+	\frac{\tau_{h}}{\tau_{c}} = \sqrt{\frac{\kappa_{c}}{\kappa_{h}}}.
+\end{equation*}
+Przekształcając \eqref{eq:endo_carnot_xy} można znaleźć:
+\begin{align}\label{eq:endo_carnot_Tw}
+	T_{hw} &= \sqrt{T_{h}} \frac{\sqrt{\kappa_{h}T_{h}} + \sqrt{\kappa_{c}T_{c}}}{\sqrt{\kappa_{h}} + \sqrt{\kappa_{c}}}; & 
+	T_{cw} &= \sqrt{T_{c}} \frac{\sqrt{\kappa_{h}T_{h}} + \sqrt{\kappa_{c}T_{c}}}{\sqrt{\kappa_{h}} + \sqrt{\kappa_{c}}}.
+\end{align}
+Używając te własności maksymalna moc wyrażona jest wzorem:
+\begin{equation}\label{eq:endo_carnot_Pmax}
+	P = \frac{\kappa_{h}\tau_{h}\pab{T_{h} - T_{hw}} - \kappa_{c}\tau_{c}\pab{T_{cw} - T_{c}}}{\zeta\pab{\tau_{h} + \tau_{c}}} = \frac{\kappa_{h}\kappa_{c}}{\zeta}\pab{\frac{\sqrt{T_{h}} - \sqrt{T_{c}}}{\sqrt{\kappa_{h}} + \sqrt{\kappa_{c}}}}^2.
+\end{equation}
+Wyprowadzony wzór na moc w punkcie maksymalnej mocy jest zależna jedynie od temperatur zbiorników, współczynników opisujących przepływ ciepła oraz współczynnika czasowego \(\zeta\).
