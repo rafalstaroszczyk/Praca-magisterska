@@ -1,0 +1,32 @@
+\begin{tikzpicture}[x=0.5cm, y=0.5cm]
+	\tikzmath{
+		\tankwidth = 6;
+		\tanksep = 5;
+		\tankthickness = 1;
+		\engwidth = 1;
+		\engsep = 1;
+		\radius = 2;
+		\chansep = 1;
+	}
+	\draw[color=red, thick] (-\tankwidth, \tanksep) -- (\tankwidth, \tanksep);
+	\draw[color=red, thick] (-\tankwidth, \tanksep) -- (-\tankwidth, \tanksep+\tankthickness);
+	\draw[color=red, thick] (\tankwidth, \tanksep) -- (\tankwidth, \tanksep+\tankthickness);
+	\fill[color=red, opacity=0.2] (-\tankwidth, \tanksep) rectangle (\tankwidth, \tanksep+\tankthickness);
+	
+	\draw[color=blue, thick] (-\tankwidth, -\tanksep) -- (\tankwidth, -\tanksep);
+	\draw[color=blue, thick] (-\tankwidth, -\tanksep) -- (-\tankwidth, -\tanksep-\tankthickness);
+	\draw[color=blue, thick] (\tankwidth, -\tanksep) -- (\tankwidth, -\tanksep-\tankthickness);
+	\fill[color=blue, opacity=0.2] (-\tankwidth, -\tanksep) rectangle (\tankwidth, -\tanksep-\tankthickness);
+	
+	\draw[black] (-\engsep-\engwidth, -\tanksep) -- (-\engsep-\engwidth, \tanksep);
+	\draw[black] (-\engsep+\engwidth, -\tanksep) -- (-\engsep+\engwidth, -\chansep-\radius);
+	\draw[black] (-\engsep+\engwidth, \chansep+\radius) -- (-\engsep+\engwidth, \tanksep);
+	\draw[black] (-\engsep+\engwidth, -\chansep-\radius) arc (180:90:\radius);
+	\draw[black] (-\engsep+\engwidth, \chansep+\radius) arc (180:270:\radius);
+	\node[anchor=east] at (-\engsep-\engwidth, 0.5*\tanksep) {\(\vab{Q_2}\)};
+	\node[anchor=east] at (-\engsep-\engwidth, -0.5*\tanksep) {\(\vab{Q_1}\)};
+	\node[anchor=west] at (-\engsep+\engwidth+\radius, 0) {\(\vab{W}\)};
+	\draw[line width=0.5mm, -{Stealth[length=5mm, open]}] (-\engsep, 0.75*\tanksep) -- (-\engsep, 0.25*\tanksep);
+	\draw[line width=0.5mm, -{Stealth[length=5mm, open]}] (-\engsep, -0.75*\tanksep) -- (-\engsep, -0.25*\tanksep);
+	\draw[line width=0.5mm, -{Stealth[length=5mm, open]}] (-\engsep+\engwidth+\radius, 0) -- (-\engsep+\engwidth, 0);
+\end{tikzpicture}
