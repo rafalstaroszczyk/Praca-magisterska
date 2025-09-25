@@ -112,3 +112,12 @@ Podstawiając je do wzorów na pracę oraz sprawność otrzymujemy:
 	\eta = 1 - \inv{r^{\kappa-1}}.
 \end{gather}
 Możemy zauważyć, że sprawność nie zależy od temperatury a jedynie od stopnia sprężenia \(r\), który jest parametrem mechanicznym danego silnika, oraz rośnie ona wraz ze wzrostem tego parametru.
+
+\subsection{Cykl Stirlinga}
+Cykl ten wyróżnia się dodatkowym elementem, którym jest wewnętrzny wymiennik ciepła. Jego rolą jest częściowy odzysk ciepła odprowadzanego, przez co otrzymuje się wyższą sprawność całego cyklu. Podobnie jak powyższe składa się on z czterech przemian, ale nie ma w nim przemiany adiabatycznej. Są to po kolei: sprężanie izotermiczne w temperaturze \(T = T_1\) (\(1 \rightarrow 2\)), podgrzanie izochoryczne (\(2 \rightarrow 3\)), rozprężenie izotermiczne w temperaturze \(T = T_2\) (\(3 \rightarrow 4\)) oraz ochłodzenie izochoryczne (\(4 \rightarrow 1\)). Odpowiednio ciepła w każdej z przemian są równe:
+\begin{gather*}
+	\vab{Q_1} = \vab{W_1} = \vab{\int_{1}^{2} - p \d{V}} = nRT_1 \ln\pab{\frac{V_1}{V_2}} \\
+	\vab{Q_r^\pab{+}} = n c_V \pab{T_2 - T_1} \\
+	\vab{Q_2} = \vab{W_2} = \vab{\int_{3}^{4} - p \d{V}} = nRT_2 \ln\pab{\frac{V_3}{V_4}} \\
+	\vab{Q_r^\pab{-}} = n c_V \pab{T_2 - T_1}.
+\end{gather*}
