@@ -31,5 +31,9 @@
 		\addplot[mark=none] coordinates {(V1, p2) (V1, p3)};
 		\addplot[domain=V1:V2] {1/r^kappa / x^kappa}         node [pos=0.5, above, sloped] {$Q=0$};
 		\addplot[mark=none] coordinates {(V2, p4) (V2, p1)};
+		%\addplot[domain=0.8*V2:1.15*V2, dashed] {1/r^kappa * 1/tau * 1/x} node [pos=1, above, sloped] {$T_1$};
+		%\addplot[domain=0.9*V1:1.25*V1, dashed] {1/r * 1/x} node [pos=0.75, above, sloped] {$T_2$};
+		\addplot[mark=none, dashed] coordinates {(V2, p1) (V2, 0)};
+		\addplot[mark=none, dashed] coordinates {(V1, p2) (V1, 0)};
 	\end{axis}
 \end{tikzpicture}
