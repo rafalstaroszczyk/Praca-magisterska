@@ -24,8 +24,10 @@
 	\draw[black] (-\engsep+\engwidth, -\chansep-\radius) arc (180:90:\radius);
 	\draw[black] (-\engsep+\engwidth, \chansep+\radius) arc (180:270:\radius);
 	\node[anchor=center] at (-\engsep, 0) {\(\eta_X\)};
-	\node[anchor=center] at (-\engsep, 0.5*\tanksep) {\(\frac{\eta_C}{\eta_X}Q\)};
-	\node[anchor=center] at (-\engsep, -0.5*\tanksep) {\(\pab{\frac{\eta_c}{\eta_X}-\eta_C}Q\)};
+	\node[anchor=east] at (-\engsep-\engwidth, 0.5*\tanksep) {\(\vab{\frac{\eta_C}{\eta_X}Q}\)};
+	\node[anchor=east] at (-\engsep-\engwidth, -0.5*\tanksep) {\(\vab{\pab{\frac{\eta_c}{\eta_X}-\eta_C}Q}\)};
+	\draw[line width=0.5mm, -{Stealth[length=5mm, open]}] (-\engsep, 0.75*\tanksep) -- (-\engsep, 0.25*\tanksep);
+	\draw[line width=0.5mm, -{Stealth[length=5mm, open]}] (-\engsep, -0.25*\tanksep) -- (-\engsep, -0.75*\tanksep);
 	
 	\draw[black] (\engsep+\engwidth, -\tanksep) -- (\engsep+\engwidth, \tanksep);
 	\draw[black] (\engsep-\engwidth, -\tanksep) -- (\engsep-\engwidth, -\chansep-\radius);
@@ -33,10 +35,13 @@
 	\draw[black] (\engsep-\engwidth, -\chansep-\radius) arc (0:90:\radius);
 	\draw[black] (\engsep-\engwidth, \chansep+\radius) arc (360:270:\radius);
 	\node[anchor=center] at (\engsep, 0) {\(\eta_C\)};
-	\node[anchor=center] at (\engsep, 0.5*\tanksep) {\(Q\)};
-	\node[anchor=center] at (\engsep, -0.5*\tanksep) {\(\pab{1-\eta_C}Q\)};
+	\node[anchor=west] at (\engsep+\engwidth, 0.5*\tanksep) {\(\vab{Q}\)};
+	\node[anchor=west] at (\engsep+\engwidth, -0.5*\tanksep) {\(\vab{\pab{1-\eta_C}Q}\)};
+	\draw[line width=0.5mm, -{Stealth[length=5mm, open]}] (\engsep, 0.25*\tanksep) -- (\engsep, 0.75*\tanksep);
+	\draw[line width=0.5mm, -{Stealth[length=5mm, open]}] (\engsep, -0.75*\tanksep) -- (\engsep, -0.25*\tanksep);
 	
 	\draw[black] (-\engsep+\engwidth+\radius, -\chansep) -- (\engsep-\engwidth-\radius, -\chansep);
 	\draw[black] (-\engsep+\engwidth+\radius, \chansep) -- (\engsep-\engwidth-\radius, \chansep);
-	\node[anchor=center] at (0, 0) {\(\eta_C Q\)};
+	\node[anchor=south] at (0, \chansep) {\(\vab{\eta_C Q}\)};
+	\draw[line width=0.5mm, -{Stealth[length=5mm, open]}] (-\engsep+\engwidth, 0) -- (\engsep-\engwidth, 0);
 \end{tikzpicture}
