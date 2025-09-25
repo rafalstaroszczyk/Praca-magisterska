@@ -117,7 +117,13 @@ Możemy zauważyć, że sprawność nie zależy od temperatury a jedynie od stop
 Cykl ten wyróżnia się dodatkowym elementem, którym jest wewnętrzny wymiennik ciepła. Jego rolą jest częściowy odzysk ciepła odprowadzanego, przez co otrzymuje się wyższą sprawność całego cyklu. Podobnie jak powyższe składa się on z czterech przemian, ale nie ma w nim przemiany adiabatycznej. Są to po kolei: sprężanie izotermiczne w temperaturze \(T = T_1\) (\(1 \rightarrow 2\)), podgrzanie izochoryczne (\(2 \rightarrow 3\)), rozprężenie izotermiczne w temperaturze \(T = T_2\) (\(3 \rightarrow 4\)) oraz ochłodzenie izochoryczne (\(4 \rightarrow 1\)). Odpowiednio ciepła w każdej z przemian są równe:
 \begin{gather*}
 	\vab{Q_1} = \vab{W_1} = \vab{\int_{1}^{2} - p \d{V}} = nRT_1 \ln\pab{\frac{V_1}{V_2}} \\
-	\vab{Q_r^\pab{+}} = n c_V \pab{T_2 - T_1} \\
-	\vab{Q_2} = \vab{W_2} = \vab{\int_{3}^{4} - p \d{V}} = nRT_2 \ln\pab{\frac{V_3}{V_4}} \\
-	\vab{Q_r^\pab{-}} = n c_V \pab{T_2 - T_1}.
+	\vab{Q_{r}^{\pab{+}}} = n c_V \pab{T_2 - T_1} \\
+	\vab{Q_2} = \vab{W_2} = \vab{\int_{3}^{4} - p \d{V}} = nRT_2 \ln\pab{\frac{V_1}{V_2}} \\
+	\vab{Q_{r}^{\pab{-}}} = n c_V \pab{T_2 - T_1}.
 \end{gather*}
+Ciepło \(\vab{Q_{r}^{\pab{+}}}\) dostarczone podczas przemiany izochorycznej jest dokładnie równe ciepłu \(\vab{Q_{r}^{\pab{-}}}\) oddanemu w odpowiadającej przemianie. Ciepło to nigdy nie opuszcza całego układu i jest jedynie wymieniane między gazem roboczym a wymiennikiem ciepła. Praca i sprawność tego cyklu mają postać:
+\begin{gather*}
+	W = n R \pab{T_2 - T_1} \ln\pab{\frac{V_1}{V_2}}, \\
+	\eta = 1 - \frac{T_1}{T_2}.
+\end{gather*}
+Sprawność tego cyklu jest identyczna ze sprawnościa silnika Carnota, więc (co wynika z twierdzenia Carnota) jest on również w pełni odwracalny mimo, że z osobna nie każda z jego przemian jest.
