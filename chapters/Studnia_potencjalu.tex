@@ -1,0 +1,54 @@
+% !TEX root = ../main.tex
+
+\section{Cząstka w prostopadłościennej nieskończonej studni potencjału}
+Jednym z najprostszych układów kwantowych o widmie dyskretnym jest studnia potencjału. Jest to układ, w którym energia potencjalna jest zerowa wewnątrz pewnego ograniczonego obszaru, a poza nim jest równa \(U_0\):
+\begin{equation*}
+	\vu{V} = 
+	\begin{cases}
+		0 &\text{dla}\; x \in \bab{0, L_x} \wedge y \in \bab{0, L_y} \wedge z \in \bab{0, L_z}, \\
+		U_0 &\text{dla pozostałych}.
+	\end{cases}
+\end{equation*}
+W studni nieskończonej mamy \(U_0 = \infty\). Jest to łatwiejsze zagadnienie, ponieważ wymusza to, aby w obszarze o nieskończonej energii potencjalnej zanikała funkcja falowa, co narzuca zerowe warunki brzegowe funkcji wewnątrz studni:
+\begin{gather}\label{eq:studnia_potencjalu_war_brzegowe}
+	\psi\pab{0, y, z} = \psi\pab{L_x, y, z} = 0, \\
+	\psi\pab{x, 0, z} = \psi\pab{x, L_y, z} = 0, \\
+	\psi\pab{x, y, 0} = \psi\pab{x, y, L_z} = 0.
+\end{gather}
+Cząstka spełnia równanie Schr\"{o}dingera:
+\begin{equation*}
+	\Bab{\pdv[order=2]{}{x} + \pdv[order=2]{}{y} + \pdv[order=2]{}{z} + \frac{2m}{\hbar^2}E}\psi=0.
+\end{equation*}
+Jest ono separowalne po podstawieniu:
+\begin{align*}
+	\psi\pab{x,y,z} &= \psi_{1}\pab{x} + \psi_{2}\pab{y} + \psi_{3}\pab{z}, & 
+	E &= \varepsilon_{1} + \varepsilon_{2} + \varepsilon_{3},
+\end{align*}
+otrzymując:
+\begin{align*}
+	\Bab{\pdv[order=2]{}{x} + \frac{2m}{\hbar^2}\varepsilon_{1}}\psi_{1} &= 0, \\
+	\Bab{\pdv[order=2]{}{y} + \frac{2m}{\hbar^2}\varepsilon_{2}}\psi_{2} &= 0, \\
+	\Bab{\pdv[order=2]{}{z} + \frac{2m}{\hbar^2}\varepsilon_{3}}\psi_{3} &= 0.
+\end{align*}
+Równania są identyczne poza różnymi warunkami brzegowymi \eqref{eq:studnia_potencjalu_war_brzegowe}. Rozwiążemy tylko jedno z nich.
+
+Ogólnym rozwiazaniem równania jest:
+\begin{equation*}
+	\psi_{1} = C_{1}\sin\pab{k_{1}x} + D_{1}\cos\pab{k_{1}x},
+\end{equation*}
+gdzie \(k_{1} = \inv{\hbar}\sqrt{2m\varepsilon_{1}}\). Niedodatnie wartości \(k_{1}\) nie wprowadzają nowych rozwiązań, więc przyjmujemy, że \(k_{1} > 0\). Warunek \(\psi_{1}\pab{0} = 0\) narzuca \(D_{1} = 0\), a \(\psi_{1}\pab{L_{x}} = 0\) wymaga:
+\begin{equation*}
+	k_{1}L_{x} = n_{1}\pi \quad n_{1} \in \mathbb{Z}^{+}.
+\end{equation*}
+Warunek normalizacji pozwala na znalezienie stałej \(C_{1}\) (co do fazy, która nie ma znaczenia):
+\begin{equation*}
+	1 = \vab{\psi_1}^{2} = \vab{C_1}^{2} \int_{0}^{L_x}\sin^{2}\pab{k_{1}x} \d{x} \quad\rightarrow\quad
+	C_1 = \sqrt{\frac{2}{L_x}}.
+\end{equation*}
+
+Podobnie dla \(y\) oraz \(z\). Funkcje własne oraz energie są równe:
+\begin{align*}
+	\psi_{n_1,n_2,n_3}\pab{x,y,z} &= \sqrt{\frac{8}{L_x L_y L_z}}\sin\pab{\frac{\pi n_1}{L_x}x}\sin\pab{\frac{\pi n_2}{L_y}y}\sin\pab{\frac{\pi n_3}{L_z}z} \\
+	E_{n_1,n_2,n_3} &= \frac{\pi^2 \hbar^2}{2m} \pab{\frac{n_1^2}{L_x^2} + \frac{n_2^2}{L_y^2} + \frac{n_3^2}{L_z^2}} \\
+	n_1, n_2, n_3 &\in \mathbb{Z}^{+}.
+\end{align*}
