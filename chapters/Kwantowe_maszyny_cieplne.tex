@@ -49,7 +49,6 @@ Entropię można obliczyć przekształceniami:
 	k_B \ln Z - k_B \beta \Tr\Bab{\vu{\rho}^{eq} \ham} = \\ =
 	k_B \frac{\ln Z}{Z} \Tr\Bab{\exp\pab{-\beta\ham}} + k_B \beta\Tr\Bab{\inv{Z} \exp\pab{-\beta\ham} \ham} = \\ =
 	- k_B \Tr\Bab{\inv{Z}\exp\pab{-\beta\ham} \bab{- \ln Z - \beta\ham}} =
-	- k_B \Tr\Bab{\inv{Z}\exp\pab{-\beta\ham} \ln\bab{\inv{Z}\exp\pab{-\beta\ham}}} = \\ =
 	- k_B \Tr\Bab{\vu{\rho}^{eq} \ln \vu{\rho}^{eq}}.
 \end{multline*}
 
@@ -60,10 +59,10 @@ Entropia jest jedynie funkcją macierzy gęstości. Dla przypadku \(\vu{\rho}^{e
 	\d{U} = \idif{W},
 \end{gather*}
 mamy prace w przemianie adiabatycznej:
-\begin{align*}
+\begin{align}\label{eq:kwant_przem_adiab_QW}
 	\idif{Q} &= 0, &
 	\idif{W} &= \Tr\Bab{\vu{\rho}^{eq} \d{\ham}}.
-\end{align*}
+\end{align}
 
 W przemianie izotermicznej wykonana praca jest równa zmianie energii swobodnej Helmholtza \cite{b:pudlik_termodynamika}:
 \begin{equation*}
@@ -73,13 +72,36 @@ W przemianie izotermicznej wykonana praca jest równa zmianie energii swobodnej 
 	\Tr\Bab{\vu{\rho}^{eq} \d{\ham}} = \idif{W}.
 \end{equation*}
 Porównując ze wzorem \eqref{eq:kwant_energia_wewnetrzna_roz} otrzymujemy:
-\begin{align*}
+\begin{align}\label{eq:kwant_przem_izoterm_QW}
 	\idif{Q} &= \Tr\Bab{\d{\vu{\rho}}^{eq} \ham}, &
 	\idif{W} &= \Tr\Bab{\vu{\rho}^{eq} \d{\ham}}.
-\end{align*}
+\end{align}
+Według równanie \eqref{eq:def_entropia} różniczka entropii jest równa:
+\begin{equation}\label{eq:kwant_przem_izoterm_dS}
+	\d{S} = k_B \beta \idif{Q}.
+\end{equation}
 
 \subsection{Kwantowy silnik Carnota}
-
+Podobnie jak klasyczny silnik Carnota jego kwantowy odpowiednik składa się z czterech przemian: dwóch adiabatycznych i dwóch izotermicznych. Parametry opisujące ten silnik mają warunki cykliczne \cite{myers}:
+\begin{gather*}
+	\ham\pab{0} = \ham\pab{\tau}, \\
+	\Tr\Bab{\vu{\rho}\pab{0} \ham\pab{0}} = \Tr\Bab{\vu{\rho}\pab{\tau} \ham\pab{\tau}}, \\
+	S\pab{\vu{\rho}\pab{0}} = S\pab{\vu{\rho}\pab{\tau}},
+\end{gather*}
+gdzie \(\tau\) jest czasem jednego cyklu. Praca wykonana w nim spełnia:
+\begin{multline*}
+	- W = - \int_{0}^{\tau} \Tr\Bab{\vu{\rho}\pab{t} \odv{\ham\pab{t}}{t}} \d{t} = \\ =
+	- \pab{\Tr\Bab{\vu{\rho}\pab{\tau} \ham\pab{\tau}} - \Tr\Bab{\vu{\rho}\pab{0} \ham\pab{0}}} + \int_{0}^{\tau} \Tr\Bab{\odv{\vu{\rho}\pab{t}}{t} \ham\pab{t}} \d{t} = Q_1 + Q_2.
+\end{multline*}
+Z warunku cyklicznego entropii:
+\begin{equation*}
+	\int_{0}^{\tau} \odv{S\pab{t}}{t} \d{t} = k_B \beta_1 Q_1 + k_B \beta_2 Q_2 = 0.
+\end{equation*}
+Wykorzystując powyższe równania otrzymujemy sprawność:
+\begin{equation}\label{eq:kwant_sprawnosc_Carnot}
+	\eta = - \frac{W}{Q_2} = \frac{Q_1 + Q_2}{Q_2} = 1 + \frac{Q_1}{Q_2} = 1 - \frac{\beta_2}{\beta_1} = 1 - \frac{T_1}{T_2}.
+\end{equation}
+Wynik jest indentyczny z klasycznym silnikiem Carnota \eqref{eq:sprawnosc_carnot}.
 
 
 
