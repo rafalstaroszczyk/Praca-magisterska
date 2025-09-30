@@ -81,6 +81,8 @@ Według równanie \eqref{eq:def_entropia} różniczka entropii jest równa:
 	\d{S} = k_B \beta \idif{Q}.
 \end{equation}
 
+W obydwu przemianach ciepło jest związane ze zmianą macierzy gęstości, która opisuje obsadzenie stanów. przemiana ta jest samorzutna i niekontrolowana z zewnątrz. Praca natomiast jest związana ze zmianą hamiltonianu, która jest kontrolowana parametrem. Przy tym zmieniają się funkcje własne i energie, ale nie stałe w rozwinięciu liniowym wektora opisującego układ w bazie wektorów własnych.
+
 \subsection{Kwantowy silnik Carnota}
 Podobnie jak klasyczny silnik Carnota jego kwantowy odpowiednik składa się z czterech przemian: dwóch adiabatycznych i dwóch izotermicznych. Parametry opisujące ten silnik mają warunki cykliczne \cite{myers}:
 \begin{gather*}
@@ -103,12 +105,5 @@ Wykorzystując powyższe równania otrzymujemy sprawność:
 \end{equation}
 Wynik jest indentyczny z klasycznym silnikiem Carnota \eqref{eq:sprawnosc_carnot}.
 
-
-
-
-
-%Hamiltonian \(\ham\) jest zależny od kontrolowanego przez nas parametru. Praca jest uporządkowana i możemy ją powiązać z członem zawierającym różniczkę hamiltonianu. Ciepło jest samoczynne i tu powiązane ze zmianą rozkładu opisanego macierzą gęstości \(\vu{\rho}\) \cite{myers}:
-%\begin{gather}
-%	\idif{Q} = \Tr\Bab{\d{\vu{\rho}}\ham}, \\
-%	\idif{W} = \Tr\Bab{\vu{\rho}\d{\ham}}.
-%\end{gather}
+\subsection{Kwantowy silnik Otta}
+Klasyczna wersja tego cyklu składa się z naprzemiennie przemian adiabatycznych o izochorycznych. Pierwszą z nich juz opisano powyżej, ale drugą należy zinterpretować inaczej w przypadku kwantowym. W klasycznym silniku \(V = const\) jest równoważne z wykonaniem zerowej pracy \(\idif{W} = - p \d{V} = 0\). Możemy więc potraktować kwantowy cykl Otta nie jako kolejne przemiany adiabatyczne i izochoryczne, ale jako kolejne przemiany o zerowym cieple i zerowej pracy \cite{myers}.
