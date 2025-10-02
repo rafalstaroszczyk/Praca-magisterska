@@ -1,0 +1,25 @@
+% !TEX root = ../main.tex
+
+\section{Opis układu kwantowego}
+Układ izolowany, na przykład atom wodoru, możemy opisać za pomocą wektora falowego \(\Psi\), który może być rozpisany w bazie wektorów własnych hamiltonianu opisującego dane zagadnienie \cite{davydov_mechanika_kwantowa}:
+\begin{equation*}
+	\ket{\Psi} = \sum_{k} c_{k} \ket{\psi_{k}} + \int c_F \ket{\psi_F} \d{F},
+\end{equation*}
+gdzie \(\ket{\psi_k}\) to wektory własne dyskretne, a \(\ket{\psi_F}\) --  ciągłe. Dalej rozpatrujemy jedynie stany opisane wektorami własnymi dyskretnymi (są to układy związane). Normalizacja funkcji falowej narzuca warunek na współczynniki \(c_k\):
+\begin{equation*}
+	\braket{\Psi}{\Psi} =
+	\sum_{nk} c_k^* c_n \braket{\psi_k}{\psi_n} =
+	\sum_{nk} c_k^* c_n \delta_{nk} =
+	\sum_{n} c_k^* c_n =
+	\sum_{n} \vab{c_n}^2 = 1.
+\end{equation*}
+Aby dokładnie opisać "prawdziwy" stan układu musimy znać współczynniki \(c_k\). Są one dla nas niemierzalne i możliwe jest jedynie znalezienie kwadraty ich modułów, które możemy interpretować jako prawdopodobieństwo znalezienia układu w stanie własnym powiązanym z tym współczynnikiem \(p_k = \vab{c_k}^2\). Znając jedynie te prawdopodobieństwa niemożliwe jest odtworzenie prawidłowej funkcji \(\Psi\), ponieważ nie znamy względnych faz współczynników. Aby opisać takie układy ---  jak i w szczególnym przypadku również takie, w których te fazy znamy ---  używany jest formalizm macierzy gęstości. Stany czyste to takie, dla których znamy dokładne współczynniki \(c_k\), natomiast w stanach mieszanych znamy jedynie ich kwadraty \(\vab{c_k}^2\). Możemy między tymi opisami znaleźć analogię do fizyki statystycznej. Mikrostan jest opisany położeniami i pędami (i innymi współrzędnymi, jeśli występują). Jest on rzeczywisty, ale niemożliwe jest znalezienie takiej ilości zmiennych. Makrostan jest tym, co obserwujemy z zewnątrz i jest opisany parametrami takimi jak temperatura, ciśnienie i inne. Stan czysty w tej analogii jest mikrostanem, natomiast stan mieszany jest mezostanem, czyli pośrednim między mikro-, a makrostanem.
+
+Wartość oczekiwana operatora \(\vu{A}\) o wektorach własnych \(\vu{A}\ket{\psi_{n}} = a_{n}\ket{\psi_{n}}\) ma przy powyższej interpretacji \(c_{n}\) ma postać \cite{townsend_a_modern_approach_to_quantum_mechanics}:
+\begin{equation}\label{eq:wartosc_oczekiwana_wektor}
+	\begin{split}
+		\braket[1]{A} = \sum_{n} \vab{c_{n}}^{2} a_{n} = \sum_{nk} c_{k}^{*} a_{n} \delta_{nk} c_{n} = \sum_{nk} \braket{\Psi}{\psi_{k}} \braket[3]{\psi_{k}}{A}{\psi_{n}} \braket{\psi_{n}}{\Psi} = \\ = \bra{\Psi}\pab{\sum_{k}\ketbra{\psi_{k}}{\psi_{k}}} A \pab{\sum_{n}\ketbra{\psi_{n}}{\psi_{n}}} \ket{\Psi} = \braket[3]{\Psi}{A}{\Psi}.
+	\end{split}
+\end{equation}
+Końcowy wynik jest niezależny od wyboru konkretnej bazy i jest wzorem ogólnym.
+
