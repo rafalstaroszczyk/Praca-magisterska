@@ -1,0 +1,128 @@
+% !TEX root = ../main.tex
+
+\section{Oscylator harmoniczny}
+Jednym z podstawowych układów zarówno klasycznych, jak i kwantowych, jest oscylator harmoniczny. Opisany jest on hamiltonianem:
+\begin{equation*}
+	\ham = \inv{2m} \vu{p}^2 + \inv{2} m \omega^2 \vu{q}^2,
+\end{equation*}
+gdzie \(\vu{p}\) jest operatorem pędu, który w reprezentacji położeniowej ma postać \(\vu{p} = - i \hbar \pdv{}{q}\); \(\vu{q}\) jest operatorem położenia, \(m\) jest masą cząstki, a \(\omega\) jest częstotliwości drgań własnych i jest zależna od krzywizny potencjału, w którym znajduje się ta cząstka. W celu uproszczenia analizy zagadnienia wprowadzamy zmienne naturalne:
+\begin{align*}
+	\vu{Q} &= \sqrt{\frac{m\omega}{\hbar}} \vu{q}, &
+	\vu{Q}^2 &= \frac{m\omega}{\hbar} \vu{q}^2, \\
+	\pdv{}{Q} &= \sqrt{\frac{\hbar}{m\omega}} \pdv{}{q}, &
+	\pdv[order=2]{}{Q} &= \frac{\hbar}{m\omega} \pdv[order=2]{}{q}, \\
+	\vu{P} &= - i \pdv{}{Q} = \sqrt{\frac{\hbar}{m\omega}} \pdv{}{q}, &
+	\vu{P}^2 &= - \pdv[order=2]{}{Q} = - \frac{\hbar}{m\omega} \pdv[order=2]{}{q}.
+\end{align*}
+Hamiltonian w tych zmiennych ma formę:
+\begin{equation*}
+	\ham = \frac{\hbar\omega}{2}\pab{\vu{Q}^2 + \vu{P}^2}.
+\end{equation*}
+Podobnie jak położenia i pędy spełniają zależność komutacyjną
+\begin{equation*}
+	\bab{\vu{q},\vu{p}} = i\hbar,
+\end{equation*}
+dla nowych zmiennych mamy:
+\begin{equation*}
+	\bab{\vu{Q},\vu{P}} = i.
+\end{equation*}
+Komutator operatorów o przeciwnych znakach:
+\begin{equation*}
+	\bab{\vu{Q} \pm i\vu{P}, \vu{Q} \mp i\vu{P}} = \pm 2,
+\end{equation*}
+co zostanie później wykorzystane do normalizacji operatorów.
+Komutator hamiltonianu z nimi jest równy:
+\begin{align*}
+	\bab{\ham,\vu{Q}} = - i\hbar \vu{P}, \\
+	\bab{\ham,\vu{P}} =   i\hbar \vu{Q},
+\end{align*}
+lub w pojedynczym równaniu:
+\begin{equation*}
+	\bab{\ham,\vu{Q} \pm i\vu{P}} = \mp \hbar\omega \pab{\vu{Q} \pm i\vu{P}}.
+\end{equation*}
+
+Operatory, które spełniają podobne zależności komutacyjne maja specyficzną własność --- są to operatory drabinkowe. Możemy znaleźć energię stanu \(\pab{\vu{Q} \pm i\vu{P}}\ket{n}\):
+\begin{multline*}
+	\ham \pab{\vu{Q} \pm i\vu{P}} \ket{n} =
+	\pab{\pab{\vu{Q} \pm i\vu{P}} \ham + \bab{\ham,\vu{Q} \pm i\vu{P}}} \ket{n} = \\ =
+	\pab{\vu{Q} \pm i\vu{P}} \ham \ket{n} \mp \hbar\omega \pab{\vu{Q} \pm i\vu{P}} \ket{n} =
+	\pab{E_n \mp \hbar\omega} \pab{\vu{Q} \pm i\vu{P}} \ket{n}.
+\end{multline*}
+Rozpatrywany stan ma energię innego stanu, więc:
+\begin{equation*}
+	\pab{\vu{Q} \pm i\vu{P}}\ket{n} = C_n^{\pm} \ket{n \mp 1},
+\end{equation*}
+daje nam nowy stan o energii wyższej lub niższej o \(\hbar\omega\).
+
+Definiujemy nowe operatory anihilacji i kreacji:
+\begin{align*}
+	\vu{a} &= \inv{\sqrt{2}} \pab{\vu{Q} + i\vu{P}}, &
+	\vu{a}^{\dagger} &= \inv{\sqrt{2}} \pab{\vu{Q} - i\vu{P}}.
+\end{align*}
+Dodatkowo można znaleźć, że:
+\begin{align*}
+	\vu{a}^{\dagger}\vu{a} &= \inv{\hbar\omega}\ham - \inv{2}, &
+	\ham &= \hbar\omega \pab{\vu{a}^{\dagger}\vu{a} + \inv{2}} =
+	\hbar\omega \pab{\vu{a}\vu{a}^{\dagger} - \inv{2}}.
+\end{align*}
+Możemy zapisać poprzednio znalezione wzory wykorzystujac te operatory:
+\begin{gather}\label{eq:osc_harm_wlasnosci_a}
+	\bab{\vu{a},\vu{a}^{\dagger}} = 1, \\
+	\bab{\ham,\vu{a}} = - \hbar\omega \vu{a}, \\
+	\bab{\ham,\vu{a}^{\dagger}} = \hbar\omega \vu{a}^{\dagger}, \\
+	\ham \vu{a} \ket{n} = \pab{E_n - \hbar\omega} \ket{n}, \\
+	\ham \vu{a}^{\dagger} \ket{n} = \pab{E_n + \hbar\omega} \vu{a}^{\dagger} \ket{n}.
+\end{gather}
+
+Oscylator harmoniczny ma stan podstawowy:
+\begin{equation*}
+	\vu{a} \ket{0} = 0.
+\end{equation*}
+Energia tego stanu jest równa:
+\begin{equation*}
+	\ham \ket{0} =
+	\hbar\omega \pab{\vu{a}^{\dagger}\vu{a} + \inv{2}} \ket{0} =
+	\hbar\omega \vu{a}^{\dagger}\vu{a} \ket{0} + \inv{2}\hbar\omega \ket{0} =
+	E_0 \ket{0},
+\end{equation*}
+stąd energia stanu podstawowego:
+\begin{equation*}
+	E_0 = \inv{2}\hbar\omega \ket{0}.
+\end{equation*}
+Korzystając z \eqref{eq:osc_harm_wlasnosci_a} możemy znaleźć energie stanów wyższych iteracyjnie co daje:
+\begin{equation}\label{eq:osc_harm_En}
+	E_n = \hbar\omega \pab{n + \inv{2}}.
+\end{equation}
+
+Znając energie możemy znaleźć stałe normalizacyjne sąsiednich stanów:
+\begin{gather*}
+	\vu{a} \ket{n} = C_n \ket{n-1}, \\
+	\vab{C_n}^2 = \bra{n} \vu{a}^{\dagger}\vu{a} \ket{n} =
+	\bra{n} \inv{\hbar\omega}\ham - \inv{2} \ket{n} =
+	\inv{\hbar\omega} \hbar\omega \pab{n + \inv{2}} - \inv{2} = n, \\
+	\vu{a}^{dagger} \ket{n} = D_n \ket{n-1}, \\
+	\vab{D_n}^2 = \ket{n} \vu{a}\vu{a}^{\dagger} \ket{n} =
+	\bra{n} \inv{\hbar\omega}\ham + \inv{2} \ket{n} =
+	\inv{\hbar\omega} \hbar\omega \pab{n + \inv{2}} + \inv{2} = n + 1.
+\end{gather*}
+Fazę tych stałych możemy wybrać dowolną, a więc też taką, aby współczynniki te były dodatnie:
+\begin{align*}
+	\vu{a} \ket{n} &= \sqrt{n} \ket{n - 1}, &
+	\vu{a}^{\dagger} \ket{n} &= \sqrt{n + 1} \ket{n + 1}.
+\end{align*}
+Iteratywnie stosując te wzory do stanu podstawowego otrzymujemy wzory ogólne:
+\begin{align*}
+	\ket{n} &= \inv{\sqrt{n!}} \pab{\vu{a}^{\dagger}}^n \ket{0}, &
+	\bra{n} &= \inv{\sqrt{n!}} \bra{0} \pab{\vu{a}}^n.
+\end{align*}
+
+Aby znaleźć dokładną formę stanu podstawowego, a następnie wyższych możemy wykorzystać własność tego stanu:
+\begin{gather*}
+	\vu{a} \ket{0} = 0, \\
+	\braket{Q}{0} = f_{0}\pab{Q}, \\
+	\pab{Q + \pdv{}{q}} f_{0}\pab{Q} = 0.
+\end{gather*}
+Rozwiązanie wraz ze stałą normującą ma postać:
+\begin{equation}\label{eq:osc_harm_stan_podst}
+	f_{0} \pab{Q} = \pi^{-\frac{1}{4}} e^{-Q^2}.
+\end{equation}
