@@ -1,0 +1,51 @@
+% !TEX root = ../main.tex
+
+\section{Endoodwracalny kwantowy silnik Otta}
+Kwantowy cykl Otta jest serią naprzemiennych przemian o zerowej pracy i zerowym cieple. Zgodnie z rysunkiem \ref{fig:pv_silnik_otto} zmiany energii po wycałkowaniu mają postać:
+\begin{align*}
+	Q_{1-2} &= 0, &
+	W_{1-2} &= U\pab{T_2,\omega_2} - U\pab{T_1,\omega_1}, \\
+	Q_{2-3} &= U\pab{T_3,\omega_2} - U\pab{T_2,\omega_2}, &
+	W_{2-3} &= 0, \\
+	Q_{3-4} &= 0, &
+	W_{3-4} &= U\pab{T_4,\omega_1} - U\pab{T_3,\omega_2}, \\
+	Q_{4-1} &= U\pab{T_1,\omega_1} - U\pab{T_4,\omega_2}, &
+	W_{4-1} &= 0.
+\end{align*}
+Rozpatrujemy przypadek w granicy niskiego oddziaływania w otoczeniem. W tym przypadku stan stacjonarny jest stanem równowagi termodynamicznej opisywanym rozkładem Boltzmanna \cite{endo_otto}. Wzory opisujące \(U\) i \(\vu{rho}\) w bazie wektorów własnych oscylatora harmonicznego maja postać:
+\begin{gather*}
+	E_n = \hbar\omega\pab{n + \inv{2}}, \\
+	Z = \sum_n \exp\pab{-\frac{E_n}{k_B T}} =
+	\exp\pab{-\frac{\hbar\omega}{2 k_b T}} \sum_n \bab{\exp\pab{-\frac{\hbar\omega}{k_B T}}}^n =
+	\frac{\exp\pab{-\frac{\hbar\omega}{2 k_b T}}}{1-\exp\pab{-\frac{\hbar\omega}{k_B T}}}, \\
+	p_n = \inv{Z} \exp\pab{-\frac{E_n}{k_B T}}, \\
+	U = \sum_n p_n E_n = \frac{\hbar\omega}{2} \ctgh\pab{\frac{\hbar\omega}{2k_B T}}, \\
+	F = - k_B T \ln Z = k_B T \ln\bab{2\sinh\pab{\frac{\hbar\omega}{2k_B T}}}, \\
+	S = \inv{T}\pab{U-F} = \frac{\hbar\omega}{2T} \ctgh\pab{\frac{\hbar\omega}{2k_B t}} - k_B \ln\bab{2\sinh\pab{\frac{\hbar\omega}{2k_B T}}}.
+\end{gather*}
+Funcja \(S\) jest zależna jedynie od \(\frac{\omega}{T}\) i możemy zapisać:
+\begin{equation*}
+	S\pab{\frac{\omega}{T}} \overset{def}{=} S\pab{T,\omega}.
+\end{equation*}
+Jest to funkcja monotoniczna, więc istnieje jest ona też odwracalna. Oznacza to, że jeśli wartości funkcji są równe to również argumenty tej funcji są równe.
+
+Podczas przemiany izentropowej entropia na początku i końcu przemianu jest równa, stąd mamy:
+\begin{gather*}
+	S\pab{T_1,\omega_1} = S\pab{T_2,\omega_2} \quad\Rightarrow\quad
+	S\pab{\frac{\omega_1}{T_1}} = S\pab{\frac{\omega_2}{T_2}} \quad\Rightarrow\quad
+	\frac{\omega_1}{T_1} = \frac{\omega_2}{T_2}, \\
+	S\pab{T_3,\omega_2} = S\pab{T_4,\omega_1} \quad\Rightarrow\quad
+	S\pab{\frac{\omega_2}{T_3}} = S\pab{\frac{\omega_1}{T_4}} \quad\Rightarrow\quad
+	\frac{\omega_2}{T_3} = \frac{\omega_1}{T_4}.
+\end{gather*}
+Prace i ciepła w odpowiednich przemianach są równe:
+\begin{gather*}
+	W_{1-2} = \frac{\hbar}{2}\pab{\omega_2 - \omega_1} \ctgh\pab{\frac{\hbar\omega_1}{2k_B T_1}}, \\
+	W_{3-4} = \frac{\hbar}{2}\pab{\omega_1 - \omega_2} \ctgh\pab{\frac{\hbar\omega_2}{2k_B T_3}}, \\
+	Q_{2-3} = \frac{\hbar\omega_2}{2} \ctgh\pab{\frac{\hbar\omega_2}{2k_B T_3}} - \frac{\hbar\omega_2}{2} \ctgh\pab{\frac{\hbar\omega_1}{2k_B T_1}}.
+\end{gather*}
+Wprowadzając wielkość pomocniczą \(\kappa = \frac{\omega_1}{\omega_2}\) znajdujemy sprawność silnika:
+\begin{equation}\label{eq:sprawnosc_kwantowy_otto}
+	\eta = - \frac{W_{1-2} + W_{3-4}}{Q_{2-3}} = 1 - \kappa.
+\end{equation}
+Jest to wzór analogiczny do wzoru \eqref{eq:parametry_otto_eta} w tym, że jest on niezależny od temperatur zbiorników.
