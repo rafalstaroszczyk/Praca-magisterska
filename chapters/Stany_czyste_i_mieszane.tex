@@ -81,9 +81,9 @@ W ogólniejszym przypadku (bez uśredniania) również elementy pozadiagonalne s
 \end{equation*}
 
 Alternatywnie możemy rozpatrzeć stan mieszany jako niekoherentną mieszaninę stanów czystych z wagą \(p_k\):
-\begin{equation*}
+\begin{equation}\label{eq:def_macierz_gestosci_mieszany}
 	\vu{\rho} = \sum_{k} p_k \ketbra{\psi_k}{\psi_k}.
-\end{equation*}
+\end{equation}
 Wzór \eqref{eq:wart_ocz_macierz_czysty} jest również prawdziwy dla stanu mieszanego:
 \begin{equation}\label{eq:wart_ocz_macierz_mieszany}
 \begin{split}
@@ -96,3 +96,28 @@ Wzór \eqref{eq:wart_ocz_macierz_czysty} jest również prawdziwy dla stanu mies
 	\sum_{k} p_{k} \braket[3]{\psi_k}{A}{\psi_k} = \braket[1]{A}.
 \end{split}
 \end{equation}
+
+Ewolucję w czasie operatora gęstości można wyprowadzić zaczynając od równania Schr\"{o}dingera \cite{landau_kwant}:
+\begin{align}\label{eq:rownanie_Schroedingera}
+	i\hbar \pdv{}{t}\ket{\Psi} &= \ham \ket{\Psi}, &
+	i\hbar \pdv{}{t}\bra{\Psi} &= -\bra{\Psi} \ham,
+\end{align}
+gdzie drugie równanie otrzymujemy sprzęgając hermitowsko pierwsze. Bezpośrednio różniczkując \eqref{eq:def_macierz_gestosci_mieszany} w przypadku izentropowym (\(p_k=const\)) \cite{rezek}:
+\begin{equation*}
+\begin{split}
+	i\hbar \pdv{}{t}\vu{\rho} =
+	\sum_k p_k \bab{i\hbar \pdv{\ket{\psi_k}}{t}\bra{\psi_k} + \ket{\psi_k} i\hbar \pdv{\bra{\psi_k}}{t}} =
+	\sum_k p_k \bab{\ham \ketbra{\psi_k}{\psi_k} - \ketbra{\psi_k}{\psi_k} \ham} = \\ =
+	\ham \pab{\sum_k p_k \ketbra{\psi_k}{\psi_k}} - \pab{\sum_k p_k \ketbra{\psi_k}{\psi_k}} \ham =
+	\ham\vu{\rho} - \vu{\rho}\ham =
+	\bab{\ham,\vu{\rho}}.
+\end{split}
+\end{equation*}
+Co można zapisać przy użyciu superoperatora Liouville'a - von Neumnanna:
+\begin{equation*}
+	\pdv{\vu{\rho}}{t} = \inv{i\hbar} \bab{\ham,\vu{\rho}} = \liou_{S}\Bab{\vu{\rho}}.
+\end{equation*}
+W przypadku ogólniejszym superoperator ten zawiera również człon dyssypacyjny:
+\begin{equation*}
+	\pdv{\vu{\rho}}{t} = \liou\Bab{\vu{\rho}} = \liou_{S}\Bab{\vu{\rho}} + \liou_{D}\Bab{\vu{\rho}}.
+\end{equation*}
