@@ -12,12 +12,12 @@ Kwantowy cykl Otta jest serią naprzemiennych przemian o zerowej pracy i zerowym
 	Q_{4-1} &= U\pab{T_1,\omega_1} - U\pab{T_4,\omega_2}, &
 	W_{4-1} &= 0.
 \end{align*}
-Rozpatrujemy przypadek w granicy niskiego oddziaływania w otoczeniem. W tym przypadku stan stacjonarny jest stanem równowagi termodynamicznej opisywanym rozkładem Boltzmanna \cite{endo_otto}. Wzory opisujące \(U\) i \(\vu{rho}\) w bazie wektorów własnych oscylatora harmonicznego maja postać:
+Parametrem kontrolowanym przez nas jest \(\omega\). Rozpatrujemy przypadek w granicy niskiego oddziaływania w otoczeniem. W tym przypadku stan stacjonarny jest stanem równowagi termodynamicznej opisywanym rozkładem Boltzmanna \cite{endo_otto}. Wzory opisujące \(U\) i \(\vu{rho}\) w bazie wektorów własnych oscylatora harmonicznego maja postać:
 \begin{gather*}
 	E_n = \hbar\omega\pab{n + \inv{2}}, \\
 	Z = \sum_n \exp\pab{-\frac{E_n}{k_B T}} =
-	\exp\pab{-\frac{\hbar\omega}{2 k_b T}} \sum_n \bab{\exp\pab{-\frac{\hbar\omega}{k_B T}}}^n =
-	\frac{\exp\pab{-\frac{\hbar\omega}{2 k_b T}}}{1-\exp\pab{-\frac{\hbar\omega}{k_B T}}}, \\
+	\exp\pab{-\frac{\hbar\omega}{2 k_B T}} \sum_n \bab{\exp\pab{-\frac{\hbar\omega}{k_B T}}}^n =
+	\frac{\exp\pab{-\frac{\hbar\omega}{2 k_B T}}}{1-\exp\pab{-\frac{\hbar\omega}{k_B T}}}, \\
 	p_n = \inv{Z} \exp\pab{-\frac{E_n}{k_B T}}, \\
 	U = \sum_n p_n E_n = \frac{\hbar\omega}{2} \ctgh\pab{\frac{\hbar\omega}{2k_B T}}, \\
 	F = - k_B T \ln Z = k_B T \ln\bab{2\sinh\pab{\frac{\hbar\omega}{2k_B T}}}, \\
