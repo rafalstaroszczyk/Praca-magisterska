@@ -30,14 +30,16 @@ Funcja \(S\) jest zależna jedynie od \(\frac{\omega}{T}\) i możemy zapisać:
 Jest to funkcja monotoniczna, więc istnieje jest ona też odwracalna. Oznacza to, że jeśli wartości funkcji są równe to również argumenty tej funcji są równe.
 
 Podczas przemiany izentropowej entropia na początku i końcu przemianu jest równa, stąd mamy:
-\begin{gather*}
+\begin{equation}\label{eq:endo_otto_omegaT}
+\begin{split}
 	S\pab{T_1,\omega_1} = S\pab{T_2,\omega_2} \quad\Rightarrow\quad
 	S\pab{\frac{\omega_1}{T_1}} = S\pab{\frac{\omega_2}{T_2}} \quad\Rightarrow\quad
 	\frac{\omega_1}{T_1} = \frac{\omega_2}{T_2}, \\
 	S\pab{T_3,\omega_2} = S\pab{T_4,\omega_1} \quad\Rightarrow\quad
 	S\pab{\frac{\omega_2}{T_3}} = S\pab{\frac{\omega_1}{T_4}} \quad\Rightarrow\quad
 	\frac{\omega_2}{T_3} = \frac{\omega_1}{T_4}.
-\end{gather*}
+\end{split}
+\end{equation}
 Prace i ciepła w odpowiednich przemianach są równe:
 \begin{gather*}
 	W_{1-2} = \frac{\hbar}{2}\pab{\omega_2 - \omega_1} \ctgh\pab{\frac{\hbar\omega_1}{2k_B T_1}}, \\
@@ -49,3 +51,94 @@ Wprowadzając wielkość pomocniczą \(\kappa = \frac{\omega_1}{\omega_2}\) znaj
 	\eta = - \frac{W_{1-2} + W_{3-4}}{Q_{2-3}} = 1 - \kappa.
 \end{equation}
 Jest to wzór analogiczny do wzoru \eqref{eq:parametry_otto_eta} w tym, że jest on niezależny od temperatur zbiorników.
+
+Przyjmujemy, że ciepło dostarczone i oddane spełnia równanie Newtona, co można zapisać \cite{endo_otto}:
+\begin{align}
+	\odv{T}{t} &= -\alpha_h \pab{T - T_h}, &
+	T\pab{t=0} &= T_2, &
+	T\pab{t=\tau_h} &= T_3, \\
+	\odv{T}{t} &= -\alpha_c \pab{T - T_c}, &
+	T\pab{t=0} &= T_4, &
+	T\pab{t=\tau_c} &= T_1,
+\end{align}
+gdzie \(T_h\) oraz \(T_c\) to odpowiednio temperatury zbiornika ciepłego i zimnego, które nie są osiągane przez układ. Rozwiązując równania różniczkowe z zadanymi warunkami brzegowymi otrzymujemy:
+\begin{align*}
+	T_3 - T_h &= \pab{T_2 - T_h} e^{-\alpha_h \tau_h}, &
+	T_1 - T_c &= \pab{T_4 - T_c} e^{-\alpha_c \tau_c}, \\
+	T_2 - T_h &= \pab{T_3 - T_h} e^{\alpha_h \tau_h}, &
+	T_4 - T_c &= \pab{T_1 - T_c} e^{\alpha_c \tau_c}.
+\end{align*}
+Możemy je przepisać:
+\begin{align*}
+	T_3 - T_2 e^{-\alpha_h \tau_h} &= T_h \pab{1 - e^{-\alpha_h \tau_h}}, &
+	T_1 - T_4 e^{-\alpha_c \tau_c} &= T_c \pab{1 - e^{-\alpha_c \tau_c}}, \\
+	T_3 e^{\alpha_h \tau_h} - T_2 &= T_h \pab{e^{\alpha_h \tau_h} - 1}, &
+	T_1 e^{\alpha_c \tau_c} - T_4 &= T_c \pab{e^{\alpha_c \tau_c} - 1}.
+\end{align*}
+Z powyższych wzorów oraz \eqref{eq:endo_otto_omegaT} możemy wyprowadzić wzory na temperaturę zależne od \(\tau_h\), \(\tau_c\) oraz \(\kappa\):
+\begin{equation}\label{eq:endo_otto_T}
+\begin{split}
+	T_1 &= \frac{
+	T_c e^{\alpha_h \tau_h} \pab{e^{\alpha_c \tau_c} - 1} + \kappa T_h \pab{e^{\alpha_h \tau_h} - 1}
+	}{
+	e^{\alpha_h \tau_h + \alpha_c \tau_c} - 1
+	}, \\
+	T_2 &= \frac{
+	T_c e^{\alpha_h \tau_h} \pab{e^{\alpha_c \tau_c} - 1} + \kappa T_h \pab{e^{\alpha_h \tau_h} - 1}
+	}{
+	\kappa \pab{e^{\alpha_h \tau_h + \alpha_c \tau_c} - 1}
+	}, \\
+	T_3 &= \frac{
+	T_c \pab{e^{\alpha_c \tau_c} - 1} + \kappa T_h e^{\alpha_c \tau_c} \pab{e^{\alpha_h \tau_h} - 1}
+	}{
+	\kappa \pab{e^{\alpha_h \tau_h + \alpha_c \tau_c} - 1}
+	}, \\
+	T_4 &= \frac{
+	T_c \pab{e^{\alpha_c \tau_c} - 1} + \kappa T_h e^{\alpha_c \tau_c} \pab{e^{\alpha_h \tau_h} - 1}
+	}{
+	e^{\alpha_h \tau_h + \alpha_c \tau_c} - 1
+	}.
+\end{split}
+\end{equation}
+
+Moc silnika wyrażona jest wzorem:
+\begin{equation*}
+	P = \frac{-W}{\zeta\pab{\tau_h + \tau_c}} = \frac{\hbar\omega_2\pab{1-\kappa}}{2\zeta\pab{\tau_h + \tau_c}} \bab{\ctgh\pab{\frac{\hbar\omega_2}{2k_B T_3}} - \ctgh\pab{\frac{\hbar\omega_2}{2k_B T_2}}}.
+\end{equation*}
+Wykorzystując przekształcenie:
+\begin{multline*}
+	\ctgh\pab{x} - \ctgh\pab{y} =
+	\frac{\cosh\pab{x}}{\sinh\pab{x}} - \frac{\cosh\pab{y}}{\sinh\pab{y}} =
+	\frac{\sinh\pab{y}\cosh\pab{x} - \cosh\pab{y}\sinh\pab{x}}{\sinh\pab{x}\sinh\pab{y}} = \\ =
+	\frac{\sinh\pab{y-x}}{\sinh\pab{x}\sinh\pab{y}} =
+	\csch\pab{y}\csch\pab{x}\sinh\pab{y-x},
+\end{multline*}
+możemy alternatywnie zapisać ten wzór jako:
+\begin{equation*}
+	P = \frac{\hbar\omega_2\pab{1-\kappa}}{2\zeta\pab{\tau_h + \tau_c}} \csch\pab{\frac{\hbar\omega_2}{2k_B T_2}} \csch\pab{\frac{\hbar\omega_2}{2k_B T_3}} \sinh\bab{\frac{\hbar\omega_2}{2k_B}\pab{\inv{T_2}-\inv{T_3}}}.
+\end{equation*}
+Podstawiając \eqref{eq:endo_otto_T} otrzymujemy zależność mocy od \(\tau_h\), \(\tau_c\) oraz \(\kappa\) \cite{endo_otto}:
+\begin{multline}
+	P\pab{\tau_h,\tau_c,\kappa} =
+	\frac{\hbar\omega_2\pab{1-\kappa}}{2\zeta\pab{\tau_h + \tau_c}}
+	\csch\pab{\frac{\hbar\omega_2 \kappa}{2k_B}
+	\frac{
+		e^{\alpha_h \tau_h + \alpha_c \tau_c} - 1
+	}{
+		T_c e^{\alpha_h \tau_h} \pab{e^{\alpha_c \tau_c} - 1} + \kappa T_h \pab{e^{\alpha_h \tau_h} - 1}
+	}} \\
+	\csch\pab{\frac{\hbar\omega_2 \kappa}{2k_B}
+	\frac{
+		e^{\alpha_h \tau_h + \alpha_c \tau_c} - 1
+	}{
+		T_c \pab{e^{\alpha_c \tau_c} - 1} + \kappa T_h e^{\alpha_c \tau_c} \pab{e^{\alpha_h \tau_h} - 1}
+	}} \\
+	\sinh\pab{\frac{\hbar\omega_2 \kappa}{2k_B}
+	\frac{
+	\pab{\kappa T_h - T_c}\pab{e^{\alpha_h \tau_h + \alpha_c \tau_c} - 1}\pab{e^{\alpha_h \tau_h} - 1}\pab{e^{\alpha_c \tau_c} - 1}
+	}{
+	\bab{T_c \pab{e^{\alpha_c \tau_c} - 1} + \kappa T_h e^{\alpha_c \tau_c} \pab{e^{\alpha_h \tau_h} - 1}}
+	\bab{T_c e^{\alpha_h \tau_h} \pab{e^{\alpha_c \tau_c} - 1} + \kappa T_h \pab{e^{\alpha_h \tau_h} - 1}}
+	}}.
+\end{multline}
+Wynik ten jest zbyt skompliwowany, by go maksymalizować analitycznie. Należy go rozwiązać numerycznie.
