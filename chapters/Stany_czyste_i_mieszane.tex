@@ -1,7 +1,7 @@
 % !TEX root = ../main.tex
 
 \section{Opis układu kwantowego}
-Układ izolowany, na przykład atom wodoru, możemy opisać za pomocą wektora falowego \(\Psi\), który może być rozpisany w bazie wektorów własnych hamiltonianu opisującego dane zagadnienie \cite{davydov_mechanika_kwantowa}:
+Układ izolowany możemy opisać za pomocą wektora falowego \(\Psi\), który może być rozpisany w bazie wektorów własnych hamiltonianu opisującego dane zagadnienie \cite{davydov_mechanika_kwantowa}:
 \begin{equation*}
 	\ket{\Psi} = \sum_{k} c_{k} \ket{\psi_{k}} + \int c_F \ket{\psi_F} \d{F},
 \end{equation*}
@@ -10,10 +10,10 @@ gdzie \(\ket{\psi_k}\) to wektory własne dyskretne, a \(\ket{\psi_F}\) --  cią
 	\braket{\Psi}{\Psi} =
 	\sum_{nk} c_k^* c_n \braket{\psi_k}{\psi_n} =
 	\sum_{nk} c_k^* c_n \delta_{nk} =
-	\sum_{n} c_k^* c_n =
-	\sum_{n} \vab{c_n}^2 = 1.
+	\sum_{k} c_k^* c_k =
+	\sum_{k} \vab{c_k}^2 = 1.
 \end{equation*}
-Aby dokładnie opisać "prawdziwy" stan układu musimy znać współczynniki \(c_k\). Są one dla nas niemierzalne i możliwe jest jedynie znalezienie kwadraty ich modułów, które możemy interpretować jako prawdopodobieństwo znalezienia układu w stanie własnym powiązanym z tym współczynnikiem \(p_k = \vab{c_k}^2\). Znając jedynie te prawdopodobieństwa niemożliwe jest odtworzenie prawidłowej funkcji \(\Psi\), ponieważ nie znamy względnych faz współczynników. Aby opisać takie układy ---  jak i w szczególnym przypadku również takie, w których te fazy znamy ---  używany jest formalizm macierzy gęstości. Stany czyste to takie, dla których znamy dokładne współczynniki \(c_k\), natomiast w stanach mieszanych znamy jedynie ich kwadraty \(\vab{c_k}^2\). Możemy między tymi opisami znaleźć analogię do fizyki statystycznej. Mikrostan jest opisany położeniami i pędami (i innymi współrzędnymi, jeśli występują). Jest on rzeczywisty, ale niemożliwe jest znalezienie takiej ilości zmiennych. Makrostan jest tym, co obserwujemy z zewnątrz i jest opisany parametrami takimi jak temperatura, ciśnienie i inne. Stan czysty w tej analogii jest mikrostanem, natomiast stan mieszany jest mezostanem, czyli pośrednim między mikro-, a makrostanem.
+Aby dokładnie opisać "prawdziwy" stan układu musimy znać współczynniki \(c_k\). Są one dla nas niemierzalne i możliwe jest jedynie znalezienie kwadratów ich modułów, które możemy interpretować jako prawdopodobieństwo znalezienia układu w stanie własnym powiązanym z tym współczynnikiem \(p_k = \vab{c_k}^2\). Znając jedynie te prawdopodobieństwa niemożliwe jest odtworzenie prawidłowej funkcji \(\Psi\), ponieważ nie znamy względnych faz współczynników. Aby opisać takie układy ---  jak i w szczególnym przypadku również takie, w których te fazy znamy ---  używany jest formalizm macierzy gęstości. Stany czyste to takie, dla których znamy dokładne współczynniki \(c_k\), natomiast w stanach mieszanych znamy jedynie ich kwadraty \(\vab{c_k}^2\). Możemy między tymi opisami znaleźć analogię do fizyki statystycznej. Mikrostan jest opisany położeniami i pędami (i innymi współrzędnymi, jeśli występują). Jest on rzeczywisty, ale niemożliwe jest znalezienie takiej ilości zmiennych. Makrostan jest tym, co obserwujemy z zewnątrz i jest opisany parametrami takimi jak temperatura, ciśnienie i inne. Stan czysty w tej analogii jest mikrostanem, natomiast stan mieszany jest mezostanem, czyli pośrednim między mikro-, a makrostanem.
 
 Wartość oczekiwana operatora \(\vu{A}\) o wektorach własnych \(\vu{A}\ket{\psi_{n}} = a_{n}\ket{\psi_{n}}\) ma przy powyższej interpretacji \(c_{n}\) ma postać \cite{townsend_a_modern_approach_to_quantum_mechanics}:
 \begin{equation}\label{eq:wart_ocz_wektor}
@@ -31,7 +31,7 @@ Alternatywnym przekształceniem jest:
 \end{equation}
 gdzie \(\vu{\rho} = \ketbra{\Psi}{\Psi}\) to macierz gęstości dla stanu czystego \cite{townsend_a_modern_approach_to_quantum_mechanics}. Końcowy wynik jest w obu przypadkach niezależny od wyboru konkretnej bazy i jest wzorem ogólnym. Macierz gęstości zawiera tą samą informację co wektor \(\Psi\). Elementy tej macierzy w bazie \(\psi_i\) opisuje wzór \(\rho_{nk} = \braket{\psi_n}{\Psi}\braket{\Psi}{\psi_k} = c_{n}c_{k}^{*}\). W szczególności elementy diagonalne: \(\rho_{nn} = \braket{\psi_n}{\Psi}\braket{\Psi}{\psi_n} = c_{n}c_{n}^{*} = p_{k}\).
 
-Rzeczywiste układy kwantowe nie są izolowane, ale oddziałują w jakiś sposób z otoczeniem. Niemożliwe jest również badanie danego układu w infinitezymalnym czasie, ale każdy pomiar jest uśrednienie badanej wielkości w czasie większym, niż czasy relaksacji układu, ale mniejszym niż zdolność rozdzielcza przyrządu \cite{b:huang_mechanika_statystyczna}. Układ taki opisany jest wektorem \(\Psi\pab{x,X,t}\) zależnym od współrzędnych układu \(x\), otoczenia \(X\) i czasu \(t\). W zupełnej bazie wektorów własnych hamiltonianu układu zależność od \(X\) i \(t\) można uwzględnić poprzez współrzędne \(c_{n}\pab{X,t}\) \cite{b:huang_podstawy_fizyki_statystycznej}:
+Rzeczywiste układy kwantowe nie są izolowane, ale oddziałują w jakiś sposób z otoczeniem. Niemożliwe jest również badanie danego układu w infinitezymalnym czasie, ale każdy pomiar jest uśrednieniem badanej wielkości w czasie większym, niż czasy relaksacji układu, ale mniejszym niż zdolność rozdzielcza przyrządu \cite{b:huang_mechanika_statystyczna}. Układ taki opisany jest wektorem \(\Psi\pab{x,X,t}\) zależnym od współrzędnych układu \(x\), otoczenia \(X\) i czasu \(t\). W zupełnej bazie wektorów własnych hamiltonianu układu zależność od \(X\) i \(t\) można uwzględnić poprzez współrzędne \(c_{n}\pab{X,t}\) \cite{b:huang_podstawy_fizyki_statystycznej}:
 \begin{equation*}
 	\Psi\pab{x,X,t} = \sum_{n} c_{n}\pab{X,t} \psi_{n}\pab{x}.
 \end{equation*}
@@ -55,7 +55,7 @@ gdzie \(A_{kn}\) może być wyrażone całką:
 \begin{equation*}
 	A_{kn} = \int \psi_{k}^{*}\pab{x} A \psi_{n}\pab{x} \d{x}.
 \end{equation*}
-Obserwowana jest średnie termiczna, która jest całką po zmiennych środowiska i uśredniona po czasie opisanym powyżej:
+Obserwowana jest średnia termiczna, która jest całką po zmiennych środowiska i uśredniona po czasie opisanym powyżej:
 \begin{equation}
 	\braket[1]{A} =
 	\overline{\int \braket[3]{\Psi}{A}{\Psi} \d{X}} =
@@ -72,7 +72,7 @@ Dla \(n = k\) faza względna nie jest losowa, ponieważ jest identyczna i całko
 \end{equation*}
 Jest to element diagonalny operatora gęstości:
 \begin{equation*}
-	\rho_n \delta{nk} = \braket[3]{\psi_n}{\rho}{\psi_k}.
+	\rho_n \delta_{nk} = \braket[3]{\psi_n}{\rho}{\psi_k}.
 \end{equation*}
 W ogólniejszym przypadku (bez uśredniania) również elementy pozadiagonalne są niezerowe.
 Średnia po podstawieniu \(\rho_k\) wyraża się wzorem:

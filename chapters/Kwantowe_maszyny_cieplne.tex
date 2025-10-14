@@ -3,7 +3,7 @@
 \section{Kwantowe maszyny cieplne}
 Kwantowe maszyny cieplne jako czynnik roboczy wykorzystują układ kwantowy o widmie ciągłym lub dyskretnym. Najprostszym przykładem jest układ o dwóch stanach energetycznych. Z układów o widmie dyskretnym powszechne są na przykład oscylator harmoniczny (energia stanu jest funkcją liniową liczby kwantowej) oraz cząstka w studni potencjały (energia stanu jest funkcją kwadratową liczby kwantowej).
 
-Podobnie jak w przypadku klasycznych maszyn cieplnych zmiana energia może być zmieniana na dwa sposoby: ciepło i pracę. Praca jest dostarczana w sposów uporządkowany, a ciepło samorzutny. Według wzoru \eqref{eq:wart_ocz_macierz_mieszany} energia wewnętrzna układu opisanego hamiltonianem \(\ham\) i macierzą gęstości \(\vu{\rho}\) jest wartością oczekiwaną operatora Hamiltona:
+Podobnie jak w przypadku klasycznych maszyn cieplnych zmiana energii może być zmieniana na dwa sposoby: ciepło i pracę. Praca jest dostarczana w sposów uporządkowany, a ciepło samorzutny. Według wzoru \eqref{eq:wart_ocz_macierz_mieszany} energia wewnętrzna układu opisanego hamiltonianem \(\ham\) i macierzą gęstości \(\vu{\rho}\) jest wartością oczekiwaną operatora Hamiltona:
 \begin{equation}\label{eq:kwant_energia_wewnetrzna}
 	U = \Tr\Bab{\vu{\rho}\ham}.
 \end{equation}
@@ -12,13 +12,12 @@ Różniczkując otrzymujemy:
 	\d{U} = \Tr\Bab{\d{\vu{\rho}}\ham} + \Tr\Bab{\vu{\rho}\d{\ham}}.
 \end{equation}
 
-W stanie równowagi macierz gęstości opisana jest rozkładem Boltzmanna:
+W stanie równowagi dla układu zamkniętego macierz gęstości opisana jest rozkładem Boltzmanna:
 \begin{gather*}
 	\vu{\rho}^{eq} = \inv{Z} \exp\pab{-\beta\ham}, \\
-	Z = \Tr\Bab{\exp\pab{-\beta\ham}}, \\
 	\ln\vu{\rho}^{eq} \overset{def}{=} - \ln Z - \beta\ham,
 \end{gather*}
-gdzie \(\beta = \inv{k_B T}\), a \(k_B\) to stała Boltzmanna.
+gdzie \(Z = \Tr\Bab{\exp\pab{-\beta\ham}}\) to suma statystyczna wynikająca z warunku \(\Tr\Bab{\vu{\rho}} = 1\), \(\beta = \inv{k_B T}\), a \(k_B\) to stała Boltzmanna.
 Odpowiednio jak w klasycznej fizyce statystycznej postulujemy, że energia swobodna Helmholtza \(F\) spełnia \cite{b:huang_mechanika_statystyczna}:
 \begin{equation*}
 	F = - \inv{\beta} \ln Z.
@@ -84,7 +83,7 @@ Według równanie \eqref{eq:def_entropia} różniczka entropii jest równa:
 W obydwu przemianach ciepło jest związane ze zmianą macierzy gęstości, która opisuje obsadzenie stanów. przemiana ta jest samorzutna i niekontrolowana z zewnątrz. Praca natomiast jest związana ze zmianą hamiltonianu, która jest kontrolowana parametrem. Przy tym zmieniają się funkcje własne i energie, ale nie stałe w rozwinięciu liniowym wektora opisującego układ w bazie wektorów własnych. Postulatem mechaniki kwantowej silników cieplnych jest, że niezależnie od przemiany postać ciepła i pracy jest identyczna i równa \eqref{eq:kwant_przem_izoterm_QW}.
 
 \subsection{Kwantowy silnik Carnota}
-Podobnie jak klasyczny silnik Carnota jego kwantowy odpowiednik składa się z czterech przemian: dwóch adiabatycznych i dwóch izotermicznych. Parametry opisujące ten silnik mają warunki cykliczne \cite{myers}:
+Podobnie jak klasyczny silnik Carnota jego kwantowy odpowiednik składa się z czterech przemian: dwóch adiabatycznych i dwóch izotermicznych. Parametry opisujące ten silnik spełniają warunki cykliczności \cite{myers}:
 \begin{gather*}
 	\ham\pab{0} = \ham\pab{\tau}, \\
 	\Tr\Bab{\vu{\rho}\pab{0} \ham\pab{0}} = \Tr\Bab{\vu{\rho}\pab{\tau} \ham\pab{\tau}}, \\
@@ -106,4 +105,4 @@ Wykorzystując powyższe równania otrzymujemy sprawność:
 Wynik jest indentyczny z klasycznym silnikiem Carnota \eqref{eq:sprawnosc_carnot}.
 
 \subsection{Kwantowy silnik Otta}
-Klasyczna wersja tego cyklu składa się z naprzemiennie przemian adiabatycznych o izochorycznych. Pierwszą z nich juz opisano powyżej, ale drugą należy zinterpretować inaczej w przypadku kwantowym. W klasycznym silniku \(V = const\) jest równoważne z wykonaniem zerowej pracy \(\idif{W} = - p \d{V} = 0\). Możemy więc potraktować kwantowy cykl Otta nie jako kolejne przemiany adiabatyczne i izochoryczne, ale jako kolejne przemiany o zerowym cieple i zerowej pracy \cite{myers}.
+Klasyczna wersja tego cyklu składa się z naprzemiennie przemian adiabatycznych i izochorycznych. Pierwszą z nich juz opisano powyżej, ale drugą należy zinterpretować inaczej w przypadku kwantowym. W klasycznym silniku \(V = const\) jest równoważne z wykonaniem zerowej pracy \(\idif{W} = - p \d{V} = 0\). Możemy więc potraktować kwantowy cykl Otta nie jako kolejne przemiany adiabatyczne i izochoryczne, ale jako kolejne przemiany o zerowym cieple i zerowej pracy \cite{myers}.

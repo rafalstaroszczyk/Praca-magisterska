@@ -41,7 +41,7 @@ lub w pojedynczym równaniu:
 	\bab{\ham,\vu{Q} \pm i\vu{P}} = \mp \hbar\omega \pab{\vu{Q} \pm i\vu{P}}.
 \end{equation*}
 
-Operatory, które spełniają podobne zależności komutacyjne maja specyficzną własność --- są to operatory drabinkowe. Możemy znaleźć energię stanu \(\pab{\vu{Q} \pm i\vu{P}}\ket{n}\):
+Operatory, które spełniają podobne zależności komutacyjne mają specyficzną własność --- są to operatory drabinkowe. Możemy znaleźć energię stanu \(\pab{\vu{Q} \pm i\vu{P}}\ket{n}\):
 \begin{multline*}
 	\ham \pab{\vu{Q} \pm i\vu{P}} \ket{n} =
 	\pab{\pab{\vu{Q} \pm i\vu{P}} \ham + \bab{\ham,\vu{Q} \pm i\vu{P}}} \ket{n} = \\ =
@@ -87,7 +87,7 @@ Energia tego stanu jest równa:
 \end{equation*}
 stąd energia stanu podstawowego:
 \begin{equation*}
-	E_0 = \inv{2}\hbar\omega \ket{0}.
+	E_0 = \inv{2}\hbar\omega.
 \end{equation*}
 Korzystając z \eqref{eq:osc_harm_wlasnosci_a} możemy znaleźć energie stanów wyższych iteracyjnie co daje:
 \begin{equation}\label{eq:osc_harm_En}
@@ -100,8 +100,8 @@ Znając energie możemy znaleźć stałe normalizacyjne sąsiednich stanów:
 	\vab{C_n}^2 = \bra{n} \vu{a}^{\dagger}\vu{a} \ket{n} =
 	\bra{n} \inv{\hbar\omega}\ham - \inv{2} \ket{n} =
 	\inv{\hbar\omega} \hbar\omega \pab{n + \inv{2}} - \inv{2} = n, \\
-	\vu{a}^{dagger} \ket{n} = D_n \ket{n-1}, \\
-	\vab{D_n}^2 = \ket{n} \vu{a}\vu{a}^{\dagger} \ket{n} =
+	\vu{a}^{\dagger} \ket{n} = D_n \ket{n-1}, \\
+	\vab{D_n}^2 = \bra{n} \vu{a}\vu{a}^{\dagger} \ket{n} =
 	\bra{n} \inv{\hbar\omega}\ham + \inv{2} \ket{n} =
 	\inv{\hbar\omega} \hbar\omega \pab{n + \inv{2}} + \inv{2} = n + 1.
 \end{gather*}
@@ -110,7 +110,7 @@ Fazę tych stałych możemy wybrać dowolną, a więc też taką, aby współczy
 	\vu{a} \ket{n} &= \sqrt{n} \ket{n - 1}, &
 	\vu{a}^{\dagger} \ket{n} &= \sqrt{n + 1} \ket{n + 1}.
 \end{align*}
-Iteratywnie stosując te wzory do stanu podstawowego otrzymujemy wzory ogólne:
+Iteracyjnie stosując te wzory do stanu podstawowego otrzymujemy wzory ogólne:
 \begin{align*}
 	\ket{n} &= \inv{\sqrt{n!}} \pab{\vu{a}^{\dagger}}^n \ket{0}, &
 	\bra{n} &= \inv{\sqrt{n!}} \bra{0} \pab{\vu{a}}^n.
@@ -120,7 +120,7 @@ Aby znaleźć dokładną formę stanu podstawowego, a następnie wyższych może
 \begin{gather*}
 	\vu{a} \ket{0} = 0, \\
 	\braket{Q}{0} = f_{0}\pab{Q}, \\
-	\pab{Q + \pdv{}{q}} f_{0}\pab{Q} = 0.
+	\pab{Q + \pdv{}{Q}} f_{0}\pab{Q} = 0.
 \end{gather*}
 Rozwiązanie wraz ze stałą normującą ma postać:
 \begin{equation}\label{eq:osc_harm_stan_podst}

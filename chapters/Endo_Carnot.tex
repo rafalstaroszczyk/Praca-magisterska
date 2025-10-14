@@ -29,17 +29,18 @@ Podstawiając \eqref{eq:endo_carnot_Q} do \eqref{eq:endo_carnot_deltaS} otrzymuj
 \end{equation}
 
 Moc silnika jako funkcja \(x\) oraz \(y\) wyrażona jest wzorem:
+\begin{equation}
+	P\pab{x,y} = \frac{Q_{h} - Q_{c}}{\zeta\pab{\tau_{h} + \tau_{c}}},
+\end{equation}
+co po podstawieniu \eqref{eq:endo_carnot_Q} ma postać:
+\begin{equation}
+	P\pab{x,y} =
+	\frac{\kappa_{h}\tau_{h}x - \kappa_{c}\tau_{c}y}{\zeta\pab{\tau_h + \tau_c}} =
+	\frac{\kappa_{h}\frac{\tau_h}{\tau_c}x - \kappa_{c}y}{\zeta\pab{\frac{\tau_h}{\tau_c} + 1}}.
+\end{equation}
+Po uwzględnieniu \eqref{eq:endo_carnot_tau} mamy:
 \begin{equation}\label{eq:endo_carnot_P}
-\begin{split}
-	P\pab{x,y} = 
-	\frac{Q_{h} - Q_{c}}{\zeta\pab{\tau_{h} + \tau_{c}}} = 
-	\frac{\kappa_{h}\tau_{h}x - \kappa_{c}\tau_{c}y}{\zeta\pab{\tau_{h} + \tau_{c}}} = 
-	\frac{\kappa_{h}x\frac{\tau_{h}}{\tau_{c}} - \kappa_{c}y}{\zeta\pab{\frac{\tau_{h}}{\tau_{c}} + 1}} = \\ = 
-	\frac{\kappa_{h}x\frac{\kappa_{c} y \pab{T_{h} - x}}{\kappa_{h} x \pab{T_{x} + y}} - \kappa_{c}y}{\zeta\pab{\frac{\kappa_{c} y \pab{T_{h} - x}}{\kappa_{h} x \pab{T_{x} + y}} + 1}} = 
-	\frac{\frac{\kappa_{c} y \pab{T_{h} - x}}{T_{x} + y} - \kappa_{c}y}{\zeta\pab{\frac{\kappa_{c} y \pab{T_{h} - x}}{\kappa_{h} x \pab{T_{x} + y}} + 1}} = 
-	\frac{\kappa_{h}\kappa_{c}xy}{\zeta} \frac{T_{h} - T_{c} - x - y}{\kappa_{c}y\pab{T_{h} - x} + \kappa_{h}x\pab{T_{c} + y}} = \\ = 
-	\frac{\kappa_{h}\kappa_{c}xy}{\zeta} \frac{T_{h} - T_{c} - x - y}{\kappa_{c}T_{h}y + \kappa_{h}T_{c}x + \pab{\kappa_{h} - \kappa_{c}}xy},
-\end{split}
+	P\pab{x,y} = \frac{\kappa_{h}\kappa_{c}xy}{\zeta} \frac{T_{h} - T_{c} - x - y}{\kappa_{c}T_{h}y + \kappa_{h}T_{c}x + \pab{\kappa_{h} - \kappa_{c}}xy},
 \end{equation}
 gdzie \(\zeta\) jest parametrem związanym z długością całego cyklu w porównaniu z suma \(\tau_{h} + \tau_{c}\). 
 

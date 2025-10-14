@@ -12,7 +12,7 @@ Kwantowy cykl Otta jest serią naprzemiennych przemian o zerowej pracy i zerowym
 	Q_{4-1} &= U\pab{T_1,\omega_1} - U\pab{T_4,\omega_2}, &
 	W_{4-1} &= 0.
 \end{align*}
-Parametrem kontrolowanym przez nas jest \(\omega\). Rozpatrujemy przypadek w granicy niskiego oddziaływania w otoczeniem. W tym przypadku stan stacjonarny jest stanem równowagi termodynamicznej opisywanym rozkładem Boltzmanna \cite{endo_otto}. Wzory opisujące \(U\) i \(\vu{rho}\) w bazie wektorów własnych oscylatora harmonicznego maja postać:
+Parametrem kontrolowanym przez nas jest \(\omega\). Rozpatrujemy przypadek w granicy niskiego oddziaływania z otoczeniem. W tym przypadku stan stacjonarny jest stanem równowagi termodynamicznej opisywanym rozkładem Boltzmanna \cite{endo_otto}. Wzory opisujące \(U\) i \(\vu{\rho}\) w bazie wektorów własnych oscylatora harmonicznego maja postać:
 \begin{gather*}
 	E_n = \hbar\omega\pab{n + \inv{2}}, \\
 	Z = \sum_n \exp\pab{-\frac{E_n}{k_B T}} =
@@ -21,13 +21,13 @@ Parametrem kontrolowanym przez nas jest \(\omega\). Rozpatrujemy przypadek w gra
 	p_n = \inv{Z} \exp\pab{-\frac{E_n}{k_B T}}, \\
 	U = \sum_n p_n E_n = \frac{\hbar\omega}{2} \ctgh\pab{\frac{\hbar\omega}{2k_B T}}, \\
 	F = - k_B T \ln Z = k_B T \ln\bab{2\sinh\pab{\frac{\hbar\omega}{2k_B T}}}, \\
-	S = \inv{T}\pab{U-F} = \frac{\hbar\omega}{2T} \ctgh\pab{\frac{\hbar\omega}{2k_B t}} - k_B \ln\bab{2\sinh\pab{\frac{\hbar\omega}{2k_B T}}}.
+	S = \inv{T}\pab{U-F} = \frac{\hbar\omega}{2T} \ctgh\pab{\frac{\hbar\omega}{2k_B T}} - k_B \ln\bab{2\sinh\pab{\frac{\hbar\omega}{2k_B T}}}.
 \end{gather*}
 Funcja \(S\) jest zależna jedynie od \(\frac{\omega}{T}\) i możemy zapisać:
 \begin{equation*}
 	S\pab{\frac{\omega}{T}} \overset{def}{=} S\pab{T,\omega}.
 \end{equation*}
-Jest to funkcja monotoniczna, więc istnieje jest ona też odwracalna. Oznacza to, że jeśli wartości funkcji są równe to również argumenty tej funcji są równe.
+Jest to funkcja monotoniczna, więc jest ona też odwracalna. Oznacza to, że jeśli wartości funkcji są równe to również argumenty tej funcji są równe.
 
 Podczas przemiany izentropowej entropia na początku i końcu przemianu jest równa, stąd mamy:
 \begin{equation}\label{eq:endo_otto_omegaT}
@@ -142,3 +142,18 @@ Podstawiając \eqref{eq:endo_otto_T} otrzymujemy zależność mocy od \(\tau_h\)
 	}}.
 \end{multline}
 Wynik ten jest zbyt skompliwowany, by go maksymalizować analitycznie. Należy go rozwiązać numerycznie.
+
+W klasycznym silniku Stirlinga otrzymujemy analogiczne rezultaty \eqref{eq:otto_stosunek_T}. Temperatury są również równe \eqref{eq:endo_otto_T}. Sprawność i moc tego silnika wyrażona jest wzorem:
+\begin{gather}
+	\eta = 1 - \kappa \label{eq:otto_eta}, \\
+	P\pab{\kappa,\tau_h,\tau_c} = \frac{n c_V \pab{T_1 - T_2 + T_3 - T_4}}{\zeta\pab{\tau_h + \tau_c}} =
+	\frac{2 n c_V}{\zeta} \cdot \frac{1-\kappa}{\kappa}\pab{\kappa T_h - T_c} \cdot \inv{\tau_h + \tau_c}\sinh\pab{\frac{\alpha_h \tau_h}{2}}\sinh\pab{\frac{\alpha_c \tau_c}{2}}\csch\pab{\frac{\alpha_h \tau_h + \alpha_c \tau_c}{2}} \label{eq:otto_P}.
+\end{gather}
+Wyrażenie na moc zależy jedynie od \(\kappa\), natomiast na moc można rozseparować na czynnik zależny od \(\kappa\) i od pozostałych zmiennych. Aby znaleźć sprawność w punkcie maksymalnej mocy wystarczy znaleźć maksimum funkcji zależnej od \(\kappa\):
+\begin{gather*}
+	f\pab{\kappa} = \frac{1-\kappa}{\kappa}\pab{\kappa T_h - T_c}, \\
+	\odv{f}{\kappa} = \inv{\kappa_{max}^2}T_c - T_h = 0, \\
+	\kappa_{max} = \sqrt{\frac{T_c}{T_h}}, \\
+	\eta\pab{\eta_{max}} = 1 - \sqrt{\frac{T_c}{T_h}}.
+\end{gather*}
+Jest to wynik identyczny do sprawności cyklu Carnota w punkcie maksymalnej mocy \eqref{eq:endo_carnot_eta}.
