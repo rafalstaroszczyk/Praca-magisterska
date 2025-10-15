@@ -144,11 +144,13 @@ Podstawiając \eqref{eq:endo_otto_T} otrzymujemy zależność mocy od \(\tau_h\)
 Wynik ten jest zbyt skompliwowany, by go maksymalizować analitycznie. Należy go rozwiązać numerycznie.
 
 W klasycznym silniku Stirlinga otrzymujemy analogiczne rezultaty \eqref{eq:otto_stosunek_T}. Temperatury są również równe \eqref{eq:endo_otto_T}. Sprawność i moc tego silnika wyrażona jest wzorem:
-\begin{gather}
-	\eta = 1 - \kappa \label{eq:otto_eta}, \\
-	P\pab{\kappa,\tau_h,\tau_c} = \frac{n c_V \pab{T_1 - T_2 + T_3 - T_4}}{\zeta\pab{\tau_h + \tau_c}} =
+\begin{equation}
+	\eta = 1 - \kappa \label{eq:otto_eta},
+\end{equation}
+\begin{multline}
+	P\pab{\kappa,\tau_h,\tau_c} = \frac{n c_V \pab{T_1 - T_2 + T_3 - T_4}}{\zeta\pab{\tau_h + \tau_c}} = \\ =
 	\frac{2 n c_V}{\zeta} \cdot \frac{1-\kappa}{\kappa}\pab{\kappa T_h - T_c} \cdot \inv{\tau_h + \tau_c}\sinh\pab{\frac{\alpha_h \tau_h}{2}}\sinh\pab{\frac{\alpha_c \tau_c}{2}}\csch\pab{\frac{\alpha_h \tau_h + \alpha_c \tau_c}{2}} \label{eq:otto_P}.
-\end{gather}
+\end{multline}
 Wyrażenie na moc zależy jedynie od \(\kappa\), natomiast na moc można rozseparować na czynnik zależny od \(\kappa\) i od pozostałych zmiennych. Aby znaleźć sprawność w punkcie maksymalnej mocy wystarczy znaleźć maksimum funkcji zależnej od \(\kappa\):
 \begin{gather*}
 	f\pab{\kappa} = \frac{1-\kappa}{\kappa}\pab{\kappa T_h - T_c}, \\
