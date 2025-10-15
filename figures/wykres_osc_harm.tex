@@ -1,0 +1,27 @@
+\begin{tikzpicture}
+	\begin{axis}[width=\textwidth,
+		xlabel=$\frac{k_B T}{\hbar\omega}$,
+		ylabel=$y$,
+		axis x line=middle,
+		axis y line=middle,
+		xmin=0,
+		xmax=3.1,
+		%ymin=0,
+		%ymax=12,
+		%ticks=none,
+		%every axis x label/.style={at={(current axis.right of origin)},anchor=north west},
+		%every axis y label/.style={at={(current axis.above origin)},anchor=north east},
+		declare function={
+			tgh(\x)  = (e^(\x) - e^(-\x))/(e^(\x) + e^(-\x));
+			csch(\x) = 2/(e^(\x) - e^(-\x));
+			sech(\x) = 2/(e^(\x) + e^(-\x));
+			ctgh(\x) = (e^(\x) + e^(-\x))/(e^(\x) - e^(-\x));
+		},
+		legend entries={$\frac{F}{\hbar\omega}$,$\frac{S}{k}$,$\frac{U}{\hbar\omega}$},
+		legend pos=south west]
+		%\addplot [samples=1000, domain=0.001:3, color=black] {1/2 * csch(1/(2*x))};  % Z
+		\addplot [samples=1000, domain=0.001:3, color=red] {x*ln(2*sinh(1/(2*x)))};  % F/hw
+		\addplot [samples=1000, domain=0.001:3, color=green] {1/(2*x)*ctgh(1/(2*x)) - ln(2*sinh(1/(2*x)))};  % S/k
+		\addplot [samples=1000, domain=0.001:3, color=blue] {1/2 * ctgh(1/(2*x))};  % U/hw
+	\end{axis}
+\end{tikzpicture}

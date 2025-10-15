@@ -1,0 +1,76 @@
+% !TEX root = ../main.tex
+
+\section{Algebra momentów pędu}
+W zagadnieniach niezmienniczych z obrotem ważnym zagadnieniem jest moment pędu cząstki. Uwględnia on zarówno ten związany z ruchem \(\vu{L} = \vu{r} \times \vu{p}\), jak i spin związany z samą cząstką \(\vu{S}\). W ogólności możemy go oznaczyć jako \(\vu{J}\), będący suma wcześniejszych. Operator ten jest wektorowym, to znaczy, że każda z jego składowych jest operatorem \(\hat{J}_x, \hat{J}_y, \hat{J}_z\). Spełniają one własności komutacyjne:
+\begin{align}\label{eq:def_J_kom}
+	\bab{\hat{J}_x, \hat{J}_y} &= i\hbar \hat{J}_z, &
+	\bab{\hat{J}_y, \hat{J}_z} &= i\hbar \hat{J}_x, &
+	\bab{\hat{J}_z, \hat{J}_x} &= i\hbar \hat{J}_y.
+\end{align}
+Kwadrat momentu pędu jest równy:
+\begin{equation}
+	\hat{J}^2 = \hat{J}_x^2 + \hat{J}_y^2 + \hat{J}_z^2,
+\end{equation}
+a jego komutatory ze składowymi to:
+\begin{align}\label{eq:def_J2_kom}
+	\bab{\hat{J}^2, \hat{J}_x} &= 0, &
+	\bab{\hat{J}^2, \hat{J}_y} &= 0, &
+	\bab{\hat{J}^2, \hat{J}_z} &= 0.
+\end{align}
+Możemy więc wybrać dwa operatory komutujące i znaleźć zbiór wspólnych wektorów własnych obydwu operatorów \cite{davydov_mechanika_kwantowa}:
+\begin{align}\label{eq:def_J_wlasne}
+	\hat{J}_z \ket{jm} &= \hbar m \ket{jm}, &
+	\hat{J}^2 \ket{jm} &= \hbar^2 j\pab{j+1} \ket{jm}.
+\end{align}
+Podobnie jak dla oscylatora harmonicznego możemy znaleźć operatory drabinkowe:
+\begin{equation}\label{eq:def_J_drabinkowe}
+	\hat{J}_{\pm} \hat{J}_x \pm i\hat{J}_y.
+\end{equation}
+Spełniają one z operatorem \(\hat{J}_z\) równania komutacyjne:
+\begin{equation}
+	\bab{\hat{J}_z, \hat{J}_{\pm}} = \pm \hbar \hat{J}_{\pm}.
+\end{equation}
+Wektory \(\hat{J}_{\pm} \ket{jm}\) mają wartości własne:
+\begin{equation}
+	\hat{J}_z \hat{J}_{\pm} \ket{jm} =
+	\pab{\hat{J}_{\pm} \hat{J}_z + \bab{\hat{J}_z, \hat{J}_{\pm}}} \ket{jm} =
+	\hbar \pab{m \pm 1} \hat{J}_{\pm} \ket{jm}.
+\end{equation}
+Operatory te zmieniają jedynie drugą liczbę kwantową, pierwsza jest stała. Dają one nam kolejne wektory:
+\begin{equation}
+	\hat{J}_{\pm} \ket{jm} = C_{jm}^{\pm} \ket{j,m \pm 1}.
+\end{equation}
+Aby znaleźć stałą normalizacyjną \(C_{jm}^{\pm}\) najpierw znajdujemy równość:
+\begin{multline}
+	\hat{J}_{\mp} \hat{J}_{\pm} =
+	\pab{\hat{J}_x \mp i\hat{J}_y}\pab{\hat{J}_x \pm i\hat{J}_y} =
+	\hat{J}_x^2 + \hat{J}_y^2 \pm i\pab{\hat{J}_x \hat{J}_y - \hat{J}_y \hat{J}_x} = \\ =
+	\hat{J}_x^2 + \hat{J}_y^2 \mp \hbar \hat{J}_z =
+	\hat{J}^2 - \hat{J}_z^2 \mp \hbar \hat{J}_z.
+\end{multline}
+Współczynniki te są równe:
+\begin{multline}
+	\vab{C_{jm}^{\pm}}^2 =
+	\braket[3]{jm}{\hat{J}_{\mp} \hat{J}_{\pm}}{jm} =
+	\braket[3]{jm}{\hat{J}^2 - \hat{J}_z^2 \mp \hbar \hat{J}_z}{jm} = \\ =
+	\hbar^2\pab{j^2 + j - m^2 \mp m} =
+	\hbar^2\pab{\pab{j \mp m}\pab{j \pm m} + \pab{j \mp m}} =
+	\hbar^2\pab{j \mp m}\pab{j \pm m + 1}.
+\end{multline}
+Możemy zaobserwować, że w dwóch przypadkach współczynnik ten się zeruje, są to:
+\begin{align}
+	\hat{J}_{+} \ket{j,j} &= 0, &
+	\hat{J}_{-} \ket{j,-j} &= 0.
+\end{align}
+W przeciwieństwie do oscylatora harmonicznego, który jest ograniczony jedynie od dołu, moment pędu jest ograniczony również od góry:
+\begin{equation}
+	-j \leq m \leq j.
+\end{equation}
+Ponieważ operatory drabinkowe zmieniają \(m\) o jedność pojawiają się dwa przypadki: \(j\) całkowite oraz \(j\) "połówkowe", to jest różne o \(\inv{2}\) od liczby całkowitej:
+\begin{equation}
+\begin{cases}
+	m &\in\Bab{-j, \ldots, -1, 0, 1, \ldots, j} \quad \text{dla } j \in\Bab{0, 1, 2, \ldots}, \\
+	m &\in\Bab{-j, \ldots, -\inv{2}, \inv{2}, \ldots, j} \quad \text{dla } j \in\Bab{\frac{1}{2}, \frac{3}{2}, \frac{5}{2}, \ldots}.
+\end{cases}
+\end{equation}
+W pierszym przypadku dla każdego \(j\) dostępnych jest nieparzysta ilość różnych \(m\), natomiast w drugim jest ich ilość parzysta. W obydwu przypadkach jest ich \(2j + 1\), co jest krotnością stanu.
