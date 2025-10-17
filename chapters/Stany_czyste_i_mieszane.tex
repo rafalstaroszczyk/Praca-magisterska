@@ -1,11 +1,11 @@
 % !TEX root = ../main.tex
 
 \section{Opis układu kwantowego}
-Układ izolowany możemy opisać za pomocą wektora falowego \(\Psi\), który może być rozpisany w bazie wektorów własnych hamiltonianu opisującego dane zagadnienie \cite{davydov_mechanika_kwantowa}:
+W statystycznej mechanice kwantowej rozróżniamy stany czyste oraz stany mieszane. Stan czysty może być reprezentowany równoważnie przez: funkcję falową \(\Psi\pab{x,t} = \braket{x}{\Psi\pab{t}}\), w której \(x\) jest pewną zmienną opisującą układ (na przykład położenie, pęd lub energia); wektor stanu \(\ket{\Psi\pab{t}}\); oraz operator gęstości \(\vu{\rho}\). Stany czyste opisane wektorem stanu \(\ket{\Psi}\) możemy przedstawić jako kombinację liniową stanów tworzących bazę ortonormalną zupełną \cite{davydov_mechanika_kwantowa}:
 \begin{equation*}
 	\ket{\Psi} = \sum_{k} c_{k} \ket{\psi_{k}} + \int c_F \ket{\psi_F} \d{F},
 \end{equation*}
-gdzie \(\ket{\psi_k}\) to wektory własne dyskretne, a \(\ket{\psi_F}\) --  ciągłe. Dalej rozpatrujemy jedynie stany opisane wektorami własnymi dyskretnymi (są to układy związane). Normalizacja funkcji falowej narzuca warunek na współczynniki \(c_k\):
+gdzie \(\ket{\psi_k}\) to wektory bazy dyskretne, a \(\ket{\psi_F}\) --  ciągłe. Dalej rozpatrujemy jedynie stany opisane wektorami dyskretnymi (są to układy związane). Normalizacja funkcji falowej narzuca warunek na współczynniki \(c_k\):
 \begin{equation*}
 	\braket{\Psi}{\Psi} =
 	\sum_{nk} c_k^* c_n \braket{\psi_k}{\psi_n} =
@@ -13,25 +13,66 @@ gdzie \(\ket{\psi_k}\) to wektory własne dyskretne, a \(\ket{\psi_F}\) --  cią
 	\sum_{k} c_k^* c_k =
 	\sum_{k} \vab{c_k}^2 = 1.
 \end{equation*}
-Aby dokładnie opisać "prawdziwy" stan układu musimy znać współczynniki \(c_k\). Są one dla nas niemierzalne i możliwe jest jedynie znalezienie kwadratów ich modułów, które możemy interpretować jako prawdopodobieństwo znalezienia układu w stanie własnym powiązanym z tym współczynnikiem \(p_k = \vab{c_k}^2\). Znając jedynie te prawdopodobieństwa niemożliwe jest odtworzenie prawidłowej funkcji \(\Psi\), ponieważ nie znamy względnych faz współczynników. Aby opisać takie układy ---  jak i w szczególnym przypadku również takie, w których te fazy znamy ---  używany jest formalizm macierzy gęstości. Stany czyste to takie, dla których znamy dokładne współczynniki \(c_k\), natomiast w stanach mieszanych znamy jedynie ich kwadraty \(\vab{c_k}^2\). Możemy między tymi opisami znaleźć analogię do fizyki statystycznej. Mikrostan jest opisany położeniami i pędami (i innymi współrzędnymi, jeśli występują). Jest on rzeczywisty, ale niemożliwe jest znalezienie takiej ilości zmiennych. Makrostan jest tym, co obserwujemy z zewnątrz i jest opisany parametrami takimi jak temperatura, ciśnienie i inne. Stan czysty w tej analogii jest mikrostanem, natomiast stan mieszany jest mezostanem, czyli pośrednim między mikro-, a makrostanem.
+Kwadraty ich modułów \(\vab{c_k}^2\) interpretujemy jako prawdopodobieństwo znalezienia układu w stanie powiązanym z tym współczynnikiem:
+\begin{equation*}
+	p_k = \vab{c_k}^2 = \vab{\braket{\psi_k}{\Psi}}^2 = \braket{\psi_k}{\Psi}\braket{\Psi}{\psi_k} = \braket[3]{\psi_k}{\vu{\rho}}{\psi_k},
+\end{equation*}
+gdzie \(\vu{\rho} = \ketbra{\Psi}{\Psi}\) to macierz gęstości dla stanu czystego \cite{townsend_a_modern_approach_to_quantum_mechanics}. Jest ona projektorem:
+\begin{equation*}
+	\vu{\rho}^2 = \ketbra{\Psi}{\Psi}\ketbra{\Psi}{\Psi} = \ketbra{\Psi}{\Psi} = \vu{\rho},
+\end{equation*}
+a jej ślad jest równy jedności:
+\begin{equation*}
+	\Tr\Bab{\vu{\rho}} = \sum_k \braket{\psi_k}{\vu{\rho}}{\psi_k} = \sum_k p_k = 1.
+\end{equation*}
+Cechy te stanowią test dla stanów czystych.
 
-Wartość oczekiwana operatora \(\vu{A}\) o wektorach własnych \(\vu{A}\ket{\psi_{n}} = a_{n}\ket{\psi_{n}}\) ma przy powyższej interpretacji \(c_{n}\) ma postać \cite{townsend_a_modern_approach_to_quantum_mechanics}:
+%Możemy między tymi opisami znaleźć analogię do fizyki statystycznej. Mikrostan jest opisany położeniami i pędami (i innymi współrzędnymi, jeśli występują). Jest on rzeczywisty, ale niemożliwe jest znalezienie takiej ilości zmiennych. Makrostan jest tym, co obserwujemy z zewnątrz i jest opisany parametrami takimi jak temperatura, ciśnienie i inne. Stan czysty w tej analogii jest mikrostanem, natomiast stan mieszany jest mezostanem, czyli pośrednim między mikro-, a makrostanem.
+
+Wartość oczekiwana operatora \(\vu{A}\) o wektorach własnych \(\vu{A}\ket{\psi_{k}} = a_{k}\ket{\psi_{k}}\) przy powyższej interpretacji \(c_{k}\) ma postać \cite{townsend_a_modern_approach_to_quantum_mechanics}:
 \begin{equation}\label{eq:wart_ocz_wektor}
 \begin{split}
-	\braket[1]{A} = \sum_{n} \vab{c_{n}}^{2} a_{n} = \sum_{nk} c_{k}^{*} a_{n} \delta_{nk} c_{n} = \sum_{nk} \braket{\Psi}{\psi_{k}} \braket[3]{\psi_{k}}{A}{\psi_{n}} \braket{\psi_{n}}{\Psi} = \\ = \bra{\Psi}\pab{\sum_{k}\ketbra{\psi_{k}}{\psi_{k}}} A \pab{\sum_{n}\ketbra{\psi_{n}}{\psi_{n}}} \ket{\Psi} = \braket[3]{\Psi}{A}{\Psi}.
+	\braket[1]{\vu{A}} = \sum_{k} p_k a_{k} = \sum_{k} \vab{c_{k}}^{2} a_{k} = \sum_{nk} c_{k}^{*} a_{n} \delta_{nk} c_{k} = \sum_{nk} \braket{\Psi}{\psi_{k}} \braket[3]{\psi_{k}}{\vu{A}}{\psi_{n}} \braket{\psi_{n}}{\Psi} = \\ = \bra{\Psi}\pab{\sum_{k}\ketbra{\psi_{k}}{\psi_{k}}} \vu{A} \pab{\sum_{n}\ketbra{\psi_{n}}{\psi_{n}}} \ket{\Psi} = \braket[3]{\Psi}{\vu{A}}{\Psi}.
 \end{split}
 \end{equation}
 Alternatywnym przekształceniem jest:
 \begin{equation}\label{eq:wart_ocz_macierz_czysty}
 \begin{split}
-	\braket[1]{A} = \sum_{n} \vab{c_{n}}^{2} a_{n} = \sum_{nk} c_{k}^{*} a_{n} \delta_{nk} c_{n} = \sum_{nk} \braket{\psi_{n}}{\Psi} \braket{\Psi}{\psi_{k}} \braket[3]{\psi_{k}}{A}{\psi_{n}} = \\ =
-	\sum_{nk} \braket[3]{\psi_{n}}{\rho}{\psi_{k}} \braket[3]{\psi_{k}}{A}{\psi_{n}} =
-	\sum_{nk} \rho_{nk} A_{kn} = \sum_{n} \pab{\rho A}_{nn} = \Tr\Bab{\vu{\rho}\vu{A}},
+	\braket[1]{\vu{A}} = \sum_{k} p_k a_{k} = \sum_{k} \braket{\psi_{k}}{\vu{\rho}}{\psi_{k}} \braket[3]{\psi_{k}}{A}{\psi_{k}} = \\ =
+	\sum_{nk} \braket[3]{\psi_{k}}{\rho}{\psi_{n}} \braket[3]{\psi_{n}}{A}{\psi_{k}} =
+	\sum_{nk} \rho_{kn} A_{nk} = \sum_{k} \pab{\rho A}_{kk} = \Tr\Bab{\vu{\rho}\vu{A}}.
 \end{split}
 \end{equation}
-gdzie \(\vu{\rho} = \ketbra{\Psi}{\Psi}\) to macierz gęstości dla stanu czystego \cite{townsend_a_modern_approach_to_quantum_mechanics}. Końcowy wynik jest w obu przypadkach niezależny od wyboru konkretnej bazy i jest wzorem ogólnym. Macierz gęstości zawiera tą samą informację co wektor \(\Psi\). Elementy tej macierzy w bazie \(\psi_i\) opisuje wzór \(\rho_{nk} = \braket{\psi_n}{\Psi}\braket{\Psi}{\psi_k} = c_{n}c_{k}^{*}\). W szczególności elementy diagonalne: \(\rho_{nn} = \braket{\psi_n}{\Psi}\braket{\Psi}{\psi_n} = c_{n}c_{n}^{*} = p_{k}\).
+Końcowy wynik jest w obu przypadkach niezależny od wyboru konkretnej bazy i jest wzorem ogólnym. Macierz gęstości zawiera tą samą informację co wektor \(\Psi\).
+%Elementy tej macierzy w bazie \(\psi_i\) opisuje wzór \(\rho_{nk} = \braket{\psi_n}{\Psi}\braket{\Psi}{\psi_k} = c_{n}c_{k}^{*}\).
 
-Rzeczywiste układy kwantowe nie są izolowane, ale oddziałują w jakiś sposób z otoczeniem. Niemożliwe jest również badanie danego układu w infinitezymalnym czasie, ale każdy pomiar jest uśrednieniem badanej wielkości w czasie większym, niż czasy relaksacji układu, ale mniejszym niż zdolność rozdzielcza przyrządu \cite{b:huang_mechanika_statystyczna}. Układ taki opisany jest wektorem \(\Psi\pab{x,X,t}\) zależnym od współrzędnych układu \(x\), otoczenia \(X\) i czasu \(t\). W zupełnej bazie wektorów własnych hamiltonianu układu zależność od \(X\) i \(t\) można uwzględnić poprzez współrzędne \(c_{n}\pab{X,t}\) \cite{b:huang_podstawy_fizyki_statystycznej}:
+Stan mieszany niemożliwy jest do przedstawienia wektorem falowym, ponieważ nieznane są nam współczynniki \(c_k\). Jest on mieszaniną stanów czystych. Wartość oczekiwana operatora \(\vu{A}\) jest średnią ważoną z wagą \(p_k\) wartości oczekiwanych tego operatora w stanach czystych:
+\begin{multline}
+	\braket[1]{\vu{A}} =
+	\sum_k p_k \braket{\psi_k}{\vu{A}}{\psi_k} =
+	\sum_{knm} p_k \braket{\psi_n}{\psi_k} \braket{\psi_k}{\psi_m} \braket[3]{\psi_m}{\vu{A}}{\psi_n} = \\ =
+	\sum_{nm} \bra{\psi_n} \pab{\sum_k p_k \ketbra{\psi_k}{\psi_k}} \ket{\psi_m} \braket[3]{\psi_m}{\vu{A}}{\psi_n} =
+	\sum_{nm} \vu{\rho}_{nm} \vu{A}_{mn} =
+	\sum_{n} \pab{\vu{\rho}\vu{A}}_{nn} =
+	\Tr\Bab{\vu{\rho}\vu{A}},
+\end{multline}
+gdzie \(\vu{\rho} = \sum_k p_k \ketbra{\psi_k}{\psi_k}\) jest macierzą gęstości stanu mieszanego. Kwadrat tej macierzy jest równy:
+\begin{equation}
+	\vu{\rho}^2 =
+	\sum_{kn} p_k p_n \ketbra{\psi_k}{\psi_k}\ketbra{\psi_n}{\psi_n} =
+	\sum_{kn} p_k p_n \delta_{kn} \ketbra{\psi_k}{\psi_n} =
+	\sum_{kn} p_k^2 \ketbra{\psi_k}{\psi_k} \neq \vu{\rho}.
+\end{equation}
+Nie jest to więc projektor. Ślad natomiast jest równy:
+\begin{equation}
+	\Tr\Bab{\vu{\rho}} =
+	\sum_{kn} p_k p_n \braket{\psi_n}{\psi_k}\braket{\psi_k}{\psi_n} =
+	\sum_{kn} p_k p_n \delta_{kn}^2 =
+	\sum_{k} p_k^2 \leq 1,
+\end{equation}
+gdzie równość zachodzi jedynie w przypadku \(p_i = 1\), a pozostałe \(p_{j \neq i} = 0\), co jest stanem czystym.
+
+Rzeczywiste układy kwantowe nie są izolowane, ale oddziałują w jakiś sposób z otoczeniem. Niemożliwe jest również badanie danego układu w infinitezymalnym czasie, ale każdy pomiar jest uśrednieniem badanej wielkości w czasie większym, niż czasy relaksacji układu, ale mniejszym niż zdolność rozdzielcza przyrządu \cite{b:huang_mechanika_statystyczna}. Układ taki wraz z otoczeniem opisany jest wektorem \(\Psi\pab{x,X,t}\) zależnym od współrzędnych układu \(x\), otoczenia \(X\) i czasu \(t\). W zupełnej bazie wektorów własnych hamiltonianu układu zależność od \(X\) i \(t\) można uwzględnić poprzez współrzędne \(c_{n}\pab{X,t}\) \cite{b:huang_podstawy_fizyki_statystycznej}:
 \begin{equation*}
 	\Psi\pab{x,X,t} = \sum_{n} c_{n}\pab{X,t} \psi_{n}\pab{x}.
 \end{equation*}
@@ -53,7 +94,7 @@ Wartość oczekiwana w danym czasie oraz przy znanych zmiennych środowiska jest
 \end{equation*}
 gdzie \(A_{kn}\) może być wyrażone całką:
 \begin{equation*}
-	A_{kn} = \int \psi_{k}^{*}\pab{x} A \psi_{n}\pab{x} \d{x}.
+	A_{kn} = \int \psi_{k}^{*}\pab{x} \vu{A} \psi_{n}\pab{x} \d{x}.
 \end{equation*}
 Obserwowana jest średnia termiczna, która jest całką po zmiennych środowiska i uśredniona po czasie opisanym powyżej:
 \begin{equation}
@@ -72,13 +113,14 @@ Dla \(n = k\) faza względna nie jest losowa, ponieważ jest identyczna i całko
 \end{equation*}
 Jest to element diagonalny operatora gęstości:
 \begin{equation*}
-	\rho_n \delta_{nk} = \braket[3]{\psi_n}{\rho}{\psi_k}.
+	\rho_k \delta_{nk} = \braket[3]{\psi_n}{\rho}{\psi_k}.
 \end{equation*}
 W ogólniejszym przypadku (bez uśredniania) również elementy pozadiagonalne są niezerowe.
 Średnia po podstawieniu \(\rho_k\) wyraża się wzorem:
 \begin{equation*}
 	\braket[1]{A} = \sum_{k} \rho_k \braket[3]{\psi_k}{A}{\psi_k}.
 \end{equation*}
+
 
 Alternatywnie możemy rozpatrzeć stan mieszany jako niekoherentną mieszaninę stanów czystych z wagą \(p_k\):
 \begin{equation}\label{eq:def_macierz_gestosci_mieszany}
@@ -91,7 +133,7 @@ Wzór \eqref{eq:wart_ocz_macierz_czysty} jest również prawdziwy dla stanu mies
 	\sum_{k} \pab{\rho A}_{kk} =
 	\sum_{nk} \rho_{kn} A_{nk} =
 	\sum_{nkm} p_{m} \braket{\psi_k}{\psi_m}\braket{\psi_m}{\psi_n} \braket[3]{\psi_n}{A}{\psi_k} = \\ =
-	\sum_{nkm} p_{m} \delta_{km}\delta{nm} \braket[3]{\psi_n}{A}{\psi_k} =
+	\sum_{nkm} p_{m} \delta_{km}\delta_{nm} \braket[3]{\psi_n}{A}{\psi_k} =
 	\sum_{nk} p_{k} \delta_{nk} \braket[3]{\psi_n}{A}{\psi_k} =
 	\sum_{k} p_{k} \braket[3]{\psi_k}{A}{\psi_k} = \braket[1]{A}.
 \end{split}

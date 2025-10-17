@@ -31,9 +31,9 @@
 		\addplot[mark=*] coordinates {(V2,p2)} node[anchor=north east]{$2$};
 		\addplot[mark=*] coordinates {(V3,p3)} node[anchor=south east]{$3$};
 		\addplot[mark=*] coordinates {(V4,p4)} node[anchor=south west]{$4$};
-		\addplot[domain=V2:V1] {1/r * tau^(-kappa/(kappa-1)) / x}             node [pos=0.3, below, sloped] {$T_1$};
+		\addplot[domain=V2:V1] {1/r * tau^(-kappa/(kappa-1)) / x}             node [pos=0.3, below, sloped] {$T_c$};
 		\addplot[domain=V3:V2] {1/r^kappa * tau^(-kappa/(kappa-1)) / x^kappa} node [pos=0.5, below, sloped] {$Q=0$};
-		\addplot[domain=V3:V4] {1/r * tau^(-1/(kappa-1)) / x}                 node [pos=0.5, above, sloped] {$T_2$};
+		\addplot[domain=V3:V4] {1/r * tau^(-1/(kappa-1)) / x}                 node [pos=0.5, above, sloped] {$T_h$};
 		\addplot[domain=V4:V1] {1/r * tau^(-kappa/(kappa-1)) / x^kappa}       node [pos=0.5, above, sloped] {$Q=0$};
 	\end{axis}
 \end{tikzpicture}

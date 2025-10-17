@@ -1,0 +1,25 @@
+\begin{tikzpicture}
+	\begin{axis}[width=\textwidth,
+		xlabel=$V$,
+		ylabel=$p$,
+		axis x line=bottom,
+		axis y line=middle,
+		xmin=0,
+		xmax=3,
+		ymin=0,
+		ymax=3,
+		ticks=none,
+		every axis x label/.style={at={(current axis.right of origin)},anchor=north east},
+		every axis y label/.style={at={(current axis.above origin)},anchor=north east},
+		declare function={
+			centerx=1.5;
+			centery=1.5;
+			angle0=30;
+			r = 1;
+		}]
+		\addplot[black,thick,->] ({centerx-r*cos(angle0)},{centery-r*sin(angle0)}) arc (180+angle0:90+angle0:r);
+		\addplot[black,thick,->] ({centerx-r*sin(angle0)},{centery+r*cos(angle0)}) arc (90+angle0:angle0:r);
+		\addplot[black,thick,->] ({centerx+r*cos(angle0)},{centery+r*sin(angle0)}) arc (angle0:-90+angle0:r);
+		\addplot[black,thick,->] ({centerx+r*sin(angle0)},{centery-r*cos(angle0)}) arc (-90+angle0:-180+angle0:r);
+	\end{axis}
+\end{tikzpicture}
