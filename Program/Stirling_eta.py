@@ -35,7 +35,7 @@ def fW(Q12, Q23, Q34, Q41):
 
 def fQd(Q34, DeltaQ):
     dDeltaQ = DeltaQ
-    dDeltaQ[dDeltaQ > 0] = 0
+    dDeltaQ[dDeltaQ < 0] = 0
     return Q34 + dDeltaQ
 
 
