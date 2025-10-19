@@ -24,15 +24,74 @@ Energia jest wartością własną hamiltonianu:
 	- \gamma B \hat{S}_z \ket{s,m_s} =
 	- \gamma B \hbar m_s \ket{s,m_s}.
 \end{equation}
-Dwa stany energetyczne są więc równe:
+Wykorzystując wzór na częstość precesji Larmora \(\omega = \gamma B\) dwa stany energetyczne są równe:
 \begin{align}
-	E_{\uparrow}   &= - \frac{\gamma B \hbar}{2}, &
-	E_{\downarrow} &=   \frac{\gamma B \hbar}{2}.
+	E_{\uparrow}   &= - \frac{\gamma B \hbar}{2} = - \frac{\hbar\omega}{2}, &
+	E_{\downarrow} &=   \frac{\gamma B \hbar}{2} =   \frac{\hbar\omega}{2}.
 \end{align}
 
 W równowadze termodynamicznej:
 \begin{gather}
 	p_{m_s} = \inv{Z} \exp\pab{-\frac{E_{m_s}}{k_B T}}, \\
-	Z = \exp\pab{\frac{\gamma B \hbar}{2 k_B T}} + \exp\pab{-\frac{\gamma B \hbar}{2 k_B T}} = 2\cosh\pab{\frac{\gamma B \hbar}{2 k_B T}}, \\
-	U = p_{\uparrow}E_{\uparrow} + p_{\downarrow}E_{\downarrow} = - \frac{\hbar\omega}{2} \tgh\pab{\frac{\hbar\omega}{2 k_B T}}.
+	Z = \exp\pab{\frac{\hbar\omega}{2 k_B T}} + \exp\pab{-\frac{\hbar\omega}{2 k_B T}} = 2\cosh\pab{\frac{\hbar\omega}{2 k_B T}}, \\
+	U = p_{\uparrow}E_{\uparrow} + p_{\downarrow}E_{\downarrow} = - \frac{\hbar\omega}{2} \tgh\pab{\frac{\hbar\omega}{2 k_B T}}, \\
+	S = -k_B\pab{p_{\uparrow} \ln p_{\uparrow} + p_{\downarrow} \ln p_{\downarrow}} =
+	- \frac{\hbar\omega}{2T} \tgh\pab{\frac{\hbar\omega}{2 k_B T}} + k_B \ln\bab{2\cosh\pab{\frac{\hbar\omega}{2 k_B T}}}.
 \end{gather}
+
+Przemiany izotermiczne:
+\begin{gather}
+\begin{split}
+	Q_{1-2} &= T_c S\pab{T_c,\omega_2} - T_c S\pab{T_c,\omega_1} = \\ &=
+	kT_c \ln\bab{2\cosh\pab{\frac{\hbar\omega_2}{2k_B T_c}}} -
+	kT_c \ln\bab{2\cosh\pab{\frac{\hbar\omega_1}{2k_B T_c}}} + \\ &+
+	\frac{\hbar\omega_1}{2} \tgh\pab{\frac{\hbar\omega_1}{2k_B T_c}} -
+	\frac{\hbar\omega_2}{2} \tgh\pab{\frac{\hbar\omega_2}{2k_B T_c}}
+\end{split} \\
+\begin{split}
+	Q_{3-4} &= T_h S\pab{T_h,\omega_1} - T_h S\pab{T_h,\omega_2} = \\ &=
+	kT_h \ln\bab{2\cosh\pab{\frac{\hbar\omega_1}{2k_B T_h}}} -
+	kT_h \ln\bab{2\cosh\pab{\frac{\hbar\omega_2}{2k_B T_h}}} + \\ &+
+	\frac{\hbar\omega_2}{2} \tgh\pab{\frac{\hbar\omega_2}{2k_B T_h}} -
+	\frac{\hbar\omega_1}{2} \tgh\pab{\frac{\hbar\omega_1}{2k_B T_h}}
+\end{split}
+\end{gather}
+
+Przemiany izochoryczne:
+\begin{gather}
+\begin{split}
+	Q_{2-3} &= U\pab{T_h,\omega_2} - U\pab{T_c,\omega_2} = \\ &=
+	\frac{\hbar\omega_2}{2}\tgh\pab{\frac{\hbar\omega_2}{2k_B T_c}} -
+	\frac{\hbar\omega_2}{2}\tgh\pab{\frac{\hbar\omega_2}{2k_B T_h}}
+\end{split} \\
+\begin{split}
+	Q_{4-1} &= U\pab{T_c,\omega_1} - U\pab{T_h,\omega_1} = \\ &=
+	\frac{\hbar\omega_1}{2}\tgh\pab{\frac{\hbar\omega_1}{2k_B T_h}} -
+	\frac{\hbar\omega_1}{2}\tgh\pab{\frac{\hbar\omega_1}{2k_B T_c}}
+\end{split}
+\end{gather}
+
+W przeciwieństwie do klasycznego silnika Stirlinga ciepła te nie są sobie równe co do wielkości i nie znoszą się nawzajem. Człony te jednak skracają się z częścią ciepeł w przemianach izotermicznych. Praca cyklu jest równa:
+\begin{equation}
+\begin{split}
+	-W &= Q_{1-2} + Q_{2-3} + Q_{3-4} + Q_{4-1} = \\ &=
+	kT_h \ln\bab{\frac{
+	\cosh\pab{\frac{\hbar\omega_1}{2k_B T_h}}
+	}{
+	\cosh\pab{\frac{\hbar\omega_2}{2k_B T_h}}
+	}} +
+	kT_c \ln\bab{\frac{
+	\cosh\pab{\frac{\hbar\omega_2}{2k_B T_c}}
+	}{
+	\cosh\pab{\frac{\hbar\omega_1}{2k_B T_c}}
+	}}
+\end{split}
+\end{equation}
+
+Oznaczamy ciepło wpływające z regeneratora do czynnika roboczego poprzez \cite{myers}:
+\begin{equation}
+	\Delta Q = Q_{2-3} + Q_{4-1}.
+\end{equation}
+W silniku klasycznym \(\Delta Q = 0\). W kwantowym jest to prawdziwe jedynie dla pewnych wartości \(\omega_1\), \(\omega_2\), \(T_c\) oraz \(T_h\). Jeśli \(\Delta Q < 0\) to więcej ciepła wpływa do regeneratora niż z niego wypływa i nadmiarowe ciepło musi być odprowadzone do zbiornika zimnego. Jeśli \(\Delta Q > 0\) to zachodzi sytuacja odwrotna i dodatkowe ciepło musi być przez regenerator pobrane ze zbiornika ciepłego.
+
+
