@@ -1,6 +1,6 @@
 % !TEX root = ../main.tex
 
-\section{Oscylator harmoniczny}
+\chapter{Oscylator harmoniczny}\label{sec:osc_harm}
 Jednym z podstawowych układów zarówno klasycznych, jak i kwantowych, jest oscylator harmoniczny. Opisany jest on hamiltonianem:
 \begin{equation*}
 	\ham = \inv{2m} \vu{p}^2 + \inv{2} m \omega^2 \vu{q}^2,
@@ -126,3 +126,25 @@ Rozwiązanie wraz ze stałą normującą ma postać:
 \begin{equation}\label{eq:osc_harm_stan_podst}
 	f_{0} \pab{Q} = \pi^{-\frac{1}{4}} e^{-Q^2}.
 \end{equation}
+
+Wielkości termodynamiczne w bazie wektorów własnych oscylatora harmonicznego są równe:
+\begin{gather}
+	Z = \sum_{k=0}^{\infty} \exp\pab{-\frac{E_k}{k_B T}} =
+	\exp\pab{-\frac{\hbar\omega}{2k_B T}} \sum_{k=0}^{\infty} \bab{\exp\pab{-\frac{\hbar\omega}{k_B T}}}^k =
+	\frac{\exp\pab{-\frac{\hbar\omega}{2k_B T}}}{1-\exp\pab{-\frac{\hbar\omega}{k_B T}}}, \label{eq:osc_harm_Z} \\
+	p_k = \inv{Z}\exp\pab{-\frac{E_k}{k_B T}} =
+	\bab{1-\exp\pab{-\frac{\hbar\omega}{k_B T}}}\exp\pab{-\frac{\hbar\omega}{k_B T}k}, \label{eq:osc_harm_pk} \\
+	U = \sum_{k=0}^{\infty} p_k E_k = \frac{\hbar\omega}{2} \frac{1+\exp\pab{-\frac{\hbar\omega}{k_B T}}}{1-\exp\pab{-\frac{\hbar\omega}{k_B T}}} =
+	\frac{\hbar\omega}{2} \ctgh\pab{\frac{\hbar\omega}{2k_B T}}, \label{eq:osc_harm_U} \\
+	F = - k_B T \ln\pab{Z} = k_B T \ln\pab{\inv{Z}} =
+	k_B T \ln\bab{2\sinh\pab{\frac{\hbar\omega}{2k_B T}}}, \label{eq:osc_harm_F} \\
+	S = \inv{T}\pab{U-F} =
+	\frac{\hbar\omega}{2T}\ctgh\pab{\frac{\hbar\omega}{2k_B T}} - k_B \ln\bab{2\sinh\pab{\frac{\hbar\omega}{2k_B T}}}. \label{eq:osc_harm_S}
+\end{gather}
+
+\begin{figure}
+	\centering
+	\input{figures/wykres_osc_harm.tex}
+	\caption{Wykres zależności wybranych wielkości termodynamicznych od temperatury dla oscylatora harmonicznego.}
+	\label{fig:wykres_osc_harm}
+\end{figure}

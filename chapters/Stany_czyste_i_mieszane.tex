@@ -49,7 +49,7 @@ Końcowy wynik jest w obu przypadkach niezależny od wyboru konkretnej bazy i je
 Stan mieszany niemożliwy jest do przedstawienia wektorem falowym, ponieważ nieznane są nam współczynniki \(c_k\). Jest on mieszaniną stanów czystych. Wartość oczekiwana operatora \(\vu{A}\) jest średnią ważoną z wagą \(p_k\) wartości oczekiwanych tego operatora w stanach czystych:
 \begin{multline}
 	\braket[1]{\vu{A}} =
-	\sum_k p_k \braket{\psi_k}{\vu{A}}{\psi_k} =
+	\sum_k p_k \braket[3]{\psi_k}{\vu{A}}{\psi_k} =
 	\sum_{knm} p_k \braket{\psi_n}{\psi_k} \braket{\psi_k}{\psi_m} \braket[3]{\psi_m}{\vu{A}}{\psi_n} = \\ =
 	\sum_{nm} \bra{\psi_n} \pab{\sum_k p_k \ketbra{\psi_k}{\psi_k}} \ket{\psi_m} \braket[3]{\psi_m}{\vu{A}}{\psi_n} =
 	\sum_{nm} \vu{\rho}_{nm} \vu{A}_{mn} =
@@ -109,16 +109,16 @@ Współczynniki \(c_{k}\pab{X,t}\) są wrażliwymi funkcjami, to znaczy, że zmi
 \end{align*}
 Dla \(n = k\) faza względna nie jest losowa, ponieważ jest identyczna i całkowana funkcja jest nieujemna:
 \begin{equation*}
-	\int c_{k}^{*}\pab{X,t}c_{k}\pab{X,t} \d{X} = \rho_k.
+	\int c_{k}^{*}\pab{X,t}c_{k}\pab{X,t} \d{X} = p_k.
 \end{equation*}
 Jest to element diagonalny operatora gęstości:
 \begin{equation*}
-	\rho_k \delta_{nk} = \braket[3]{\psi_n}{\rho}{\psi_k}.
+	p_k \delta_{nk} = \braket[3]{\psi_n}{\rho}{\psi_k}.
 \end{equation*}
 W ogólniejszym przypadku (bez uśredniania) również elementy pozadiagonalne są niezerowe.
-Średnia po podstawieniu \(\rho_k\) wyraża się wzorem:
+Średnia po podstawieniu \(p_k\) wyraża się wzorem:
 \begin{equation*}
-	\braket[1]{A} = \sum_{k} \rho_k \braket[3]{\psi_k}{A}{\psi_k}.
+	\braket[1]{A} = \sum_{k} p_k \braket[3]{\psi_k}{A}{\psi_k}.
 \end{equation*}
 
 
@@ -144,7 +144,7 @@ Ewolucję w czasie operatora gęstości można wyprowadzić zaczynając od równ
 	i\hbar \pdv{}{t}\ket{\Psi} &= \ham \ket{\Psi}, &
 	i\hbar \pdv{}{t}\bra{\Psi} &= -\bra{\Psi} \ham,
 \end{align}
-gdzie drugie równanie otrzymujemy sprzęgając hermitowsko pierwsze. Bezpośrednio różniczkując \eqref{eq:def_macierz_gestosci_mieszany} w przypadku izentropowym (\(p_k=const\)) \cite{rezek}:
+gdzie drugie równanie otrzymujemy sprzęgając hermitowsko pierwsze. Bezpośrednio różniczkując \eqref{eq:def_macierz_gestosci_mieszany} w przypadku izentropowym (\(p_k=const\)) \cite{feynman}:
 \begin{equation*}
 \begin{split}
 	i\hbar \pdv{}{t}\vu{\rho} =

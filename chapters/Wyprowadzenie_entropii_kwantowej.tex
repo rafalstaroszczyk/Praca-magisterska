@@ -1,0 +1,35 @@
+% !TEX root = ../main.tex
+
+\chapter{Entropia układów kwantowych}
+Odpowiednio jak w klasycznej fizyce statystycznej postulujemy, że energia swobodna Helmholtza \(F\) spełnia \cite{b:huang_mechanika_statystyczna}:
+\begin{equation*}
+	F = - \inv{\beta} \ln Z.
+\end{equation*}
+Prawdziwość tej równości możemy zweryfikować posługując się znanymi tożsamościami \cite{b:pudlik_termodynamika}:
+\begin{gather*}
+	F = U - TS = U - \frac{S}{k_B \beta}, \\
+	\pab{\pdv{U}{S}}_V = T = \inv{k_B \beta}, \\
+	\pab{\pdv{F}{T}}_V = -S, \\
+	\pab{\pdv{F}{\beta}}_V = \pab{\pdv{F}{T}}_V \pdv{T}{\beta} = \frac{S}{k_B \beta^2}.
+\end{gather*}
+Wykorzystując je możemy wyprowadzić \eqref{eq:kwant_energia_wewnetrzna}:
+\begin{multline*}
+	U = F + \frac{S}{k_B \beta} =
+	F + \beta \pab{\pdv{F}{\beta}}_V =
+	\bab{\pdv{}{\beta}\pab{\beta F}}_V =
+	- \bab{\pdv{}{\beta}\ln Z}_V = \\ =
+	- \inv{Z} \pab{\pdv{Z}{\beta}}_V =
+	- \inv{Z} \Tr\Bab{- \ham \exp\pab{-\beta\ham}} =
+	\inv{Z} \Tr\Bab{Z \vu{\rho}^{eq} \ham} =
+	\Tr\Bab{\vu{\rho}^{eq} \ham}.
+\end{multline*}
+Entropię można obliczyć przekształceniami:
+\begin{multline*}
+	S =
+	k_B \beta \pab{U - F} =
+	- k_B \beta F - k_B \beta U =
+	k_B \ln Z - k_B \beta \Tr\Bab{\vu{\rho}^{eq} \ham} = \\ =
+	k_B \frac{\ln Z}{Z} \Tr\Bab{\exp\pab{-\beta\ham}} + k_B \beta\Tr\Bab{\inv{Z} \exp\pab{-\beta\ham} \ham} = \\ =
+	- k_B \Tr\Bab{\inv{Z}\exp\pab{-\beta\ham} \bab{- \ln Z - \beta\ham}} =
+	- k_B \Tr\Bab{\vu{\rho}^{eq} \ln \vu{\rho}^{eq}}.
+\end{multline*}

@@ -1,0 +1,191 @@
+% !TEX root = ../main.tex
+
+\section{Silniki cieplne w termodynamice fenomenologicznej}
+Silniki cieplne są maszynami konwertującymi cyklicznie dostarczane do nich ciepło na pracę mechaniczną, a czynnikiem roboczym jest płyn. Przebieg pełnego cyklu silnika cieplnego jest krzywą zamknięta na płaszczyźnie \(p\pab{V}\). Krzywa ta jest skierowana, co prowadzi do podzielenia cykli na prawobieżne i lewobieżne. Na rysunku \ref{fig:cykl_prawo_lewo} przedstawiono różnice pomiędzy cyklem prawobieżnym i lewobieżnym dla takiej samej krzywej zamkniętej. Podział ten odzwierciedla zasadnicze różnice w działaniu tych maszyn. Obiegi prawobieżne \ref{fig:cykl_prawobiezny} wykonują pracę nad otoczeniem, a lewobieżne \ref{fig:cykl_lewobiezny} to pompy ciepła. Pole ograniczone tą krzywą reprezentuje wartość bezwzględną pracy objętościowej wykonanej w jednym cyklu. Teoretyczny opis takich cykli w przypadku ogólnym jest skomplikowany, dlatego wyróżnia się cykle wyidealizowane mające być przybliżeniem rzeczywistych przemian w silniku. Najważniejszym z nich jest silnik Carnota, który ma duże znaczenie w termodynamice teoretycznej, a czynnikiem roboczym jest gaz doskonały.
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}{0.45\textwidth}
+		\centering
+		\input{figures/pv_silnik_prawo.tex}
+		\caption{}
+		\label{fig:cykl_prawobiezny}
+	\end{subfigure}
+	\begin{subfigure}{0.45\textwidth}
+		\centering
+		\input{figures/pv_silnik_lewo.tex}
+		\caption{}
+		\label{fig:cykl_lewobiezny}
+	\end{subfigure}
+	\captionsetup{subrefformat=parens}
+	\caption{Porównanie cyklu prawobieżnego \subref{fig:cykl_prawobiezny} i lewobieżnego \subref{fig:cykl_lewobiezny}.}
+	\label{fig:cykl_prawo_lewo}
+\end{figure}
+
+W termodynamice technicznej powszechna jest konwecja, według której ciepło dostarczone z ciepłego zbiornika, odprowadzone do zimnego zbiornika oraz praca wykonana przez silnik są dodatnie \cite{b:huang_podstawy_fizyki_statystycznej}. Przepływy te zostały przedstawione na rysunku \ref{fig:konwencja_znakow_1}. Taki kierunek jest typowy podczas normalnej pracy i jest naturalny w analizie. Tu mimo to użyta będzie konwencja powszechna w termodynamice statystycznej w celu ujednolicenia. W konwencji tej wszystkie przepływy ciepła i pracy w kierunku silnika są dodatnie i zostały przedstawione na rysunku \ref{fig:konwencja_znakow_2}.
+
+\begin{figure}
+	\centering
+	\begin{subfigure}{0.45\textwidth}
+		\centering
+		\input{figures/schemat_konwencja_znakow_1.tex}
+		\caption{}
+		\label{fig:konwencja_znakow_1}
+	\end{subfigure}
+	\begin{subfigure}{0.45\textwidth}
+		\centering
+		\input{figures/schemat_konwencja_znakow_2.tex}
+		\caption{}
+		\label{fig:konwencja_znakow_2}
+	\end{subfigure}
+	\captionsetup{subrefformat=parens}
+	\caption{Porównanie konwencji znaków: techniczna \subref{fig:konwencja_znakow_1} i statystyczna \subref{fig:konwencja_znakow_2}.}
+\end{figure}
+
+Z Pierwszej Zasady Termodynamiki wiadomo, że energia wewnętrzna \(U\) może być zmieniona jedynie poprzez wymianę ciepła \(Q\) lub wykonanie pracy nad układzie \(W\) i ma formę:
+\begin{equation*}
+	\Delta U = Q + W,
+\end{equation*}
+co w formie różniczkowej ma postać \cite{b:huang_mechanika_statystyczna}:
+\begin{equation}\label{eq:def_1zt}
+	\d{U} = \idif{Q} + \idif{W},
+\end{equation}
+gdzie \(\dbar\) oznacza różniczkę niezupełną, czyli taką której całka zależy od drogi całkowania w przeciwieństwie do różniczki zupełnej jaką jest \(\d{U}\), co oznacza, że \(U\) jest funkcją stanu. Całkując wyrażenie \eqref{eq:def_1zt} po jednym pełnym cyklu, pamiętając że \(\oint \d{U} = 0\), otrzymujemy:
+\begin{equation}\label{eq:silnik_dU0}
+	\oint \d{U} = 0 = \oint \idif{Q} + \oint \idif{W}, \quad\Rightarrow\quad
+	-W = Q.
+\end{equation}
+
+Silnik ma kontakt cieplny z dwoma zbiornikami o różnych temperaturach. Ciepło możemy rozdzielić na to dostarczone ze zbiornika ciepłego \(Q_h\) i na to oddane do zbiornika zimnego \(Q_c\):
+\begin{equation}\label{eq:ciepla_w_silniku}
+	Q = Q_h + Q_c.
+\end{equation}
+Zgodnie z równaniem \eqref{eq:silnik_dU0} praca wykonana jest równa:
+\begin{equation}\label{eq:praca_w_silniku}
+	-W = Q_h + Q_c.
+\end{equation}
+W cyklu prawobieżnym, w silnikach wykorzystujących gaz jako czynnik roboczy, praca wykonana $W = - \oint p \d{V}$ jest kosztem ciepła $Q_h$ pobranego ze zbiornika o temperaturze $T_h$. Parametrem opisujących efektywność przemiany dostarczonego do silnika ciepła do uzyskanej pracy jest sprawność silnika cieplnego:
+\begin{equation}\label{eq:def_sprawnosc_silnika}
+\eta = \frac{-W}{Q_h} = \frac{Q_h + Q_c}{Q_h} = 1 + \frac{Q_c}{Q_h}.
+\end{equation}
+
+W analizie wyidealizowanych silników cieplnych rozważa się je jako serię elementarnych przemian: adiabatycznej (bez wymiany ciepła), izotermicznej (o stałej temperaturze czynnika roboczego), izobarycznej (o stałym ciśnieniu) oraz izochorycznej (o stałej objętości). Łącząc te przemiany w cykle zamknięte możemy otrzymać różnorodne cykle silników cieplnych o różnej liczbie przemian od 3, poprzez najpopularniejsze o 4 przemianach, i o większej ich liczbie. Przeanalizowane zostaną tu cykle: Carnota, Otta, Stirlinga.
+
+\subsection{Cykl Carnota}
+Silnik Carnota jest serią czterech przemian, w którym czynnikiem roboczym jest gaz doskonały spełniający równanie stanu:
+\begin{equation}\label{eq:def_gaz_doskonaly}
+	pV = nRT,
+\end{equation}
+gdzie \(p\) to ciśnienie gazu doskonałego, \(V\) -- objętość zajmowana przez ten gaz, \(n\) -- liczba moli tego gazu, \(R \approx \qty{8.314}{\joule / \kelvin / \mol}\) -- uniwersalna stała gazowa, \(T\) -- temperatura gazu.
+
+\begin{figure}
+	\centering
+	\input{figures/pv_silnik_carnot.tex}
+	\caption{Wykres cyklu Carnota}
+	\label{fig:pv_silnik_carnot}
+\end{figure}
+
+Przemiany w cyklu Carnota zaprezentowane są na rysunku \ref{fig:pv_silnik_carnot}. Są to po kolei: sprężanie izotermiczne w temperaturze $T_c$; sprężanie adiabatyczne, której skutkiem jest podniesienie temperatury do $T_h$; rozprężanie izotermiczne w tej samej temperaturze; oraz rozprężanie adiabatyczne do temperatury początkowej. W przemianach adiabatycznych nie występują żadne straty w postaci na przykład tarcia, a przemiany izotermiczne występują bez różnicy temperatur między czynnikiem roboczym a zbiornikiem cieplnym.
+
+Każda z przemian silnika Carnota jest odwracalna, a więc i cały cykl jest odwracalny. Silnik taki można uruchomić w drugą stronę. Spowoduje to zmianę znaków $W$, $Q_h$ oraz $Q_c$ i w efekcie kosztem włożonej pracy pobrane zostanie ciepło $Q_c$ z zimniejszego zbiornika o $T = T_c$ i oddanie ciepła $Q_h$ to cieplejszego o $T = T_h$. Aby przemiana izotermiczna była odwracalna musi być nieskończenie powolna. Cykl ten jest więc nieosiągalny w rzeczywistości, ale ma duże znaczenie w teorii termodynamiki, ponieważ stanowi górną granicę dla sprawności silników cieplnych.
+
+W silniku Carnota ciepła dostarczone ze zbiornika o \(T = T_h\) i oddane do zbiornika o \(T = T_c\) są równe:
+\begin{gather*}
+	Q_c = - W_c = \int_{V_1}^{V_2} p \d{V} = nRT_c \ln\pab{\frac{V_2}{V_1}}, \\
+	Q_h = - W_h = \int_{V_3}^{V_4} p \d{V} = nRT_h \ln\pab{\frac{V_4}{V_3}},
+\end{gather*}
+gdzie \(V_1\), \(V_2\), \(V_3\) oraz \(V_4\) to objętości gazu w silniku w punktach oznaczonych na rysunku \ref{fig:pv_silnik_carnot}. Objętości te są powiązane ze sobą warunkami narzuconymi przez przemiany adiabatyczne \cite{b:pudlik_termodynamika}:
+\begin{equation*}
+	p_{2}V_{2}^{\varkappa} = p_{3}V_{3}^{\varkappa}, \\
+	p_{1}V_{1}^{\varkappa} = p_{4}V_{4}^{\varkappa},
+\end{equation*}
+gdzie \(\varkappa = \frac{c_p}{c_V}\) to wykładnik adiabaty zależny od użytego gazu. Wykorzystując wzór \eqref{eq:def_gaz_doskonaly} możemy znaleźć:
+\begin{equation*}
+	\frac{V_1}{V_2} = \frac{V_4}{V_3}.
+\end{equation*}
+Sprawność silnika jest równa:
+\begin{equation}\label{eq:sprawnosc_silnika_Carnota}
+	\eta = 1 + \frac{Q_c}{Q_h} =
+	1 + \frac{nRT_c \ln\pab{\frac{V_2}{V_1}}}{nRT_h \ln\pab{\frac{V_4}{V_3}}} =
+	1 - \frac{T_c \ln\pab{\frac{V_1}{V_2}}}{T_h \ln\pab{\frac{V_1}{V_2}}} =
+	1 - \frac{T_c}{T_h}.
+\end{equation}
+
+\subsection{Cykl Otto}
+Cykl Otto składa się ze sprężania adiabatycznego (\(1 \rightarrow 2\)), podgrzania izochorycznej (\(2 \rightarrow 3\)), rozprężania adiabatycznego (\(3 \rightarrow 4\)) oraz ochłodzenia izochorycznego (\(4 \rightarrow 1\)). Przedstawiono go na rysunku \ref{fig:pv_silnik_otto}. Ciepło dostarczane jest ze zbiornika o temperaturze \(T_h\), a oddawane do zbiornika o temperaturze \(T_c\). Podczas tej przemiany czynnik roboczy znajduje się w temperaturze niższej lub wyższej niż zbiornik odpowiednio podczas podgrzewania lub ochładzania. Przemiany te zachodzą więc przy spadku temperatury na ściankach cylindra, co czyni go nieodwracalnym. Zgodnie z \eqref{eq:praca_w_silniku} aby określić pracę wykonaną w cyklu należy znaleźć ciepło dostarczone oraz odprowadzone, co ma miejsce jedynie podczas przemian (\(2 \rightarrow 3\)) oraz (\(4 \rightarrow 1\)). W przemianie izochorycznej wedlug wzoru \eqref{eq:def_1zt} ciepło to jest równe zmianie energii wewnętrznej i jest równe \cite{b:pudlik_termodynamika}:
+\begin{equation}
+	\idif{Q} = \pab{\pdv{U}{T}}_{V} \d{T} = n c_{V} \d{T},
+\end{equation}
+gdzie \(c_{V}\) to ciepło molowe dla stałej objętości, które dla gazu doskonałego jest parametrem niezależnym od temperatury. Całkując to wyrażenie podczas przemian otrzymujemy:
+\begin{equation}\label{eq:otto_Q}
+\begin{split}
+	Q_c = n c_{V} \pab{T_1 - T_4}, \\
+	Q_h = n c_{V} \pab{T_3 - T_2}.
+\end{split}
+\end{equation}
+
+\begin{figure}
+	\centering
+	\input{figures/pv_silnik_otto.tex}
+	\caption{Wykres cyklu Otto}
+	\label{fig:pv_silnik_otto}
+\end{figure}
+
+Z otrzymanych wzorów można znaleźć pracę i następnie sprawność silnika, lecz będzie ona wyrażona poprzez cztery temperatury, których nie kontrolujemy, gdyż są one zależne od temperatur zbiorników \(T_h\) i \(T_c\) oraz od współczynnika kompresji \(r = \frac{V_1}{V_2}\), które kontrolujemy zewnętrznie. Aby uprościć wzory opisujące te wielkości wykorzystamy więzy nałożone na parametry gazu przez przemiany adiabatyczne \cite{b:pudlik_termodynamika} oraz poprzez wprowadzenie wielkości pomocniczych:
+\begin{equation}
+\begin{split}
+	p_{1}V_{1}^{\varkappa} &= p_{2}V_{2}^{\varkappa}, \\
+	p_{4}V_{1}^{\varkappa} &= p_{3}V_{2}^{\varkappa}.
+\end{split}
+\end{equation}
+Obie z powyższych równości możemy przekształcić, aby ciśnienia zależały od stosunku objętości:
+\begin{equation*}
+	\frac{p_2}{p_1} = \frac{p_3}{p_4} = \pab{\frac{V_1}{V_2}}^{\kappa} = r^{\kappa}.
+\end{equation*}
+Wykorzystując równanie stanu gazu doskonałego \eqref{eq:def_gaz_doskonaly} możemy znaleźć analogiczną formę zależną of temperatury i objętości:
+\begin{equation}
+\begin{split}
+	T_{1}V_{1}^{\varkappa-1} &= T_{2}V_{2}^{\varkappa-1}, \\
+	T_{4}V_{1}^{\varkappa-1} &= T_{3}V_{2}^{\varkappa-1}.
+\end{split}
+\end{equation}
+Dzieląc stronami otrzymujemy stosunki temperatur równe \(\tau\). Podobnie jak wyżej możemy wyrazić stosunek temperatur też za pomocą współczynnika sprężenia:
+\begin{gather}
+	\frac{T_3}{T_2} = \frac{T_4}{T_1} = \tau, \\
+	\frac{T_2}{T_1} = \frac{T_3}{T_4} = \pab{\frac{V_1}{V_2}}^{\kappa-1} = r^{\varkappa-1} \label{eq:otto_stosunek_T}.
+\end{gather}
+Posługując się tymi wielkościami możemy wyrazić temperatury \(T_2\), \(T_3\) i \(T_4\) poprzez \(T_1\), \(r\), \(\tau\) i \(\kappa\):
+\begin{gather}
+	T_2 = T_1 r^{\varkappa-1}, \\
+	T_3 = T_1 r^{\varkappa-1} \tau, \\
+	T_4 = T_1 \tau.
+\end{gather}
+Podstawiając je do wzorów na pracę oraz sprawność otrzymujemy:
+\begin{gather}
+	W = n c_V T_1 \pab{\tau-1} \pab{r^{\varkappa-1}-1}, \label{eq:parametry_otto_W} \\
+	\eta = 1 - \inv{r^{\varkappa-1}}. \label{eq:parametry_otto_eta}
+\end{gather}
+Możemy zauważyć, że sprawność nie zależy od temperatury a jedynie od stopnia sprężenia \(r\), który jest parametrem mechanicznym danego silnika, oraz rośnie ona wraz ze wzrostem tego parametru.
+
+\subsection{Cykl Stirlinga}
+Podobnie jak powyższe składa się on z czterech przemian, ale nie ma w nim przemiany adiabatycznej. Są to po kolei: sprężanie izotermiczne w temperaturze \(T = T_c\) (\(1 \rightarrow 2\)), podgrzanie izochoryczne (\(2 \rightarrow 3\)), rozprężenie izotermiczne w temperaturze \(T = T_h\) (\(3 \rightarrow 4\)) oraz ochłodzenie izochoryczne (\(4 \rightarrow 1\)). Cykl ten wyróżnia się dodatkowym elementem, którym jest wewnętrzny wymiennik ciepła. Jego rolą jest częściowy odzysk ciepła odprowadzanego podczas jednej z przemian izochorycznych i następnie doprowadzenie go podczas drugiego z nich. Otrzymuje się dzięki temu wyższą sprawność całego cyklu. Odpowiednio ciepła w każdej z przemian są równe:
+\begin{gather*}
+	Q_1 = - W_1     = \int_{V_1}^{V_2} p \d{V} = nRT_c \ln\pab{\frac{V_2}{V_1}} \\
+	Q_{r}^{\pab{+}} = n c_V \pab{T_h - T_c} \\
+	Q_2 = - W_2     = \int_{V_2}^{V_1} p \d{V} = nRT_h \ln\pab{\frac{V_1}{V_2}} \\
+	Q_{r}^{\pab{-}} = n c_V \pab{T_c - T_h}.
+\end{gather*}
+
+\begin{figure}
+	\centering
+	\input{figures/pv_silnik_stirling.tex}
+	\caption{Wykres cyklu Stirlinga}
+	\label{fig:pv_silnik_stirling}
+\end{figure}
+
+Ciepło \(Q_{r}^{\pab{+}}\) dostarczone podczas przemiany izochorycznej jest dokładnie równe ciepłu \(Q_{r}^{\pab{-}}\) oddanemu w odpowiadającej przemianie, ale z przeciwnym znakiem. Ciepło to nigdy nie opuszcza całego układu i jest jedynie wymieniane między gazem roboczym a wymiennikiem ciepła. Praca i sprawność tego cyklu mają postać:
+\begin{gather*}
+	- W = n R \pab{T_h - T_c} \ln\pab{\frac{V_1}{V_2}}, \\
+	\eta = 1 - \frac{T_c}{T_h}.
+\end{gather*}
+Sprawność tego cyklu jest identyczna ze sprawnością silnika Carnota, więc (co wynika z twierdzenia Carnota) jest on również w pełni odwracalny mimo, że z osobna nie każda z jego przemian jest.

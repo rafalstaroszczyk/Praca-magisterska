@@ -1,6 +1,6 @@
 % !TEX root = ../main.tex
 
-\section{Algebra momentów pędu}
+\chapter{Algebra momentów pędu}
 W zagadnieniach niezmienniczych z obrotem ważnym zagadnieniem jest moment pędu cząstki. Uwględnia on zarówno ten związany z ruchem \(\vu{L} = \vu{r} \times \vu{p}\), jak i spin związany z samą cząstką \(\vu{S}\). W ogólności możemy go oznaczyć jako \(\vu{J}\), będący suma wcześniejszych. Operator ten jest wektorowym, to znaczy, że każda z jego składowych jest operatorem \(\hat{J}_x, \hat{J}_y, \hat{J}_z\). Spełniają one własności komutacyjne:
 \begin{align}\label{eq:def_J_kom}
 	\bab{\hat{J}_x, \hat{J}_y} &= i\hbar \hat{J}_z, &
@@ -74,3 +74,48 @@ Ponieważ operatory drabinkowe zmieniają \(m\) o jedność pojawiają się dwa 
 \end{cases}
 \end{equation}
 W pierszym przypadku dla każdego \(j\) dostępnych jest nieparzysta ilość różnych \(m\), natomiast w drugim jest ich ilość parzysta. W obydwu przypadkach jest ich \(2j + 1\), co jest krotnością stanu.
+
+Szczególnym przypadkiem momentu pędu jest cząstka o spinie \(s = \inv{2}\). Układ taki ma dwa stany, które zapisujemy skrótowo:
+\begin{align}
+	\ket{\uparrow} &= \ket{\inv{2},\inv{2}}, &
+	\ket{\downarrow} &= \ket{\inv{2},-\inv{2}}.
+\end{align}
+Spin taki mają na przykład elektron, proton, neutron, atom srebra i inne. Moment magnetyczny cząstki zależny jest od jej spinu \cite{griffiths_kwant}:
+\begin{equation}
+	\vu{\mu} = \gamma \vu{S},
+\end{equation}
+gdzie \(\gamma\) jest współczynnikiem żyromagnetycznym, a \(\vu{S}\) jest spinowym momentem pędu. W polu magnetycznym hamiltonian ma postać:
+\begin{equation}\label{eq:def_hamiltonian_magnetyczny}
+	\ham = - \vu{\mu} \cdot \vb{B} = - \gamma \vb{B} \cdot \vu{S},
+\end{equation}
+gdzie \(\vb{B}\) jest indukcją pola magnetycznego. Wybieramy układ współrzędnych, aby pole magnetyczne było ułożone wzdłóż osi \(z\) i równe \(\vb{B} = B \vu{z}\). Hamiltonian można zapisać:
+\begin{equation}
+	\ham = - \gamma B \hat{S}_z.
+\end{equation}
+Energia jest wartością własną hamiltonianu:
+\begin{equation}
+	\ham \ket{s,m_s} =
+	- \gamma B \hat{S}_z \ket{s,m_s} =
+	- \gamma B \hbar m_s \ket{s,m_s}.
+\end{equation}
+Wykorzystując wzór na częstość precesji Larmora \(\omega = \gamma B\) dwa stany energetyczne są równe:
+\begin{align}
+	E_{\uparrow}   &= - \frac{\gamma B \hbar}{2} = - \frac{\hbar\omega}{2}, &
+	E_{\downarrow} &=   \frac{\gamma B \hbar}{2} =   \frac{\hbar\omega}{2}.
+\end{align}
+
+W równowadze termodynamicznej:
+\begin{gather}
+	Z = \exp\pab{\frac{\hbar\omega}{2 k_B T}} + \exp\pab{-\frac{\hbar\omega}{2 k_B T}} = 2\cosh\pab{\frac{\hbar\omega}{2 k_B T}}, \\
+	p_{m_s} = \inv{Z} \exp\pab{-\frac{E_{m_s}}{k_B T}}, \\
+	U = p_{\uparrow}E_{\uparrow} + p_{\downarrow}E_{\downarrow} = - \frac{\hbar\omega}{2} \tgh\pab{\frac{\hbar\omega}{2 k_B T}}, \\
+	S = -k_B\pab{p_{\uparrow} \ln p_{\uparrow} + p_{\downarrow} \ln p_{\downarrow}} =
+	- \frac{\hbar\omega}{2T} \tgh\pab{\frac{\hbar\omega}{2 k_B T}} + k_B \ln\bab{2\cosh\pab{\frac{\hbar\omega}{2 k_B T}}}.
+\end{gather}
+
+\begin{figure}
+	\centering
+	\input{figures/wykres_spin.tex}
+	\caption{Wykres zależności wybranych wielkości termodynamicznych od temperatury dla układu o spinie \(\inv{2}\).}
+	\label{fig:wykres_spin}
+\end{figure}

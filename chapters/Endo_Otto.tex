@@ -1,0 +1,113 @@
+% !TEX root = ../main.tex
+
+\section{Silnik Otto - sprawność w punkcie maksymalnej mocy}
+Podczas cyklu Otto ciepło jest wymieniane jedynie w przemianach izochorycznych. Szybkość przepływu ciepła jest proporcjonalna do różnicy temperatur między gazem roboczym a zbiornikiem ciepła zgodnie z prawem Fouriera \cite{endo_otto}:
+\begin{align}
+	\odv{T}{t} &= -\alpha_h \pab{T - T_h}, &
+	T\pab{t=0} &= T_2, &
+	T\pab{t=\tau_h} &= T_3, \\
+	\odv{T}{t} &= -\alpha_c \pab{T - T_c}, &
+	T\pab{t=0} &= T_4, &
+	T\pab{t=\tau_c} &= T_1,
+\end{align}
+gdzie \(T_h\) oraz \(T_c\) to odpowiednio temperatury zbiornika ciepłego i zimnego, które nie są osiągane przez układ; temperatury \(T_1\), \(T_2\), \(T_3\) oraz \(T_4\) to temperatury w odpowiednich punktach wykresu \ref{fig:pv_silnik_otto}; wielkości \(alpha_h\) oraz \(alpha_c\) to współczynniki opisujące przenikalność cieplną ścianek układu. Rozwiązując równania różniczkowe z zadanymi warunkami brzegowymi otrzymujemy:
+\begin{align*}
+	T_3 - T_h &= \pab{T_2 - T_h} e^{-\alpha_h \tau_h}, &
+	T_1 - T_c &= \pab{T_4 - T_c} e^{-\alpha_c \tau_c}, \\
+	T_2 - T_h &= \pab{T_3 - T_h} e^{\alpha_h \tau_h}, &
+	T_4 - T_c &= \pab{T_1 - T_c} e^{\alpha_c \tau_c}.
+\end{align*}
+Możemy je przepisać:
+\begin{align*}
+	T_3 - T_2 e^{-\alpha_h \tau_h} &= T_h \pab{1 - e^{-\alpha_h \tau_h}}, &
+	T_1 - T_4 e^{-\alpha_c \tau_c} &= T_c \pab{1 - e^{-\alpha_c \tau_c}}, \\
+	T_3 e^{\alpha_h \tau_h} - T_2 &= T_h \pab{e^{\alpha_h \tau_h} - 1}, &
+	T_1 e^{\alpha_c \tau_c} - T_4 &= T_c \pab{e^{\alpha_c \tau_c} - 1}.
+\end{align*}
+
+Równanie \eqref{eq:otto_stosunek_T} w formie:
+\begin{equation*}\label{eq:otto_endo_stosunek_T}
+	\frac{T_1}{T_2} = \frac{T_4}{T_3} = \inv{r^{\varkappa-1}} = \kappa.
+\end{equation*}
+
+Z powyższych wzorów oraz \eqref{eq:otto_endo_stosunek_T} możemy wyprowadzić wzory na temperaturę zależne od \(\tau_h\), \(\tau_c\) oraz \(\kappa\):
+\begin{equation}\label{eq:endo_otto_T}
+	\begin{split}
+		T_1 &= \frac{
+			T_c e^{\alpha_h \tau_h} \pab{e^{\alpha_c \tau_c} - 1} + \kappa T_h \pab{e^{\alpha_h \tau_h} - 1}
+		}{
+			e^{\alpha_h \tau_h + \alpha_c \tau_c} - 1
+		}, \\
+		T_2 &= \frac{
+			T_c e^{\alpha_h \tau_h} \pab{e^{\alpha_c \tau_c} - 1} + \kappa T_h \pab{e^{\alpha_h \tau_h} - 1}
+		}{
+			\kappa \pab{e^{\alpha_h \tau_h + \alpha_c \tau_c} - 1}
+		}, \\
+		T_3 &= \frac{
+			T_c \pab{e^{\alpha_c \tau_c} - 1} + \kappa T_h e^{\alpha_c \tau_c} \pab{e^{\alpha_h \tau_h} - 1}
+		}{
+			\kappa \pab{e^{\alpha_h \tau_h + \alpha_c \tau_c} - 1}
+		}, \\
+		T_4 &= \frac{
+			T_c \pab{e^{\alpha_c \tau_c} - 1} + \kappa T_h e^{\alpha_c \tau_c} \pab{e^{\alpha_h \tau_h} - 1}
+		}{
+			e^{\alpha_h \tau_h + \alpha_c \tau_c} - 1
+		}.
+	\end{split}
+\end{equation}
+
+Sprawność cyklu Otto w punkcie maksymalnej mocy jest identyczne z przypadkiem równowagowym i zależne jedynie od \(\kappa\):
+\begin{equation}
+	\eta = 1 - \inv{r^{\varkappa}} = 1 - \kappa.
+\end{equation}
+Ciepła dostarczone oraz odprowadzone są równe:
+\begin{gather}
+	Q_{2-3} = nc_V \pab{T_3 - T_2} =
+	nc_V \frac{
+	\pab{\kappa T_h - T_c}
+	\pab{e^{\alpha_h \tau_h} - 1}
+	\pab{e^{\alpha_c \tau_c} - 1}
+	}{
+	\kappa\pab{e^{\alpha_h \tau_h + \alpha_c \tau_c} - 1}
+	}, \\
+	Q_{4-1} = nc_V \pab{T_1 - T_4} =
+	- nc_V \frac{
+	\pab{\kappa T_h - T_c}
+	\pab{e^{\alpha_h \tau_h} - 1}
+	\pab{e^{\alpha_c \tau_c} - 1}
+	}{
+	e^{\alpha_h \tau_h + \alpha_c \tau_c} - 1
+	}.
+\end{gather}
+Praca wykonana w jednym cyklu według wzoru \eqref{eq:praca_w_silniku}:
+\begin{multline}
+	-W = Q_{2-3} + Q_{4-1} =
+	\frac{nc_V\pab{1-\kappa}\pab{\kappa T_h - T_c}}{\kappa}
+	\frac{
+		\pab{e^{\alpha_h \tau_h} - 1}
+		\pab{e^{\alpha_c \tau_c} - 1}
+	}{
+		e^{\alpha_h \tau_h + \alpha_c \tau_c} - 1
+	} = \\
+	\frac{2nc_V\pab{1-\kappa}\pab{\kappa T_h - T_c}}{\kappa}
+	\sinh\pab{\frac{\alpha_h \tau_h}{2}}
+	\sinh\pab{\frac{\alpha_c \tau_c}{2}}
+	\csch\pab{\frac{\alpha_h \tau_h + \alpha_c \tau_c}{2}}.
+\end{multline}
+Moc jest stosunkiem pracy w jednym cyklu do długości tego cyklu \(\tau = \zeta\pab{\tau_h + \tau_c}\):
+\begin{equation}
+	P = \frac{nc_V}{\zeta\pab{\tau_h + \tau_c}}
+	\frac{\pab{1-\kappa}\pab{\kappa T_h - T_c}}{\kappa}
+	\sinh\pab{\frac{\alpha_h \tau_h}{2}}
+	\sinh\pab{\frac{\alpha_c \tau_c}{2}}
+	\csch\pab{\frac{\alpha_h \tau_h + \alpha_c \tau_c}{2}}.
+\end{equation}
+
+Wyrażenie na sprawność zależy jedynie od \(\kappa\), natomiast na moc można rozseparować na czynnik zależny od \(\kappa\) i od pozostałych zmiennych. Aby znaleźć sprawność w punkcie maksymalnej mocy wystarczy znaleźć maksimum funkcji zależnej od \(\kappa\):
+\begin{gather*}
+	f\pab{\kappa} = \frac{1-\kappa}{\kappa}\pab{\kappa T_h - T_c}, \\
+	\odv[delims-eval=.|]{f}{\kappa}_{\kappa_{max}} = \inv{\kappa_{max}^2}T_c - T_h = 0, \\
+	\kappa_{max} = \sqrt{\frac{T_c}{T_h}}, \\
+	\eta\pab{\kappa_{max}} = 1 - \sqrt{\frac{T_c}{T_h}}.
+\end{gather*}
+Jest to wynik identyczny do sprawności cyklu Carnota w punkcie maksymalnej mocy \eqref{eq:endo_carnot_eta}.

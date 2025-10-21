@@ -1,7 +1,7 @@
 % !TEX root = ../main.tex
 
 \section{Kwantowe maszyny cieplne}
-Kwantowe maszyny cieplne jako czynnik roboczy wykorzystują układ kwantowy o widmie ciągłym lub dyskretnym. Najprostszym przykładem jest układ o dwóch stanach energetycznych. Z układów o widmie dyskretnym powszechne są na przykład oscylator harmoniczny (energia stanu jest funkcją liniową liczby kwantowej) oraz cząstka w studni potencjały (energia stanu jest funkcją kwadratową liczby kwantowej).
+Kwantowe maszyny cieplne jako czynnik roboczy wykorzystują układ kwantowy o widmie ciągłym lub dyskretnym. Najprostszym przykładem jest układ o dwóch stanach energetycznych. Jednymi z podstawowych układow mechaniki kwantowej są oscylator harmoniczny (energia stanu jest funkcją liniową liczby kwantowej) oraz cząstka w studni potencjały (energia stanu jest funkcją kwadratową liczby kwantowej).
 
 Podobnie jak w przypadku klasycznych maszyn cieplnych zmiana energii może być zmieniana na dwa sposoby: ciepło i pracę. Praca jest dostarczana w sposów uporządkowany, a ciepło samorzutny. Według wzoru \eqref{eq:wart_ocz_macierz_mieszany} energia wewnętrzna układu opisanego hamiltonianem \(\ham\) i macierzą gęstości \(\vu{\rho}\) jest wartością oczekiwaną operatora Hamiltona:
 \begin{equation}\label{eq:kwant_energia_wewnetrzna}
@@ -15,41 +15,10 @@ Różniczkując otrzymujemy:
 W stanie równowagi dla układu zamkniętego macierz gęstości opisana jest rozkładem Boltzmanna:
 \begin{gather*}
 	\vu{\rho}^{eq} = \inv{Z} \exp\pab{-\beta\ham}, \\
-	\ln\vu{\rho}^{eq} \overset{def}{=} - \ln Z - \beta\ham,
+	\ln\vu{\rho}^{eq} \overset{def}{=} - \ln Z - \beta\ham, \\
+	S = - k_B \Tr\Bab{\vu{\rho}^{eq} \ln \vu{\rho}^{eq}},
 \end{gather*}
 gdzie \(Z = \Tr\Bab{\exp\pab{-\beta\ham}}\) to suma statystyczna wynikająca z warunku \(\Tr\Bab{\vu{\rho}} = 1\), \(\beta = \inv{k_B T}\), a \(k_B\) to stała Boltzmanna.
-Odpowiednio jak w klasycznej fizyce statystycznej postulujemy, że energia swobodna Helmholtza \(F\) spełnia \cite{b:huang_mechanika_statystyczna}:
-\begin{equation*}
-	F = - \inv{\beta} \ln Z.
-\end{equation*}
-Prawdziwość tej równości możemy zweryfikować posługując się znanymi tożsamościami \cite{b:pudlik_termodynamika}:
-\begin{gather*}
-	F = U - TS = U - \frac{S}{k_B \beta}, \\
-	\pab{\pdv{U}{S}}_V = T = \inv{k_B \beta}, \\
-	\pab{\pdv{F}{T}}_V = -S, \\
-	\pab{\pdv{F}{\beta}}_V = \pab{\pdv{F}{T}}_V \pdv{T}{\beta} = \frac{S}{k_B \beta^2}.
-\end{gather*}
-Wykorzystując je możemy wyprowadzić \eqref{eq:kwant_energia_wewnetrzna}:
-\begin{multline*}
-	U = F + \frac{S}{k_B \beta} =
-	F + \beta \pab{\pdv{F}{\beta}}_V =
-	\bab{\pdv{}{\beta}\pab{\beta F}}_V =
-	- \bab{\pdv{}{\beta}\ln Z}_V = \\ =
-	- \inv{Z} \pab{\pdv{Z}{\beta}}_V =
-	- \inv{Z} \Tr\Bab{- \ham \exp\pab{-\beta\ham}} =
-	\inv{Z} \Tr\Bab{Z \vu{\rho}^{eq} \ham} =
-	\Tr\Bab{\vu{\rho}^{eq} \ham}.
-\end{multline*}
-Entropię można obliczyć przekształceniami:
-\begin{multline*}
-	S =
-	k_B \beta \pab{U - F} =
-	- k_B \beta F - k_B \beta U =
-	k_B \ln Z - k_B \beta \Tr\Bab{\vu{\rho}^{eq} \ham} = \\ =
-	k_B \frac{\ln Z}{Z} \Tr\Bab{\exp\pab{-\beta\ham}} + k_B \beta\Tr\Bab{\inv{Z} \exp\pab{-\beta\ham} \ham} = \\ =
-	- k_B \Tr\Bab{\inv{Z}\exp\pab{-\beta\ham} \bab{- \ln Z - \beta\ham}} =
-	- k_B \Tr\Bab{\vu{\rho}^{eq} \ln \vu{\rho}^{eq}}.
-\end{multline*}
 
 Entropia jest jedynie funkcją macierzy gęstości. Dla przypadku \(\vu{\rho}^{eq} = const\) również \(S = const\). Jest to więc przypadek przemiany izoentropowej (adiabatycznej bez innych strat). Zgodnie z równaniem \eqref{eq:kwant_energia_wewnetrzna_roz} oraz  Pierwszej Zasady Termodynamiki:
 \begin{gather*}
@@ -94,10 +63,15 @@ gdzie \(\tau\) jest czasem jednego cyklu. Praca wykonana w nim spełnia:
 	- W = - \int_{0}^{\tau} \Tr\Bab{\vu{\rho}\pab{t} \odv{\ham\pab{t}}{t}} \d{t} = \\ =
 	- \pab{\Tr\Bab{\vu{\rho}\pab{\tau} \ham\pab{\tau}} - \Tr\Bab{\vu{\rho}\pab{0} \ham\pab{0}}} + \int_{0}^{\tau} \Tr\Bab{\odv{\vu{\rho}\pab{t}}{t} \ham\pab{t}} \d{t} = Q_1 + Q_2.
 \end{multline*}
-Z warunku cyklicznego entropii:
+Ponieważ \(S\) jest funkcją stanu warunek cykliczny dla entropii ma postać:
 \begin{equation*}
-	\int_{0}^{\tau} \odv{S\pab{t}}{t} \d{t} = k_B \beta_1 Q_1 + k_B \beta_2 Q_2 = 0.
+	\int_{0}^{\tau} \odv{S\pab{t}}{t} \d{t} =
+	S\pab{\tau} - S\pab{0} = 0.
 \end{equation*}
+Podczas przemian izentropowych entropia nie zmienia się z definicji tej przemiany, natomiast podczas przemian izotermicznych entropia spełnia równanie \eqref{eq:def_entropia}:
+\begin{equation}
+	k_B \beta_1 Q_1 + k_B \beta_2 Q_2 = 0.
+\end{equation}
 Wykorzystując powyższe równania otrzymujemy sprawność:
 \begin{equation}\label{eq:kwant_sprawnosc_Carnot}
 	\eta = - \frac{W}{Q_2} = \frac{Q_1 + Q_2}{Q_2} = 1 + \frac{Q_1}{Q_2} = 1 - \frac{\beta_2}{\beta_1} = 1 - \frac{T_1}{T_2}.
