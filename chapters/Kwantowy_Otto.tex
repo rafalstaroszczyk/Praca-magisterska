@@ -14,6 +14,7 @@ Kwantowy cykl Otta jest serią naprzemiennych przemian o zerowej pracy i zerowym
 \end{align*}
 Parametrem kontrolowanym przez nas jest \(\omega\). Rozpatrujemy przypadek w granicy niskiego oddziaływania z otoczeniem. W tym przypadku stan stacjonarny jest stanem równowagi termodynamicznej opisywanym rozkładem Boltzmanna \cite{endo_otto}.
 
+\subsection{Oscylator harmoniczny}
 Czynnikiem roboczym w rozpatrywanym cyklu jest oscylator harminiczny opisany w dodatku \ref{sec:osc_harm}. Ważniejsze wielkości termodynamiczne zawarto we wzorach \eqref{eq:osc_harm_Z} -- \eqref{eq:osc_harm_S}.
 Funcja \(S\) jest zależna jedynie od \(\frac{\omega}{T}\) i możemy zapisać:
 \begin{equation*}
@@ -22,7 +23,7 @@ Funcja \(S\) jest zależna jedynie od \(\frac{\omega}{T}\) i możemy zapisać:
 Jest to funkcja monotoniczna, więc jest ona też odwracalna. Oznacza to, że jeśli wartości funkcji są równe to również argumenty tej funcji są równe.
 
 Podczas przemiany izentropowej entropia na początku i końcu przemianu jest równa, stąd mamy:
-\begin{equation}\label{eq:endo_otto_omegaT}
+\begin{equation}\label{eq:endo_otto__osc_harm_omegaT}
 \begin{split}
 	S\pab{T_1,\omega_1} = S\pab{T_2,\omega_2} \quad\Rightarrow\quad
 	\tilde{S}\pab{\frac{\omega_1}{T_1}} = \tilde{S}\pab{\frac{\omega_2}{T_2}} \quad\Rightarrow\quad
@@ -151,3 +152,68 @@ Wynik ten jest nieseparowalny i zbyt skompliwowany, by go maksymalizować analit
 %	\eta\pab{\eta_{max}} = 1 - \sqrt{\frac{T_c}{T_h}}.
 %\end{gather*}
 %Jest to wynik identyczny do sprawności cyklu Carnota w punkcie maksymalnej mocy \eqref{eq:endo_carnot_eta}.
+
+\subsection{Układ o spinie \(\inv{2}\)}
+Cząstka o spinie \(\inv{2}\) ma dwa stany o energiach \eqref{eq:spin_pol_E}. W równowadze termodynamicznej wielkości termodynamiczne opisane są równaniami \eqref{eq:spin_pol_Z} -- \eqref{eq:spin_pol_S}. Entropię możemy zapisać jako funkcję stosunku \(\frac{\omega}{T}\) i jest to funkcja monotoniczna. Stąd otrzymujemy:
+\begin{equation}\label{eq:endo_otto_spin_pol_omegaT}
+\begin{split}
+	S\pab{T_1,\omega_1} = S\pab{T_2,\omega_2} \quad\Rightarrow\quad
+	\tilde{S}\pab{\frac{\omega_1}{T_1}} = \tilde{S}\pab{\frac{\omega_2}{T_2}} \quad\Rightarrow\quad
+	\frac{\omega_1}{T_1} = \frac{\omega_2}{T_2}, \\
+	S\pab{T_3,\omega_2} = S\pab{T_4,\omega_1} \quad\Rightarrow\quad
+	\tilde{S}\pab{\frac{\omega_2}{T_3}} = \tilde{S}\pab{\frac{\omega_1}{T_4}} \quad\Rightarrow\quad
+	\frac{\omega_2}{T_3} = \frac{\omega_1}{T_4}.
+\end{split}
+\end{equation}
+Podobnie jak w przypadku oscylatora harmonicznego:
+\begin{equation}
+	\kappa = \frac{\omega_1}{\omega_2} = \frac{T_1}{T_2} = \frac{T_4}{T_3}.
+\end{equation}
+
+Ciepła są równe:
+\begin{align}
+	Q_{2-3} &= U\pab{T_3\omega_2} - U\pab{T_2\omega_2} =
+	\frac{\hbar\omega_2}{2} \bab{\tgh\pab{\frac{\hbar\omega_2}{2k_B T_2}} - \tgh\pab{\frac{\hbar\omega_2}{2k_B T_3}}}, \\
+	Q_{4-1} &= U\pab{T_1\omega_1} - U\pab{T_4\omega_1} =
+	%\frac{\hbar\omega_1}{2} \bab{\tgh\pab{\frac{\hbar\omega_1}{2k_B T_4}} - \tgh\pab{\frac{\hbar\omega_1}{2k_B T_1}}} =
+	\kappa\frac{\hbar\omega_2}{2} \bab{\tgh\pab{\frac{\hbar\omega_2}{2k_B T_3}} - \tgh\pab{\frac{\hbar\omega_2}{2k_B T_2}}},
+\end{align}
+a praca:
+\begin{multline}
+	-W = Q_{2-3} + Q_{4-1} =
+	\frac{\hbar\omega_2}{2}\pab{1-\kappa} \bab{\tgh\pab{\frac{\hbar\omega_2}{2k_B T_2}} - \tgh\pab{\frac{\hbar\omega_2}{2k_B T_3}}} = \\ =
+	\frac{\hbar\omega_2}{2}\pab{1-\kappa}
+	\sinh\bab{\frac{\hbar\omega_2}{2}\pab{\inv{T_2}-\inv{T_3}}}
+	\sech\pab{\frac{\hbar\omega_2}{2k_B T_2}}
+	\sech\pab{\frac{\hbar\omega_2}{2k_B T_3}}.
+\end{multline}
+Sprawność cyklu podobnie do innych silników Otto ma formę:
+\begin{equation}
+	\eta = 1 - \kappa.
+\end{equation}
+
+Podstawiając temperatury \eqref{eq:endo_otto_T} znajdujemy moc silnika:
+\begin{multline}
+	P = - \frac{W}{\zeta\pab{\tau_h + \tau_c}} =
+	\frac{\hbar\omega_2 \pab{1-\kappa}}{2\zeta\pab{\tau_h + \tau_c}}
+	\sech\pab{\frac{\hbar\omega_2 \kappa}{2k_B}
+	\frac{
+	e^{\alpha_h \tau_h + \alpha_c \tau_c} - 1
+	}{
+	T_c e^{\alpha_h \tau_h} \pab{e^{\alpha_c \tau_c} - 1} + \kappa T_h \pab{e^{\alpha_h \tau_h} - 1}
+	}} \\
+	\sech\pab{\frac{\hbar\omega_2 \kappa}{2k_b}
+	\frac{
+		\kappa \pab{e^{\alpha_h \tau_h + \alpha_c \tau_c} - 1}
+	}{
+	T_c \pab{e^{\alpha_c \tau_c} - 1} + \kappa T_h e^{\alpha_c \tau_c} \pab{e^{\alpha_h \tau_h} - 1}
+	}} \\
+	\sinh\pab{\frac{\hbar\omega_2 \kappa}{2k_B}
+	\frac{
+	\pab{\kappa T_h - T_c}\pab{e^{\alpha_h \tau_h + \alpha_c \tau_c} - 1}\pab{e^{\alpha_h \tau_h} - 1}\pab{e^{\alpha_c \tau_c} - 1}
+	}{
+	\bab{T_c \pab{e^{\alpha_c \tau_c} - 1} + \kappa T_h e^{\alpha_c \tau_c} \pab{e^{\alpha_h \tau_h} - 1}}
+	\bab{T_c e^{\alpha_h \tau_h} \pab{e^{\alpha_c \tau_c} - 1} + \kappa T_h \pab{e^{\alpha_h \tau_h} - 1}}
+	}}.
+\end{multline}
+Podobnie jak dla przypadku oscylatora harmonicznego należy to wyrażenie zmaksymalizować numerycznie.

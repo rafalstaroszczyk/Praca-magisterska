@@ -99,18 +99,18 @@ Energia jest wartością własną hamiltonianu:
 	- \gamma B \hbar m_s \ket{s,m_s}.
 \end{equation}
 Wykorzystując wzór na częstość precesji Larmora \(\omega = \gamma B\) dwa stany energetyczne są równe:
-\begin{align}
+\begin{align}\label{eq:spin_pol_E}
 	E_{\uparrow}   &= - \frac{\gamma B \hbar}{2} = - \frac{\hbar\omega}{2}, &
 	E_{\downarrow} &=   \frac{\gamma B \hbar}{2} =   \frac{\hbar\omega}{2}.
 \end{align}
 
 W równowadze termodynamicznej:
 \begin{gather}
-	Z = \exp\pab{\frac{\hbar\omega}{2 k_B T}} + \exp\pab{-\frac{\hbar\omega}{2 k_B T}} = 2\cosh\pab{\frac{\hbar\omega}{2 k_B T}}, \\
-	p_{m_s} = \inv{Z} \exp\pab{-\frac{E_{m_s}}{k_B T}}, \\
-	U = p_{\uparrow}E_{\uparrow} + p_{\downarrow}E_{\downarrow} = - \frac{\hbar\omega}{2} \tgh\pab{\frac{\hbar\omega}{2 k_B T}}, \\
+	Z = \exp\pab{\frac{\hbar\omega}{2 k_B T}} + \exp\pab{-\frac{\hbar\omega}{2 k_B T}} = 2\cosh\pab{\frac{\hbar\omega}{2 k_B T}}, \label{eq:spin_pol_Z} \\
+	p_{m_s} = \inv{Z} \exp\pab{-\frac{E_{m_s}}{k_B T}}, \label{eq:spin_pol_pk} \\
+	U = p_{\uparrow}E_{\uparrow} + p_{\downarrow}E_{\downarrow} = - \frac{\hbar\omega}{2} \tgh\pab{\frac{\hbar\omega}{2 k_B T}}, \label{eq:spin_pol_U} \\
 	S = -k_B\pab{p_{\uparrow} \ln p_{\uparrow} + p_{\downarrow} \ln p_{\downarrow}} =
-	- \frac{\hbar\omega}{2T} \tgh\pab{\frac{\hbar\omega}{2 k_B T}} + k_B \ln\bab{2\cosh\pab{\frac{\hbar\omega}{2 k_B T}}}.
+	- \frac{\hbar\omega}{2T} \tgh\pab{\frac{\hbar\omega}{2 k_B T}} + k_B \ln\bab{2\cosh\pab{\frac{\hbar\omega}{2 k_B T}}}. \label{eq:spin_pol_S}
 \end{gather}
 
 \begin{figure}
