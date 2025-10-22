@@ -171,13 +171,15 @@ Podobnie jak w przypadku oscylatora harmonicznego:
 \end{equation}
 
 Ciepła są równe:
-\begin{align}
-	Q_{2-3} &= U\pab{T_3\omega_2} - U\pab{T_2\omega_2} =
+\begin{gather}
+	Q_{2-3} = U\pab{T_3\omega_2} - U\pab{T_2\omega_2} =
 	\frac{\hbar\omega_2}{2} \bab{\tgh\pab{\frac{\hbar\omega_2}{2k_B T_2}} - \tgh\pab{\frac{\hbar\omega_2}{2k_B T_3}}}, \\
-	Q_{4-1} &= U\pab{T_1\omega_1} - U\pab{T_4\omega_1} =
-	%\frac{\hbar\omega_1}{2} \bab{\tgh\pab{\frac{\hbar\omega_1}{2k_B T_4}} - \tgh\pab{\frac{\hbar\omega_1}{2k_B T_1}}} =
-	\kappa\frac{\hbar\omega_2}{2} \bab{\tgh\pab{\frac{\hbar\omega_2}{2k_B T_3}} - \tgh\pab{\frac{\hbar\omega_2}{2k_B T_2}}},
-\end{align}
+	\begin{split}
+		Q_{4-1} = U\pab{T_1\omega_1} - U\pab{T_4\omega_1} &=
+		\frac{\hbar\omega_1}{2} \bab{\tgh\pab{\frac{\hbar\omega_1}{2k_B T_4}} - \tgh\pab{\frac{\hbar\omega_1}{2k_B T_1}}} = \\ &=
+		\kappa\frac{\hbar\omega_2}{2} \bab{\tgh\pab{\frac{\hbar\omega_2}{2k_B T_3}} - \tgh\pab{\frac{\hbar\omega_2}{2k_B T_2}}},
+	\end{split}
+\end{gather}
 a praca:
 \begin{multline}
 	-W = Q_{2-3} + Q_{4-1} =
@@ -189,7 +191,7 @@ a praca:
 \end{multline}
 Sprawność cyklu podobnie do innych silników Otto ma formę:
 \begin{equation}
-	\eta = 1 - \kappa.
+	\eta = 1 + \frac{Q_{4-1}}{Q_{2-3}} = 1 - \kappa.
 \end{equation}
 
 Podstawiając temperatury \eqref{eq:endo_otto_T} znajdujemy moc silnika:

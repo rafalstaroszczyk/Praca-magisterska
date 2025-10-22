@@ -1,6 +1,65 @@
 % !TEX root = ../main.tex
 
-\section{Kwantowy silik Stirlinga}
+\section{Kwantowy silnik Stirlinga}
+Ciepła i prace przemian w silniku spełniają:
+\begin{align*}
+	Q_{1-2} &= S\pab{T_2,\omega_2} - S\pab{T_1,\omega_1}, \\
+	Q_{2-3} &= U\pab{T_3,\omega_2} - U\pab{T_2,\omega_2}, \\
+	Q_{3-4} &= S\pab{T_4,\omega_1} - S\pab{T_3,\omega_2}, \\
+	Q_{4-1} &= U\pab{T_1,\omega_1} - U\pab{T_4,\omega_2}.
+\end{align*}
+
+\subsection{Oscylator harmoniczny}
+Przemiany izotermiczne:
+\begin{gather}
+\begin{split}
+	Q_{1-2} &= T_c S\pab{T_c,\omega_2} - T_c S\pab{T_c,\omega_1} = \\ &=
+	kT_c \ln\bab{2\sinh\pab{\frac{\hbar\omega_1}{2k_B T_c}}} -
+	kT_c \ln\bab{2\sinh\pab{\frac{\hbar\omega_2}{2k_B T_c}}} + \\ &+
+	\frac{\hbar\omega_2}{2} \ctgh\pab{\frac{\hbar\omega_2}{2k_B T_c}} -
+	\frac{\hbar\omega_1}{2} \ctgh\pab{\frac{\hbar\omega_1}{2k_B T_c}},
+\end{split} \\
+\begin{split}
+	Q_{3-4} &= T_h S\pab{T_h,\omega_1} - T_h S\pab{T_h,\omega_2} = \\ &=
+	kT_h \ln\bab{2\sinh\pab{\frac{\hbar\omega_2}{2k_B T_h}}} -
+	kT_h \ln\bab{2\sinh\pab{\frac{\hbar\omega_1}{2k_B T_h}}} + \\ &+
+	\frac{\hbar\omega_1}{2} \ctgh\pab{\frac{\hbar\omega_1}{2k_B T_h}} -
+	\frac{\hbar\omega_2}{2} \ctgh\pab{\frac{\hbar\omega_2}{2k_B T_h}}.
+\end{split}
+\end{gather}
+
+Przemiany izochoryczne:
+\begin{gather}
+\begin{split}
+	Q_{2-3} &= U\pab{T_h,\omega_2} - U\pab{T_c,\omega_2} = \\ &=
+	\frac{\hbar\omega_2}{2}\ctgh\pab{\frac{\hbar\omega_2}{2k_B T_h}} -
+	\frac{\hbar\omega_2}{2}\ctgh\pab{\frac{\hbar\omega_2}{2k_B T_c}},
+\end{split} \\
+\begin{split}
+	Q_{4-1} &= U\pab{T_c,\omega_1} - U\pab{T_h,\omega_1} = \\ &=
+	\frac{\hbar\omega_1}{2}\ctgh\pab{\frac{\hbar\omega_2}{2k_B T_c}} -
+	\frac{\hbar\omega_1}{2}\ctgh\pab{\frac{\hbar\omega_2}{2k_B T_h}}.
+\end{split}
+\end{gather}
+
+Praca:
+\begin{equation}
+\begin{split}
+	- W &= Q_{1-2} + Q_{2-3} + Q_{3-4} + Q_{4-1} = \\ =
+	kT_h \ln\bab{\frac{
+	2\sinh\pab{\frac{\hbar\omega_2}{2k_B T_h}}
+	}{
+	2\sinh\pab{\frac{\hbar\omega_1}{2k_B T_h}}
+	}} +
+	kT_c \ln\bab{\frac{
+	2\sinh\pab{\frac{\hbar\omega_1}{2k_B T_c}}
+	}{
+	2\sinh\pab{\frac{\hbar\omega_2}{2k_B T_c}}
+	}}.
+\end{split}
+\end{equation}
+
+\subsection{Układ o spinie \(\inv{2}\)}
 Przemiany izotermiczne:
 \begin{gather}
 \begin{split}
@@ -8,14 +67,14 @@ Przemiany izotermiczne:
 	kT_c \ln\bab{2\cosh\pab{\frac{\hbar\omega_2}{2k_B T_c}}} -
 	kT_c \ln\bab{2\cosh\pab{\frac{\hbar\omega_1}{2k_B T_c}}} + \\ &+
 	\frac{\hbar\omega_1}{2} \tgh\pab{\frac{\hbar\omega_1}{2k_B T_c}} -
-	\frac{\hbar\omega_2}{2} \tgh\pab{\frac{\hbar\omega_2}{2k_B T_c}}
+	\frac{\hbar\omega_2}{2} \tgh\pab{\frac{\hbar\omega_2}{2k_B T_c}},
 \end{split} \\
 \begin{split}
 	Q_{3-4} &= T_h S\pab{T_h,\omega_1} - T_h S\pab{T_h,\omega_2} = \\ &=
 	kT_h \ln\bab{2\cosh\pab{\frac{\hbar\omega_1}{2k_B T_h}}} -
 	kT_h \ln\bab{2\cosh\pab{\frac{\hbar\omega_2}{2k_B T_h}}} + \\ &+
 	\frac{\hbar\omega_2}{2} \tgh\pab{\frac{\hbar\omega_2}{2k_B T_h}} -
-	\frac{\hbar\omega_1}{2} \tgh\pab{\frac{\hbar\omega_1}{2k_B T_h}}
+	\frac{\hbar\omega_1}{2} \tgh\pab{\frac{\hbar\omega_1}{2k_B T_h}}.
 \end{split}
 \end{gather}
 
