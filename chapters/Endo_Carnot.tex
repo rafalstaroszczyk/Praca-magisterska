@@ -8,62 +8,64 @@
 \end{figure}
 Teoretyczny cykl Carnota jest nieosiągalny. Aby cykl zachodził z maksymalną sprawnością nie może występować w procesie produkcja entropii wynikająca z przepływu ciepła. Stąd musi on zachodzić bez spadku temperatury między zbiornikiem ciepła a gazem w silniku. Taki przepływ jest nieskończenie wolny, więc moc takiego silnika jest zerowa. Bardziej zbliżona do warunków rzeczywistych jest analiza silnika w punkcie, w którym moc jest maksymalna.
 
+Warunki endoodwracalne rozważane tu oznaczają, że czynnik roboczy jest w równowadze termodynamicznej wewnętrznie (gr. \'{e}ndon - wewnątrz), ale nie jest w równowadze z otoczeniem.
+
 Ciepło jest proporcjonalne do różnicy temperatury:
 \begin{equation}\label{eq:endo_carnot_Q}
 	\begin{cases}
-		Q_{h} &= \kappa_{h}\tau_{h}\pab{T_{h} - T_{hw}} = \kappa_{h}\tau_{h}x, \\
-		Q_{c} &= \kappa_{c}\tau_{c}\pab{T_{cw} - T_{c}} = \kappa_{c}\tau_{c}y,
+		Q_{1-2} &= \alpha_{c}\tau_{c}\pab{T_{c} - T_{cw}} = - \alpha_{c}\tau_{c}y, \\
+		Q_{3-4} &= \alpha_{h}\tau_{h}\pab{T_{h} - T_{hw}} =   \alpha_{h}\tau_{h}x,
 	\end{cases}
 \end{equation}
-gdzie \(\kappa_{h}\) oraz \(\kappa_{c}\) to współczynniki przewodzenia ciepła zależne od materiału, grubości i powierzchni; a \(\tau_{h}\) oraz \(\tau_{c}\) to długość przepływu ciepła w jednym cyklu. 
+gdzie \(\alpha_{h}\) oraz \(\alpha_{c}\) to współczynniki przewodzenia ciepła zależne od materiału, grubości i powierzchni; a \(\tau_{h}\) oraz \(\tau_{c}\) to długość przepływu ciepła w jednym cyklu. 
 
 Cykl Carnota działa tu między temperaturami \(T_{hw}\) i \(T_{cw}\) zamiast \(T_{h}\) i \(T_{c}\). Wewnętrzna produkcja entropii jest zerowa. Na cykl składają się 4 procesy: 2 izentropowe i 2 izotermiczne:
 \begin{equation}\label{eq:endo_carnot_deltaS}
-	\Delta S_{h} + \Delta S_{c} = 0 \quad\Rightarrow\quad
-	\frac{Q_{h}}{T_{tw}} + \frac{- Q_{c}}{T_{cw}} = 0 \quad\Rightarrow\quad
-	\frac{Q_{h}}{T_{tw}} = \frac{Q_{c}}{T_{cw}}.
+	\Delta S_{1-2} + \Delta S_{3-4} = 0 \quad\Rightarrow\quad
+	\frac{Q_{1-2}}{T_{cw}} + \frac{Q_{3-4}}{T_{hw}} = 0 \quad\Rightarrow\quad
+	\frac{Q_{1-2}}{T_{cw}} = - \frac{Q_{3-4}}{T_{hw}}.
 \end{equation}
 Podstawiając \eqref{eq:endo_carnot_Q} do \eqref{eq:endo_carnot_deltaS} otrzymujemy:
 \begin{equation}\label{eq:endo_carnot_tau}
-	\frac{\tau_{h}}{\tau_{c}} = \frac{\kappa_{c} y \pab{T_{h} - x}}{\kappa_{h} x \pab{T_{x} + y}}.
+	\frac{\tau_{h}}{\tau_{c}} = \frac{\alpha_{c} y \pab{T_{h} - x}}{\alpha_{h} x \pab{T_{c} + y}}.
 \end{equation}
 
 Moc silnika jako funkcja \(x\) oraz \(y\) wyrażona jest wzorem:
 \begin{equation}
-	P\pab{x,y} = \frac{Q_{h} - Q_{c}}{\zeta\pab{\tau_{h} + \tau_{c}}},
+	P\pab{x,y} = \frac{Q_{1-2} + Q_{3-4}}{\zeta\pab{\tau_{h} + \tau_{c}}},
 \end{equation}
 co po podstawieniu \eqref{eq:endo_carnot_Q} ma postać:
 \begin{equation}
 	P\pab{x,y} =
-	\frac{\kappa_{h}\tau_{h}x - \kappa_{c}\tau_{c}y}{\zeta\pab{\tau_h + \tau_c}} =
-	\frac{\kappa_{h}\frac{\tau_h}{\tau_c}x - \kappa_{c}y}{\zeta\pab{\frac{\tau_h}{\tau_c} + 1}}.
+	\frac{\alpha_{h}\tau_{h}x - \alpha_{c}\tau_{c}y}{\zeta\pab{\tau_h + \tau_c}} =
+	\frac{\alpha_{h}\frac{\tau_h}{\tau_c}x - \alpha_{c}y}{\zeta\pab{\frac{\tau_h}{\tau_c} + 1}}.
 \end{equation}
 Po uwzględnieniu \eqref{eq:endo_carnot_tau} mamy:
 \begin{equation}\label{eq:endo_carnot_P}
-	P\pab{x,y} = \frac{\kappa_{h}\kappa_{c}xy}{\zeta} \frac{T_{h} - T_{c} - x - y}{\kappa_{c}T_{h}y + \kappa_{h}T_{c}x + \pab{\kappa_{h} - \kappa_{c}}xy},
+	P\pab{x,y} = \frac{\alpha_{h}\alpha_{c}xy}{\zeta} \frac{T_{h} - T_{c} - x - y}{\alpha_{c}T_{h}y + \alpha_{h}T_{c}x + \pab{\alpha_{h} - \alpha_{c}}xy},
 \end{equation}
 gdzie \(\zeta\) jest parametrem związanym z długością całego cyklu w porównaniu z suma \(\tau_{h} + \tau_{c}\). 
 
 W punkcie maksymalnej mocy zerują się pochodne cząstkowe względem \(x\) i \(y\):
 \begin{align}\label{eq:endo_carnot_pdv0}
 	\pdv{P\pab{x,y}}{x} = 0: \quad &
-	\kappa_{c}T_{h}\pab{T_{h} - T_{c} - x - y}y = x\bab{\kappa_{h}T_{c}x + \kappa_{c}T_{h}y + \pab{\kappa_{h} - \kappa_{c}}xy}, \\
+	\alpha_{c}T_{h}\pab{T_{h} - T_{c} - x - y}y = x\bab{\alpha_{h}T_{c}x + \alpha_{c}T_{h}y + \pab{\alpha_{h} - \alpha_{c}}xy}, \\
 	\pdv{P\pab{x,y}}{y} = 0: \quad &
-	\kappa_{h}T_{c}\pab{T_{h} - T_{c} - x - y}x = y\bab{\kappa_{h}T_{c}x + \kappa_{c}T_{h}y + \pab{\kappa_{h} - \kappa_{c}}xy}.
+	\alpha_{h}T_{c}\pab{T_{h} - T_{c} - x - y}x = y\bab{\alpha_{h}T_{c}x + \alpha_{c}T_{h}y + \pab{\alpha_{h} - \alpha_{c}}xy}.
 \end{align}
 Dzieląc stronami otrzymujemy:
 \begin{align}\label{eq:endo_carnot_y}
-	y^2 &= x^2\frac{\kappa_{h}T_{c}}{\kappa_{c}T_{h}}; & 
-	y &= x\sqrt{\frac{\kappa_{h}T_{c}}{\kappa_{c}T_{h}}}.
+	y^2 &= x^2\frac{\alpha_{h}T_{c}}{\alpha_{c}T_{h}}; & 
+	y &= x\sqrt{\frac{\alpha_{h}T_{c}}{\alpha_{c}T_{h}}}.
 \end{align}
 Podstawiając je do \eqref{eq:endo_carnot_pdv0} i przekształcając otrzymujemy równanie kwadratowe w zmiennej \(\frac{x}{T_{h}}\):
 \begin{equation*}
-	\pab{1 - \frac{\kappa_{h}}{\kappa_{c}}}\pab{\frac{x}{T_{h}}}^2 - 2\bab{\sqrt{\frac{\kappa_{h}T_{c}}{\kappa_{c}T_{h}}} + 1}\pab{\frac{x}{T_{h}}} + \pab{1 - \frac{T_{c}}{T_{h}}} = 0,
+	\pab{1 - \frac{\alpha_{h}}{\alpha_{c}}}\pab{\frac{x}{T_{h}}}^2 - 2\bab{\sqrt{\frac{\alpha_{h}T_{c}}{\alpha_{c}T_{h}}} + 1}\pab{\frac{x}{T_{h}}} + \pab{1 - \frac{T_{c}}{T_{h}}} = 0,
 \end{equation*}
 które ma dwa rozwiązania rzeczywiste, ale tylko jedno z nich jest fizyczne i spełniające \(\frac{x}{T_{h}} < 1\). Następnie wykorzystując \eqref{eq:endo_carnot_y} mamy:
 \begin{align}\label{eq:endo_carnot_xy}
-	\frac{x}{T_{h}} &= \frac{1 - \sqrt{\frac{T_{c}}{T_{h}}}}{1 + \sqrt{\frac{\kappa_{h}}{\kappa_{c}}}}; & 
-	\frac{y}{T_{c}} &= \frac{\sqrt{\frac{T_{h}}{T_{c}}} - 1}{1 + \sqrt{\frac{\kappa_{c}}{\kappa_{h}}}}.
+	\frac{x}{T_{h}} &= \frac{1 - \sqrt{\frac{T_{c}}{T_{h}}}}{1 + \sqrt{\frac{\alpha_{h}}{\alpha_{c}}}}; & 
+	\frac{y}{T_{c}} &= \frac{\sqrt{\frac{T_{h}}{T_{c}}} - 1}{1 + \sqrt{\frac{\alpha_{c}}{\alpha_{h}}}}.
 \end{align}
 
 Sprawność teoretycznego silnika Carnota wynosi \(\eta_C = 1 - \frac{T_{c}}{T_{h}}\), podobnie dla rozpatrywanego:
@@ -85,15 +87,15 @@ Z porównania \eqref{eq:endo_carnot_eta_def} oraz \eqref{eq:endo_carnot_eta} otr
 \end{equation}
 a z podstawienia \eqref{eq:endo_carnot_xy} do \eqref{eq:endo_carnot_tau} oraz wykorzystując \eqref{eq:endo_carnot_frac_Tw} mamy:
 \begin{equation*}
-	\frac{\tau_{h}}{\tau_{c}} = \sqrt{\frac{\kappa_{c}}{\kappa_{h}}}.
+	\frac{\tau_{h}}{\tau_{c}} = \sqrt{\frac{\alpha_{c}}{\alpha_{h}}}.
 \end{equation*}
 Przekształcając \eqref{eq:endo_carnot_xy} można znaleźć:
 \begin{align}\label{eq:endo_carnot_Tw}
-	T_{hw} &= \sqrt{T_{h}} \frac{\sqrt{\kappa_{h}T_{h}} + \sqrt{\kappa_{c}T_{c}}}{\sqrt{\kappa_{h}} + \sqrt{\kappa_{c}}}; & 
-	T_{cw} &= \sqrt{T_{c}} \frac{\sqrt{\kappa_{h}T_{h}} + \sqrt{\kappa_{c}T_{c}}}{\sqrt{\kappa_{h}} + \sqrt{\kappa_{c}}}.
+	T_{hw} &= \sqrt{T_{h}} \frac{\sqrt{\alpha_{h}T_{h}} + \sqrt{\alpha_{c}T_{c}}}{\sqrt{\alpha_{h}} + \sqrt{\alpha_{c}}}; & 
+	T_{cw} &= \sqrt{T_{c}} \frac{\sqrt{\alpha_{h}T_{h}} + \sqrt{\alpha_{c}T_{c}}}{\sqrt{\alpha_{h}} + \sqrt{\alpha_{c}}}.
 \end{align}
 Używając te własności maksymalna moc wyrażona jest wzorem:
 \begin{equation}\label{eq:endo_carnot_Pmax}
-	P = \frac{\kappa_{h}\tau_{h}\pab{T_{h} - T_{hw}} - \kappa_{c}\tau_{c}\pab{T_{cw} - T_{c}}}{\zeta\pab{\tau_{h} + \tau_{c}}} = \frac{\kappa_{h}\kappa_{c}}{\zeta}\pab{\frac{\sqrt{T_{h}} - \sqrt{T_{c}}}{\sqrt{\kappa_{h}} + \sqrt{\kappa_{c}}}}^2.
+	P = \frac{\alpha_{h}\tau_{h}\pab{T_{h} - T_{hw}} - \alpha_{c}\tau_{c}\pab{T_{cw} - T_{c}}}{\zeta\pab{\tau_{h} + \tau_{c}}} = \frac{\alpha_{h}\alpha_{c}}{\zeta}\pab{\frac{\sqrt{T_{h}} - \sqrt{T_{c}}}{\sqrt{\alpha_{h}} + \sqrt{\alpha_{c}}}}^2.
 \end{equation}
 Wyprowadzony wzór na moc w punkcie maksymalnej mocy jest zależna jedynie od temperatur zbiorników, współczynników opisujących przepływ ciepła oraz współczynnika czasowego \(\zeta\).
