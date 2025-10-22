@@ -1,0 +1,31 @@
+% !TEX root = ../main.tex
+
+\section{Silnik Stirlinga - sprawność w punkcie maksymalnej mocy}
+W przeciwieństwie do wcześniejszych cykli w tym ciepło jest wymieniane podczas każdej przemiany. Przemiany izotermiczne zachodzą odpowiednio w temperaturach \(T_{hw}\) oraz \(T_{cw}\), podczas gdy zbiorniki cieplne znajdują się w temperaturach \(T_{h}\) oraz \(T_{c}\). Różnice te oznaczamy podobnie jak w przypadku silnika Carnota:
+\begin{align}
+	T_h - T_{hw} &= x, & T_{cw} - T_c &= y.
+\end{align}
+Ciepła w przemianach izochorycznych są sobie równe co do wielkości i przeciwne.
+
+Rozpatrujemy cykl z gazem doskonałym jako czynnikiem roboczym, dla którego energia wewnętrzna jest jedynie funkcją temperatury \cite{b:kondepudi_prigogine_modern_thermodynamics}. Podczas przemian izotermicznych ciepło i praca spełniają:
+\begin{align}
+	Q_{1-2} &= - W_{1-2} = \int_{V_1}^{V_2} p\d{V} = nRT_{cw}\ln\pab{\frac{V_2}{V_1}}, \\
+	Q_{3-4} &= - W_{3-4} = \int_{V_2}^{V_1} p\d{V} = nRT_{hw}\ln\pab{\frac{V_1}{V_2}}.
+\end{align}
+Zmiany entropii dla nich zgodnie z równaniem \eqref{eq:def_entropia} spełniają:
+\begin{equation}\label{eq:endo_stirling_deltaS}
+	\Delta S_{1-2} + \Delta S_{3-4} = \frac{Q_{1-2}}{T_{cw}} + \frac{Q_{3-4}}{T_{hw}} = 0.
+\end{equation}
+Po pełnym cyklu wracamy do stanu początkowego. Entropia czynnika roboczego jest funkcją stanu, więc w pełnym cyklu jej zmiana jest zerowa:
+\begin{equation}
+	\Delta S = \Delta S_{1-2} + \Delta S_{2-3} + \Delta S_{3-4} + \Delta S_{4-1} = 0.
+\end{equation}
+Uwzględniając \eqref{eq:endo_stirling_deltaS} otrzymujemy:
+\begin{equation}
+	\Delta S_{2-3} + \Delta S_{4-1} = 0.
+\end{equation}
+Oznacza to, że dwie przemiany izochoryczne w analizie są identyczne jak dwie przemiany izentropowe cyklu Carnota. Ciepło tych przemian nie jest też brane pod uwagę, ponieważ wymieniane jest ono z wewnętrznym regeneratorem, a nie z otoczeniem. Problem ten sprowadza się więc do analizy cyklu Carnota w punkcie maksymalnej mocy i nie będzie powtórzona. Wyniki końcowe są następujace:
+\begin{gather}
+	\eta = 1 - \sqrt{\frac{T_c}{T_h}}, \\
+	P = \frac{\alpha_h \alpha_c}{\zeta} \pab{\frac{\sqrt{T_h} - \sqrt{T_c}}{\sqrt{\alpha_h} + \sqrt{\alpha_c}}}^2.
+\end{gather}
