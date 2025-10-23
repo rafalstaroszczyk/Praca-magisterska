@@ -1,7 +1,7 @@
 % !TEX root = ../main.tex
 
 \section{Kwantowe maszyny cieplne}
-Kwantowe maszyny cieplne jako czynnik roboczy wykorzystują układ kwantowy o widmie ciągłym lub dyskretnym. Najprostszym przykładem jest układ o dwóch stanach energetycznych. Jednymi z podstawowych układow mechaniki kwantowej są oscylator harmoniczny (energia stanu jest funkcją liniową liczby kwantowej) oraz cząstka w studni potencjały (energia stanu jest funkcją kwadratową liczby kwantowej).
+Kwantowe maszyny cieplne jako czynnik roboczy wykorzystują układ kwantowy. Najprostszym przykładem jest układ o dwóch stanach energetycznych. Jednymi z podstawowych układow mechaniki kwantowej są oscylator harmoniczny (energia stanu jest funkcją liniową liczby kwantowej) oraz cząstka w studni potencjały (energia stanu jest funkcją kwadratową liczby kwantowej).
 
 Podobnie jak w przypadku klasycznych maszyn cieplnych zmiana energii może być zmieniana na dwa sposoby: ciepło i pracę. Praca jest dostarczana w sposów uporządkowany, a ciepło samorzutny. Według wzoru \eqref{eq:wart_ocz_macierz_mieszany} energia wewnętrzna układu opisanego hamiltonianem \(\ham\) i macierzą gęstości \(\vu{\rho}\) jest wartością oczekiwaną operatora Hamiltona:
 \begin{equation}\label{eq:kwant_energia_wewnetrzna}
@@ -13,12 +13,14 @@ Różniczkując otrzymujemy:
 \end{equation}
 
 W stanie równowagi dla układu zamkniętego macierz gęstości opisana jest rozkładem Boltzmanna:
-\begin{gather*}
-	\vu{\rho}^{eq} = \inv{Z} \exp\pab{-\beta\ham}, \\
-	\ln\vu{\rho}^{eq} \overset{def}{=} - \ln Z - \beta\ham, \\
+\begin{equation}
+	\vu{\rho}^{eq} = \inv{Z} \exp\pab{-\beta\ham},
+\end{equation}
+gdzie \(Z = \Tr\Bab{\exp\pab{-\beta\ham}}\) to suma statystyczna wynikająca z warunku \(\Tr\Bab{\vu{\rho}} = 1\), \(\beta = \inv{k_B T}\), a \(k_B\) to stała Boltzmanna. Entropia w tym stanie jest równa:
+\begin{equation}
 	S = - k_B \Tr\Bab{\vu{\rho}^{eq} \ln \vu{\rho}^{eq}},
-\end{gather*}
-gdzie \(Z = \Tr\Bab{\exp\pab{-\beta\ham}}\) to suma statystyczna wynikająca z warunku \(\Tr\Bab{\vu{\rho}} = 1\), \(\beta = \inv{k_B T}\), a \(k_B\) to stała Boltzmanna.
+\end{equation}
+co wyprowadzono w dodatku \ref{sec:entropia_kwantowa}.
 
 Entropia jest jedynie funkcją macierzy gęstości. Dla przypadku \(\vu{\rho}^{eq} = const\) również \(S = const\). Jest to więc przypadek przemiany izoentropowej (adiabatycznej bez innych strat). Zgodnie z równaniem \eqref{eq:kwant_energia_wewnetrzna_roz} oraz  Pierwszej Zasady Termodynamiki:
 \begin{gather*}
@@ -52,12 +54,18 @@ Według równanie \eqref{eq:def_entropia} różniczka entropii jest równa:
 W obydwu przemianach ciepło jest związane ze zmianą macierzy gęstości, która opisuje obsadzenie stanów. przemiana ta jest samorzutna i niekontrolowana z zewnątrz. Praca natomiast jest związana ze zmianą hamiltonianu, która jest kontrolowana parametrem. Przy tym zmieniają się funkcje własne i energie, ale nie stałe w rozwinięciu liniowym wektora opisującego układ w bazie wektorów własnych. Postulatem mechaniki kwantowej silników cieplnych jest, że niezależnie od przemiany postać ciepła i pracy jest identyczna i równa \eqref{eq:kwant_przem_izoterm_QW}.
 
 \subsection{Kwantowy silnik Carnota}
-Podobnie jak klasyczny silnik Carnota jego kwantowy odpowiednik składa się z czterech przemian: dwóch adiabatycznych i dwóch izotermicznych. Parametry opisujące ten silnik spełniają warunki cykliczności \cite{myers}:
-\begin{gather*}
-	\ham\pab{0} = \ham\pab{\tau}, \\
-	\Tr\Bab{\vu{\rho}\pab{0} \ham\pab{0}} = \Tr\Bab{\vu{\rho}\pab{\tau} \ham\pab{\tau}}, \\
+Podobnie jak klasyczny silnik Carnota jego kwantowy odpowiednik składa się z czterech przemian: dwóch adiabatycznych i dwóch izotermicznych. Parametry opisujące ten silnik spełniają warunki cykliczności hamiltonianu \cite{myers}:
+\begin{equation*}
+	\ham\pab{0} = \ham\pab{\tau},
+\end{equation*}
+energii wewnętrznej:
+\begin{equation*}
+	\Tr\Bab{\vu{\rho}\pab{0} \ham\pab{0}} = \Tr\Bab{\vu{\rho}\pab{\tau} \ham\pab{\tau}}
+\end{equation*}
+oraz entropii:
+\begin{equation*}
 	S\pab{\vu{\rho}\pab{0}} = S\pab{\vu{\rho}\pab{\tau}},
-\end{gather*}
+\end{equation*}
 gdzie \(\tau\) jest czasem jednego cyklu. Praca wykonana w nim spełnia:
 \begin{multline*}
 	- W = - \int_{0}^{\tau} \Tr\Bab{\vu{\rho}\pab{t} \odv{\ham\pab{t}}{t}} \d{t} = \\ =

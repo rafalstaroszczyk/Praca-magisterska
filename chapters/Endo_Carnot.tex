@@ -1,28 +1,27 @@
 % !TEX root = ../main.tex
 
 \section{Silnik Carnota - sprawność w punkcie maksymalnej mocy}
-\begin{figure}[H]
+\begin{figure}[h]
 	\centering
 	\input{figures/schemat_endo_carnot.tex}
 	\caption{}
 \end{figure}
-Teoretyczny cykl Carnota jest nieosiągalny. Aby cykl zachodził z maksymalną sprawnością nie może występować w procesie produkcja entropii wynikająca z przepływu ciepła. Stąd musi on zachodzić bez spadku temperatury między zbiornikiem ciepła a gazem w silniku. Taki przepływ jest nieskończenie wolny, więc moc takiego silnika jest zerowa. Bardziej zbliżona do warunków rzeczywistych jest analiza silnika w punkcie, w którym moc jest maksymalna.
+Teoretyczny cykl Carnota jest nieosiągalny. Gdy cykl ten przebiega z maksymalną sprawnością nie występuje w nim produkcja entropii wynikająca z przepływu ciepła. Stąd musi on zachodzić bez spadku temperatury między zbiornikiem ciepła a gazem w silniku. Taki przepływ jest nieskończenie wolny, więc moc takiego silnika jest zerowa. 
 
-Warunki endoodwracalne rozważane tu oznaczają, że czynnik roboczy jest w równowadze termodynamicznej wewnętrznie (gr. \'{e}ndon - wewnątrz), ale nie jest w równowadze z otoczeniem.
+Bardziej zbliżona do warunków rzeczywistych jest analiza silnika w punkcie, w którym moc jest maksymalna. Aby uwzględnić spadek temperatury na ściankach silnika rozpatrujemy warunki endoodwracalne, co oznacza, że czynnik roboczy jest w równowadze termodynamicznej wewnętrznie (gr. \'{e}ndon - wewnątrz), ale nie jest w równowadze z otoczeniem.
 
 Ciepło jest proporcjonalne do różnicy temperatury:
-\begin{equation}\label{eq:endo_carnot_Q}
-	\begin{cases}
-		Q_{1-2} &= \alpha_{c}\tau_{c}\pab{T_{c} - T_{cw}} = - \alpha_{c}\tau_{c}y, \\
-		Q_{3-4} &= \alpha_{h}\tau_{h}\pab{T_{h} - T_{hw}} =   \alpha_{h}\tau_{h}x,
-	\end{cases}
-\end{equation}
+\begin{gather}\label{eq:endo_carnot_Q}
+\begin{split}
+	Q_{1-2} &= \alpha_{c}\tau_{c}\pab{T_{c} - T_{cw}} = - \alpha_{c}\tau_{c}y, \\
+	Q_{3-4} &= \alpha_{h}\tau_{h}\pab{T_{h} - T_{hw}} =   \alpha_{h}\tau_{h}x,
+\end{split}
+\end{gather}
 gdzie \(\alpha_{h}\) oraz \(\alpha_{c}\) to współczynniki przewodzenia ciepła zależne od materiału, grubości i powierzchni; a \(\tau_{h}\) oraz \(\tau_{c}\) to długość przepływu ciepła w jednym cyklu. 
 
 Cykl Carnota działa tu między temperaturami \(T_{hw}\) i \(T_{cw}\) zamiast \(T_{h}\) i \(T_{c}\). Wewnętrzna produkcja entropii jest zerowa. Na cykl składają się 4 procesy: 2 izentropowe i 2 izotermiczne:
 \begin{equation}\label{eq:endo_carnot_deltaS}
-	\Delta S_{1-2} + \Delta S_{3-4} = 0 \quad\Rightarrow\quad
-	\frac{Q_{1-2}}{T_{cw}} + \frac{Q_{3-4}}{T_{hw}} = 0 \quad\Rightarrow\quad
+	\Delta S_{1-2} + \Delta S_{3-4} = 0, \quad\text{stąd}\quad
 	\frac{Q_{1-2}}{T_{cw}} = - \frac{Q_{3-4}}{T_{hw}}.
 \end{equation}
 Podstawiając \eqref{eq:endo_carnot_Q} do \eqref{eq:endo_carnot_deltaS} otrzymujemy:

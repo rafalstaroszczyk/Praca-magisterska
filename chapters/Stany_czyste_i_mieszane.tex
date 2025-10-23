@@ -15,15 +15,19 @@ gdzie \(\ket{\psi_k}\) to wektory bazy dyskretne, a \(\ket{\psi_F}\) --  ciągł
 \end{equation*}
 Kwadraty ich modułów \(\vab{c_k}^2\) interpretujemy jako prawdopodobieństwo znalezienia układu w stanie powiązanym z tym współczynnikiem:
 \begin{equation*}
-	p_k = \vab{c_k}^2 = \vab{\braket{\psi_k}{\Psi}}^2 = \braket{\psi_k}{\Psi}\braket{\Psi}{\psi_k} = \braket[3]{\psi_k}{\vu{\rho}}{\psi_k},
+	\vab{c_k}^2 = \vab{\braket{\psi_k}{\Psi}}^2 = \braket{\psi_k}{\Psi}\braket{\Psi}{\psi_k} = \braket[3]{\psi_k}{\vu{\rho}}{\psi_k},
 \end{equation*}
-gdzie \(\vu{\rho} = \ketbra{\Psi}{\Psi}\) to macierz gęstości dla stanu czystego \cite{townsend_a_modern_approach_to_quantum_mechanics}. Jest ona projektorem:
+gdzie wprowadzamy macierz gęstości dla stanu czystego wyrażoną wzorem \cite{townsend_a_modern_approach_to_quantum_mechanics}:
+\begin{equation}
+	\vu{\rho} = \ketbra{\Psi}{\Psi}
+\end{equation}
+Jest ona projektorem:
 \begin{equation*}
 	\vu{\rho}^2 = \ketbra{\Psi}{\Psi}\ketbra{\Psi}{\Psi} = \ketbra{\Psi}{\Psi} = \vu{\rho},
 \end{equation*}
 a jej ślad jest równy jedności:
 \begin{equation*}
-	\Tr\Bab{\vu{\rho}} = \sum_k \braket{\psi_k}{\vu{\rho}}{\psi_k} = \sum_k p_k = 1.
+	\Tr\Bab{\vu{\rho}} = \sum_k \braket[3]{\psi_k}{\vu{\rho}}{\psi_k} = 1.
 \end{equation*}
 Cechy te stanowią test dla stanów czystych.
 
@@ -32,10 +36,10 @@ Cechy te stanowią test dla stanów czystych.
 Wartość oczekiwana operatora \(\vu{A}\) o wektorach własnych \(\vu{A}\ket{\psi_{k}} = a_{k}\ket{\psi_{k}}\) przy powyższej interpretacji \(c_{k}\) ma postać \cite{townsend_a_modern_approach_to_quantum_mechanics}:
 \begin{equation}\label{eq:wart_ocz_wektor}
 \begin{split}
-	\braket[1]{\vu{A}} = \sum_{k} p_k a_{k} = \sum_{k} \vab{c_{k}}^{2} a_{k} = \sum_{nk} c_{k}^{*} a_{n} \delta_{nk} c_{k} = \sum_{nk} \braket{\Psi}{\psi_{k}} \braket[3]{\psi_{k}}{\vu{A}}{\psi_{n}} \braket{\psi_{n}}{\Psi} = \\ = \bra{\Psi}\pab{\sum_{k}\ketbra{\psi_{k}}{\psi_{k}}} \vu{A} \pab{\sum_{n}\ketbra{\psi_{n}}{\psi_{n}}} \ket{\Psi} = \braket[3]{\Psi}{\vu{A}}{\Psi}.
+	\braket[1]{\vu{A}} = \sum_{k} \vab{c_{k}}^{2} a_{k} = \sum_{nk} c_{k}^{*} a_{n} \delta_{nk} c_{k} = \sum_{nk} \braket{\Psi}{\psi_{k}} \braket[3]{\psi_{k}}{\vu{A}}{\psi_{n}} \braket{\psi_{n}}{\Psi} = \\ = \bra{\Psi}\pab{\sum_{k}\ketbra{\psi_{k}}{\psi_{k}}} \vu{A} \pab{\sum_{n}\ketbra{\psi_{n}}{\psi_{n}}} \ket{\Psi} = \braket[3]{\Psi}{\vu{A}}{\Psi}.
 \end{split}
 \end{equation}
-Alternatywnym przekształceniem jest:
+Alternatywnie wartość oczekiwaną operatora \(\vu{A}\) możemy zapisać poprzez zastosowanie operatora gęstości \(\vu{\rho}\):
 \begin{equation}\label{eq:wart_ocz_macierz_czysty}
 \begin{split}
 	\braket[1]{\vu{A}} = \sum_{k} p_k a_{k} = \sum_{k} \braket{\psi_{k}}{\vu{\rho}}{\psi_{k}} \braket[3]{\psi_{k}}{A}{\psi_{k}} = \\ =
@@ -43,10 +47,10 @@ Alternatywnym przekształceniem jest:
 	\sum_{nk} \rho_{kn} A_{nk} = \sum_{k} \pab{\rho A}_{kk} = \Tr\Bab{\vu{\rho}\vu{A}}.
 \end{split}
 \end{equation}
-Końcowy wynik jest w obu przypadkach niezależny od wyboru konkretnej bazy i jest wzorem ogólnym. Macierz gęstości zawiera tą samą informację co wektor \(\Psi\).
+Końcowy wynik jest w obu przypadkach niezależny od wyboru konkretnej bazy i jest wzorem ogólnym. Macierz gęstości zawiera tą samą informację co wektor \(\ket{\Psi}\).
 %Elementy tej macierzy w bazie \(\psi_i\) opisuje wzór \(\rho_{nk} = \braket{\psi_n}{\Psi}\braket{\Psi}{\psi_k} = c_{n}c_{k}^{*}\).
 
-Stan mieszany niemożliwy jest do przedstawienia wektorem falowym, ponieważ nieznane są nam współczynniki \(c_k\). Jest on mieszaniną stanów czystych. Wartość oczekiwana operatora \(\vu{A}\) jest średnią ważoną z wagą \(p_k\) wartości oczekiwanych tego operatora w stanach czystych:
+Stan mieszany niemożliwy jest do przedstawienia wektorem falowym. Jest on mieszaniną stanów czystych. Wartość oczekiwana operatora \(\vu{A}\) jest średnią ważoną z wagą \(p_k\) wartości oczekiwanych tego operatora w stanach czystych:
 \begin{multline}
 	\braket[1]{\vu{A}} =
 	\sum_k p_k \braket[3]{\psi_k}{\vu{A}}{\psi_k} =
@@ -56,21 +60,25 @@ Stan mieszany niemożliwy jest do przedstawienia wektorem falowym, ponieważ nie
 	\sum_{n} \pab{\vu{\rho}\vu{A}}_{nn} =
 	\Tr\Bab{\vu{\rho}\vu{A}},
 \end{multline}
-gdzie \(\vu{\rho} = \sum_k p_k \ketbra{\psi_k}{\psi_k}\) jest macierzą gęstości stanu mieszanego. Kwadrat tej macierzy jest równy:
-\begin{equation}
+gdzie wprowadzamy macierz gęstości stanu mieszanego równą:
+\begin{equation}\label{eq:macierz_gestosci_mieszany}
+	\vu{\rho} = \sum_k p_k \ketbra{\psi_k}{\psi_k}.
+\end{equation}
+Kwadrat tej macierzy jest równy:
+\begin{equation}\label{eq:macierz_gestosci_mieszany_kwadrat}
 	\vu{\rho}^2 =
 	\sum_{kn} p_k p_n \ketbra{\psi_k}{\psi_k}\ketbra{\psi_n}{\psi_n} =
 	\sum_{kn} p_k p_n \delta_{kn} \ketbra{\psi_k}{\psi_n} =
 	\sum_{kn} p_k^2 \ketbra{\psi_k}{\psi_k} \neq \vu{\rho}.
 \end{equation}
 Nie jest to więc projektor. Ślad natomiast jest równy:
-\begin{equation}
+\begin{equation}\label{eq:macierz_gestosci_mieszany_slad}
 	\Tr\Bab{\vu{\rho}} =
 	\sum_{kn} p_k p_n \braket{\psi_n}{\psi_k}\braket{\psi_k}{\psi_n} =
 	\sum_{kn} p_k p_n \delta_{kn}^2 =
 	\sum_{k} p_k^2 \leq 1,
 \end{equation}
-gdzie równość zachodzi jedynie w przypadku \(p_i = 1\), a pozostałe \(p_{j \neq i} = 0\), co jest stanem czystym.
+gdzie równość zachodzi jedynie w przypadku \(p_i = 1\), a pozostałe \(p_{j \neq i} = 0\), co jest stanem czystym. We wzorach \eqref{eq:macierz_gestosci_mieszany_kwadrat} oraz \eqref{eq:macierz_gestosci_mieszany_slad} nierówność zachodzi dla stanu mieszanego.
 
 W fizyce statystycznej układy znajdują się w stanach mieszanych, ponieważ rzeczywiste układy kwantowe nie są izolowane, ale oddziałują w jakiś sposób z otoczeniem. Niemożliwe jest również badanie danego układu w infinitezymalnym czasie, ale każdy pomiar jest uśrednieniem badanej wielkości w czasie większym, niż czasy relaksacji układu, ale mniejszym niż zdolność rozdzielcza przyrządu \cite{b:huang_mechanika_statystyczna}. Układ taki wraz z otoczeniem opisany jest wektorem \(\Psi\pab{x,X,t}\) zależnym od współrzędnych układu \(x\), otoczenia \(X\) i czasu \(t\). W zupełnej bazie wektorów własnych hamiltonianu układu zależność od \(X\) i \(t\) można uwzględnić poprzez współrzędne \(c_{n}\pab{X,t}\) \cite{b:huang_podstawy_fizyki_statystycznej}:
 \begin{equation*}
@@ -111,33 +119,29 @@ Dla \(n = k\) faza względna nie jest losowa, ponieważ jest identyczna i całko
 \begin{equation*}
 	\int c_{k}^{*}\pab{X,t}c_{k}\pab{X,t} \d{X} = p_k.
 \end{equation*}
-Jest to element diagonalny operatora gęstości:
-\begin{equation*}
-	p_k \delta_{nk} = \braket[3]{\psi_n}{\rho}{\psi_k}.
-\end{equation*}
-W ogólniejszym przypadku (bez uśredniania) również elementy pozadiagonalne są niezerowe.
+Możemy zauważyć, że jest to element diagonalny macierzy gęstości wyrażonej wzorem \eqref{eq:macierz_gestosci_mieszany}, co łączy oba podejścia. W ogólniejszym przypadku (bez uśredniania) również elementy pozadiagonalne są niezerowe.
 Średnia po podstawieniu \(p_k\) wyraża się wzorem:
 \begin{equation*}
 	\braket[1]{A} = \sum_{k} p_k \braket[3]{\psi_k}{A}{\psi_k}.
 \end{equation*}
 
 
-Alternatywnie możemy rozpatrzeć stan mieszany jako niekoherentną mieszaninę stanów czystych z wagą \(p_k\):
-\begin{equation}\label{eq:def_macierz_gestosci_mieszany}
-	\vu{\rho} = \sum_{k} p_k \ketbra{\psi_k}{\psi_k}.
-\end{equation}
-Wzór \eqref{eq:wart_ocz_macierz_czysty} jest również prawdziwy dla stanu mieszanego:
-\begin{equation}\label{eq:wart_ocz_macierz_mieszany}
-\begin{split}
-	\Tr\Bab{\vu{\rho} \vu{A}} =
-	\sum_{k} \pab{\rho A}_{kk} =
-	\sum_{nk} \rho_{kn} A_{nk} =
-	\sum_{nkm} p_{m} \braket{\psi_k}{\psi_m}\braket{\psi_m}{\psi_n} \braket[3]{\psi_n}{A}{\psi_k} = \\ =
-	\sum_{nkm} p_{m} \delta_{km}\delta_{nm} \braket[3]{\psi_n}{A}{\psi_k} =
-	\sum_{nk} p_{k} \delta_{nk} \braket[3]{\psi_n}{A}{\psi_k} =
-	\sum_{k} p_{k} \braket[3]{\psi_k}{A}{\psi_k} = \braket[1]{A}.
-\end{split}
-\end{equation}
+%Alternatywnie możemy rozpatrzeć stan mieszany jako niekoherentną mieszaninę stanów czystych z wagą \(p_k\):
+%\begin{equation}\label{eq:def_macierz_gestosci_mieszany}
+%	\vu{\rho} = \sum_{k} p_k \ketbra{\psi_k}{\psi_k}.
+%\end{equation}
+%Wzór \eqref{eq:wart_ocz_macierz_czysty} jest również prawdziwy dla stanu mieszanego:
+%\begin{equation}\label{eq:wart_ocz_macierz_mieszany}
+%\begin{split}
+%	\Tr\Bab{\vu{\rho} \vu{A}} =
+%	\sum_{k} \pab{\rho A}_{kk} =
+%	\sum_{nk} \rho_{kn} A_{nk} =
+%	\sum_{nkm} p_{m} \braket{\psi_k}{\psi_m}\braket{\psi_m}{\psi_n} \braket[3]{\psi_n}{A}{\psi_k} = \\ =
+%	\sum_{nkm} p_{m} \delta_{km}\delta_{nm} \braket[3]{\psi_n}{A}{\psi_k} =
+%	\sum_{nk} p_{k} \delta_{nk} \braket[3]{\psi_n}{A}{\psi_k} =
+%	\sum_{k} p_{k} \braket[3]{\psi_k}{A}{\psi_k} = \braket[1]{A}.
+%\end{split}
+%\end{equation}
 
 Ewolucję w czasie operatora gęstości można wyprowadzić zaczynając od równania Schr\"{o}dingera \cite{landau_kwant}:
 \begin{align}\label{eq:rownanie_Schroedingera}
