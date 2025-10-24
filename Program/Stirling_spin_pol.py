@@ -34,18 +34,14 @@ def fQd(Q34, DeltaQ):
 def feta(W, Qd):
     return W/Qd
 
-def eta_grid(omega1_min, omega1_max, kappa_min, kappa_max, \
-        Tc, Th, grid_size):
-    omega1 = np.linspace(omega1_min, omega1_max, grid_size)
-    kappa = np.linspace(kappa_min, kappa_max, grid_size)
-    momega1, mkappa = np.meshgrid(omega1, kappa)
+def eta_grid(momega1, mkappa, Tc, Th, grid_size):
     Q12 = fQ12(momega1, mkappa, Tc, Th)
     Q23 = fQ23(momega1, mkappa, Tc, Th)
     Q34 = fQ34(momega1, mkappa, Tc, Th)
     Q41 = fQ41(momega1, mkappa, Tc, Th)
     DeltaQ = fDeltaQ(Q23, Q41)
     W = fW(Q12, Q23, Q34, Q41)
-    Qd = fQD(Q34, DeltaQ)
+    Qd = fQd(Q34, DeltaQ)
     eta = feta(W, Qd)
     return eta
 

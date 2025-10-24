@@ -1,16 +1,17 @@
 % !TEX root = ../main.tex
 
 \section{Kwantowy silnik Stirlinga}
-Ciepła i prace przemian w silniku spełniają:
+W kwantowym silniku Stirlinga pracującym równowagowo ciepło dostarczone podczas przemian izotermicznych możemy znaleźć wykorzystując wzór \eqref{eq:def_entropia}, natomiast w przemianach izochorycznych jest to różnica energii wewnętrznej zgodnie z Pierwszą Zasadą Termodynamiki (\(W=0\)). Ciepła te są równe:
 \begin{align*}
 	Q_{1-2} &= S\pab{T_2,\omega_2} - S\pab{T_1,\omega_1}, \\
 	Q_{2-3} &= U\pab{T_3,\omega_2} - U\pab{T_2,\omega_2}, \\
 	Q_{3-4} &= S\pab{T_4,\omega_1} - S\pab{T_3,\omega_2}, \\
-	Q_{4-1} &= U\pab{T_1,\omega_1} - U\pab{T_4,\omega_2}.
+	Q_{4-1} &= U\pab{T_1,\omega_1} - U\pab{T_4,\omega_2},
 \end{align*}
+gdzie \(\omega\) jest parametrem kontrolowanym z zewnątrz i ma sens odwrotnej objętości \cite{myers}. Dokładna definicja \(\omega\) zależna jest od rozpatrywanego czynnika roboczego.
 
 \subsection{Oscylator harmoniczny}
-Przemiany izotermiczne:
+Czynnikiem roboczym jest oscylator harmoniczny, a parametr \(\omega\) jest częstością drgań własnych oscylatora. W dodatku \ref{sec:osc_harm} wyprowadzono wielkości termodynamiczne U \ref{eq:osc_harm_U} i S \ref{eq:osc_harm_S}. Wykorzystując je znajdujemy odpowiednie ciepła w przemianach izotermicznych:
 \begin{gather}
 \begin{split}
 	Q_{1-2} &= T_c S\pab{T_c,\omega_2} - T_c S\pab{T_c,\omega_1} = \\ &=
@@ -24,11 +25,10 @@ Przemiany izotermiczne:
 	kT_h \ln\bab{2\sinh\pab{\frac{\hbar\omega_2}{2k_B T_h}}} -
 	kT_h \ln\bab{2\sinh\pab{\frac{\hbar\omega_1}{2k_B T_h}}} + \\ &+
 	\frac{\hbar\omega_1}{2} \ctgh\pab{\frac{\hbar\omega_1}{2k_B T_h}} -
-	\frac{\hbar\omega_2}{2} \ctgh\pab{\frac{\hbar\omega_2}{2k_B T_h}}.
+	\frac{\hbar\omega_2}{2} \ctgh\pab{\frac{\hbar\omega_2}{2k_B T_h}}
 \end{split}
 \end{gather}
-
-Przemiany izochoryczne:
+oraz w przemianach izochorycznych:
 \begin{gather}
 \begin{split}
 	Q_{2-3} &= U\pab{T_h,\omega_2} - U\pab{T_c,\omega_2} = \\ &=
@@ -42,7 +42,7 @@ Przemiany izochoryczne:
 \end{split}
 \end{gather}
 
-Praca:
+W przeciwieństwie do klasycznego silnika Stirlinga ciepła te nie są sobie równe co do wielkości i nie znoszą się nawzajem. Człony te jednak skracają się z częścią ciepeł w przemianach izotermicznych. Zgodnie ze wzorem \eqref{eq:praca_w_silniku} znajdujemy pracę:
 \begin{equation}
 \begin{split}
 	- W &= Q_{1-2} + Q_{2-3} + Q_{3-4} + Q_{4-1} = \\ =
@@ -58,6 +58,26 @@ Praca:
 	}}.
 \end{split}
 \end{equation}
+
+Oznaczamy ciepło wpływające z regeneratora do czynnika roboczego poprzez \cite{myers}:
+\begin{equation}
+	\Delta Q = Q_{2-3} + Q_{4-1}.
+\end{equation}
+W silniku klasycznym \(\Delta Q = 0\). W kwantowym jest to prawdziwe jedynie dla pewnych wartości \(\omega_1\), \(\omega_2\), \(T_c\) oraz \(T_h\). Jeśli \(\Delta Q < 0\) to więcej ciepła wpływa do regeneratora niż z niego wypływa i nadmiarowe ciepło musi być odprowadzone do zbiornika zimnego. Jeśli \(\Delta Q > 0\) to zachodzi sytuacja odwrotna i dodatkowe ciepło musi być przez regenerator pobrane ze zbiornika ciepłego.
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}{0.55\textwidth}
+		\centering
+		\input{figures/wykres_3d_stirling_harm_osc_45.tex}
+	\end{subfigure}
+	\begin{subfigure}{0.55\textwidth}
+		\centering
+		\input{figures/wykres_3d_stirling_harm_osc_90.tex}
+	\end{subfigure}
+	\caption{Wykres sprawności kwantowego silnika Stirlinga z oscylatorem harmonicznym jako czynnikiem roboczym}
+	\label{fig:wykres_kw_stirling_osc_harm}
+\end{figure}
 
 \subsection{Układ o spinie \(\inv{2}\)}
 Przemiany izotermiczne:
@@ -92,7 +112,7 @@ Przemiany izochoryczne:
 \end{split}
 \end{gather}
 
-W przeciwieństwie do klasycznego silnika Stirlinga ciepła te nie są sobie równe co do wielkości i nie znoszą się nawzajem. Człony te jednak skracają się z częścią ciepeł w przemianach izotermicznych. Praca cyklu jest równa:
+Praca cyklu jest równa:
 \begin{equation}
 \begin{split}
 	-W &= Q_{1-2} + Q_{2-3} + Q_{3-4} + Q_{4-1} = \\ &=
@@ -109,10 +129,16 @@ W przeciwieństwie do klasycznego silnika Stirlinga ciepła te nie są sobie ró
 \end{split}
 \end{equation}
 
-Oznaczamy ciepło wpływające z regeneratora do czynnika roboczego poprzez \cite{myers}:
-\begin{equation}
-	\Delta Q = Q_{2-3} + Q_{4-1}.
-\end{equation}
-W silniku klasycznym \(\Delta Q = 0\). W kwantowym jest to prawdziwe jedynie dla pewnych wartości \(\omega_1\), \(\omega_2\), \(T_c\) oraz \(T_h\). Jeśli \(\Delta Q < 0\) to więcej ciepła wpływa do regeneratora niż z niego wypływa i nadmiarowe ciepło musi być odprowadzone do zbiornika zimnego. Jeśli \(\Delta Q > 0\) to zachodzi sytuacja odwrotna i dodatkowe ciepło musi być przez regenerator pobrane ze zbiornika ciepłego.
-
-
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}{0.55\textwidth}
+		\centering
+		\input{figures/wykres_3d_stirling_spin_pol_45.tex}
+	\end{subfigure}
+	\begin{subfigure}{0.55\textwidth}
+		\centering
+		\input{figures/wykres_3d_stirling_spin_pol_90.tex}
+	\end{subfigure}
+	\caption{Wykres sprawności kwantowego silnika Stirlinga z układem o spinie \(\inv{2}\) jako czynniku roboczym}
+	\label{fig:wykres_kw_stirling_spin_pol}
+\end{figure}

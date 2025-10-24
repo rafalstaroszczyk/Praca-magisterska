@@ -1,0 +1,13 @@
+\begin{tikzpicture}
+	\begin{axis}[xlabel=$\omega_1$,
+		ylabel=$\kappa$,
+		zlabel=$\eta$,
+		grid=major,
+		colorbar,
+		mesh/ordering=y varies,
+		mesh/cols=51,
+		mesh/rows=51,
+		view={0}{90}]
+		\addplot3[surf] file {Program/Stirling_harm_osc_data.dat};
+	\end{axis}
+\end{tikzpicture}
