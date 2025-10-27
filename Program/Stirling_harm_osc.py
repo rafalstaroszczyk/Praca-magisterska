@@ -1,24 +1,23 @@
 import numpy as np
 
+def fU(T, omega):
+    return 0.5 * omega * 1/np.tanh(0.5 * omega / T)
+
+def fS(T, omega):
+    return 0.5 * omega / T * 1/np.tanh(0.5 * omega / T) - \
+        np.log(2 * np.sinh(0.5 * omega / T))
+
 def fQ12(omega1, kappa, Tc, Th):
-    return Tc * np.log(2 * np.sinh(0.5 * omega1 / Tc)) - \
-        Tc * np.log(2 * np.sinh(kappa * 0.5 * omega1 / Tc)) + \
-        kappa * 0.5 * omega1 * 1/np.tanh(kappa * 0.5 * omega1 / Tc) - \
-        0.5 * omega1 * 1/np.tanh(0.5 * omega1 / Tc)
+    return Tc * fS(Tc, kappa * omega1) - Tc * fS(Tc, omega1)
 
 def fQ23(omega1, kappa, Tc, Th):
-    return kappa * 0.5 * omega1 * 1/np.tanh(kappa * 0.5 * omega1 / Th) - \
-        kappa * 0.5 * omega1 * 1/np.tanh(kappa * 0.5 * omega1 / Tc)
+    return fU(Th, kappa * omega1) - fU(Tc, kappa * omega1)
 
 def fQ34(omega1, kappa, Tc, Th):
-    return Th * np.log(2 * np.sinh(kappa * 0.5 * omega1 / Th)) - \
-        Th * np.log(2 * np.sinh(0.5 * omega1 / Th)) + \
-        0.5 * omega1 * 1/np.tanh(0.5 * omega1 / Th) - \
-        kappa * 0.5 * omega1 * 1/np.tanh(kappa * 0.5 * omega1 / Th)
+    return Th * fS(Th, omega1) - Th * fS(Th, kappa * omega1)
 
 def fQ41(omega1, kappa, Tc, Th):
-    return 0.5 * omega1 * 1/np.tanh(0.5 * omega1 / Tc) - \
-        0.5 * omega1 * 1/np.tanh(0.5 * omega1 / Th)
+    return fU(Tc, omega1) - fU(Th, omega1)
 
 def fDeltaQ(Q23, Q41):
     return Q23 + Q41

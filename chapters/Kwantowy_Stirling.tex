@@ -11,7 +11,7 @@ W kwantowym silniku Stirlinga pracującym równowagowo ciepło dostarczone podcz
 gdzie \(\omega\) jest parametrem kontrolowanym z zewnątrz i ma sens odwrotnej objętości \cite{myers}. Dokładna definicja \(\omega\) zależna jest od rozpatrywanego czynnika roboczego.
 
 \subsection{Oscylator harmoniczny}
-Czynnikiem roboczym jest oscylator harmoniczny, a parametr \(\omega\) jest częstością drgań własnych oscylatora. W dodatku \ref{sec:osc_harm} wyprowadzono wielkości termodynamiczne U \ref{eq:osc_harm_U} i S \ref{eq:osc_harm_S}. Wykorzystując je znajdujemy odpowiednie ciepła w przemianach izotermicznych:
+Czynnikiem roboczym jest oscylator harmoniczny, a parametr \(\omega\) jest częstością drgań własnych oscylatora. W dodatku \ref{sec:osc_harm} wyprowadzono wielkości termodynamiczne U (\ref{eq:osc_harm_U}) i S (\ref{eq:osc_harm_S}). Wykorzystując je znajdujemy odpowiednie ciepła w przemianach izotermicznych:
 \begin{gather}
 \begin{split}
 	Q_{1-2} &= T_c S\pab{T_c,\omega_2} - T_c S\pab{T_c,\omega_1} = \\ &=
@@ -45,7 +45,7 @@ oraz w przemianach izochorycznych:
 W przeciwieństwie do klasycznego silnika Stirlinga ciepła te nie są sobie równe co do wielkości i nie znoszą się nawzajem. Człony te jednak skracają się z częścią ciepeł w przemianach izotermicznych. Zgodnie ze wzorem \eqref{eq:praca_w_silniku} znajdujemy pracę:
 \begin{equation}
 \begin{split}
-	- W &= Q_{1-2} + Q_{2-3} + Q_{3-4} + Q_{4-1} = \\ =
+	- W &= Q_{1-2} + Q_{2-3} + Q_{3-4} + Q_{4-1} = \\ &=
 	kT_h \ln\bab{\frac{
 	2\sinh\pab{\frac{\hbar\omega_2}{2k_B T_h}}
 	}{
@@ -63,15 +63,19 @@ Oznaczamy ciepło wpływające z regeneratora do czynnika roboczego poprzez \cit
 \begin{equation}
 	\Delta Q = Q_{2-3} + Q_{4-1}.
 \end{equation}
-W silniku klasycznym \(\Delta Q = 0\). W kwantowym jest to prawdziwe jedynie dla pewnych wartości \(\omega_1\), \(\omega_2\), \(T_c\) oraz \(T_h\). Jeśli \(\Delta Q < 0\) to więcej ciepła wpływa do regeneratora niż z niego wypływa i nadmiarowe ciepło musi być odprowadzone do zbiornika zimnego. Jeśli \(\Delta Q > 0\) to zachodzi sytuacja odwrotna i dodatkowe ciepło musi być przez regenerator pobrane ze zbiornika ciepłego.
+W silniku klasycznym \(\Delta Q = 0\). W kwantowym jest to prawdziwe jedynie dla pewnych wartości \(\omega_1\), \(\omega_2\), \(T_c\) oraz \(T_h\). Jeśli \(\Delta Q < 0\) to więcej ciepła wpływa do regeneratora niż z niego wypływa i nadmiarowe ciepło musi być odprowadzone do zbiornika zimnego. Jeśli \(\Delta Q > 0\) to zachodzi sytuacja odwrotna i dodatkowe ciepło musi być przez regenerator pobrane ze zbiornika ciepłego. Ciepło dostarczone do silnika jest więc równe \(Q_{3-4} + \delta\Delta Q\), gdzie \(\delta = 0\) dla \(\Delta Q < 0\) i \(\delta = 1\) dla \(\Delta Q > 0\) \cite{huang_stirling}. Sprawność cyklu jest stosunkiem wykonanej pracy do ciepła dostarczonego \eqref{eq:def_sprawnosc_silnika}:
+\begin{equation}
+	\eta = \frac{- W}{Q_d}.
+\end{equation}
+
+Zależność sprawności silnika Stirlinga od \(\omega_1\) oraz \(\frac{\omega_2}{\omega_1}\) przedstawiono na rysunkach \ref{fig:wykres_kw_stirling_osc_harm}.
 
 \begin{figure}[h]
-	\centering
-	\begin{subfigure}{0.55\textwidth}
+	\begin{subfigure}{0.45\textwidth}
 		\centering
 		\input{figures/wykres_3d_stirling_harm_osc_45.tex}
 	\end{subfigure}
-	\begin{subfigure}{0.55\textwidth}
+	\begin{subfigure}{0.45\textwidth}
 		\centering
 		\input{figures/wykres_3d_stirling_harm_osc_90.tex}
 	\end{subfigure}
@@ -80,7 +84,7 @@ W silniku klasycznym \(\Delta Q = 0\). W kwantowym jest to prawdziwe jedynie dla
 \end{figure}
 
 \subsection{Układ o spinie \(\inv{2}\)}
-Przemiany izotermiczne:
+Układ ten ma dwa stany. Wielkości termodynamiczne zostały wyprowadzone we wzorach \eqref{eq:spin_pol_U} oraz \eqref{eq:spin_pol_S}. Podobnie jak w powyższym przykładzie ciepła podczas przemian izotermicznych są równe \cite{huang_stirling}:
 \begin{gather}
 \begin{split}
 	Q_{1-2} &= T_c S\pab{T_c,\omega_2} - T_c S\pab{T_c,\omega_1} = \\ &=
@@ -94,11 +98,10 @@ Przemiany izotermiczne:
 	kT_h \ln\bab{2\cosh\pab{\frac{\hbar\omega_1}{2k_B T_h}}} -
 	kT_h \ln\bab{2\cosh\pab{\frac{\hbar\omega_2}{2k_B T_h}}} + \\ &+
 	\frac{\hbar\omega_2}{2} \tgh\pab{\frac{\hbar\omega_2}{2k_B T_h}} -
-	\frac{\hbar\omega_1}{2} \tgh\pab{\frac{\hbar\omega_1}{2k_B T_h}}.
+	\frac{\hbar\omega_1}{2} \tgh\pab{\frac{\hbar\omega_1}{2k_B T_h}},
 \end{split}
 \end{gather}
-
-Przemiany izochoryczne:
+natomiast podczas przemian izochorycznych:
 \begin{gather}
 \begin{split}
 	Q_{2-3} &= U\pab{T_h,\omega_2} - U\pab{T_c,\omega_2} = \\ &=
@@ -108,11 +111,10 @@ Przemiany izochoryczne:
 \begin{split}
 	Q_{4-1} &= U\pab{T_c,\omega_1} - U\pab{T_h,\omega_1} = \\ &=
 	\frac{\hbar\omega_1}{2}\tgh\pab{\frac{\hbar\omega_1}{2k_B T_h}} -
-	\frac{\hbar\omega_1}{2}\tgh\pab{\frac{\hbar\omega_1}{2k_B T_c}}
+	\frac{\hbar\omega_1}{2}\tgh\pab{\frac{\hbar\omega_1}{2k_B T_c}}.
 \end{split}
 \end{gather}
-
-Praca cyklu jest równa:
+Praca cyklu zgodnie z równaniem \eqref{eq:praca_w_silniku} jest równa:
 \begin{equation}
 \begin{split}
 	-W &= Q_{1-2} + Q_{2-3} + Q_{3-4} + Q_{4-1} = \\ &=
@@ -128,14 +130,19 @@ Praca cyklu jest równa:
 	}}
 \end{split}
 \end{equation}
+Podobnie jak w przypadku oscylatora harmonicznego sprawność zależy nie tylko od ciepła dostarczonego w przemianie izotermicznej \(Q_{3-4}\), ale również od różnicy \(\Delta Q = Q_{2-3} + Q_{4-1}\):
+\begin{equation}
+	\eta = \frac{- W}{Q_{3-4} + \delta\Delta Q}.
+\end{equation}
+
+Zależność sprawności tego silnika od wielkości \(\omega_1\) oraz \(\frac{\omega_2}{\omega_1}\) przedstawiono na rysunku \ref{fig:wykres_kw_stirling_spin_pol}. W przeciwieństwie do układu oscylatora harmonicznego w tym przypadku wyraźna jest krzywa maksymalnej sprawności. Na niej \(\Delta Q = 0\), co oznacza, że maksymalną sprawność otrzymujemy dla idealnie pracującego regeneratora. W obydwu przypadkach maksymalna sprawność przekracza tą silnika Carnota, co wydaje się łamać Drugą Zasadę Termodynamiki.
 
 \begin{figure}[h]
-	\centering
-	\begin{subfigure}{0.55\textwidth}
+	\begin{subfigure}{0.45\textwidth}
 		\centering
 		\input{figures/wykres_3d_stirling_spin_pol_45.tex}
 	\end{subfigure}
-	\begin{subfigure}{0.55\textwidth}
+	\begin{subfigure}{0.45\textwidth}
 		\centering
 		\input{figures/wykres_3d_stirling_spin_pol_90.tex}
 	\end{subfigure}

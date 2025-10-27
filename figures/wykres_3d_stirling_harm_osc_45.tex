@@ -1,5 +1,10 @@
 \begin{tikzpicture}
-	\begin{axis}[xlabel=$\omega_1$,
+	\begin{axis}[
+		width=\textwidth,
+		xlabel style={at={(ticklabel cs:0.5)}, anchor=near ticklabel},
+		ylabel style={at={(ticklabel cs:0.5)}, anchor=near ticklabel},
+		zlabel style={at={(ticklabel cs:0.5)}, rotate=-90, anchor=near ticklabel},
+		xlabel=$\omega_1$,
 		ylabel=$\frac{\omega_2}{\omega_1}$,
 		zlabel=$\eta$,
 		grid=major,

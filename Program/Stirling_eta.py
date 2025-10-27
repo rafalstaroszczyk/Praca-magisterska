@@ -2,7 +2,8 @@ import numpy as np
 import Stirling_harm_osc as sho
 import Stirling_spin_pol as ss2
 
-def StirlingHarmonicOscillator(omega1_min, omega1_max, kappa_min, kappa_max, Tc, Th, grid_size):
+def StirlingHarmonicOscillator(omega1_min, omega1_max, \
+        kappa_min, kappa_max, Tc, Th, grid_size):
     omega1 = np.linspace(omega1_min, omega1_max, grid_size)
     kappa = np.linspace(kappa_min, kappa_max, grid_size)
     momega1, mkappa = np.meshgrid(omega1, kappa)
@@ -13,9 +14,11 @@ def StirlingHarmonicOscillator(omega1_min, omega1_max, kappa_min, kappa_max, Tc,
         for j in range(grid_size):
             eta[grid_size * i + j, 1] = kappa[j]
             eta[grid_size * i + j, 2] = eta_grid[j,i]
-    np.savetxt('Stirling_harm_osc_data.dat', eta, fmt = '%.6f', delimiter=' ', newline='\n')
+    np.savetxt('Stirling_harm_osc_data.dat', eta, fmt='%.6f', \
+        delimiter=' ', newline='\n')
 
-def StirlingSpin2(omega1_min, omega1_max, kappa_min, kappa_max, Tc, Th, grid_size):
+def StirlingSpin2(omega1_min, omega1_max, \
+        kappa_min, kappa_max, Tc, Th, grid_size):
     omega1 = np.linspace(omega1_min, omega1_max, grid_size)
     kappa = np.linspace(kappa_min, kappa_max, grid_size)
     momega1, mkappa = np.meshgrid(omega1, kappa)
@@ -26,7 +29,8 @@ def StirlingSpin2(omega1_min, omega1_max, kappa_min, kappa_max, Tc, Th, grid_siz
         for j in range(grid_size):
             eta[grid_size * i + j, 1] = kappa[j]
             eta[grid_size * i + j, 2] = eta_grid[j,i]
-    np.savetxt('Stirling_spin_pol_data.dat', eta, fmt = '%.6f', delimiter=' ', newline='\n')
+    np.savetxt('Stirling_spin_pol_data.dat', eta, fmt='%.6f', \
+        delimiter=' ', newline='\n')
 
 def main():
     grid_size = 51
@@ -37,9 +41,10 @@ def main():
     Tc = 1
     Th = 3
 
-    StirlingHarmonicOscillator(omega1_min, omega1_max, kappa_min, kappa_max, Tc, Th, grid_size)
-    StirlingSpin2(omega1_min, omega1_max, kappa_min, kappa_max, Tc, Th, grid_size)
-
+    StirlingHarmonicOscillator(omega1_min, omega1_max, \
+        kappa_min, kappa_max, Tc, Th, grid_size)
+    StirlingSpin2(omega1_min, omega1_max, \
+        kappa_min, kappa_max, Tc, Th, grid_size)
 
 if __name__ == "__main__":
     main()
