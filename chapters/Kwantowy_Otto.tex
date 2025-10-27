@@ -1,16 +1,12 @@
 % !TEX root = ../main.tex
 
-\section{Endoodwracalny kwantowy silnik Otta}
+\section{Endoodwracalny kwantowy silnik Otto}
 Kwantowy cykl Otta jest serią naprzemiennych przemian o zerowej pracy i zerowym cieple. Zgodnie z rysunkiem \ref{fig:pv_silnik_otto} zmiany energii po wycałkowaniu mają postać:
 \begin{align*}
-	Q_{1-2} &= 0, &
-	W_{1-2} &= U\pab{T_2,\omega_2} - U\pab{T_1,\omega_1}, \\
-	Q_{2-3} &= U\pab{T_3,\omega_2} - U\pab{T_2,\omega_2}, &
-	W_{2-3} &= 0, \\
-	Q_{3-4} &= 0, &
-	W_{3-4} &= U\pab{T_4,\omega_1} - U\pab{T_3,\omega_2}, \\
-	Q_{4-1} &= U\pab{T_1,\omega_1} - U\pab{T_4,\omega_2}, &
-	W_{4-1} &= 0.
+	Q_{1-2} &= 0, \\
+	Q_{2-3} &= U\pab{T_3,\omega_2} - U\pab{T_2,\omega_2}, \\
+	Q_{3-4} &= 0, \\
+	Q_{4-1} &= U\pab{T_1,\omega_1} - U\pab{T_4,\omega_2}.
 \end{align*}
 Parametrem kontrolowanym przez nas jest \(\omega\). Rozpatrujemy przypadek w granicy niskiego oddziaływania z otoczeniem. W tym przypadku stan stacjonarny jest stanem równowagi termodynamicznej opisywanym rozkładem Boltzmanna \cite{endo_otto}.
 
@@ -33,15 +29,29 @@ Podczas przemiany izentropowej entropia na początku i końcu przemianu jest ró
 	\frac{\omega_2}{T_3} = \frac{\omega_1}{T_4}.
 \end{split}
 \end{equation}
-Prace i ciepła w odpowiednich przemianach są równe:
-\begin{gather*}
-	W_{1-2} = \frac{\hbar}{2}\pab{\omega_2 - \omega_1} \ctgh\pab{\frac{\hbar\omega_1}{2k_B T_1}}, \\
-	W_{3-4} = \frac{\hbar}{2}\pab{\omega_1 - \omega_2} \ctgh\pab{\frac{\hbar\omega_2}{2k_B T_3}}, \\
-	Q_{2-3} = \frac{\hbar\omega_2}{2} \ctgh\pab{\frac{\hbar\omega_2}{2k_B T_3}} - \frac{\hbar\omega_2}{2} \ctgh\pab{\frac{\hbar\omega_1}{2k_B T_1}}.
-\end{gather*}
-Wprowadzając wielkość pomocniczą \(\kappa = \frac{\omega_1}{\omega_2}\) znajdujemy sprawność silnika:
+Ciepła w odpowiednich przemianach są równe:
+\begin{equation}
+\begin{split}
+	Q_{1-2} = 0, \qquad
+	Q_{2-3} &= \frac{\hbar\omega_2}{2} \bab{
+	\ctgh\pab{\frac{\hbar\omega_2}{2k_B T_3}} -
+	\ctgh\pab{\frac{\hbar\omega_2}{2k_B T_2}}}, \\
+	Q_{3-4} = 0, \qquad
+	Q_{4-1} &= \frac{\hbar\omega_1}{2} \bab{
+	\ctgh\pab{\frac{\hbar\omega_1}{2k_B T_1}} -
+	\ctgh\pab{\frac{\hbar\omega_1}{2k_B T_4}}},
+\end{split}
+\end{equation}
+a po wprowadzeniu wielkości pomocniczej \(\kappa = \frac{\omega_1}{\omega_2}\) praca jest równa:
+\begin{equation}
+	- W = Q_{1-2} + Q_{2-3} + Q_{3-4} + Q_{4-1} = \\
+	\frac{\hbar\omega_2}{2} \pab{1 - \kappa} \bab{
+	\ctgh\pab{\frac{\hbar\omega_2}{2k_B T_3}} -
+	\ctgh\pab{\frac{\hbar\omega_2}{2k_B T_2}}}.
+\end{equation}
+Sprawność silnika jest stosunkiem pracy w jednym cyklu \(- W\) do ciepła dostarczonego \(Q_{2-3}\):
 \begin{equation}\label{eq:sprawnosc_kwantowy_otto}
-	\eta = - \frac{W_{1-2} + W_{3-4}}{Q_{2-3}} = 1 - \kappa.
+	\eta = \frac{- W}{Q_{2-3}} = 1 - \kappa.
 \end{equation}
 Jest to wzór analogiczny do wzoru \eqref{eq:parametry_otto_eta} w tym, że jest on niezależny od temperatur zbiorników.
 
@@ -94,7 +104,7 @@ Jest to wzór analogiczny do wzoru \eqref{eq:parametry_otto_eta} w tym, że jest
 %\end{split}
 %\end{equation}
 
-Moc silnika wyrażona jest wzorem:
+Moc silnika wyrażona jest równa stosunkowi pracy \(- W\) do okresu \(\zeta\pab{\tau_h + \tau_c}\) i równa:
 \begin{equation*}
 	P = \frac{-W}{\zeta\pab{\tau_h + \tau_c}} = \frac{\hbar\omega_2\pab{1-\kappa}}{2\zeta\pab{\tau_h + \tau_c}} \bab{\ctgh\pab{\frac{\hbar\omega_2}{2k_B T_3}} - \ctgh\pab{\frac{\hbar\omega_2}{2k_B T_2}}}.
 \end{equation*}
@@ -134,7 +144,26 @@ Podstawiając \eqref{eq:endo_otto_T} otrzymujemy zależność mocy od \(\tau_h\)
 	\bab{T_c e^{\alpha_h \tau_h} \pab{e^{\alpha_c \tau_c} - 1} + \kappa T_h \pab{e^{\alpha_h \tau_h} - 1}}
 	}}.
 \end{multline}
-Wynik ten jest nieseparowalny i zbyt skompliwowany, by go maksymalizować analitycznie. Należy go rozwiązać numerycznie.
+Wynik ten jest nieseparowalny i zbyt skompliwowany, by go maksymalizować analitycznie. Należy go rozwiązać numerycznie. Oblicznia zawarto w plikach \ref{pr:otto_harm_osc} oraz \ref{pr:otto_P}. Na rysunku \ref{fig:otto_harm_osc_PT} przedstawiono zależność sprawności silnika Otto, pracującego przy użyciu oscylatora harmonicznego jak czynnika roboczego, w dwóch przypadkach: niskiej i wysokiej temperatury. Możemy zaobserwować, że w przypadku niskiej temperatury sprawność silnika jest wyższa niż sprawność klasycznego silnika Otto w punkcie maksymalnej mocy \eqref{eq:endo_otto_klas_eta}, ale niższa niż idealnego silnika Carnota \eqref{eq:sprawnosc_silnika_Carnota}. Dla przypadku wysokotemperaturowego sprawność silnika kwantowego nieznacznie różni się od klasycznego. Możemy więc powiedzieć, że w wysokich temperaturach układ traci swoje cechy kwantowe i zachowuje się jak silnik klasyczny.
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}{0.45\textwidth}
+		\centering
+		\input{figures/wykres_otto_harm_osc_PT_01.tex}
+		\caption{\(\frac{\hbar\omega_2}{k_B T_c} = 0,1\)}
+		\label{fig:otto_harm_osc_PT_01}
+	\end{subfigure}
+	\begin{subfigure}{0.45\textwidth}
+		\centering
+		\input{figures/wykres_otto_harm_osc_PT_10.tex}
+		\caption{\(\frac{\hbar\omega_2}{k_B T_c} = 10\)}
+		\label{fig:otto_harm_osc_PT_10}
+	\end{subfigure}
+	\captionsetup{subrefformat=parens}
+	\caption{Porównanie sprawności silnika Otto w przypadku wysokotemperaturowym \subref{fig:otto_harm_osc_PT_01} oraz niskotemperaturowym \subref{fig:otto_harm_osc_PT_10}.}
+	\label{fig:otto_harm_osc_PT}
+\end{figure}
 
 %W klasycznym silniku Stirlinga otrzymujemy analogiczne rezultaty \eqref{eq:otto_stosunek_T}. Temperatury są również równe \eqref{eq:endo_otto_T}. Sprawność i moc tego silnika wyrażona jest wzorem:
 %\begin{equation}
@@ -218,4 +247,23 @@ Podstawiając temperatury \eqref{eq:endo_otto_T} znajdujemy moc silnika:
 	\bab{T_c e^{\alpha_h \tau_h} \pab{e^{\alpha_c \tau_c} - 1} + \kappa T_h \pab{e^{\alpha_h \tau_h} - 1}}
 	}}.
 \end{multline}
-Podobnie jak dla przypadku oscylatora harmonicznego należy to wyrażenie zmaksymalizować numerycznie.
+Podobnie jak dla przypadku oscylatora harmonicznego należy to wyrażenie zmaksymalizować numerycznie. Obliczenia te przeprowadzono używając programów zawartych w plikach \ref{pr:otto_harm_osc} oraz \ref{pr:otto_P}. Zależność sprawnośći od stosunku temperatur przedstawiono na rysunku \ref{fig:otto_spin_pol_PT}.
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}{0.45\textwidth}
+		\centering
+		\input{figures/wykres_otto_spin_pol_PT_01.tex}
+		\caption{\(\frac{\hbar\omega_2}{k_B T_c} = 0,1\)}
+		\label{fig:otto_spin_pol_PT_01}
+	\end{subfigure}
+	\begin{subfigure}{0.45\textwidth}
+		\centering
+		\input{figures/wykres_otto_spin_pol_PT_10.tex}
+		\caption{\(\frac{\hbar\omega_2}{k_B T_c} = 10\)}
+		\label{fig:otto_spin_pol_PT_10}
+	\end{subfigure}
+	\captionsetup{subrefformat=parens}
+	\caption{Porównanie sprawności silnika Otto w przypadku wysokotemperaturowym \subref{fig:otto_spin_pol_PT_01} oraz niskotemperaturowym \subref{fig:otto_spin_pol_PT_10}.}
+	\label{fig:otto_spin_pol_PT}
+\end{figure}
