@@ -5,7 +5,7 @@ W statystycznej mechanice kwantowej rozróżniamy stany czyste oraz stany miesza
 \begin{equation*}
 	\ket{\Psi} = \sum_{k} c_{k} \ket{\psi_{k}} + \int c_F \ket{\psi_F} \d{F},
 \end{equation*}
-gdzie \(\ket{\psi_k}\) to wektory bazy dyskretne, a \(\ket{\psi_F}\) --  ciągłe. Dalej rozpatrujemy jedynie stany opisane wektorami dyskretnymi (są to układy związane). Normalizacja funkcji falowej narzuca warunek na współczynniki \(c_k\):
+gdzie \(\ket{\psi_k}\) to wektory bazy dyskretnej, a \(\ket{\psi_F}\) --  ciągłej indeksowanej parametrem \(F\). Dalej rozpatrujemy jedynie stany opisane wektorami dyskretnymi (są to układy związane). Normalizacja funkcji falowej narzuca warunek na współczynniki \(c_k\):
 \begin{equation*}
 	\braket{\Psi}{\Psi} =
 	\sum_{nk} c_k^* c_n \braket{\psi_k}{\psi_n} =
@@ -17,9 +17,9 @@ Kwadraty ich modułów \(\vab{c_k}^2\) interpretujemy jako prawdopodobieństwo z
 \begin{equation*}
 	\vab{c_k}^2 = \vab{\braket{\psi_k}{\Psi}}^2 = \braket{\psi_k}{\Psi}\braket{\Psi}{\psi_k} = \braket[3]{\psi_k}{\vu{\rho}}{\psi_k},
 \end{equation*}
-gdzie wprowadzamy macierz gęstości dla stanu czystego wyrażoną wzorem \cite{townsend_a_modern_approach_to_quantum_mechanics}:
+gdzie wprowadza się macierz gęstości dla stanu czystego wyrażoną wzorem \cite{townsend_a_modern_approach_to_quantum_mechanics}:
 \begin{equation}
-	\vu{\rho} = \ketbra{\Psi}{\Psi}
+	\vu{\rho} = \ketbra{\Psi}{\Psi}.
 \end{equation}
 Jest ona projektorem:
 \begin{equation*}
@@ -42,7 +42,7 @@ Wartość oczekiwana operatora \(\vu{A}\) o wektorach własnych \(\vu{A}\ket{\ps
 Alternatywnie wartość oczekiwaną operatora \(\vu{A}\) możemy zapisać poprzez zastosowanie operatora gęstości \(\vu{\rho}\):
 \begin{equation}\label{eq:wart_ocz_macierz_czysty}
 \begin{split}
-	\braket[1]{\vu{A}} = \sum_{k} p_k a_{k} = \sum_{k} \braket{\psi_{k}}{\vu{\rho}}{\psi_{k}} \braket[3]{\psi_{k}}{A}{\psi_{k}} = \\ =
+	\braket[1]{\vu{A}} = \sum_{k} \vab{c_k}^2 a_{k} = \sum_{k} \braket[3]{\psi_{k}}{\vu{\rho}}{\psi_{k}} \braket[3]{\psi_{k}}{A}{\psi_{k}} = \\ =
 	\sum_{nk} \braket[3]{\psi_{k}}{\rho}{\psi_{n}} \braket[3]{\psi_{n}}{A}{\psi_{k}} =
 	\sum_{nk} \rho_{kn} A_{nk} = \sum_{k} \pab{\rho A}_{kk} = \Tr\Bab{\vu{\rho}\vu{A}}.
 \end{split}
@@ -51,7 +51,7 @@ Końcowy wynik jest w obu przypadkach niezależny od wyboru konkretnej bazy i je
 %Elementy tej macierzy w bazie \(\psi_i\) opisuje wzór \(\rho_{nk} = \braket{\psi_n}{\Psi}\braket{\Psi}{\psi_k} = c_{n}c_{k}^{*}\).
 
 Stan mieszany niemożliwy jest do przedstawienia wektorem falowym. Jest on mieszaniną stanów czystych. Wartość oczekiwana operatora \(\vu{A}\) jest średnią ważoną z wagą \(p_k\) wartości oczekiwanych tego operatora w stanach czystych:
-\begin{multline}
+\begin{multline}\label{eq:wart_ocz_macierz_mieszany}
 	\braket[1]{\vu{A}} =
 	\sum_k p_k \braket[3]{\psi_k}{\vu{A}}{\psi_k} =
 	\sum_{knm} p_k \braket{\psi_n}{\psi_k} \braket{\psi_k}{\psi_m} \braket[3]{\psi_m}{\vu{A}}{\psi_n} = \\ =
@@ -71,12 +71,19 @@ Kwadrat tej macierzy jest równy:
 	\sum_{kn} p_k p_n \delta_{kn} \ketbra{\psi_k}{\psi_n} =
 	\sum_{kn} p_k^2 \ketbra{\psi_k}{\psi_k} \neq \vu{\rho}.
 \end{equation}
-Nie jest to więc projektor. Ślad natomiast jest równy:
+Nie jest to więc projektor. Ślad natomiast jest równy jedności:
 \begin{equation}\label{eq:macierz_gestosci_mieszany_slad}
 	\Tr\Bab{\vu{\rho}} =
-	\sum_{kn} p_k p_n \braket{\psi_n}{\psi_k}\braket{\psi_k}{\psi_n} =
-	\sum_{kn} p_k p_n \delta_{kn}^2 =
-	\sum_{k} p_k^2 \leq 1,
+	\sum_{kn} p_k \braket{\psi_n}{\psi_k}\braket{\psi_k}{\psi_n} =
+	\sum_{kn} p_k \delta_{kn}^2 =
+	\sum_{k} p_k = 1.
+\end{equation}
+Natomiast ślad kwadratu ma postać:
+\begin{equation}\label{eq:macierz_gestosci_mieszany_kwadrat_slad}
+	\Tr\Bab{\vu{\rho}^2} =
+	\sum_{knm} p_k p_n \braket{\psi_m}{\psi_k}\braket{\psi_k}{\psi_n}\braket{\psi_n}{\psi_m} =
+	\sum_{kn} p_k p_n \delta_{mk}\delta_{kn}\delta_{nm} =
+	\sum_{k} p_k^2 \leq 1.
 \end{equation}
 gdzie równość zachodzi jedynie w przypadku \(p_i = 1\), a pozostałe \(p_{j \neq i} = 0\), co jest stanem czystym. We wzorach \eqref{eq:macierz_gestosci_mieszany_kwadrat} oraz \eqref{eq:macierz_gestosci_mieszany_slad} nierówność zachodzi dla stanu mieszanego.
 
@@ -110,7 +117,7 @@ Obserwowana jest średnia termiczna, która jest całką po zmiennych środowisk
 	\overline{\int \braket[3]{\Psi}{A}{\Psi} \d{X}} =
 	\sum_{nk} \overline{\int c_{k}^{*}\pab{X,t}c_{n}\pab{X,t} \d{X}} A_{kn}.
 \end{equation}
-Współczynniki \(c_{k}\pab{X,t}\) są wrażliwymi funkcjami, to znaczy, że zmiany współrzędnych \(X\) bardzo wpływają na faze tych współczynników. Możemy więc wprowadzić założenie fazy przypadkowej \cite{b:huang_mechanika_statystyczna};
+Współczynniki \(c_{k}\pab{X,t}\) są wrażliwymi funkcjami \(X\), to znaczy, że zmiany współrzędnych \(X\) bardzo wpływają na faze tych współczynników. Możemy więc wprowadzić założenie fazy przypadkowej \cite{b:huang_mechanika_statystyczna};
 \begin{align*}
 	\int c_{k}^{*}\pab{X,t}c_{n}\pab{X,t} \d{X} &= 0, &
 	n \neq k.
