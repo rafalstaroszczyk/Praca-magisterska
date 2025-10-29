@@ -1,7 +1,7 @@
 % !TEX root = ../main.tex
 
 \chapter{Oscylator harmoniczny}\label{sec:osc_harm}
-Jednym z podstawowych układów zarówno klasycznych, jak i kwantowych, jest oscylator harmoniczny. Opisany jest on hamiltonianem:
+Jednym z podstawowych układów zarówno klasycznych, jak i kwantowych, jest oscylator harmoniczny. Opisany jest on hamiltonianem \cite{Louisell}:
 \begin{equation*}
 	\ham = \inv{2m} \vu{p}^2 + \inv{2} m \omega^2 \vu{q}^2,
 \end{equation*}
@@ -59,7 +59,7 @@ Definiujemy nowe operatory anihilacji i kreacji:
 	\vu{a} &= \inv{\sqrt{2}} \pab{\vu{Q} + i\vu{P}}, &
 	\vu{a}^{\dagger} &= \inv{\sqrt{2}} \pab{\vu{Q} - i\vu{P}}.
 \end{align*}
-Dodatkowo można znaleźć, że:
+Dodatkowo można znaleźć, że \cite{Louisell}:
 \begin{align*}
 	\vu{a}^{\dagger}\vu{a} &= \inv{\hbar\omega}\ham - \inv{2}, &
 	\ham &= \hbar\omega \pab{\vu{a}^{\dagger}\vu{a} + \inv{2}} =
@@ -110,7 +110,7 @@ Fazę tych stałych możemy wybrać dowolną, a więc też taką, aby współczy
 	\vu{a} \ket{n} &= \sqrt{n} \ket{n - 1}, &
 	\vu{a}^{\dagger} \ket{n} &= \sqrt{n + 1} \ket{n + 1}.
 \end{align*}
-Iteracyjnie stosując te wzory do stanu podstawowego otrzymujemy wzory ogólne:
+Iteracyjnie stosując te wzory do stanu podstawowego otrzymujemy wzory ogólne \cite{Louisell}:
 \begin{align*}
 	\ket{n} &= \inv{\sqrt{n!}} \pab{\vu{a}^{\dagger}}^n \ket{0}, &
 	\bra{n} &= \inv{\sqrt{n!}} \bra{0} \pab{\vu{a}}^n.
@@ -127,7 +127,7 @@ Rozwiązanie wraz ze stałą normującą ma postać:
 	f_{0} \pab{Q} = \pi^{-\frac{1}{4}} e^{-Q^2}.
 \end{equation}
 
-Wielkości termodynamiczne w bazie wektorów własnych oscylatora harmonicznego są równe:
+Wielkości termodynamiczne w bazie wektorów własnych oscylatora harmonicznego są równe \cite{kieu}:
 \begin{gather}
 	Z = \sum_{k=0}^{\infty} \exp\pab{-\frac{E_k}{k_B T}} =
 	\exp\pab{-\frac{\hbar\omega}{2k_B T}} \sum_{k=0}^{\infty} \bab{\exp\pab{-\frac{\hbar\omega}{k_B T}}}^k =
