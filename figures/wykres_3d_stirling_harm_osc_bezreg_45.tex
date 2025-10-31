@@ -1,0 +1,17 @@
+\begin{tikzpicture}
+	\begin{axis}[
+		width=\textwidth,
+		xlabel style={at={(ticklabel cs:0.5)}, anchor=near ticklabel},
+		ylabel style={at={(ticklabel cs:0.5)}, anchor=near ticklabel},
+		zlabel style={at={(ticklabel cs:0.5)}, rotate=-90, anchor=near ticklabel},
+		xlabel=$\omega_1$,
+		ylabel=$\frac{\omega_2}{\omega_1}$,
+		zlabel=$\eta$,
+		grid=major,
+		mesh/ordering=y varies,
+		mesh/cols=51,
+		mesh/rows=51,
+		view={-45}{45}]
+		\addplot3[surf] file {Program/Stirling_harm_osc_bezreg_data.dat};
+	\end{axis}
+\end{tikzpicture}
