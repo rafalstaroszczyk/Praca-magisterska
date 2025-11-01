@@ -142,10 +142,10 @@ def OttoSpin2(alphac, alphah, Th, zeta, grid_size):
 def main():
     # Zadanie podstawowych parametrow
     grid_size = 201  # Ilosc badanych punktow
-    alphac = 1      # Wspolczynnik przenikalnosci. Wartosci nie
-    alphah = 1      # zmieniaja parametru kappa, a jedynie tau i P
-    Th = 1          # Temperatura Tc jest wyrazona w wielokrotnosci Th
-    zeta = 1        # Parametr zmienia jedynie wartosc P
+    alphac = 1       # Wspolczynnik przenikalnosci. Wartosci nie
+    alphah = 1       # zmieniaja parametru kappa, a jedynie tau i P
+    Th = 1           # Temperatura Tc jest wyrazona w wielokrotnosci Th
+    zeta = 1         # Parametr zmienia jedynie wartosc P
     
     # Uruchomienie obu optymalizacji
     OttoHarmonicOscillator(alphac, alphah, Th, zeta, grid_size)

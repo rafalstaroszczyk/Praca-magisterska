@@ -1,5 +1,7 @@
 import numpy as np
 
+# Funkcje realizuja wyprowadzone w pracy zaleznosci, 
+# kappa = omega2 / omega1
 def fU(T, omega):
     return - 0.5 * omega * np.tanh(0.5 * omega / T)
 
@@ -28,6 +30,7 @@ def fQd(Q23, Q34):
 def feta(W, Qd):
     return W/Qd
 
+# Funkcja zwraca eta dla podanych parametrow
 def eta_grid(momega1, mkappa, Tc, Th, grid_size):
     Q12 = fQ12(momega1, mkappa, Tc, Th)
     Q23 = fQ23(momega1, mkappa, Tc, Th)
