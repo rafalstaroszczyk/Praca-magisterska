@@ -29,11 +29,8 @@ def fT4(kappa, alphac, alphah, tauc, tauh, Tc, Th):
         (np.exp(alphah * tauh + alphac * tauc) - 1)
 
 # Maksymalizacja P zostala zaimplementowana jako minimalizacja -P
-def OttoHOFuncToMin(x, params):
-    # Wielkosci kontrolowane podczas optymalizacji
-    kappa, tauc, tauh = x
-    # Parametry stale podczas optymalizacji
-    omega2, alphac, alphah, Tc, Th, zeta = params
+#def OttoHOFuncToMin(x, params):
+def OttoHOFuncToMin(kappa, tauc, tauh, omega2, alphac, alphah, Tc, Th, zeta):
     # Wartosci temperatur i mocy dla danych parametrow
     T1 = fT1(kappa, alphac, alphah, tauc, tauh, Tc, Th)
     T2 = fT2(kappa, alphac, alphah, tauc, tauh, Tc, Th)
@@ -43,11 +40,8 @@ def OttoHOFuncToMin(x, params):
         tauc, tauh, zeta)
     return -P
 
-def OttoS2FuncToMin(x, params):
-    # Wielkosci kontrolowane podczas optymalizacji
-    kappa, tauc, tauh = x
-    # Parametry stale podczas optymalizacji
-    omega2, alphac, alphah, Tc, Th, zeta = params
+#def OttoS2FuncToMin(x, params):
+def OttoS2FuncToMin(kappa, tauc, tauh, omega2, alphac, alphah, Tc, Th, zeta):
     # Wartosci temperatur i mocy dla danych parametrow
     T1 = fT1(kappa, alphac, alphah, tauc, tauh, Tc, Th)
     T2 = fT2(kappa, alphac, alphah, tauc, tauh, Tc, Th)
@@ -62,21 +56,23 @@ def OttoHarmonicOscillator(alphac, alphah, Th, zeta, grid_size):
     # Wartosci, dla ktorych obliczono sprawnosc
     Tc_grid = np.linspace(0.01, 1, grid_size)
     # Macierz zapisana do pliku
-    eta = np.empty((grid_size, 3))
+    eta = np.empty((grid_size, 2))
     
     # Obliczenia dla omega2/Tc = 0.1
     for i in range(grid_size):
         omega2 = 0.1 * Tc_grid[i]
-        params = (omega2, alphac, alphah, Tc_grid[i], Th, zeta)
         # Wartosci poczatkowe podczas optymalizacji
         x_init = [0.5, 1, 1]
         # Optymalizacja
-        fun = lambda x: OttoHOFuncToMin(x, params)
+        # x[0] - kappa
+        # x[1] - tauc
+        # x[2] - tauh
+        fun = lambda x: OttoHOFuncToMin(x[0], x[1], x[2], omega2, \
+            alphac, alphah, Tc_grid[i], Th, zeta)
         result = optimize.minimize(fun, x_init, \
             bounds=((0.0, 1), (0.01, None), (0.01, None)))
         eta[i, 0] = Tc_grid[i]       # Tc
         eta[i, 1] = 1 - result.x[0]  # eta
-        eta[i, 2] = - result.fun     # P
     # Zapis do pliku
     np.savetxt('Otto_harm_osc_PT_01_data.dat', eta, fmt = '%.6f', \
         delimiter=' ', newline='\n')
@@ -84,16 +80,18 @@ def OttoHarmonicOscillator(alphac, alphah, Th, zeta, grid_size):
     # Obliczenia dla omega2/Tc = 10
     for i in range(grid_size):
         omega2 = 10 * Tc_grid[i]
-        params = (omega2, alphac, alphah, Tc_grid[i], Th, zeta)
         # Wartosci poczatkowe podczas optymalizacji
         x_init = [0.5, 2, 2]
         # Optymalizacja
-        fun = lambda x: OttoHOFuncToMin(x, params)
+        # x[0] - kappa
+        # x[1] - tauc
+        # x[2] - tauh
+        fun = lambda x: OttoHOFuncToMin(x[0], x[1], x[2], omega2, \
+            alphac, alphah, Tc_grid[i], Th, zeta)
         result = optimize.minimize(fun, x_init, \
             bounds=((0.0, 1), (0.01, None), (0.01, None)))
         eta[i, 0] = Tc_grid[i]       # Tc
         eta[i, 1] = 1 - result.x[0]  # eta
-        eta[i, 2] = - result.fun     # P
     # Zapis do pliku
     np.savetxt('Otto_harm_osc_PT_10_data.dat', eta, fmt = '%.6f', \
         delimiter=' ', newline='\n')
@@ -103,21 +101,23 @@ def OttoSpin2(alphac, alphah, Th, zeta, grid_size):
     # Wartosci, dla ktorych obliczono sprawnosc
     Tc_grid = np.linspace(0.01, 1, grid_size)
     # Macierz zapisana do pliku
-    eta = np.empty((grid_size, 3))
+    eta = np.empty((grid_size, 2))
 
     # Obliczenia dla omega2/Tc = 0.1
     for i in range(grid_size):
         omega2 = 0.1 * Tc_grid[i]
-        params = (omega2, alphac, alphah, Tc_grid[i], Th, zeta)
         # Wartosci poczatkowe podczas optymalizacji
         x_init = [0.5, 1, 1]
         # Optymalizacja
-        fun = lambda x: OttoS2FuncToMin(x, params)
+        # x[0] - kappa
+        # x[1] - tauc
+        # x[2] - tauh
+        fun = lambda x: OttoS2FuncToMin(x[0], x[1], x[2], omega2, \
+            alphac, alphah, Tc_grid[i], Th, zeta)
         result = optimize.minimize(fun, x_init, \
             bounds=((0.0, 1), (0.01, None), (0.01, None)))
         eta[i, 0] = Tc_grid[i]       # Tc
         eta[i, 1] = 1 - result.x[0]  # eta
-        eta[i, 2] = - result.fun     # P
     # Zapis do pliku
     np.savetxt('Otto_spin_pol_PT_01_data.dat', eta, fmt = '%.6f', \
         delimiter=' ', newline='\n')
@@ -125,18 +125,112 @@ def OttoSpin2(alphac, alphah, Th, zeta, grid_size):
     # Obliczenia dla omega2/Tc = 10
     for i in range(grid_size):
         omega2 = 10 * Tc_grid[i]
-        params = (omega2, alphac, alphah, Tc_grid[i], Th, zeta)
         # Wartosci poczatkowe podczas optymalizacji
         x_init = [0.5, 1, 1]
         # Optymalizacja
-        fun = lambda x: OttoS2FuncToMin(x, params)
+        # x[0] - kappa
+        # x[1] - tauc
+        # x[2] - tauh
+        fun = lambda x: OttoS2FuncToMin(x[0], x[1], x[2], omega2, \
+            alphac, alphah, Tc_grid[i], Th, zeta)
         result = optimize.minimize(fun, x_init, \
                 bounds=((0.0, 1), (0.01, None), (0.01, None)))
         eta[i, 0] = Tc_grid[i]       # Tc
         eta[i, 1] = 1 - result.x[0]  # eta
-        eta[i, 2] = - result.fun     # P
     # Zapis do pliku
     np.savetxt('Otto_spin_pol_PT_10_data.dat', eta, fmt = '%.6f', \
+        delimiter=' ', newline='\n')
+
+def OttoHarmonicOscillatorkappa(alphac, alphah, Th, zeta, grid_size):
+    # Wartosci, dla ktorych obliczono sprawnosc
+    kappa_grid = np.linspace(1, 0.01, grid_size)
+    # Macierz zapisana do pliku
+    P = np.empty((grid_size, 2))
+    
+    # Obliczenia dla omega2/Tc = 0.1
+    for i in range(grid_size):
+        #params = (omega2, alphac, alphah, Tc_grid[i], Th, zeta)
+        # Wartosci poczatkowe podczas optymalizacji
+        x_init = [1, 1]
+        Tc = Th / 3
+        omega2 = 0.1 * Tc
+        # Optymalizacja
+        #fun = lambda x: OttoHOFuncToMin(x, params)
+        # kappa, tauc, tauh, omega2, alphac, alphah, Tc, Th, zeta
+        fun = lambda x: OttoHOFuncToMin(kappa_grid[i], x[0], x[1], omega2, \
+            alphac, alphah, Tc, Th, zeta)
+        result = optimize.minimize(fun, x_init, \
+            bounds=((0.01, None), (0.01, None)))
+        P[i, 0] = 1 - kappa_grid[i]     # eta
+        P[i, 1] = - 10000 * result.fun if result.fun<0 else 0 # P
+    # Zapis do pliku
+    np.savetxt('Otto_harm_osc_Peta_01_data.dat', P, fmt = '%.6f', \
+        delimiter=' ', newline='\n')
+
+    # Obliczenia dla omega2/Tc = 10
+    for i in range(grid_size):
+        #params = (omega2, alphac, alphah, Tc_grid[i], Th, zeta)
+        # Wartosci poczatkowe podczas optymalizacji
+        x_init = [1, 1]
+        Tc = Th / 3
+        omega2 = 10 * Tc
+        # Optymalizacja
+        #fun = lambda x: OttoHOFuncToMin(x, params)
+        # kappa, tauc, tauh, omega2, alphac, alphah, Tc, Th, zeta
+        fun = lambda x: OttoHOFuncToMin(kappa_grid[i], x[0], x[1], omega2, \
+            alphac, alphah, Tc, Th, zeta)
+        result = optimize.minimize(fun, x_init, \
+            bounds=((0.01, None), (0.01, None)))
+        P[i, 0] = 1 - kappa_grid[i]     # eta
+        P[i, 1] = - 10000 * result.fun if result.fun<0 else 0 # P
+    # Zapis do pliku
+    np.savetxt('Otto_harm_osc_Peta_10_data.dat', P, fmt = '%.6f', \
+        delimiter=' ', newline='\n')
+
+def OttoSpin2kappa(alphac, alphah, Th, zeta, grid_size):
+    # Wartosci, dla ktorych obliczono sprawnosc
+    kappa_grid = np.linspace(1, 0.01, grid_size)
+    # Macierz zapisana do pliku
+    P = np.empty((grid_size, 2))
+    
+    # Obliczenia dla omega2/Tc = 0.1
+    for i in range(grid_size):
+        #params = (omega2, alphac, alphah, Tc_grid[i], Th, zeta)
+        # Wartosci poczatkowe podczas optymalizacji
+        x_init = [1, 1]
+        Tc = Th / 3
+        omega2 = 0.1 * Tc
+        # Optymalizacja
+        #fun = lambda x: OttoHOFuncToMin(x, params)
+        # kappa, tauc, tauh, omega2, alphac, alphah, Tc, Th, zeta
+        fun = lambda x: OttoS2FuncToMin(kappa_grid[i], x[0], x[1], omega2, \
+            alphac, alphah, Tc, Th, zeta)
+        result = optimize.minimize(fun, x_init, \
+            bounds=((0.01, None), (0.01, None)))
+        P[i, 0] = 1 - kappa_grid[i]  # eta
+        P[i, 1] = - result.fun if result.fun<0 else 0 # P
+    # Zapis do pliku
+    np.savetxt('Otto_spin_pol_Peta_01_data.dat', P, fmt = '%.6f', \
+        delimiter=' ', newline='\n')
+
+    # Obliczenia dla omega2/Tc = 10
+    for i in range(grid_size):
+        #params = (omega2, alphac, alphah, Tc_grid[i], Th, zeta)
+        # Wartosci poczatkowe podczas optymalizacji
+        x_init = [1, 1]
+        Tc = Th / 3
+        omega2 = 10 * Tc
+        # Optymalizacja
+        #fun = lambda x: OttoHOFuncToMin(x, params)
+        # kappa, tauc, tauh, omega2, alphac, alphah, Tc, Th, zeta
+        fun = lambda x: OttoS2FuncToMin(kappa_grid[i], x[0], x[1], omega2, \
+            alphac, alphah, Tc, Th, zeta)
+        result = optimize.minimize(fun, x_init, \
+            bounds=((0.01, None), (0.01, None)))
+        P[i, 0] = 1 - kappa_grid[i]  # eta
+        P[i, 1] = - result.fun if result.fun<0 else 0  # P
+    # Zapis do pliku
+    np.savetxt('Otto_spin_pol_Peta_10_data.dat', P, fmt = '%.6f', \
         delimiter=' ', newline='\n')
 
 def main():
@@ -150,6 +244,8 @@ def main():
     # Uruchomienie obu optymalizacji
     OttoHarmonicOscillator(alphac, alphah, Th, zeta, grid_size)
     OttoSpin2(alphac, alphah, Th, zeta, grid_size)
+    #OttoHarmonicOscillatorkappa(alphac, alphah, Th, zeta, grid_size)
+    #OttoSpin2kappa(alphac, alphah, Th, zeta, grid_size)
 
 if __name__ == "__main__":
     main()
