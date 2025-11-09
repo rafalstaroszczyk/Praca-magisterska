@@ -8,21 +8,21 @@
 \end{figure}
 Teoretyczny cykl Carnota jest nieosiągalny. Gdy cykl ten przebiega z maksymalną sprawnością nie występuje w nim produkcja entropii wynikająca z przepływu ciepła. Stąd musi on zachodzić bez spadku temperatury między zbiornikiem ciepła a gazem w silniku. Taki przepływ jest nieskończenie wolny, więc moc takiego silnika jest zerowa \cite{curzon}.
 
-Bardziej zbliżona do warunków rzeczywistych jest analiza silnika w punkcie, w którym moc jest maksymalna. Aby uwzględnić spadek temperatury na ściankach silnika rozpatrujemy warunki endoodwracalne, co oznacza, że czynnik roboczy jest w równowadze termodynamicznej wewnętrznie (gr. \'{e}ndon - wewnątrz), ale nie jest w równowadze z otoczeniem.
+Bardziej zbliżona do warunków rzeczywistych jest analiza silnika w punkcie, w którym moc jest maksymalna. Aby uwzględnić spadek temperatury na ściankach silnika rozpatrujemy warunki endoodwracalne, co oznacza, że czynnik roboczy jest w równowadze termodynamicznej wewnętrznie (gr. \'{e}ndon - wewnątrz), ale nie jest w równowadze z otoczeniem. W ogólności oznacza to, że występuje różnica temperatur między czynnikiem roboczym a zbiornikiem, z którym jest ten silnik w kontakcie.
 
-Ciepło jest proporcjonalne do różnicy temperatury:
+Ilość ciepła przenikającego przez ścianki silnika jest proporcjonalne do różnicy temperatury:
 \begin{gather}
 \begin{split}
 	Q_{1-2} &= \alpha_{c}\tau_{c}\pab{T_{c} - T_{cw}}, \\
 	Q_{3-4} &= \alpha_{h}\tau_{h}\pab{T_{h} - T_{hw}},
 \end{split}
 \end{gather}
-gdzie \(\alpha_{h}\) oraz \(\alpha_{c}\) to współczynniki przewodzenia ciepła zależne od materiału, grubości i powierzchni; a \(\tau_{h}\) oraz \(\tau_{c}\) to długość przepływu ciepła w jednym cyklu. Wprowadzamy wielkości pomocnicze zdefiniowane jako:
+gdzie \(\alpha_{h}\) oraz \(\alpha_{c}\) to współczynniki przewodzenia ciepła zależne od materiału, grubości i powierzchni; a \(\tau_{h}\) oraz \(\tau_{c}\) to okresy czasu, podczas których następuje przepływ ciepła w jednym cyklu z odpowiednio zbiornika ciepłego i zimnego. Wprowadzamy wielkości pomocnicze zdefiniowane jako:
 \begin{align*}
 	x &= T_h - T_{hw}, \\
 	y &= T_{cw} - T_c.
 \end{align*}
-Wykorzystując je ciepła wymienione przez silnik są równe:
+Wykorzystując je, ciepła wymienione przez silnik są równe:
 \begin{gather}\label{eq:endo_carnot_Q}
 	\begin{split}
 		Q_{1-2} &=  - \alpha_{c}\tau_{c}y, \\
@@ -44,7 +44,11 @@ Moc silnika jako funkcja \(x\) oraz \(y\) wyrażona jest wzorem:
 \begin{equation}
 	P\pab{x,y} = \frac{Q_{1-2} + Q_{3-4}}{\zeta\pab{\tau_{h} + \tau_{c}}},
 \end{equation}
-gdzie \(\zeta\) jest parametrem związanym z długością całego cyklu \(\tau\) w porównaniu z suma \(\tau_{h} + \tau_{c}\) równaniem \(\tau = \zeta\pab{\tau_h + \tau_c}\). Po podstawieniu \eqref{eq:endo_carnot_Q} moc ma postać:
+gdzie \(\zeta\) jest parametrem wiążącym długość całego cyklu \(\tau\) z sumą \(\tau_{h} + \tau_{c}\) równaniem:
+\begin{equation}
+	\tau = \zeta\pab{\tau_h + \tau_c}.
+\end{equation}
+Po podstawieniu \eqref{eq:endo_carnot_Q} moc ma postać:
 \begin{equation}
 	P\pab{x,y} =
 	\frac{\alpha_{h}\tau_{h}x - \alpha_{c}\tau_{c}y}{\zeta\pab{\tau_h + \tau_c}} =
@@ -55,10 +59,13 @@ Po uwzględnieniu \eqref{eq:endo_carnot_tau} mamy:
 	P\pab{x,y} = \frac{\alpha_{h}\alpha_{c}xy}{\zeta} \frac{T_{h} - T_{c} - x - y}{\alpha_{c}T_{h}y + \alpha_{h}T_{c}x + \pab{\alpha_{h} - \alpha_{c}}xy}.
 \end{equation}
 
-W punkcie maksymalnej mocy zerują się pochodne cząstkowe względem \(x\) i \(y\):
-\begin{align}\label{eq:endo_carnot_pdv0}
+W punkcie maksymalnej mocy zerują się pochodne cząstkowe względem \(x\):
+\begin{align}\label{eq:endo_carnot_pdv0x}
 	\pdv{P\pab{x,y}}{x} = 0: \quad &
-	\alpha_{c}T_{h}\pab{T_{h} - T_{c} - x - y}y = x\bab{\alpha_{h}T_{c}x + \alpha_{c}T_{h}y + \pab{\alpha_{h} - \alpha_{c}}xy}, \\
+	\alpha_{c}T_{h}\pab{T_{h} - T_{c} - x - y}y = x\bab{\alpha_{h}T_{c}x + \alpha_{c}T_{h}y + \pab{\alpha_{h} - \alpha_{c}}xy}
+\end{align}
+oraz względem \(y\):
+\begin{align}\label{eq:endo_carnot_pdv0y}
 	\pdv{P\pab{x,y}}{y} = 0: \quad &
 	\alpha_{h}T_{c}\pab{T_{h} - T_{c} - x - y}x = y\bab{\alpha_{h}T_{c}x + \alpha_{c}T_{h}y + \pab{\alpha_{h} - \alpha_{c}}xy}.
 \end{align}
@@ -67,7 +74,7 @@ Dzieląc stronami otrzymujemy:
 	y^2 &= x^2\frac{\alpha_{h}T_{c}}{\alpha_{c}T_{h}}; & 
 	y &= x\sqrt{\frac{\alpha_{h}T_{c}}{\alpha_{c}T_{h}}}.
 \end{align}
-Podstawiając je do \eqref{eq:endo_carnot_pdv0} i przekształcając otrzymujemy równanie kwadratowe w zmiennej \(\frac{x}{T_{h}}\):
+Podstawiając je do \eqref{eq:endo_carnot_pdv0x} oraz \eqref{eq:endo_carnot_pdv0y} i przekształcając otrzymujemy równanie kwadratowe w zmiennej \(\frac{x}{T_{h}}\):
 \begin{equation*}
 	\pab{1 - \frac{\alpha_{h}}{\alpha_{c}}}\pab{\frac{x}{T_{h}}}^2 - 2\bab{\sqrt{\frac{\alpha_{h}T_{c}}{\alpha_{c}T_{h}}} + 1}\pab{\frac{x}{T_{h}}} + \pab{1 - \frac{T_{c}}{T_{h}}} = 0,
 \end{equation*}
@@ -98,13 +105,13 @@ a z podstawienia \eqref{eq:endo_carnot_xy} do \eqref{eq:endo_carnot_tau} oraz wy
 \begin{equation*}
 	\frac{\tau_{h}}{\tau_{c}} = \sqrt{\frac{\alpha_{c}}{\alpha_{h}}}.
 \end{equation*}
-Przekształcając \eqref{eq:endo_carnot_xy} można znaleźć:
+Przekształcając równanie \eqref{eq:endo_carnot_xy} można znaleźć:
 \begin{align}\label{eq:endo_carnot_Tw}
 	T_{hw} &= \sqrt{T_{h}} \frac{\sqrt{\alpha_{h}T_{h}} + \sqrt{\alpha_{c}T_{c}}}{\sqrt{\alpha_{h}} + \sqrt{\alpha_{c}}}; & 
 	T_{cw} &= \sqrt{T_{c}} \frac{\sqrt{\alpha_{h}T_{h}} + \sqrt{\alpha_{c}T_{c}}}{\sqrt{\alpha_{h}} + \sqrt{\alpha_{c}}}.
 \end{align}
-Używając te własności maksymalna moc wyrażona jest wzorem:
+Wkorzystując równania \eqref{eq:endo_carnot_Tw} maksymalna moc wyrażona jest wzorem:
 \begin{equation}\label{eq:endo_carnot_Pmax}
 	P = \frac{\alpha_{h}\tau_{h}\pab{T_{h} - T_{hw}} - \alpha_{c}\tau_{c}\pab{T_{cw} - T_{c}}}{\zeta\pab{\tau_{h} + \tau_{c}}} = \frac{\alpha_{h}\alpha_{c}}{\zeta}\pab{\frac{\sqrt{T_{h}} - \sqrt{T_{c}}}{\sqrt{\alpha_{h}} + \sqrt{\alpha_{c}}}}^2.
 \end{equation}
-Wyprowadzony wzór na moc w punkcie maksymalnej mocy jest zależna jedynie od temperatur zbiorników, współczynników opisujących przepływ ciepła oraz współczynnika czasowego \(\zeta\).
+Wyprowadzony wzór na moc w punkcie maksymalnej mocy jest zależny jedynie od temperatur zbiorników, współczynników opisujących przepływ ciepła oraz współczynnika czasowego \(\zeta\).

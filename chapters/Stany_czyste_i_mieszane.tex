@@ -33,58 +33,77 @@ Cechy te stanowią test dla stanów czystych.
 
 %Możemy między tymi opisami znaleźć analogię do fizyki statystycznej. Mikrostan jest opisany położeniami i pędami (i innymi współrzędnymi, jeśli występują). Jest on rzeczywisty, ale niemożliwe jest znalezienie takiej ilości zmiennych. Makrostan jest tym, co obserwujemy z zewnątrz i jest opisany parametrami takimi jak temperatura, ciśnienie i inne. Stan czysty w tej analogii jest mikrostanem, natomiast stan mieszany jest mezostanem, czyli pośrednim między mikro-, a makrostanem.
 
-Wartość oczekiwana operatora \(\vu{A}\) o wektorach własnych \(\vu{A}\ket{\psi_{k}} = a_{k}\ket{\psi_{k}}\) przy powyższej interpretacji \(c_{k}\) ma postać \cite{townsend_a_modern_approach_to_quantum_mechanics}:
+Wartość oczekiwana operatora \(\vu{A}\) o wektorach własnych \(\ket{\psi_k}\) oraz wartościach własnych \(a_k\) przy powyższej interpretacji \(c_{k}\) ma postać \cite{townsend_a_modern_approach_to_quantum_mechanics}:
 \begin{equation}\label{eq:wart_ocz_wektor}
 \begin{split}
-	\braket[1]{\vu{A}} = \sum_{k} \vab{c_{k}}^{2} a_{k} = \sum_{nk} c_{k}^{*} a_{n} \delta_{nk} c_{k} = \sum_{nk} \braket{\Psi}{\psi_{k}} \braket[3]{\psi_{k}}{\vu{A}}{\psi_{n}} \braket{\psi_{n}}{\Psi} = \\ = \bra{\Psi}\pab{\sum_{k}\ketbra{\psi_{k}}{\psi_{k}}} \vu{A} \pab{\sum_{n}\ketbra{\psi_{n}}{\psi_{n}}} \ket{\Psi} = \braket[3]{\Psi}{\vu{A}}{\Psi}.
+	\braket[1]{\vu{A}} = \sum_{k} \vab{c_{k}}^{2} a_{k} = \sum_{nk} c_{n}^{*} a_{k} \delta_{nk} c_{k} = \sum_{nk} \braket{\Psi}{\psi_{n}} \braket[3]{\psi_{n}}{\vu{A}}{\psi_{k}} \braket{\psi_{k}}{\Psi} = \\ = \bra{\Psi}\pab{\sum_{n}\ketbra{\psi_{n}}{\psi_{n}}} \vu{A} \pab{\sum_{k}\ketbra{\psi_{k}}{\psi_{k}}} \ket{\Psi} = \braket[3]{\Psi}{\vu{A}}{\Psi}.
 \end{split}
 \end{equation}
 Alternatywnie wartość oczekiwaną operatora \(\vu{A}\) możemy zapisać poprzez zastosowanie operatora gęstości \(\vu{\rho}\):
-\begin{equation}\label{eq:wart_ocz_macierz_czysty}
-\begin{split}
-	\braket[1]{\vu{A}} = \sum_{k} \vab{c_k}^2 a_{k} = \sum_{k} \braket[3]{\psi_{k}}{\vu{\rho}}{\psi_{k}} \braket[3]{\psi_{k}}{A}{\psi_{k}} = \\ =
-	\sum_{nk} \braket[3]{\psi_{k}}{\rho}{\psi_{n}} \braket[3]{\psi_{n}}{A}{\psi_{k}} =
-	\sum_{nk} \rho_{kn} A_{nk} = \sum_{k} \pab{\rho A}_{kk} = \Tr\Bab{\vu{\rho}\vu{A}}.
-\end{split}
-\end{equation}
+\begin{multline}\label{eq:wart_ocz_macierz_czysty}
+	\braket[1]{\vu{A}} = \sum_{k} \vab{c_k}^2 a_{k} = \sum_{nk} c_{k} c_{n}^{*} \delta_{nk} a_{k} =
+	\sum_{nk} \braket{\psi_k}{\Psi} \braket{\Psi}{\psi_n} \braket[3]{\psi_n}{\vu{A}}{\psi_k} = \\ =
+	\sum_{nk} \braket[3]{\psi_k}{\vu{\rho}}{\psi_n} \braket[3]{\psi_n}{\vu{A}}{\psi_k} =
+	\sum_{nk} \rho_{kn} A_{nk} = \sum_{k} \pab{\vu{\rho}\vu{A}}_{kk} = \Tr\Bab{\vu{\rho}\vu{A}}.
+\end{multline}
 Końcowy wynik jest w obu przypadkach niezależny od wyboru konkretnej bazy i jest wzorem ogólnym. Macierz gęstości zawiera tą samą informację co wektor \(\ket{\Psi}\).
 %Elementy tej macierzy w bazie \(\psi_i\) opisuje wzór \(\rho_{nk} = \braket{\psi_n}{\Psi}\braket{\Psi}{\psi_k} = c_{n}c_{k}^{*}\).
 
-Stan mieszany niemożliwy jest do przedstawienia wektorem falowym. Jest on mieszaniną stanów czystych. Wartość oczekiwana operatora \(\vu{A}\) jest średnią ważoną z wagą \(p_k\) wartości oczekiwanych tego operatora w stanach czystych:
+Stan mieszany niemożliwy jest do przedstawienia wektorem falowym. Jest on mieszaniną stanów czystych. Wartość oczekiwana operatora \(\vu{A}\) jest średnią ważoną z wagą \(p_k\) wartości oczekiwanych tego operatora w stanach czystych \(\ket{\Psi_k}\):
 \begin{multline}\label{eq:wart_ocz_macierz_mieszany}
 	\braket[1]{\vu{A}} =
-	\sum_k p_k \braket[3]{\psi_k}{\vu{A}}{\psi_k} =
-	\sum_{knm} p_k \braket{\psi_n}{\psi_k} \braket{\psi_k}{\psi_m} \braket[3]{\psi_m}{\vu{A}}{\psi_n} = \\ =
-	\sum_{nm} \bra{\psi_n} \pab{\sum_k p_k \ketbra{\psi_k}{\psi_k}} \ket{\psi_m} \braket[3]{\psi_m}{\vu{A}}{\psi_n} =
-	\sum_{nm} \vu{\rho}_{nm} \vu{A}_{mn} =
+	\sum_k p_k \braket[3]{\Psi_k}{\vu{A}}{\Psi_k} =
+	\sum_k p_k \bra{\Psi_k} \pab{\sum_m \ketbra{\psi_m}{\psi_m}} \vu{A} \pab{\sum_n \ketbra{\psi_n}{\psi_n}} \ket{\Psi_k} = \\ =
+	\sum_{knm} p_k \braket{\Psi_k}{\psi_m} \braket[3]{\psi_m}{\vu{A}}{\psi_n} \braket{\psi_n}{\Psi_k} =
+	\sum_{knm} p_k \braket{\psi_n}{\Psi_k} \braket{\Psi_k}{\psi_m} \braket[3]{\psi_m}{\vu{A}}{\psi_n} = \\ =
+	\sum_{nm} \bra{\psi_n} \pab{\sum_{k} p_k \ketbra{\Psi_k}{\Psi_k}} \ket{\psi_m} \braket[3]{\psi_m}{\vu{A}}{\psi_n} =
+	\sum_{nm} \braket[3]{\psi_n}{\vu{\rho}}{\psi_m} \braket[3]{\psi_m}{\vu{A}}{\psi_n} = \\ =
+	\sum_{nm} \rho_{nm} A_{mn} =
 	\sum_{n} \pab{\vu{\rho}\vu{A}}_{nn} =
-	\Tr\Bab{\vu{\rho}\vu{A}},
+	\Tr\Bab{\vu{\rho}\vu{A}}
 \end{multline}
 gdzie wprowadzamy macierz gęstości stanu mieszanego równą:
 \begin{equation}\label{eq:macierz_gestosci_mieszany}
-	\vu{\rho} = \sum_k p_k \ketbra{\psi_k}{\psi_k}.
+	\vu{\rho} = \sum_k p_k \ketbra{\Psi_k}{\Psi_k}.
 \end{equation}
 Kwadrat tej macierzy jest równy:
 \begin{equation}\label{eq:macierz_gestosci_mieszany_kwadrat}
 	\vu{\rho}^2 =
-	\sum_{kn} p_k p_n \ketbra{\psi_k}{\psi_k}\ketbra{\psi_n}{\psi_n} =
-	\sum_{kn} p_k p_n \delta_{kn} \ketbra{\psi_k}{\psi_n} =
-	\sum_{kn} p_k^2 \ketbra{\psi_k}{\psi_k} \neq \vu{\rho}.
+	\sum_{kn} p_k p_n \ket{\Psi_k}\braket{\Psi_k}{\Psi_n}\bra{\Psi_n} =
+	\sum_{kn} p_k p_n S_{kn} \ketbra{\Psi_k}{\Psi_n} \neq \vu{\rho},
 \end{equation}
-Nie jest to więc projektor. Ślad natomiast jest równy jedności:
+gdzie wprowadzamy wielkość \(S_{kn} = \braket{\Psi_k}{\Psi_n}\) będącą miarą ortogonalności dwóch stanów czystych. W szczególnym przypadku wektorów ortonormalnych \(S_{kn} = \delta_{kn}\):
+\begin{equation}
+	\vu{\rho}^2 =
+	\sum_{kn} p_k p_n S_{kn} \ketbra{\Psi_k}{\Psi_n} =
+	\sum_{kn} p_k p_n \delta_{kn} \ketbra{\Psi_k}{\Psi_n} =
+	\sum_{kn} p_k^2 \ketbra{\Psi_k}{\Psi_k} \neq \vu{\rho}.
+\end{equation}
+Nie jest to więc w ogólności projektor. Wektory \(\ket{\Psi_k}\) możemy rozwinąć w bazie ortonormalnej:
+\begin{equation}
+	\ket{\Psi_k} = \sum_{i} c_{i}^{\pab{k}} \ket{\psi_i}.
+\end{equation}
+Z normalizacji wektora \(\ket{\Psi_k}\) mamy również \(\sum_{i} \vab{c_{i}^{\pab{k}}}^2 = 1\). Możemy wtedy zapisać \(S_{kn}\) jako:
+\begin{equation}
+	S_{kn} = \braket{\Psi_k}{\Psi_n} = \sum_{i} \bra{\Psi_k} \ketbra{\psi_i}{\psi_i} \ket{\Psi_n} =
+	\sum_{i} c_{i}^{*\pab{k}} c_{i}^{\pab{n}}.
+\end{equation}
+Ślad macierzy gęstości jest równy:
 \begin{equation}\label{eq:macierz_gestosci_mieszany_slad}
 	\Tr\Bab{\vu{\rho}} =
-	\sum_{kn} p_k \braket{\psi_n}{\psi_k}\braket{\psi_k}{\psi_n} =
-	\sum_{kn} p_k \delta_{kn}^2 =
-	\sum_{k} p_k = 1.
+	\sum_{kn} p_k \bra{\psi_n}\ketbra{\Psi_k}{\Psi_k}\ket{\psi_n} =
+	\sum_{kn} p_k c_{n}^{\pab{k}} c_{n}^{*\pab{k}} =
+	\sum_{k} p_k \sum_{n} \vab{c_{n}^{\pab{k}}}^2 = 1.
 \end{equation}
 Natomiast ślad kwadratu ma postać:
-\begin{equation}\label{eq:macierz_gestosci_mieszany_kwadrat_slad}
+\begin{multline}\label{eq:macierz_gestosci_mieszany_kwadrat_slad}
 	\Tr\Bab{\vu{\rho}^2} =
-	\sum_{knm} p_k p_n \braket{\psi_m}{\psi_k}\braket{\psi_k}{\psi_n}\braket{\psi_n}{\psi_m} =
-	\sum_{kn} p_k p_n \delta_{mk}\delta_{kn}\delta_{nm} =
-	\sum_{k} p_k^2 \leq 1.
-\end{equation}
+	\sum_{knm} p_k p_n S_{kn} \braket{\psi_m}{\Psi_k}\braket{\Psi_n}{\psi_m} =
+	\sum_{knm} p_k p_n S_{kn} c_{m}^{\pab{k}}c_{m}^{*\pab{n}} = \\ =
+	\sum_{kn} p_k p_n S_{kn} \pab{\sum_{m} c_{m}^{*\pab{k}}c_{m}^{\pab{n}}}^{*} =
+	\sum_{kn} p_k p_n S_{kn} S_{kn}^{*} =
+	\sum_{kn} p_k p_n \vab{S_{kn}}^2 \leq 1.
+\end{multline}
 gdzie równość zachodzi jedynie w przypadku \(p_i = 1\), a pozostałe \(p_{j \neq i} = 0\), co jest stanem czystym. We wzorach \eqref{eq:macierz_gestosci_mieszany_kwadrat} oraz \eqref{eq:macierz_gestosci_mieszany_slad} nierówność zachodzi dla stanu mieszanego.
 
 W fizyce statystycznej układy znajdują się w stanach mieszanych, ponieważ rzeczywiste układy kwantowe nie są izolowane, ale oddziałują w jakiś sposób z otoczeniem. Niemożliwe jest również badanie danego układu w infinitezymalnym czasie, ale każdy pomiar jest uśrednieniem badanej wielkości w czasie większym, niż czasy relaksacji układu, ale mniejszym niż zdolność rozdzielcza przyrządu \cite{b:huang_mechanika_statystyczna}. Układ taki wraz z otoczeniem opisany jest wektorem \(\Psi\pab{x,X,t}\) zależnym od współrzędnych układu \(x\), otoczenia \(X\) i czasu \(t\). W zupełnej bazie wektorów własnych hamiltonianu układu zależność od \(X\) i \(t\) można uwzględnić poprzez współrzędne \(c_{n}\pab{X,t}\) \cite{b:huang_podstawy_fizyki_statystycznej}:
@@ -150,27 +169,27 @@ Możemy zauważyć, że jest to element diagonalny macierzy gęstości wyrażone
 %\end{split}
 %\end{equation}
 
-Ewolucję w czasie operatora gęstości można wyprowadzić zaczynając od równania Schr\"{o}dingera \cite{landau_kwant}:
-\begin{align}\label{eq:rownanie_Schroedingera}
-	i\hbar \pdv{}{t}\ket{\Psi} &= \ham \ket{\Psi}, &
-	i\hbar \pdv{}{t}\bra{\Psi} &= -\bra{\Psi} \ham,
-\end{align}
-gdzie drugie równanie otrzymujemy sprzęgając hermitowsko pierwsze. Bezpośrednio różniczkując \eqref{eq:macierz_gestosci_mieszany} w przypadku izentropowym (\(p_k=const\)) \cite{feynman, anders}:
-\begin{equation*}
-\begin{split}
-	i\hbar \pdv{}{t}\vu{\rho} =
-	\sum_k p_k \bab{i\hbar \pdv{\ket{\psi_k}}{t}\bra{\psi_k} + \ket{\psi_k} i\hbar \pdv{\bra{\psi_k}}{t}} =
-	\sum_k p_k \bab{\ham \ketbra{\psi_k}{\psi_k} - \ketbra{\psi_k}{\psi_k} \ham} = \\ =
-	\ham \pab{\sum_k p_k \ketbra{\psi_k}{\psi_k}} - \pab{\sum_k p_k \ketbra{\psi_k}{\psi_k}} \ham =
-	\ham\vu{\rho} - \vu{\rho}\ham =
-	\bab{\ham,\vu{\rho}}.
-\end{split}
-\end{equation*}
-Co można zapisać przy użyciu superoperatora Liouville'a - von Neumnanna:
-\begin{equation*}
-	\pdv{\vu{\rho}}{t} = \inv{i\hbar} \bab{\ham,\vu{\rho}} = \liou_{S}\Bab{\vu{\rho}}.
-\end{equation*}
-W przypadku ogólniejszym superoperator ten zawiera również człon dyssypacyjny \cite{anders}:
-\begin{equation*}
-	\pdv{\vu{\rho}}{t} = \liou\Bab{\vu{\rho}} = \liou_{S}\Bab{\vu{\rho}} + \liou_{D}\Bab{\vu{\rho}}.
-\end{equation*}
+%Ewolucję w czasie operatora gęstości można wyprowadzić zaczynając od równania Schr\"{o}dingera \cite{landau_kwant}:
+%\begin{align}\label{eq:rownanie_Schroedingera}
+%	i\hbar \pdv{}{t}\ket{\Psi} &= \ham \ket{\Psi}, &
+%	i\hbar \pdv{}{t}\bra{\Psi} &= -\bra{\Psi} \ham,
+%\end{align}
+%gdzie drugie równanie otrzymujemy sprzęgając hermitowsko pierwsze. Bezpośrednio różniczkując \eqref{eq:macierz_gestosci_mieszany} w przypadku izentropowym (\(p_k=const\)) \cite{feynman, anders}:
+%\begin{equation*}
+%\begin{split}
+%	i\hbar \pdv{}{t}\vu{\rho} =
+%	\sum_k p_k \bab{i\hbar \pdv{\ket{\psi_k}}{t}\bra{\psi_k} + \ket{\psi_k} i\hbar \pdv{\bra{\psi_k}}{t}} =
+%	\sum_k p_k \bab{\ham \ketbra{\psi_k}{\psi_k} - \ketbra{\psi_k}{\psi_k} \ham} = \\ =
+%	\ham \pab{\sum_k p_k \ketbra{\psi_k}{\psi_k}} - \pab{\sum_k p_k \ketbra{\psi_k}{\psi_k}} \ham =
+%	\ham\vu{\rho} - \vu{\rho}\ham =
+%	\bab{\ham,\vu{\rho}}.
+%\end{split}
+%\end{equation*}
+%Co można zapisać przy użyciu superoperatora Liouville'a - von Neumnanna:
+%\begin{equation*}
+%	\pdv{\vu{\rho}}{t} = \inv{i\hbar} \bab{\ham,\vu{\rho}} = \liou_{S}\Bab{\vu{\rho}}.
+%\end{equation*}
+%W przypadku ogólniejszym superoperator ten zawiera również człon dyssypacyjny \cite{anders}:
+%\begin{equation*}
+%	\pdv{\vu{\rho}}{t} = \liou\Bab{\vu{\rho}} = \liou_{S}\Bab{\vu{\rho}} + \liou_{D}\Bab{\vu{\rho}}.
+%\end{equation*}

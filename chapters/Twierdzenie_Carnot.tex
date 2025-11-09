@@ -1,7 +1,43 @@
 % !TEX root = ../main.tex
 
 \section{Twierdzenie Carnota}
-Udowodnimy teraz, że dla danych dwóch zbiorników ciepła o temperaturach zimniejszego \(T_1\) i cieplejszego \(T_2\) silnik odwracalny zawsze będzie miał maksymalną sprawność. Przyjmijmy, że mamy jeden silnik odwracalny, może być to silnik Carnota, pracujący w obiegu lewobieżnym, który oznaczymy C, oraz dowolny inny silnik X pracujący w obiegu prawobieżnym. Silnik C pracuje w tym układzie jako pompa ciepła lub chłodziarka. Silnik X ma sprawność \(\eta_X\), natomiast C w obiegu prawobieżnym ma sprawność \(\eta_C\). Są one ze sobą połączone tak, że cała praca wytworzona przez silnik X jest wykorzystywana przez silnik C. 
+Udowodnimy teraz, że dla danych dwóch zbiorników ciepła o temperaturach zimniejszego \(T_1\) i cieplejszego \(T_2\) silnik odwracalny zawsze będzie miał maksymalną sprawność. Przyjmijmy, że mamy jeden silnik odwracalny, może być to silnik Carnota, pracujący w obiegu lewobieżnym, który oznaczymy C, oraz dowolny inny silnik X pracujący w obiegu prawobieżnym. Silnik C pracuje w tym układzie jako pompa ciepła lub chłodziarka. Silnik X ma sprawność \(\eta_X\), natomiast C gdyby pracował w obiegu prawobieżnym miałby sprawność \(\eta_C\). Są one ze sobą połączone tak, że cała praca wytworzona przez silnik X jest wykorzystywana przez silnik C.
+
+Przepływy dodatnie ciepeł wybieramy jak w konwencji statystycznej, to znaczy, że wszystkie ciepła wpływające są dodatnie. Znak wykonanej pracy wybieramy jednak tak, że praca wykonana przez silnik X oraz pobrana przez silnik C są dodatnie. Przedstawiono je na rysunku \ref{fig:schemat_podwojny_silnik}. Oznaczamy ciepło wymienione między zbiornikiem ciepłym a silnikiem X jako \(Q_{hX} > 0\), podobnie między zbiornikiem zimnym i tym silnikiem jako \(Q_{cX} < 0\), tak samo dla silnika odwracalnego \(Q_{hC} < 0\) oraz \(Q_{cC} > 0\). W wybranej konwencji wzór \eqref{eq:praca_w_silniku} ma postać \(W = Q_{hX} + Q_{cX} = - Q_{hC} - Q_{cC} > 0\).
+
+Jeśli silnik C pracowałby w cyklu prawobieżnym to wszystkie przepływy byłyby przeciwne. Sprawność byłaby więc wyrażona równaniem \eqref{eq:def_sprawnosc_silnika_W}:
+\begin{equation}
+	\eta_C = \frac{W}{-Q_{hC}}.
+\end{equation}
+Możemy z tego równania wyznaczyć ciepła wpływające do silnika C:
+\begin{align}
+	Q_{hC} &= - \frac{W}{\eta_C},
+	Q_{cC} &= - W - Q_{hC} = \pab{\inv{\eta_C} - 1}W.
+\end{align}
+Podobnie z równania \eqref{eq:def_sprawnosc_silnika_W} dla silnika X pamiętając o innej konwencji znaku dla pracy:
+\begin{equation}
+	\eta_X = \frac{W}{Q_{hX}},
+\end{equation}
+a równania opisujące ciepła mają postać:
+\begin{align}
+	Q_{hX} &= \frac{W}{\eta_X},
+	Q_{cX} &= W - Q_{hX} = \pab{1 - \inv{\eta_X}}W.
+\end{align}
+
+Układ dwóch silników nie wykonuje żadnej pracy nad otoczeniem, stąd z równania \eqref{eq:praca_w_silniku} suma wszystkich ciepeł jest równa:
+\begin{equation}
+	Q_{hX} + Q_{cX} + Q_{hC} + Q_{cC} = 0.
+\end{equation}
+Jeśli jednak weźmiemy pod uwagę jedynie ciepło przepływające ze zbiornika ciepłego poprzez układ silników do zbiornika zimnego jest ono równe:
+\begin{equation}
+	Q_{hX} + Q_{hC} = - Q_{cX} - Q_{cC} = \pab{\inv{\eta_X} - \inv{\eta_C}}W.
+\end{equation}
+Zgodnie z Drugą Zasadą Termodynamiki podaną przez Clausiusa, która mówi, że ciepło nie może samorzutnie przepływać od źródła zimniejszego do cieplejszego, wyprowadzone ciepło musi być dodatnie lub w granicy zerowe. Stąd, ponieważ praca \(W > 0\) jest dodatnia mamy:
+\begin{equation}
+	\inv{\eta_X} - \inv{\eta_C} \geq 0 \equiv
+	\inv{\eta_X} \geq \inv{\eta_C} \equiv
+	\eta_C \geq \eta_X.
+\end{equation}
 
 Niech ciepło dostarczone do zbiornika ciepłego przez silnik C jest równe \(Q\). Wtedy praca wytworzona przez X będzie, według równania \eqref{eq:def_sprawnosc_silnika}, równa \(\eta_C Q\), a ciepło pobrane przez silnik C ze zbiornika zimnego będzie równe \(\pab{1 - \eta_C}Q\). Dla silnika X ciepło pobrane ze zbiornika ciepłego i oddane do zimnego są równe odpowiednio \(\frac{W}{\eta_X} = \frac{\eta_C}{\eta_X}Q\) oraz \(\pab{\frac{\eta_C}{\eta_X} - \eta_C}Q\). Przepływy przedstawiono na rysunku \ref{fig:schemat_podwojny_silnik}. Całkowite ciepło pobrane w układzie dwóch silników ze zbiornika ciepłego i oddane do zbiornika zimnego jest równe \(\pab{\frac{\eta_C}{\eta_X} - 1}Q\). Z drugiej zasady termodynamiki wiemy, że niemożliwym jest, aby w jakimkolwiek procesie jedynym skutkiem było przepłynięcie ciepła ze zbiornika zimniejszego do cieplejszego. Stąd, ponieważ \(Q > 0\) otrzymujemy \(\pab{\frac{\eta_C}{\eta_X} - 1} \geq 1\), co sprowadza się do:
 \begin{equation}\label{eq:tw_carnot}
