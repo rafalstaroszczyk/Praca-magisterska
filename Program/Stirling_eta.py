@@ -90,7 +90,7 @@ def StirlingSpin2BezReg(omega1_min, omega1_max, \
 
 def main():
     # Zadanie podstawowych parametrow
-    grid_size = 51    # Ilosc badanych punktow
+    grid_size = 71    # Ilosc badanych punktow
     omega1_min = 0.1  # Zakres wartosci omega1
     omega1_max = 5
     kappa_min = 1.1   # zakres wartosci kappa

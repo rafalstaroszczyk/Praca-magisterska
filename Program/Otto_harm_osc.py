@@ -29,5 +29,9 @@ def P(omega2, kappa, T1, T2, T3, T4, alphac, alphah, \
     W = fW(Q23, Q41)
     tau = zeta * (tauh + tauc)
     P = fP(W, tau)
-    return P
+
+    # Stala nie zmienia polozenia punktu maksymalnej mocy, 
+    # a jedynie wartosc mocy. Wplywa to jednak na tolerancje
+    # algorytmu optymalizacyjnego.
+    return 10000 * P
 

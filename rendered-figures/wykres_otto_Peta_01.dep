@@ -1,0 +1,2 @@
+rendered-figures/wykres_otto_Peta_01.pdf: Program/Otto_harm_osc_Peta_01_data.dat
+rendered-figures/wykres_otto_Peta_01.pdf: Program/Otto_spin_pol_Peta_01_data.dat

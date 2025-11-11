@@ -70,7 +70,7 @@ def OttoHarmonicOscillator(alphac, alphah, Th, zeta, grid_size):
         fun = lambda x: OttoHOFuncToMin(x[0], x[1], x[2], omega2, \
             alphac, alphah, Tc_grid[i], Th, zeta)
         result = optimize.minimize(fun, x_init, \
-            bounds=((0.0, 1), (0.01, None), (0.01, None)))
+            bounds=((0.01, 1), (0.01, None), (0.01, None)))
         eta[i, 0] = Tc_grid[i]       # Tc
         eta[i, 1] = 1 - result.x[0]  # eta
     # Zapis do pliku
@@ -89,7 +89,7 @@ def OttoHarmonicOscillator(alphac, alphah, Th, zeta, grid_size):
         fun = lambda x: OttoHOFuncToMin(x[0], x[1], x[2], omega2, \
             alphac, alphah, Tc_grid[i], Th, zeta)
         result = optimize.minimize(fun, x_init, \
-            bounds=((0.0, 1), (0.01, None), (0.01, None)))
+            bounds=((0.01, 1), (0.01, None), (0.01, None)))
         eta[i, 0] = Tc_grid[i]       # Tc
         eta[i, 1] = 1 - result.x[0]  # eta
     # Zapis do pliku
@@ -115,7 +115,7 @@ def OttoSpin2(alphac, alphah, Th, zeta, grid_size):
         fun = lambda x: OttoS2FuncToMin(x[0], x[1], x[2], omega2, \
             alphac, alphah, Tc_grid[i], Th, zeta)
         result = optimize.minimize(fun, x_init, \
-            bounds=((0.0, 1), (0.01, None), (0.01, None)))
+            bounds=((0.01, 1), (0.01, None), (0.01, None)))
         eta[i, 0] = Tc_grid[i]       # Tc
         eta[i, 1] = 1 - result.x[0]  # eta
     # Zapis do pliku
@@ -134,7 +134,7 @@ def OttoSpin2(alphac, alphah, Th, zeta, grid_size):
         fun = lambda x: OttoS2FuncToMin(x[0], x[1], x[2], omega2, \
             alphac, alphah, Tc_grid[i], Th, zeta)
         result = optimize.minimize(fun, x_init, \
-                bounds=((0.0, 1), (0.01, None), (0.01, None)))
+            bounds=((0.01, 1), (0.01, None), (0.01, None)))
         eta[i, 0] = Tc_grid[i]       # Tc
         eta[i, 1] = 1 - result.x[0]  # eta
     # Zapis do pliku
@@ -162,7 +162,7 @@ def OttoHarmonicOscillatorkappa(alphac, alphah, Th, zeta, grid_size):
         result = optimize.minimize(fun, x_init, \
             bounds=((0.01, None), (0.01, None)))
         P[i, 0] = 1 - kappa_grid[i]     # eta
-        P[i, 1] = - 10000 * result.fun if result.fun<0 else 0 # P
+        P[i, 1] = - result.fun if result.fun<0 else 0 # P
     # Zapis do pliku
     np.savetxt('Otto_harm_osc_Peta_01_data.dat', P, fmt = '%.6f', \
         delimiter=' ', newline='\n')
@@ -182,7 +182,7 @@ def OttoHarmonicOscillatorkappa(alphac, alphah, Th, zeta, grid_size):
         result = optimize.minimize(fun, x_init, \
             bounds=((0.01, None), (0.01, None)))
         P[i, 0] = 1 - kappa_grid[i]     # eta
-        P[i, 1] = - 10000 * result.fun if result.fun<0 else 0 # P
+        P[i, 1] = - result.fun if result.fun<0 else 0 # P
     # Zapis do pliku
     np.savetxt('Otto_harm_osc_Peta_10_data.dat', P, fmt = '%.6f', \
         delimiter=' ', newline='\n')
@@ -244,8 +244,8 @@ def main():
     # Uruchomienie obu optymalizacji
     OttoHarmonicOscillator(alphac, alphah, Th, zeta, grid_size)
     OttoSpin2(alphac, alphah, Th, zeta, grid_size)
-    #OttoHarmonicOscillatorkappa(alphac, alphah, Th, zeta, grid_size)
-    #OttoSpin2kappa(alphac, alphah, Th, zeta, grid_size)
+    OttoHarmonicOscillatorkappa(alphac, alphah, Th, zeta, grid_size)
+    OttoSpin2kappa(alphac, alphah, Th, zeta, grid_size)
 
 if __name__ == "__main__":
     main()
