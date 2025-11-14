@@ -1,37 +1,40 @@
 % !TEX root = ../main.tex
 
 \section{Endoodwracalny kwantowy silnik Otto}
-Klasyczna wersja tego cyklu składa się z naprzemiennie przemian adiabatycznych i izochorycznych. Pierwszą z nich już opisano powyżej dla silnika Carnota, ale drugą należy zinterpretować inaczej w przypadku kwantowym. W klasycznym silniku \(V = const\) jest równoważne z wykonaniem zerowej pracy \(\idif{W} = - p \d{V} = 0\). Możemy więc potraktować kwantowy cykl Otto nie jako kolejne przemiany adiabatyczne i izochoryczne, ale jako kolejne przemiany o zerowym cieple i zerowej pracy \cite{myers}.
+Klasyczna wersja tego cyklu składa się z naprzemiennie przemian adiabatycznych oraz izochorycznych i została opisana w podrozdziale \ref{ssec:cykl_otto}. Pierwszą z nich już opisano powyżej dla silnika Carnota, ale drugą należy zinterpretować inaczej w przypadku kwantowym. W klasycznym silniku \(V = const\) jest równoważne z wykonaniem zerowej pracy \(\idif{W} = - p \d{V} = 0\). Możemy więc potraktować kwantowy cykl Otto nie jako kolejne przemiany adiabatyczne i izochoryczne, ale jako kolejne przemiany o zerowym cieple i zerowej pracy \cite{myers}.
 
 Kwantowy cykl Otta jest serią naprzemiennych przemian o zerowej pracy i zerowym cieple. Zgodnie z rysunkiem \ref{fig:pv_silnik_otto} zmiany energii po wycałkowaniu mają postać:
 \begin{align*}
-	Q_{1-2} &= 0, \\
+	Q_{1-2} &= 0, &
 	Q_{2-3} &= U\pab{T_3,\omega_2} - U\pab{T_2,\omega_2}, \\
-	Q_{3-4} &= 0, \\
+	Q_{3-4} &= 0, &
 	Q_{4-1} &= U\pab{T_1,\omega_1} - U\pab{T_4,\omega_2}.
 \end{align*}
-Parametrem kontrolowanym przez nas jest \(\omega\). Rozpatrujemy przypadek w granicy niskiego oddziaływania z otoczeniem. W tym przypadku stan stacjonarny jest stanem równowagi termodynamicznej opisywanym rozkładem Boltzmanna \cite{endo_otto}.
+Parametrem kontrolowanym przez nas jest \(\omega\), którego dokładna forma zależy od wybranego czynnika roboczego. Rozpatrujemy przypadek w granicy niskiego oddziaływania z otoczeniem. W tym przypadku stan stacjonarny jest stanem równowagi termodynamicznej opisywanym rozkładem Boltzmanna \cite{endo_otto}.
 
-\subsection{Oscylator harmoniczny}
+\subsection{Oscylator harmoniczny jako czynnik roboczy}
 Czynnikiem roboczym w rozpatrywanym cyklu jest oscylator harminiczny opisany w dodatku \ref{sec:osc_harm}. Ważniejsze wielkości termodynamiczne zawarto we wzorach \eqref{eq:osc_harm_Z} -- \eqref{eq:osc_harm_S}.
-Funcja \(S\) jest zależna jedynie od \(\frac{\omega}{T}\) i możemy zapisać:
+Entropia jest zależna jedynie od \(\frac{\omega}{T}\) i możemy zapisać:
 \begin{equation*}
 	\tilde{S}\pab{\frac{\omega}{T}} \overset{def}{=} S\pab{T,\omega}.
 \end{equation*}
 Jest to funkcja monotoniczna, więc jest ona też odwracalna. Oznacza to, że jeśli wartości funkcji są równe to również argumenty tej funcji są równe.
 
-Podczas przemiany izentropowej entropia na początku i końcu przemianu jest równa, stąd mamy:
+Podczas przemiany izentropowej entropia na początku i końcu przemianu jest równa:
+\begin{align*}
+	S\pab{T_1,\omega_1} &= S\pab{T_2,\omega_2}, &
+	S\pab{T_3,\omega_2} &= S\pab{T_4,\omega_1},
+\end{align*}
+co jest równoważne:
 \begin{equation}\label{eq:endo_otto__osc_harm_omegaT}
 \begin{split}
-	S\pab{T_1,\omega_1} = S\pab{T_2,\omega_2} \quad\Rightarrow\quad
-	\tilde{S}\pab{\frac{\omega_1}{T_1}} = \tilde{S}\pab{\frac{\omega_2}{T_2}} \quad\Rightarrow\quad
-	\frac{\omega_1}{T_1} = \frac{\omega_2}{T_2}, \\
-	S\pab{T_3,\omega_2} = S\pab{T_4,\omega_1} \quad\Rightarrow\quad
-	\tilde{S}\pab{\frac{\omega_2}{T_3}} = \tilde{S}\pab{\frac{\omega_1}{T_4}} \quad\Rightarrow\quad
-	\frac{\omega_2}{T_3} = \frac{\omega_1}{T_4}.
+\tilde{S}\pab{\frac{\omega_1}{T_1}} = \tilde{S}\pab{\frac{\omega_2}{T_2}} \quad\text{stąd}\quad
+\frac{\omega_1}{T_1} = \frac{\omega_2}{T_2}, \\
+\tilde{S}\pab{\frac{\omega_2}{T_3}} = \tilde{S}\pab{\frac{\omega_1}{T_4}} \quad\text{stąd}\quad
+\frac{\omega_2}{T_3} = \frac{\omega_1}{T_4}.
 \end{split}
 \end{equation}
-Ciepła w odpowiednich przemianach są równe:
+Stosując oznaczenia etapów wprowadzone w opisie rysunku \ref{fig:pv_silnik_otto} ciepła w odpowiednich przemianach są równe:
 \begin{equation}
 \begin{split}
 	Q_{1-2} = 0, \qquad
@@ -51,7 +54,7 @@ a po wprowadzeniu wielkości pomocniczej \(\kappa = \frac{\omega_1}{\omega_2}\) 
 	\ctgh\pab{\frac{\hbar\omega_2}{2k_B T_3}} -
 	\ctgh\pab{\frac{\hbar\omega_2}{2k_B T_2}}}.
 \end{equation}
-Sprawność silnika jest stosunkiem pracy w jednym cyklu \(- W\) do ciepła dostarczonego \(Q_{2-3}\):
+Sprawność silnika jest stosunkiem pracy w jednym cyklu \(- W\) do ciepła dostarczonego \(Q_{2-3}\), więc:
 \begin{equation}\label{eq:sprawnosc_kwantowy_otto}
 	\eta = \frac{- W}{Q_{2-3}} = 1 - \kappa.
 \end{equation}
@@ -163,7 +166,7 @@ Wynik ten jest nieseparowalny i zbyt skompliwowany, by go maksymalizować analit
 		\label{fig:otto_harm_osc_PT_10}
 	\end{subfigure}
 	\captionsetup{subrefformat=parens}
-	\caption{Porównanie sprawności silnika Otto w przypadku wysokotemperaturowym \subref{fig:otto_harm_osc_PT_01} oraz niskotemperaturowym \subref{fig:otto_harm_osc_PT_10}.}
+	\caption{Porównanie sprawności silnika Otto z oscylatorem harmonicznym jako czynnikiem roboczym w przypadku wysokotemperaturowym \subref{fig:otto_harm_osc_PT_01} oraz niskotemperaturowym \subref{fig:otto_harm_osc_PT_10}.}
 	\label{fig:otto_harm_osc_PT}
 \end{figure}
 
@@ -185,15 +188,18 @@ Wynik ten jest nieseparowalny i zbyt skompliwowany, by go maksymalizować analit
 %Jest to wynik identyczny do sprawności cyklu Carnota w punkcie maksymalnej mocy \eqref{eq:endo_carnot_eta}.
 
 \subsection{Układ o spinie \(\inv{2}\)}
-Cząstka o spinie \(\inv{2}\) ma dwa stany o energiach \eqref{eq:spin_pol_E}. W równowadze termodynamicznej wielkości termodynamiczne opisane są równaniami \eqref{eq:spin_pol_Z} -- \eqref{eq:spin_pol_S}. Entropię możemy zapisać jako funkcję stosunku \(\frac{\omega}{T}\) i jest to funkcja monotoniczna. Stąd otrzymujemy:
+Cząstka o spinie \(\inv{2}\) ma dwa stany o energiach \eqref{eq:spin_pol_E}. W równowadze termodynamicznej wielkości termodynamiczne opisane są równaniami \eqref{eq:spin_pol_Z} -- \eqref{eq:spin_pol_S}. W przemianach izentropowych mamy:
+\begin{align*}
+	S\pab{T_1,\omega_1} = S\pab{T_2,\omega_2}, &
+	S\pab{T_3,\omega_2} = S\pab{T_4,\omega_1}.
+\end{align*}
+Entropię możemy więc zapisać jako funkcję stosunku \(\frac{\omega}{T}\) i jest to funkcja monotoniczna. Stąd otrzymujemy:
 \begin{equation}\label{eq:endo_otto_spin_pol_omegaT}
 \begin{split}
-	S\pab{T_1,\omega_1} = S\pab{T_2,\omega_2} \quad\Rightarrow\quad
-	\tilde{S}\pab{\frac{\omega_1}{T_1}} = \tilde{S}\pab{\frac{\omega_2}{T_2}} \quad\Rightarrow\quad
-	\frac{\omega_1}{T_1} = \frac{\omega_2}{T_2}, \\
-	S\pab{T_3,\omega_2} = S\pab{T_4,\omega_1} \quad\Rightarrow\quad
-	\tilde{S}\pab{\frac{\omega_2}{T_3}} = \tilde{S}\pab{\frac{\omega_1}{T_4}} \quad\Rightarrow\quad
-	\frac{\omega_2}{T_3} = \frac{\omega_1}{T_4}.
+\tilde{S}\pab{\frac{\omega_1}{T_1}} = \tilde{S}\pab{\frac{\omega_2}{T_2}} \quad\text{stąd}\quad
+\frac{\omega_1}{T_1} = \frac{\omega_2}{T_2}, \\
+\tilde{S}\pab{\frac{\omega_2}{T_3}} = \tilde{S}\pab{\frac{\omega_1}{T_4}} \quad\text{stąd}\quad
+\frac{\omega_2}{T_3} = \frac{\omega_1}{T_4}.
 \end{split}
 \end{equation}
 Podobnie jak w przypadku oscylatora harmonicznego:
@@ -225,33 +231,7 @@ Sprawność cyklu podobnie do innych silników Otto ma formę:
 	\eta = 1 + \frac{Q_{4-1}}{Q_{2-3}} = 1 - \kappa.
 \end{equation}
 
-Podstawiając temperatury \eqref{eq:endo_otto_T} znajdujemy moc silnika:
-\begin{multline}
-	P = - \frac{W}{\zeta\pab{\tau_h + \tau_c}} =
-	\frac{\hbar\omega_2 \pab{1-\kappa}}{2\zeta\pab{\tau_h + \tau_c}}
-	\sech\pab{\frac{\hbar\omega_2 \kappa}{2k_B}
-	\frac{
-	e^{\alpha_h \tau_h + \alpha_c \tau_c} - 1
-	}{
-	T_c e^{\alpha_h \tau_h} \pab{e^{\alpha_c \tau_c} - 1} + \kappa T_h \pab{e^{\alpha_h \tau_h} - 1}
-	}} \\
-	\sech\pab{\frac{\hbar\omega_2 \kappa}{2k_b}
-	\frac{
-		\kappa \pab{e^{\alpha_h \tau_h + \alpha_c \tau_c} - 1}
-	}{
-	T_c \pab{e^{\alpha_c \tau_c} - 1} + \kappa T_h e^{\alpha_c \tau_c} \pab{e^{\alpha_h \tau_h} - 1}
-	}} \\
-	\sinh\pab{\frac{\hbar\omega_2 \kappa}{2k_B}
-	\frac{
-	\pab{\kappa T_h - T_c}\pab{e^{\alpha_h \tau_h + \alpha_c \tau_c} - 1}\pab{e^{\alpha_h \tau_h} - 1}\pab{e^{\alpha_c \tau_c} - 1}
-	}{
-	\bab{T_c \pab{e^{\alpha_c \tau_c} - 1} + \kappa T_h e^{\alpha_c \tau_c} \pab{e^{\alpha_h \tau_h} - 1}}
-	\bab{T_c e^{\alpha_h \tau_h} \pab{e^{\alpha_c \tau_c} - 1} + \kappa T_h \pab{e^{\alpha_h \tau_h} - 1}}
-	}}.
-\end{multline}
-Podobnie jak dla przypadku oscylatora harmonicznego należy to wyrażenie zmaksymalizować numerycznie. Obliczenia te przeprowadzono używając programów zawartych w plikach \ref{pr:otto_spin_pol} oraz \ref{pr:otto_P}. Zależność sprawnośći od stosunku temperatur przedstawiono na rysunku \ref{fig:otto_spin_pol_PT}. Sprawność silnika w warunkach wysokotemperaturowych \ref{fig:otto_spin_pol_PT_01} jest zawsze gorsza niż sprawność klasycznego silnika Carnota w punkcie maksymalnej mocy \eqref{eq:endo_carnot_eta}, \eqref{eq:endo_otto_klas_eta} \(\eta = 1 - \frac{T_c}{T_h}\). Natomiast w warunkach wy warunkach niskotemperaturowych \ref{fig:otto_harm_osc_PT_10} zależnie od wartości \(\frac{T_c}{T_h}\). Zarówno w przypadku układu o spinie \(\inv{2}\) jak i oscylatora harmonicznego sprawność jest zawsze niższa niż sprawność Carnota \(\eta = 1 - \frac{T_c}{T_h}\).
-
-\begin{figure}[h]
+\begin{figure}[tp]
 	\centering
 	\begin{subfigure}{0.45\textwidth}
 		\centering
@@ -266,11 +246,11 @@ Podobnie jak dla przypadku oscylatora harmonicznego należy to wyrażenie zmaksy
 		\label{fig:otto_spin_pol_PT_10}
 	\end{subfigure}
 	\captionsetup{subrefformat=parens}
-	\caption{Porównanie sprawności silnika Otto w przypadku wysokotemperaturowym \subref{fig:otto_spin_pol_PT_01} oraz niskotemperaturowym \subref{fig:otto_spin_pol_PT_10}.}
+	\caption{Porównanie sprawności silnika Otto z układem o spinie \(\inv{2}\) jako czynnikiem roboczym w przypadku wysokotemperaturowym \subref{fig:otto_spin_pol_PT_01} oraz niskotemperaturowym \subref{fig:otto_spin_pol_PT_10}.}
 	\label{fig:otto_spin_pol_PT}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[tp]
 	\centering
 	\begin{subfigure}{0.45\textwidth}
 		\centering
@@ -288,3 +268,29 @@ Podobnie jak dla przypadku oscylatora harmonicznego należy to wyrażenie zmaksy
 	\caption{Porównanie mocy silnika Otto w przypadku wysokotemperaturowym \subref{fig:otto_harm_osc_Peta_01} oraz niskotemperaturowym \subref{fig:otto_harm_osc_Peta_10}.}
 	\label{fig:otto_harm_osc_Peta}
 \end{figure}
+
+Podstawiając temperatury \eqref{eq:endo_otto_T} znajdujemy moc silnika:
+\begin{multline}
+	P = - \frac{W}{\zeta\pab{\tau_h + \tau_c}} =
+	\frac{\hbar\omega_2 \pab{1-\kappa}}{2\zeta\pab{\tau_h + \tau_c}}
+	\sech\pab{\frac{\hbar\omega_2 \kappa}{2k_B}
+		\frac{
+			e^{\alpha_h \tau_h + \alpha_c \tau_c} - 1
+		}{
+			T_c e^{\alpha_h \tau_h} \pab{e^{\alpha_c \tau_c} - 1} + \kappa T_h \pab{e^{\alpha_h \tau_h} - 1}
+	}} \\
+	\sech\pab{\frac{\hbar\omega_2 \kappa}{2k_b}
+		\frac{
+			\kappa \pab{e^{\alpha_h \tau_h + \alpha_c \tau_c} - 1}
+		}{
+			T_c \pab{e^{\alpha_c \tau_c} - 1} + \kappa T_h e^{\alpha_c \tau_c} \pab{e^{\alpha_h \tau_h} - 1}
+	}} \\
+	\sinh\pab{\frac{\hbar\omega_2 \kappa}{2k_B}
+		\frac{
+			\pab{\kappa T_h - T_c}\pab{e^{\alpha_h \tau_h + \alpha_c \tau_c} - 1}\pab{e^{\alpha_h \tau_h} - 1}\pab{e^{\alpha_c \tau_c} - 1}
+		}{
+			\bab{T_c \pab{e^{\alpha_c \tau_c} - 1} + \kappa T_h e^{\alpha_c \tau_c} \pab{e^{\alpha_h \tau_h} - 1}}
+			\bab{T_c e^{\alpha_h \tau_h} \pab{e^{\alpha_c \tau_c} - 1} + \kappa T_h \pab{e^{\alpha_h \tau_h} - 1}}
+	}}.
+\end{multline}
+Podobnie jak dla przypadku oscylatora harmonicznego należy to wyrażenie zmaksymalizować numerycznie. Obliczenia te przeprowadzono używając programów zawartych w plikach \ref{pr:otto_spin_pol} oraz \ref{pr:otto_P}. Zależność sprawnośći od stosunku temperatur przedstawiono na rysunku \ref{fig:otto_spin_pol_PT}. Sprawność silnika w warunkach wysokotemperaturowych \ref{fig:otto_spin_pol_PT_01} jest zawsze gorsza niż sprawność klasycznego silnika Carnota w punkcie maksymalnej mocy \eqref{eq:endo_carnot_eta}, \eqref{eq:endo_otto_klas_eta} \(\eta = 1 - \frac{T_c}{T_h}\). Natomiast w warunkach wy warunkach niskotemperaturowych \ref{fig:otto_harm_osc_PT_10} zależnie od wartości \(\frac{T_c}{T_h}\). Zarówno w przypadku układu o spinie \(\inv{2}\) jak i oscylatora harmonicznego sprawność jest zawsze niższa niż sprawność Carnota \(\eta = 1 - \frac{T_c}{T_h}\).

@@ -14,7 +14,7 @@
 		ylabel style={at={(ticklabel cs:0.5)}, anchor=near ticklabel},
 		xlabel=$\frac{T_c}{T_h}$,
 		ylabel=$\eta$,
-		legend entries={$\eta=1-\frac{T_c}{T_h}$, $\eta=1-\sqrt{\frac{T_c}{T_h}}$, $\eta$}]
+		legend entries={$\eta=1-\frac{T_c}{T_h}$, $\eta=1-\sqrt{\frac{T_c}{T_h}}$, $\eta_{Otto}$}]
 		\addplot[domain=0:1, samples=1000, dashed, blue] {1 - x};
 		\addplot[domain=0:1, samples=1000, dashed, red ] {1 - sqrt(x)};
 		\addplot[mark=None, black] table [x index = 0, y index = 1]{Program/Otto_harm_osc_PT_10_data.dat};

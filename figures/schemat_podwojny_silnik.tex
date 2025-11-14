@@ -25,10 +25,10 @@
 	\draw[black] (-\engsep+\engwidth, -\chansep-\radius) arc (180:90:\radius);
 	\draw[black] (-\engsep+\engwidth, \chansep+\radius) arc (180:270:\radius);
 	\node[anchor=center] at (-\engsep, 0) {\(\eta_X\)};
-	\node[anchor=east] at (-\engsep-\engwidth, 0.5*\tanksep) {\(Q_{hX}\)};
-	\node[anchor=east] at (-\engsep-\engwidth, -0.5*\tanksep) {\(Q_{cX}\)};
+	\node[anchor=east] at (-\engsep-\engwidth, 0.5*\tanksep) {\(Q_{hX} > 0\)};
+	\node[anchor=east] at (-\engsep-\engwidth, -0.5*\tanksep) {\(Q_{cX} < 0\)};
 	\draw[line width=0.5mm, -{Stealth[length=5mm, open]}] (-\engsep, 0.75*\tanksep) -- (-\engsep, 0.25*\tanksep);
-	\draw[line width=0.5mm, -{Stealth[length=5mm, open]}] (-\engsep, -0.75*\tanksep) -- (-\engsep, -0.25*\tanksep);
+	\draw[line width=0.5mm, -{Stealth[length=5mm, open]}] (-\engsep, -0.25*\tanksep) -- (-\engsep, -0.75*\tanksep);
 	
 	\draw[black] (\engsep+\engwidth, -\tanksep) -- (\engsep+\engwidth, \tanksep);
 	\draw[black] (\engsep-\engwidth, -\tanksep) -- (\engsep-\engwidth, -\chansep-\radius);
@@ -36,13 +36,13 @@
 	\draw[black] (\engsep-\engwidth, -\chansep-\radius) arc (0:90:\radius);
 	\draw[black] (\engsep-\engwidth, \chansep+\radius) arc (360:270:\radius);
 	\node[anchor=center] at (\engsep, 0) {\(\eta_C\)};
-	\node[anchor=west] at (\engsep+\engwidth, 0.5*\tanksep) {\(Q_{hC}\)};
-	\node[anchor=west] at (\engsep+\engwidth, -0.5*\tanksep) {\(Q_{cC}\)};
-	\draw[line width=0.5mm, -{Stealth[length=5mm, open]}] (\engsep, 0.75*\tanksep) -- (\engsep, 0.25*\tanksep);
+	\node[anchor=west] at (\engsep+\engwidth, 0.5*\tanksep) {\(Q_{hC} < 0\)};
+	\node[anchor=west] at (\engsep+\engwidth, -0.5*\tanksep) {\(Q_{cC} > 0\)};
+	\draw[line width=0.5mm, -{Stealth[length=5mm, open]}] (\engsep, 0.25*\tanksep) -- (\engsep, 0.75*\tanksep);
 	\draw[line width=0.5mm, -{Stealth[length=5mm, open]}] (\engsep, -0.75*\tanksep) -- (\engsep, -0.25*\tanksep);
 	
 	\draw[black] (-\engsep+\engwidth+\radius, -\chansep) -- (\engsep-\engwidth-\radius, -\chansep);
 	\draw[black] (-\engsep+\engwidth+\radius, \chansep) -- (\engsep-\engwidth-\radius, \chansep);
-	\node[anchor=south] at (0, \chansep) {\(W\)};
+	\node[anchor=south] at (0, \chansep) {\(W > 0\)};
 	\draw[line width=0.5mm, -{Stealth[length=5mm, open]}] (-\engsep+\engwidth, 0) -- (\engsep-\engwidth, 0);
 \end{tikzpicture}

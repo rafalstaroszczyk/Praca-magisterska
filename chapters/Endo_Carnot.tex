@@ -30,7 +30,7 @@ Wykorzystując je, ciepła wymienione przez silnik są równe:
 	\end{split}
 \end{gather}
 
-Cykl Carnota działa tu między temperaturami \(T_{hw}\) i \(T_{cw}\) zamiast \(T_{h}\) i \(T_{c}\). Wewnętrzna produkcja entropii jest zerowa. Na cykl składają się 4 procesy: 2 izentropowe i 2 izotermiczne:
+Cykl Carnota działa tu między temperaturami \(T_{hw}\) i \(T_{cw}\) zamiast \(T_{h}\) i \(T_{c}\) jak było to w podrozdziale \ref{ssec:cykl_carnota}. Wewnętrzna produkcja entropii jest zerowa. Na cykl składają się 4 procesy: 2 izentropowe i 2 izotermiczne:
 \begin{equation}\label{eq:endo_carnot_deltaS}
 	\Delta S_{1-2} + \Delta S_{3-4} = 0, \quad\text{stąd}\quad
 	\frac{Q_{1-2}}{T_{cw}} = - \frac{Q_{3-4}}{T_{hw}}.
@@ -56,46 +56,57 @@ Po podstawieniu \eqref{eq:endo_carnot_Q} moc ma postać:
 \end{equation}
 Po uwzględnieniu \eqref{eq:endo_carnot_tau} mamy:
 \begin{equation}\label{eq:endo_carnot_P}
-	P\pab{x,y} = \frac{\alpha_{h}\alpha_{c}xy}{\zeta} \frac{T_{h} - T_{c} - x - y}{\alpha_{c}T_{h}y + \alpha_{h}T_{c}x + \pab{\alpha_{h} - \alpha_{c}}xy}.
+	P\pab{x,y} = \frac{\alpha_{h}\alpha_{c}xy}{\zeta} \frac{T_{h} - T_{c} - x - y}{\alpha_{h}T_{c}x + \alpha_{c}T_{h}y + \pab{\alpha_{h} - \alpha_{c}}xy}.
+\end{equation}
+Pierwsze pochodne cząstkowe mocy względem parametrów \(x\) oraz \(y\) są równe:
+\begin{equation}\label{eq:endo_carnot_pdvPxy}
+\begin{split}
+	\pdv{P\pab{x,y}}{x} &= 
+	\frac{\alpha_{h}\alpha_{c}}{\zeta} \frac{
+	\alpha_{c}T_{h}y^2 \pab{T_{h}-T_{c}-x-y} - xy\bab{\alpha_{h}T_{c}x + \alpha_{c}T_{h}y + \pab{\alpha_{h}-\alpha_{c}}xy}
+	}{\bab{\alpha_{h}T_{c}x + \alpha_{c}T_{h}y + \pab{\alpha_{h}-\alpha_{c}}xy}^2}, \\
+	\pdv{P\pab{x,y}}{y} &= 
+	\frac{\alpha_{h}\alpha_{c}}{\zeta} \frac{
+	\alpha_{h}T_{c}x^2 \pab{T_{h}-T_{c}-x-y} - xy\bab{\alpha_{h}T_{c}x + \alpha_{c}T_{h}y + \pab{\alpha_{h}-\alpha_{c}}xy}
+	}{\bab{\alpha_{h}T_{c}x + \alpha_{c}T_{h}y + \pab{\alpha_{h}-\alpha_{c}}xy}^2}.
+\end{split}
 \end{equation}
 
-W punkcie maksymalnej mocy zerują się pochodne cząstkowe względem \(x\):
+W punkcie maksymalnej mocy zerują się pierwsze pochodne cząstkowe względem \(x\) oraz \(y\). Otrzymujemy stąd warunki na wielkości w punkcie maksymalnej mocy \(x_0\) i \(y_0\):
 \begin{align}\label{eq:endo_carnot_pdv0x}
-	\pdv{P\pab{x,y}}{x} = 0: \quad &
-	\alpha_{c}T_{h}\pab{T_{h} - T_{c} - x - y}y = x\bab{\alpha_{h}T_{c}x + \alpha_{c}T_{h}y + \pab{\alpha_{h} - \alpha_{c}}xy}
+	\alpha_{c}T_{h}\pab{T_{h} - T_{c} - x_0 - y_0}y_0 = x_0\bab{\alpha_{h}T_{c}x_0 + \alpha_{c}T_{h}y_0 + \pab{\alpha_{h} - \alpha_{c}}x_0y_0},
 \end{align}
-oraz względem \(y\):
+oraz:
 \begin{align}\label{eq:endo_carnot_pdv0y}
-	\pdv{P\pab{x,y}}{y} = 0: \quad &
-	\alpha_{h}T_{c}\pab{T_{h} - T_{c} - x - y}x = y\bab{\alpha_{h}T_{c}x + \alpha_{c}T_{h}y + \pab{\alpha_{h} - \alpha_{c}}xy}.
+	\alpha_{h}T_{c}\pab{T_{h} - T_{c} - x_0 - y_0}x_0 = y_0\bab{\alpha_{h}T_{c}x_0 + \alpha_{c}T_{h}y_0 + \pab{\alpha_{h} - \alpha_{c}}x_0y_0}.
 \end{align}
 Dzieląc stronami otrzymujemy:
 \begin{align}\label{eq:endo_carnot_y}
-	y^2 &= x^2\frac{\alpha_{h}T_{c}}{\alpha_{c}T_{h}}; & 
-	y &= x\sqrt{\frac{\alpha_{h}T_{c}}{\alpha_{c}T_{h}}}.
+	y_0^2 &= x_0^2\frac{\alpha_{h}T_{c}}{\alpha_{c}T_{h}}; & 
+	y_0 &= x_0\sqrt{\frac{\alpha_{h}T_{c}}{\alpha_{c}T_{h}}}.
 \end{align}
 Podstawiając je do \eqref{eq:endo_carnot_pdv0x} oraz \eqref{eq:endo_carnot_pdv0y} i przekształcając otrzymujemy równanie kwadratowe w zmiennej \(\frac{x}{T_{h}}\):
 \begin{equation*}
-	\pab{1 - \frac{\alpha_{h}}{\alpha_{c}}}\pab{\frac{x}{T_{h}}}^2 - 2\bab{\sqrt{\frac{\alpha_{h}T_{c}}{\alpha_{c}T_{h}}} + 1}\pab{\frac{x}{T_{h}}} + \pab{1 - \frac{T_{c}}{T_{h}}} = 0,
+	\pab{1 - \frac{\alpha_{h}}{\alpha_{c}}}\pab{\frac{x_0}{T_{h}}}^2 - 2\bab{\sqrt{\frac{\alpha_{h}T_{c}}{\alpha_{c}T_{h}}} + 1}\pab{\frac{x_0}{T_{h}}} + \pab{1 - \frac{T_{c}}{T_{h}}} = 0,
 \end{equation*}
-które ma dwa rozwiązania rzeczywiste, ale tylko jedno z nich jest fizyczne i spełniające \(\frac{x}{T_{h}} < 1\). Następnie wykorzystując \eqref{eq:endo_carnot_y} mamy:
+które ma dwa rozwiązania rzeczywiste, ale tylko jedno z nich jest fizyczne i spełniające \(x_0/T_{h} < 1\). Następnie wykorzystując \eqref{eq:endo_carnot_y} mamy:
 \begin{align}\label{eq:endo_carnot_xy}
-	\frac{x}{T_{h}} &= \frac{1 - \sqrt{\frac{T_{c}}{T_{h}}}}{1 + \sqrt{\frac{\alpha_{h}}{\alpha_{c}}}}; & 
-	\frac{y}{T_{c}} &= \frac{\sqrt{\frac{T_{h}}{T_{c}}} - 1}{1 + \sqrt{\frac{\alpha_{c}}{\alpha_{h}}}}.
+	\frac{x_0}{T_{h}} &= \frac{1 - \sqrt{\frac{T_{c}}{T_{h}}}}{1 + \sqrt{\frac{\alpha_{h}}{\alpha_{c}}}}; & 
+	\frac{y_0}{T_{c}} &= \frac{\sqrt{\frac{T_{h}}{T_{c}}} - 1}{1 + \sqrt{\frac{\alpha_{c}}{\alpha_{h}}}}.
 \end{align}
 
-Sprawność teoretycznego silnika Carnota wynosi \(\eta_C = 1 - \frac{T_{c}}{T_{h}}\), podobnie dla rozpatrywanego:
+Sprawność teoretycznego silnika Carnota działającego między zbiornikami o temperaturach \(T_h\) i \(T_c\) wynosi \(\eta_C = 1 - \frac{T_{c}}{T_{h}}\), podobnie dla rozpatrywanego działającego między temperaturami \(T_{hw}\) i \(T_{cw}\):
 \begin{equation}\label{eq:endo_carnot_eta_def}
 	\eta_C' = 1 - \frac{T_{cw}}{T_{hw}} = 
-	1 - \frac{T_{c} + y}{T_{h} - x} = 
-	1 - \frac{T_{c}}{T_{h}}\frac{1 + \frac{y}{T_{c}}}{1 - \frac{x}{T_{h}}}.
+	1 - \frac{T_{c} + y_0}{T_{h} - x_0} = 
+	1 - \frac{T_{c}}{T_{h}}\frac{1 + \frac{y_0}{T_{c}}}{1 - \frac{x_0}{T_{h}}}.
 \end{equation}
 Po podstawieniu \eqref{eq:endo_carnot_xy} i dłuższej manipulacji mamy:
 \begin{equation}\label{eq:endo_carnot_eta}
 	\eta_C' = 1 - \sqrt{\frac{T_{c}}{T_{h}}} = \frac{1 - \frac{T_{c}}{T_{h}}}{1 + \sqrt{\frac{T_{c}}{T_{h}}}} < 
 	1 - \frac{T_{c}}{T_{h}} = \eta_C.
 \end{equation}
-Sprawność ta jest mniejsza od sprawności silnika idealnego, ale wciąż jest jedynie funkcją stosunku temperatur \(\frac{T_{c}}{T_{h}}\) i niezależna od innych parametrów opisujących silnik.
+Sprawność ta jest mniejsza od sprawności silnika idealnego, ale wciąż jest jedynie funkcją stosunku temperatur \(\frac{T_{c}}{T_{h}}\) i niezależna od innych parametrów opisujących silnik. Zerowanie się pierwszych pochodnych cząstkowych nie jest warunkiem wystarczającym istnienia maksimum. Aby roztrzygnąć czy jest to maksimum, minimum czy punkt siodłowy przeprowadzono dodatkowe obliczenia w dodatku \ref{sec:endo_carnot_max}.
 
 Z porównania \eqref{eq:endo_carnot_eta_def} oraz \eqref{eq:endo_carnot_eta} otrzymujemy równość:
 \begin{equation}\label{eq:endo_carnot_frac_Tw}

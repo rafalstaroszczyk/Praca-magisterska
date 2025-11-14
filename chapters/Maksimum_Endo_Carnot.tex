@@ -1,0 +1,82 @@
+% !TEX root = ../main.tex
+
+\section{Dowód maksimum mocy endoodwracalnego silnika Carnota}\label{sec:endo_carnot_max}
+W celu uproszczenia równań wprowadzamy wielkości:
+\begin{equation}\label{eq:max_endo_carnot_ABCDE}
+\begin{aligned}
+	A &= \frac{\alpha_{h}\alpha_{c}}{\zeta}, &
+	B &= \alpha_{h}T_{c}, &
+	C &= \alpha_{c}T_{h}, \\
+	D &= \alpha_{h} - \alpha_{c}, &
+	E &= T_{h} - T_{c}. &&
+\end{aligned}
+\end{equation}
+Wykorzystując je wzór \eqref{eq:endo_carnot_P} ma postać:
+\begin{equation}
+	P\pab{x,y} = A \frac{xy\pab{E-x-y}}{Bx+Cy+Dxy},
+\end{equation}
+a pierwsze pochodne \eqref{eq:endo_carnot_pdvPxy}:
+\begin{align}\label{eq:max_endo_carnot_pdvP}
+	\pdv{P\pab{x,y}}{x} &= A \frac{Cy^2\pab{E-x-y} - xy\pab{Bx+Cy+Dxy}}{\bab{Bx+Cy+Dxy}^2}, \\
+	\pdv{P\pab{x,y}}{y} &= A \frac{Bx^2\pab{E-x-y} - xy\pab{Bx+Cy+Dxy}}{\bab{Bx+Cy+Dxy}^2}.
+\end{align}
+Aby pokazać, że mamy w \(x,y\) maksimum należy znaleźć również pochodne drugiego stopnia. Znajdujemy je bezpośrednio różniczkując równania \eqref{eq:max_endo_carnot_pdvP}. Druga pochodna cząstkowa względem \(x\) jest równa:
+\begin{equation}\label{eq:max_endo_carnot_pdvxx}
+	\pdv[order=2]{P\pab{x,y}}{x} = -2ACy^2 \frac{
+	\pab{B+Dy}\pab{E-x-y} + \pab{Bx+Cy+Dxy}
+	}{\pab{Bx+Cy+Dxy}^3},
+\end{equation}
+druga pochodna względem \(y\) jest równa:
+\begin{equation}\label{eq:max_endo_carnot_pdvyy}
+	\pdv[order=2]{P\pab{x,y}}{y} = -2ABx^2 \frac{
+	\pab{C+Dx}\pab{E-x-y} + \pab{Bx+Cy+Dxy}
+	}{\pab{Bx+Cy+Dxy}^3},
+\end{equation}
+natomiast pochodne mieszane są sobie równe i mają postać:
+\begin{equation}\label{eq:max_endo_carnot_pdvxy}
+	\pdv{P\pab{x,y}}{x,y} = \pdv{P\pab{x,y}}{y,x} =
+	A\frac{2BCxy\pab{E-x-y} - \pab{Bx^2 + Cy^2}\pab{Bx+Cy+Dxy}}{\pab{Bx+Cy+Dxy}^3}.
+\end{equation}
+Wyznacznik hessianu jest równy:
+\begin{multline}
+	\Delta\pab{x,y} = \pdv[order=2]{P\pab{x,y}}{x}\pdv[order=2]{P\pab{x,y}}{y} - \pdv{P\pab{x,y}}{x,y}\pdv{P\pab{x,y}}{y,x} = \\ =
+	\inv{\pab{Bx+Cy+Dxy}^6} \Biggl\{
+	4A^2BCDx^2y^2 \pab{Bx+Cy+Dxy}\pab{E-x-y}^2 + \\ +
+	4A^2BCxy \pab{x+y}\pab{E-x-y}\pab{Bx+Cy+Dxy}^2 - \\ -
+	A^2\pab{Bx^2-Cy^2}^2\pab{Bx+Cy+Dxy}^2
+	\Biggr\}
+\end{multline}
+
+W punkcie maksymalnej mocy wyznaczonej wzorami \eqref{eq:endo_carnot_xy} i wykorzystując \eqref{eq:max_endo_carnot_ABCDE} możemy znaleźć, że:
+\begin{equation}
+	Bx+Cy+Dxy = \sqrt{\alpha_{h}\alpha_{c}T_{h}T_{c}}\pab{\sqrt{\alpha_{h}T_{h}} + \sqrt{\alpha_{c}T_{c}}} \frac{\sqrt{T_{h}} - \sqrt{T_{c}}}{\sqrt{\alpha_{h}} + \sqrt{\alpha_{c}}} > 0.
+\end{equation}
+Z warunku \(T_{hw} > T_{cw}\) mamy też:
+\begin{equation}
+	E-x-y = \pab{T_h - x} - \pab{T_c + y} = T_{hw} - T_{cw} > 0.
+\end{equation}
+Wykorzystując je druga pochodna \eqref{eq:max_endo_carnot_pdvxx} spełnia:
+\begin{equation}
+	\pdv[order=2,delims-eval=.|]{P\pab{x,y}}{x}_{x_0,y_0} < 0.
+\end{equation}
+Z równania \eqref{eq:endo_carnot_y} mamy:
+\begin{equation}
+	Bx^2 = Cy^2.
+\end{equation}
+Wykorzystując to wyznacznik hessianu spełnia:
+\begin{equation}
+	\Delta\pab{x_0,y_0} > 0.
+\end{equation}
+Warunki rozróżniające charakter punktu stacjonarnego to:
+\begin{align*}
+	&\text{maksimum}: &
+	\pdv[order=2]{P\pab{x,y}}{x} &< 0, &
+	\Delta\pab{x,y} &> 0, \\
+	&\text{minimum}: &
+	\pdv[order=2]{P\pab{x,y}}{x} &> 0, &
+	\Delta\pab{x,y} &> 0, \\
+	&\text{punkt siodłowy}: &
+	&&
+	\Delta\pab{x,y} &< 0. \\
+\end{align*}
+Stąd funkcja \(P\pab{x,y}\) w punkcie \(\pab{x_0,y_0}\) ma swoje maksimum.

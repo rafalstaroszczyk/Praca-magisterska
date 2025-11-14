@@ -1,7 +1,9 @@
 % !TEX root = ../main.tex
 
 \section{Opis układu kwantowego}
-W statystycznej mechanice kwantowej rozróżniamy stany czyste oraz stany mieszane. Stan czysty może być reprezentowany równoważnie przez: funkcję falową \(\Psi\pab{x,t} = \braket{x}{\Psi\pab{t}}\), w której \(x\) jest pewną zmienną opisującą układ (na przykład położenie, pęd lub energia); wektor stanu \(\ket{\Psi\pab{t}}\); oraz operator gęstości \(\vu{\rho}\). Stany czyste opisane wektorem stanu \(\ket{\Psi}\) możemy przedstawić jako kombinację liniową stanów tworzących bazę ortonormalną zupełną \cite{davydov_mechanika_kwantowa}:
+W statystycznej mechanice kwantowej rozróżniamy stany czyste oraz stany mieszane. Stan czysty może być reprezentowany równoważnie przez: funkcję falową \(\Psi\pab{x,t} = \braket{x}{\Psi\pab{t}}\), w której \(x\) jest pewną zmienną opisującą układ (na przykład położenie, pęd lub energia), wektor stanu \(\ket{\Psi\pab{t}}\) oraz operator gęstości \(\vu{\rho}\).
+
+Stany czyste opisane wektorem stanu \(\ket{\Psi}\) możemy przedstawić jako kombinację liniową stanów tworzących bazę ortonormalną zupełną \cite{davydov_mechanika_kwantowa}:
 \begin{equation*}
 	\ket{\Psi} = \sum_{k} c_{k} \ket{\psi_{k}} + \int c_F \ket{\psi_F} \d{F},
 \end{equation*}
@@ -44,7 +46,7 @@ Alternatywnie wartość oczekiwaną operatora \(\vu{A}\) możemy zapisać poprze
 	\braket[1]{\vu{A}} = \sum_{k} \vab{c_k}^2 a_{k} = \sum_{nk} c_{k} c_{n}^{*} \delta_{nk} a_{k} =
 	\sum_{nk} \braket{\psi_k}{\Psi} \braket{\Psi}{\psi_n} \braket[3]{\psi_n}{\vu{A}}{\psi_k} = \\ =
 	\sum_{nk} \braket[3]{\psi_k}{\vu{\rho}}{\psi_n} \braket[3]{\psi_n}{\vu{A}}{\psi_k} =
-	\sum_{nk} \rho_{kn} A_{nk} = \sum_{k} \pab{\vu{\rho}\vu{A}}_{kk} = \Tr\Bab{\vu{\rho}\vu{A}}.
+	\sum_{nk} \rho_{kn} A_{nk} = \Tr\Bab{\vu{\rho}\vu{A}}.
 \end{multline}
 Końcowy wynik jest w obu przypadkach niezależny od wyboru konkretnej bazy i jest wzorem ogólnym. Macierz gęstości zawiera tą samą informację co wektor \(\ket{\Psi}\).
 %Elementy tej macierzy w bazie \(\psi_i\) opisuje wzór \(\rho_{nk} = \braket{\psi_n}{\Psi}\braket{\Psi}{\psi_k} = c_{n}c_{k}^{*}\).
@@ -57,9 +59,6 @@ Stan mieszany niemożliwy jest do przedstawienia wektorem falowym. Jest on miesz
 	\sum_{knm} p_k \braket{\Psi_k}{\psi_m} \braket[3]{\psi_m}{\vu{A}}{\psi_n} \braket{\psi_n}{\Psi_k} =
 	\sum_{knm} p_k \braket{\psi_n}{\Psi_k} \braket{\Psi_k}{\psi_m} \braket[3]{\psi_m}{\vu{A}}{\psi_n} = \\ =
 	\sum_{nm} \bra{\psi_n} \pab{\sum_{k} p_k \ketbra{\Psi_k}{\Psi_k}} \ket{\psi_m} \braket[3]{\psi_m}{\vu{A}}{\psi_n} =
-	\sum_{nm} \braket[3]{\psi_n}{\vu{\rho}}{\psi_m} \braket[3]{\psi_m}{\vu{A}}{\psi_n} = \\ =
-	\sum_{nm} \rho_{nm} A_{mn} =
-	\sum_{n} \pab{\vu{\rho}\vu{A}}_{nn} =
 	\Tr\Bab{\vu{\rho}\vu{A}}
 \end{multline}
 gdzie wprowadzamy macierz gęstości stanu mieszanego równą:
@@ -85,13 +84,13 @@ Nie jest to więc w ogólności projektor. Wektory \(\ket{\Psi_k}\) możemy rozw
 \end{equation}
 Z normalizacji wektora \(\ket{\Psi_k}\) mamy również \(\sum_{i} \vab{c_{i}^{\pab{k}}}^2 = 1\). Możemy wtedy zapisać \(S_{kn}\) jako:
 \begin{equation}
-	S_{kn} = \braket{\Psi_k}{\Psi_n} = \sum_{i} \bra{\Psi_k} \ketbra{\psi_i}{\psi_i} \ket{\Psi_n} =
+	S_{kn} = \braket{\Psi_k}{\Psi_n} = \sum_{i} \braket{\Psi_k}{\psi_i} \braket{\psi_i}{\Psi_n} =
 	\sum_{i} c_{i}^{*\pab{k}} c_{i}^{\pab{n}}.
 \end{equation}
 Ślad macierzy gęstości jest równy:
 \begin{equation}\label{eq:macierz_gestosci_mieszany_slad}
 	\Tr\Bab{\vu{\rho}} =
-	\sum_{kn} p_k \bra{\psi_n}\ketbra{\Psi_k}{\Psi_k}\ket{\psi_n} =
+	\sum_{kn} p_k \braket{\psi_n}{\Psi_k}\braket{\Psi_k}{\psi_n} =
 	\sum_{kn} p_k c_{n}^{\pab{k}} c_{n}^{*\pab{k}} =
 	\sum_{k} p_k \sum_{n} \vab{c_{n}^{\pab{k}}}^2 = 1.
 \end{equation}
@@ -104,7 +103,7 @@ Natomiast ślad kwadratu ma postać:
 	\sum_{kn} p_k p_n S_{kn} S_{kn}^{*} =
 	\sum_{kn} p_k p_n \vab{S_{kn}}^2 \leq 1.
 \end{multline}
-gdzie równość zachodzi jedynie w przypadku \(p_i = 1\), a pozostałe \(p_{j \neq i} = 0\), co jest stanem czystym. We wzorach \eqref{eq:macierz_gestosci_mieszany_kwadrat} oraz \eqref{eq:macierz_gestosci_mieszany_slad} nierówność zachodzi dla stanu mieszanego.
+gdzie równość zachodzi jedynie w przypadku \(p_i = 1\), a pozostałe \(p_{j \neq i} = 0\), co jest stanem czystym. We wzorach \eqref{eq:macierz_gestosci_mieszany_kwadrat} oraz \eqref{eq:macierz_gestosci_mieszany_kwadrat_slad} nierówność zachodzi dla stanu mieszanego.
 
 W fizyce statystycznej układy znajdują się w stanach mieszanych, ponieważ rzeczywiste układy kwantowe nie są izolowane, ale oddziałują w jakiś sposób z otoczeniem. Niemożliwe jest również badanie danego układu w infinitezymalnym czasie, ale każdy pomiar jest uśrednieniem badanej wielkości w czasie większym, niż czasy relaksacji układu, ale mniejszym niż zdolność rozdzielcza przyrządu \cite{b:huang_mechanika_statystyczna}. Układ taki wraz z otoczeniem opisany jest wektorem \(\Psi\pab{x,X,t}\) zależnym od współrzędnych układu \(x\), otoczenia \(X\) i czasu \(t\). W zupełnej bazie wektorów własnych hamiltonianu układu zależność od \(X\) i \(t\) można uwzględnić poprzez współrzędne \(c_{n}\pab{X,t}\) \cite{b:huang_podstawy_fizyki_statystycznej}:
 \begin{equation*}
@@ -145,8 +144,7 @@ Dla \(n = k\) faza względna nie jest losowa, ponieważ jest identyczna i całko
 \begin{equation*}
 	\int c_{k}^{*}\pab{X,t}c_{k}\pab{X,t} \d{X} = p_k.
 \end{equation*}
-Możemy zauważyć, że jest to element diagonalny macierzy gęstości wyrażonej wzorem \eqref{eq:macierz_gestosci_mieszany}, co łączy oba podejścia. W ogólniejszym przypadku (bez uśredniania) również elementy pozadiagonalne są niezerowe.
-Średnia po podstawieniu \(p_k\) wyraża się wzorem:
+Możemy zauważyć, że jest to element diagonalny macierzy gęstości wyrażonej wzorem \eqref{eq:macierz_gestosci_mieszany}, co łączy oba podejścia. Średnia po podstawieniu \(p_k\) wyraża się wzorem:
 \begin{equation*}
 	\braket[1]{A} = \sum_{k} p_k \braket[3]{\psi_k}{A}{\psi_k}.
 \end{equation*}

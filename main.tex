@@ -44,13 +44,19 @@
 \input{chapters/Kwantowe_maszyny_cieplne.tex}
 \input{chapters/Kwantowy_Otto.tex}
 \input{chapters/Kwantowy_Stirling.tex}
-\appendix
+\chapter*{Dodatki}
+\addcontentsline{toc}{chapter}{Dodatki}
+\setcounter{section}{0}
+\renewcommand\thesection{\Alph{section}}
+\numberwithin{equation}{section}
+\counterwithin{figure}{section}
+\counterwithin{lstlisting}{section}
+\input{chapters/Maksimum_Endo_Carnot.tex}
 \input{chapters/Wyprowadzenie_entropii_kwantowej.tex}
-\input{chapters/Studnia_potencjalu.tex}
 \input{chapters/Oscylator_harmoniczny.tex}
 \input{chapters/Moment_pedu.tex}
-\input{chapters/Cialo_dwustanowe.tex}
 \input{chapters/Kod.tex}
+
 
 \printbibliography[title={Wykaz literatury},heading=bibintoc]
 
