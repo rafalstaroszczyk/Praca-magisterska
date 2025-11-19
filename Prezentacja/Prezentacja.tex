@@ -1,0 +1,174 @@
+% THIS IS GDANSK UNIVERSITY OF TECHNLOGOGY (PG) PRESENTATION TEMPLATE
+% Creator: Jan Cychnerski <jan.cychnerski@eti.pg.edu.pl>
+% Copyleft 2019
+
+% traditional screen
+\documentclass{beamer}
+
+% wide screen
+%\documentclass[aspectratio=169]{beamer}
+
+
+%%% YOUR PACKAGES HERE %%%
+\usepackage{comment}
+\usepackage{hyperref}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[polish]{babel}
+\usepackage[backend=biber]{biblatex}
+\addbibresource{../config/bibliography.bib}
+\usepackage{csquotes}
+\usepackage{float}
+\usepackage{caption}
+%\usepackage[symbol]{footmisc}
+\usepackage{xcolor}  % kolory motywu
+\usepackage{tikz}
+\usetikzlibrary{angles}
+\usetikzlibrary{quotes}
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{calligraphy}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{calc}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\pgfplotsset{compat=1.9}
+\usepackage{amsmath}  % równania
+\usepackage{amssymb}
+\usepackage{bbold}
+\usepackage{physics2}  % pochodne, macierze itp
+\usephysicsmodule{ab}
+\usephysicsmodule{braket}
+\usephysicsmodule{diagmat}
+\usephysicsmodule{xmat}
+\usephysicsmodule{nabla.legacy}
+\usephysicsmodule{op.legacy}
+\usefonttheme[onlymath]{serif}
+\makeatletter
+\newcommand\vb[1]{\boldsymbol{#1}}
+%\newcommand\vb[1]{\@ifstar\boldsymbol\mathbf{#1}}
+\newcommand\va[1]{\@ifstar{\vec{#1}}{\vec{\mathrm{#1}}}}
+\newcommand\vu[1]{%
+	\@ifstar{\hat{\boldsymbol{#1}}}{\hat{\boldsymbol{#1}}}}
+\makeatother
+\usepackage{fixdif, derivative}  % pochodne
+\usepackage[version=4]{mhchem}
+
+\DeclareMathOperator{\Col}{Col}
+\DeclareMathOperator{\Nul}{Nul}
+\DeclareMathOperator{\arctg}{arctg}
+\DeclareMathOperator{\tgh}{tgh}
+%\DeclareMathOperator{\Tr}{Tr}
+
+%\setlength{\abovedisplayskip}{0pt}
+%\setlength{\belowdisplayskip}{0pt}
+%\setlength{\abovedisplayshortskip}{0pt}
+%\setlength{\belowdisplayshortskip}{0pt}
+
+%\expandafter\def\expandafter\normalsize\expandafter{%
+	%	\normalsize%
+	%	\setlength\abovedisplayskip{-6pt}%
+	%	\setlength\belowdisplayskip{8pt}%
+	%	\setlength\abovedisplayshortskip{-8pt}%
+	%	\setlength\belowdisplayshortskip{2pt}%
+	%}
+
+\newcommand{\inv}[1]{\frac{1}{#1}}
+\newcommand{\ham}{\hat{\mathcal{H}}}
+\newcommand{\unit}{\mathbb{1}}
+
+\newcommand{\dbar}{\mathrm{d\mkern-8mu\mathchar'26\mkern-2mu}}
+\NewDifferential{\idif}{\dbar}
+
+%\addtobeamertemplate{footnote}{\vspace{-6pt}\advance\hsize-0.5cm}{\vspace{6pt}}
+%\makeatletter
+%% Alternative A: footnote rule
+%\renewcommand*{\footnoterule}{\kern -3pt \hrule \@width 2in \kern 8.6pt}
+%% Alternative B: no footnote rule
+%% \renewcommand*{\footnoterule}{\kern 6pt}
+%\makeatother
+
+% polish language
+\usepackage[polish]{babel}
+\usepackage{polski}
+
+
+
+%%% IMPORT PG PRESENTATION STYLE %%%
+\include{pgbeamer/pgbeamer.tex}
+
+
+
+%%% YOUR OPTIONS HERE %%%
+
+\title[Silniki kwantowe]{Maszyny cieplne z perspektywy mechaniki kwantowej}
+\author{Rafał Staroszczyk}
+\date{}
+
+\setbeamercovered{transparent}
+
+\usepackage{xpatch}
+\usepackage{refcount}
+\usepackage{expl3}
+
+% Define \smartfootcite to merge identical citations
+\makeatletter
+\newcommand{\smartfootcite}[2][]{%
+	\begingroup
+	\edef\tempkey{#2}% Store citation key
+	\edef\temppages{#1}% Store page number(s)
+	\edef\tempid{\tempkey:\temppages}% Unique identifier for key-page combination
+	\ifcsname smartfoot@\tempid\endcsname
+	% If the citation exists, reuse the footnote number
+	\footnotemark[\csname smartfoot@\tempid\endcsname]%
+	\else
+	% Otherwise, create a new footnote and store its number
+	%\footfullcite[#1]{#2}%
+	\footnote[frame]{\fullcite[#1]{#2}}%
+	\edef\tempnum{\number\value{footnote}}%
+	\expandafter\xdef\csname smartfoot@\tempid\endcsname{\tempnum}%
+	\fi
+	\endgroup
+}
+\makeatother
+
+
+
+%%% DOCUMENT BEGINS HERE %%%
+
+\begin{document}
+%%% PG TITLE PAGE %%%
+\pgtitleframe
+
+%%% YOUR PRESENTATION HERE %%%
+
+\section{Silnik Carnota}
+\begin{frame}{Silnik Carnota}
+\begin{columns}
+	\begin{column}{0.5\textwidth}
+		\begin{block}{Sprawność silnika}
+			\begin{equation*}
+				\eta_C = \frac{W}{Q_h} = 1 - \frac{T_{c}}{T_{h}}
+			\end{equation*}
+		\end{block}
+		\begin{block}{Twierdzenie Carnota}
+			Silnik Carnota wyznacza największą sprawność dla danych temperatur
+		\end{block}
+		\begin{block}{Twierdzenie Clausiusa}
+			Dla procesu kołowego:
+			\begin{equation*}
+				\oint \frac{\dbar{Q}}{T} \leq 0
+			\end{equation*}
+		\end{block}
+	\end{column}
+	\begin{column}{0.5\textwidth}
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=\textwidth]{pv_silnik_carnot.pdf}
+			\caption*{Schemat silnika Carnota \footnote[frame]{\fullcite{b:pudlik_termodynamika}}}
+		\end{figure}
+	\end{column}
+\end{columns}
+\end{frame}
+
+\end{document}
