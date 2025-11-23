@@ -75,6 +75,13 @@ Ponieważ operatory drabinkowe zmieniają \(m\) o jedność pojawiają się dwa 
 \end{equation}
 W pierszym przypadku dla każdego \(j\) dostępnych jest nieparzysta ilość różnych \(m\), natomiast w drugim jest ich ilość parzysta. W obydwu przypadkach jest ich \(2j + 1\), co jest krotnością stanu.
 
+\begin{figure}[!ht]
+	\centering
+	\input{figures/wykres_spin.tex}
+	\caption{Wykres zależności wybranych wielkości termodynamicznych od temperatury dla układu składającego się z cząstki o spinie \(\inv{2}\).}
+	\label{fig:wykres_spin}
+\end{figure}
+
 Szczególnym przypadkiem momentu pędu jest cząstka o spinie \(s = \inv{2}\). Układ taki ma dwa stany, które zapisujemy skrótowo:
 \begin{align}
 	\ket{\uparrow} &= \ket{\inv{2},\inv{2}}, &
@@ -112,10 +119,3 @@ W równowadze termodynamicznej \cite{kieu, yuan}:
 	S = -k_B\pab{p_{\uparrow} \ln p_{\uparrow} + p_{\downarrow} \ln p_{\downarrow}} =
 	- \frac{\hbar\omega}{2T} \tgh\pab{\frac{\hbar\omega}{2 k_B T}} + k_B \ln\bab{2\cosh\pab{\frac{\hbar\omega}{2 k_B T}}}. \label{eq:spin_pol_S}
 \end{gather}
-
-\begin{figure}
-	\centering
-	\input{figures/wykres_spin.tex}
-	\caption{Wykres zależności wybranych wielkości termodynamicznych od temperatury dla układu o spinie \(\inv{2}\).}
-	\label{fig:wykres_spin}
-\end{figure}

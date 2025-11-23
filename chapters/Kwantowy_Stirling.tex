@@ -10,7 +10,7 @@ W kwantowym silniku Stirlinga pracującym równowagowo ciepło dostarczone podcz
 \end{align*}
 gdzie \(\omega\) jest parametrem kontrolowanym z zewnątrz i ma sens odwrotnej objętości \cite{myers}. Dokładna definicja \(\omega\) zależna jest od rozpatrywanego czynnika roboczego.
 
-\subsection{Oscylator harmoniczny}
+\subsection{Oscylator harmoniczny jako czynnik roboczy}
 Czynnikiem roboczym jest oscylator harmoniczny, a parametr \(\omega\) jest częstością drgań własnych oscylatora. W dodatku \ref{sec:osc_harm} wyprowadzono wielkości termodynamiczne U (\ref{eq:osc_harm_U}) i S (\ref{eq:osc_harm_S}). Wykorzystując je znajdujemy odpowiednie ciepła w przemianach izotermicznych:
 \begin{gather}
 \begin{split}
@@ -79,7 +79,7 @@ Zależność sprawności silnika Stirlinga od \(\omega_1\) oraz \(\frac{\omega_2
 		\centering
 		\input{figures/wykres_3d_stirling_harm_osc_90.tex}
 	\end{subfigure}
-	\caption{Wykres sprawności kwantowego silnika Stirlinga z oscylatorem harmonicznym jako czynnikiem roboczym; wykorzystano jednostki naturalne \(k_B = 1\), \(\hbar = 1\); stosunek temperatur jest równy \(\frac{T_h}{T_c} = 3\); dla silnika Carnota \(\eta_C = \frac{2}{3}\).}
+	\caption{Wykres sprawności kwantowego silnika Stirlinga z oscylatorem harmonicznym jako czynnikiem roboczym; wykorzystano jednostki naturalne \(k_B = 1\), \(\hbar = 1\); stosunek temperatur jest równy \(\frac{T_h}{T_c} = 3\); w tych warunkach sprawność silnika Carnota jest równa \(\eta_C = \frac{2}{3}\).}
 	\label{fig:wykres_kw_stirling_osc_harm}
 \end{figure}
 
@@ -92,11 +92,11 @@ Zależność sprawności silnika Stirlinga od \(\omega_1\) oraz \(\frac{\omega_2
 		\centering
 		\input{figures/wykres_3d_stirling_harm_osc_bezreg_90.tex}
 	\end{subfigure}
-	\caption{Wykres sprawności kwantowego silnika Stirlinga z oscylatorem harmonicznym jako czynnikiem roboczym i bez regeneratora; wykorzystano jednostki naturalne \(k_B = 1\), \(\hbar = 1\); stosunek temperatur jest równy \(\frac{T_h}{T_c} = 3\); dla silnika Carnota \(\eta_C = \frac{2}{3}\).}
+	\caption{Wykres sprawności kwantowego silnika Stirlinga z oscylatorem harmonicznym jako czynnikiem roboczym i bez regeneratora; wykorzystano jednostki naturalne \(k_B = 1\), \(\hbar = 1\); stosunek temperatur jest równy \(\frac{T_h}{T_c} = 3\); w tych warunkach sprawność silnika Carnota jest równa \(\eta_C = \frac{2}{3}\).}
 	\label{fig:wykres_kw_stirling_osc_harm_bezreg}
 \end{figure}
 
-\subsection{Układ o spinie \(\inv{2}\)}
+\subsection{Układ o spinie \(\inv{2}\) jako czynnik roboczy}
 Układ ten ma dwa stany. Wielkości termodynamiczne zostały wyprowadzone we wzorach \eqref{eq:spin_pol_U} oraz \eqref{eq:spin_pol_S}. Podobnie jak w powyższym przykładzie ciepła podczas przemian izotermicznych są równe \cite{huang_stirling}:
 \begin{gather}
 \begin{split}
@@ -140,7 +140,7 @@ Praca cyklu zgodnie z równaniem \eqref{eq:praca_w_silniku} jest równa:
 	\cosh\pab{\frac{\hbar\omega_2}{2k_B T_c}}
 	}{
 	\cosh\pab{\frac{\hbar\omega_1}{2k_B T_c}}
-	}}
+	}}.
 \end{split}
 \end{equation}
 Podobnie jak w przypadku oscylatora harmonicznego sprawność zależy nie tylko od ciepła dostarczonego w przemianie izotermicznej \(Q_{3-4}\), ale również od różnicy \(\Delta Q = Q_{2-3} + Q_{4-1}\):
@@ -157,7 +157,7 @@ Podobnie jak w przypadku oscylatora harmonicznego sprawność zależy nie tylko 
 		\centering
 		\input{figures/wykres_3d_stirling_spin_pol_90.tex}
 	\end{subfigure}
-	\caption{Wykres sprawności kwantowego silnika Stirlinga z układem o spinie \(\inv{2}\) jako czynniku roboczym; wykorzystano jednostki naturalne \(k_B = 1\), \(\hbar = 1\); stosunek temperatur jest równy \(\frac{T_h}{T_c} = 3\); dla silnika Carnota \(\eta_C = \frac{2}{3}\).}
+	\caption{Wykres sprawności kwantowego silnika Stirlinga z układem o spinie \(\inv{2}\) jako czynniku roboczym; wykorzystano jednostki naturalne \(k_B = 1\), \(\hbar = 1\); stosunek temperatur jest równy \(\frac{T_h}{T_c} = 3\); w tych warunkach sprawność silnika Carnota jest równa \(\eta_C = \frac{2}{3}\).}
 	\label{fig:wykres_kw_stirling_spin_pol}
 \end{figure}
 
@@ -170,8 +170,8 @@ Podobnie jak w przypadku oscylatora harmonicznego sprawność zależy nie tylko 
 		\centering
 		\input{figures/wykres_3d_stirling_spin_pol_bezreg_90.tex}
 	\end{subfigure}
-	\caption{Wykres sprawności kwantowego silnika Stirlinga z układem o spinie \(\inv{2}\) jako czynniku roboczym i bez regeneratora; wykorzystano jednostki naturalne \(k_B = 1\), \(\hbar = 1\); stosunek temperatur jest równy \(\frac{T_h}{T_c} = 3\); dla silnika Carnota \(\eta_C = \frac{2}{3}\).}
+	\caption{Wykres sprawności kwantowego silnika Stirlinga z układem o spinie \(\inv{2}\) jako czynniku roboczym i bez regeneratora; wykorzystano jednostki naturalne \(k_B = 1\), \(\hbar = 1\); stosunek temperatur jest równy \(\frac{T_h}{T_c} = 3\); w tych warunkach sprawność silnika Carnota jest równa \(\eta_C = \frac{2}{3}\).}
 	\label{fig:wykres_kw_stirling_spin_pol_bezreg}
 \end{figure}
 
-Zależność sprawności tego silnika od wielkości \(\omega_1\) oraz \(\frac{\omega_2}{\omega_1}\) przedstawiono na rysunku \ref{fig:wykres_kw_stirling_spin_pol}. W przeciwieństwie do układu oscylatora harmonicznego w tym przypadku wyraźna jest krzywa maksymalnej sprawności. Na niej \(\Delta Q = 0\), co oznacza, że maksymalną sprawność otrzymujemy dla idealnie pracującego regeneratora. W obydwu przypadkach maksymalna sprawność przekracza tą silnika Carnota, co wydaje się łamać Drugą Zasadę Termodynamiki. Tak wysoka sprawność wynika jednak z działania regeneratora, który potraktowaliśmy jak czarną skrzynkę dopasowującą swoją temperaturę do temperatury czynnika roboczego. Działanie takie wymaga pobrania przez regenerator dodatkowej energii. Jeśli weźmiemy pod uwagę kwantowy silnik Stirlinga bez regeneratora, to znaczy, że ciepło jest dostarczane w dwóch przemianach, to sprawność jest niższa od sprawności silnika Carnota \cite{huang_stirling}. Zależność ta dla obu czynników roboczych przedstawiono na rysunkach \ref{fig:wykres_kw_stirling_osc_harm_bezreg} oraz \ref{fig:wykres_kw_stirling_spin_pol_bezreg}. Obliczenia wykonano przy pomocy programów \ref{pr:stirling_spin_pol}, \ref{pr:stirling_spin_pol_bezreg} oraz \ref{pr:stirling_eta}.
+Zależność sprawności tego silnika od wielkości \(\omega_1\) oraz \(\frac{\omega_2}{\omega_1}\) przedstawiono na rysunku \ref{fig:wykres_kw_stirling_spin_pol}. W przeciwieństwie do układu oscylatora harmonicznego w tym przypadku wyraźna jest krzywa maksymalnej sprawności. Na niej \(\Delta Q = 0\), co oznacza, że maksymalną sprawność otrzymujemy dla idealnie pracującego regeneratora. W obydwu przypadkach maksymalna sprawność przekracza tą silnika Carnota, jest to wynik analogiczny z otrzymanym w \cite{huang_stirling}. Tak wysoka sprawność wynika jednak z działania regeneratora, który potraktowaliśmy jak czarną skrzynkę dopasowującą swoją temperaturę do temperatury czynnika roboczego. Działanie takie wymaga pobrania przez regenerator dodatkowej energii. Jeśli weźmiemy pod uwagę kwantowy silnik Stirlinga bez regeneratora, to znaczy, że ciepło jest dostarczane w dwóch przemianach, to sprawność jest niższa od sprawności silnika Carnota \cite{huang_stirling}. Zależność ta dla obu czynników roboczych przedstawiono na rysunkach \ref{fig:wykres_kw_stirling_osc_harm_bezreg} oraz \ref{fig:wykres_kw_stirling_spin_pol_bezreg}. Obliczenia wykonano przy pomocy programów \ref{pr:stirling_spin_pol}, \ref{pr:stirling_spin_pol_bezreg} oraz \ref{pr:stirling_eta}.

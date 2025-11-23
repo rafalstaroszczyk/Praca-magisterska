@@ -18,10 +18,10 @@ Ilość ciepła przenikającego przez ścianki silnika jest proporcjonalne do r�
 \end{split}
 \end{gather}
 gdzie \(\alpha_{h}\) oraz \(\alpha_{c}\) to współczynniki przewodzenia ciepła zależne od materiału, grubości i powierzchni; a \(\tau_{h}\) oraz \(\tau_{c}\) to okresy czasu, podczas których następuje przepływ ciepła w jednym cyklu z odpowiednio zbiornika ciepłego i zimnego. Wprowadzamy wielkości pomocnicze zdefiniowane jako:
-\begin{align*}
+\begin{align}
 	x &= T_h - T_{hw}, \\
 	y &= T_{cw} - T_c.
-\end{align*}
+\end{align}
 Wykorzystując je, ciepła wymienione przez silnik są równe:
 \begin{gather}\label{eq:endo_carnot_Q}
 	\begin{split}
@@ -54,7 +54,7 @@ Po podstawieniu \eqref{eq:endo_carnot_Q} moc ma postać:
 	\frac{\alpha_{h}\tau_{h}x - \alpha_{c}\tau_{c}y}{\zeta\pab{\tau_h + \tau_c}} =
 	\frac{\alpha_{h}\frac{\tau_h}{\tau_c}x - \alpha_{c}y}{\zeta\pab{\frac{\tau_h}{\tau_c} + 1}}.
 \end{equation}
-Po uwzględnieniu \eqref{eq:endo_carnot_tau} mamy:
+Po uwzględnieniu \eqref{eq:endo_carnot_tau} mamy \cite{curzon}:
 \begin{equation}\label{eq:endo_carnot_P}
 	P\pab{x,y} = \frac{\alpha_{h}\alpha_{c}xy}{\zeta} \frac{T_{h} - T_{c} - x - y}{\alpha_{h}T_{c}x + \alpha_{c}T_{h}y + \pab{\alpha_{h} - \alpha_{c}}xy}.
 \end{equation}
@@ -86,10 +86,10 @@ Dzieląc stronami otrzymujemy:
 	y_0 &= x_0\sqrt{\frac{\alpha_{h}T_{c}}{\alpha_{c}T_{h}}}.
 \end{align}
 Podstawiając je do \eqref{eq:endo_carnot_pdv0x} oraz \eqref{eq:endo_carnot_pdv0y} i przekształcając otrzymujemy równanie kwadratowe w zmiennej \(\frac{x}{T_{h}}\):
-\begin{equation*}
+\begin{equation}
 	\pab{1 - \frac{\alpha_{h}}{\alpha_{c}}}\pab{\frac{x_0}{T_{h}}}^2 - 2\bab{\sqrt{\frac{\alpha_{h}T_{c}}{\alpha_{c}T_{h}}} + 1}\pab{\frac{x_0}{T_{h}}} + \pab{1 - \frac{T_{c}}{T_{h}}} = 0,
-\end{equation*}
-które ma dwa rozwiązania rzeczywiste, ale tylko jedno z nich jest fizyczne i spełniające \(x_0/T_{h} < 1\). Następnie wykorzystując \eqref{eq:endo_carnot_y} mamy:
+\end{equation}
+które ma dwa rozwiązania rzeczywiste, ale tylko jedno z nich jest fizyczne i spełniające \(x_0/T_{h} < 1\). Następnie wykorzystując \eqref{eq:endo_carnot_y} mamy \cite{curzon}:
 \begin{align}\label{eq:endo_carnot_xy}
 	\frac{x_0}{T_{h}} &= \frac{1 - \sqrt{\frac{T_{c}}{T_{h}}}}{1 + \sqrt{\frac{\alpha_{h}}{\alpha_{c}}}}; & 
 	\frac{y_0}{T_{c}} &= \frac{\sqrt{\frac{T_{h}}{T_{c}}} - 1}{1 + \sqrt{\frac{\alpha_{c}}{\alpha_{h}}}}.
@@ -113,9 +113,9 @@ Z porównania \eqref{eq:endo_carnot_eta_def} oraz \eqref{eq:endo_carnot_eta} otr
 	\frac{T_{cw}}{T_{hw}} = \sqrt{\frac{T_{c}}{T_{h}}},
 \end{equation}
 a z podstawienia \eqref{eq:endo_carnot_xy} do \eqref{eq:endo_carnot_tau} oraz wykorzystując \eqref{eq:endo_carnot_frac_Tw} mamy:
-\begin{equation*}
+\begin{equation}
 	\frac{\tau_{h}}{\tau_{c}} = \sqrt{\frac{\alpha_{c}}{\alpha_{h}}}.
-\end{equation*}
+\end{equation}
 Przekształcając równanie \eqref{eq:endo_carnot_xy} można znaleźć:
 \begin{align}\label{eq:endo_carnot_Tw}
 	T_{hw} &= \sqrt{T_{h}} \frac{\sqrt{\alpha_{h}T_{h}} + \sqrt{\alpha_{c}T_{c}}}{\sqrt{\alpha_{h}} + \sqrt{\alpha_{c}}}; & 

@@ -1,14 +1,14 @@
 % !TEX root = ../main.tex
 
 \section{Twierdzenie Clausiusa}
-Rozważamy dowolny cykl zamknięty X, w którym temperatura jest ograniczona od góry temperaturą \(T_0\), to znaczy, że dla każdego punktu cyklu \(T \leq T_0\). Pomiędzy zbiornikiem o temperaturze \(T_0\) a gazem roboczym silnika X dla każdego punktu jego cyklu umieszczamy silnik Carnota. Dodatni przepływ ciepła wybieramy tak, że ciepło pobrane ze zbiornika o temperaturze \(T_0\) przez silnik Carnota (\(\idif{Q_0}\)) oraz ciepło oddane przez silnik Carnota do silnika X. Podczas pracy silników Carnota gaz w silniku X ma stałą temperaturę, ponieważ przez każdy z nich dostarczane jest jedynie ciepło elementarne \(\idif{Q}\). Z porównania równań \eqref{eq:sprawnosc_carnot_Q} i \eqref{eq:sprawnosc_carnot} otrzymujemy dla ciepeł elementarnych:
-\begin{equation*}
+Rozważamy dowolny cykl zamknięty X, w którym temperatura jest ograniczona od góry temperaturą \(T_0\), to znaczy, że dla każdego punktu cyklu \(T \leq T_0\). Pomiędzy zbiornikiem o temperaturze \(T_0\) a gazem roboczym silnika X dla każdego punktu jego cyklu umieszczamy silnik Carnota. Znak przepływu ciepła wybieramy tak, że ciepło pobrane ze zbiornika o temperaturze \(T_0\) przez silnik Carnota (\(\idif{Q_0}\)) oraz ciepło oddane przez silnik Carnota do silnika X jest dodatnie. Podczas pracy silników Carnota gaz w silniku X ma stałą temperaturę, ponieważ przez każdy z nich dostarczane jest jedynie ciepło elementarne \(\idif{Q}\). Z porównania równań \eqref{eq:sprawnosc_carnot_Q} i \eqref{eq:sprawnosc_carnot} otrzymujemy dla ciepeł elementarnych:
+\begin{equation}
 	\frac{\idif{Q_0}}{T_0} = \frac{\idif{Q}}{T}.
-\end{equation*}
+\end{equation}
 Całkowite ciepło dostarczone ze zbiornika o temperaturze \(T_0\) do układu silnika X wraz z silnikami Carnota jest równe całce po przebiegu silnika \(X\):
-\begin{equation*}
+\begin{equation}
 	Q_0 = \oint \idif{Q_0} = T_0 \oint \frac{\idif{Q}}{T}.
-\end{equation*}
+\end{equation}
 Jeśli \(Q_0 > 0\) znaczyłoby to, że całkowite ciepło zostało przekształcone na pracę, która jest sumą pracy silników Carnota i \(X\). Stąd wymagane jest, aby:
 \begin{equation}\label{eq:twierdzenie_clausius}
 	\oint \frac{\idif{Q}}{T} \leq 0.
@@ -16,13 +16,13 @@ Jeśli \(Q_0 > 0\) znaczyłoby to, że całkowite ciepło zostało przekształco
 Jest to twierdzenie Clausiusa.
 
 Dla cyklu \(X\) odwracalnego zmieniamy kierunki wszystkich przepływów, stąd:
-\begin{equation*}
+\begin{equation}
 	\oint \frac{\idif{Q^R}}{T} \geq 0.
-\end{equation*}
+\end{equation}
 Zarówno ta nierówność jak i \eqref{eq:twierdzenie_clausius} muszą być spełnione, musi więc zachodzić:
-\begin{equation*}
+\begin{equation}
 	\oint \frac{\idif{Q^R}}{T} = 0.
-\end{equation*}
+\end{equation}
 Znaczy to, że wielkość \(\frac{\idif{Q^R}}{T}\) jest różniczką zupełną:
 \begin{equation}\label{eq:def_entropia}
 	\d{S} \overset{def}{=} \frac{\idif{Q^R}}{T}.
@@ -32,17 +32,17 @@ W układzie izolowanym nie ma przepływów ciepła i entropia spełnia:
 	\d{S} \geq 0.
 \end{equation}
 Całkując powyższą definicję po drodze odwracalnej mamy:
-\begin{equation*}
+\begin{equation}
 	S\pab{B} - S\pab{A} = \sideset{_R}{_A^B}{\int} \frac{\idif{Q}}{T}.
-\end{equation*}
+\end{equation}
 
 W przypadku ogólnym możemy rozpisać całkę \eqref{eq:twierdzenie_clausius} na dwie części:
-\begin{gather*}
+\begin{gather}
 	0 \geq \oint \frac{\idif{Q}}{T} = 
 	\sideset{_N}{_A^B}{\int} \frac{\idif{Q}}{T} + \sideset{_R}{_B^A}{\int} \frac{\idif{Q}}{T} = 
 	\sideset{_N}{_A^B}{\int} \frac{\idif{Q}}{T} - \sideset{_R}{_A^B}{\int} \frac{\idif{Q}}{T} \\
 	\sideset{_N}{_A^B}{\int} \frac{\idif{Q}}{T} \leq \sideset{_R}{_A^B}{\int} \frac{\idif{Q}}{T} = S\pab{B} - S\pab{A},
-\end{gather*}
+\end{gather}
 gdzie indeks dolny \(R\) i \(N\) przy całce oznaczają odpowiednio przemianę odwracalną oraz dowolną (w tym nieodwracalną). Zmiana entropii związana z przepływem ciepła jest równa:
 \begin{equation}\label{eq:def_deS}
 	\d_e{S} \overset{def}{=} \frac{\idif{Q}}{T}.
@@ -52,4 +52,4 @@ Wykorzystując tą wielkość otrzymujemy:
 	\d{S} = \d_i{S} + \d_e{S} \geq \d_e{S}, \\
 	\d_i{S} \geq 0,
 \end{gather*}
-gdzie \(\d_i{S}\) jest produkcją entropii związaną z procesami nieodwracalnymi. Jest to przypadek ogólny i razem z \eqref{eq:2zt_dS} stanowi matematyczne sformuowanie Drugiej Zasady Termodynamiki.
+gdzie \(\d_i{S}\) jest produkcją entropii związaną z procesami nieodwracalnymi \cite{guminski}. Jest to przypadek ogólny i razem z \eqref{eq:2zt_dS} stanowi matematyczne sformuowanie Drugiej Zasady Termodynamiki.

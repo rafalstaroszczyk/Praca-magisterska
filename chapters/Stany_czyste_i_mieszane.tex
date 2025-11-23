@@ -19,18 +19,18 @@ Kwadraty ich modułów \(\vab{c_k}^2\) interpretujemy jako prawdopodobieństwo z
 \begin{equation*}
 	\vab{c_k}^2 = \vab{\braket{\psi_k}{\Psi}}^2 = \braket{\psi_k}{\Psi}\braket{\Psi}{\psi_k} = \braket[3]{\psi_k}{\vu{\rho}}{\psi_k},
 \end{equation*}
-gdzie wprowadza się macierz gęstości dla stanu czystego wyrażoną wzorem \cite{townsend_a_modern_approach_to_quantum_mechanics}:
+gdzie wprowadza się operator gęstości dla stanu czystego wyrażoną wzorem \cite{townsend_a_modern_approach_to_quantum_mechanics}:
 \begin{equation}
 	\vu{\rho} = \ketbra{\Psi}{\Psi}.
 \end{equation}
-Jest ona projektorem:
-\begin{equation*}
-	\vu{\rho}^2 = \ketbra{\Psi}{\Psi}\ketbra{\Psi}{\Psi} = \ketbra{\Psi}{\Psi} = \vu{\rho},
-\end{equation*}
-a jej ślad jest równy jedności:
-\begin{equation*}
+Jest on projektorem i spełnia relację:
+\begin{equation}\label{eq:projektor_operator_gestosci}
+	\vu{\rho}^2 = \ket{\Psi}\braket{\Psi}{\Psi}\bra{\Psi} = \ketbra{\Psi}{\Psi} = \vu{\rho},
+\end{equation}
+a jego ślad w bazie \(\ket{\psi_k}\) jest równy jedności:
+\begin{equation}
 	\Tr\Bab{\vu{\rho}} = \sum_k \braket[3]{\psi_k}{\vu{\rho}}{\psi_k} = 1.
-\end{equation*}
+\end{equation}
 Cechy te stanowią test dla stanów czystych.
 
 %Możemy między tymi opisami znaleźć analogię do fizyki statystycznej. Mikrostan jest opisany położeniami i pędami (i innymi współrzędnymi, jeśli występują). Jest on rzeczywisty, ale niemożliwe jest znalezienie takiej ilości zmiennych. Makrostan jest tym, co obserwujemy z zewnątrz i jest opisany parametrami takimi jak temperatura, ciśnienie i inne. Stan czysty w tej analogii jest mikrostanem, natomiast stan mieszany jest mezostanem, czyli pośrednim między mikro-, a makrostanem.
@@ -51,7 +51,7 @@ Alternatywnie wartość oczekiwaną operatora \(\vu{A}\) możemy zapisać poprze
 Końcowy wynik jest w obu przypadkach niezależny od wyboru konkretnej bazy i jest wzorem ogólnym. Macierz gęstości zawiera tą samą informację co wektor \(\ket{\Psi}\).
 %Elementy tej macierzy w bazie \(\psi_i\) opisuje wzór \(\rho_{nk} = \braket{\psi_n}{\Psi}\braket{\Psi}{\psi_k} = c_{n}c_{k}^{*}\).
 
-Stan mieszany niemożliwy jest do przedstawienia wektorem falowym. Jest on mieszaniną stanów czystych. Wartość oczekiwana operatora \(\vu{A}\) jest średnią ważoną z wagą \(p_k\) wartości oczekiwanych tego operatora w stanach czystych \(\ket{\Psi_k}\):
+Stan mieszany niemożliwy jest do przedstawienia wektorem stanu. Jest on mieszaniną stanów czystych. Wartość oczekiwana operatora \(\vu{A}\) jest średnią ważoną z wagą \(p_k\) wartości oczekiwanych tego operatora w stanach czystych \(\ket{\Psi_k}\):
 \begin{multline}\label{eq:wart_ocz_macierz_mieszany}
 	\braket[1]{\vu{A}} =
 	\sum_k p_k \braket[3]{\Psi_k}{\vu{A}}{\Psi_k} =
@@ -78,7 +78,7 @@ gdzie wprowadzamy wielkość \(S_{kn} = \braket{\Psi_k}{\Psi_n}\) będącą miar
 	\sum_{kn} p_k p_n \delta_{kn} \ketbra{\Psi_k}{\Psi_n} =
 	\sum_{kn} p_k^2 \ketbra{\Psi_k}{\Psi_k} \neq \vu{\rho}.
 \end{equation}
-Nie jest to więc w ogólności projektor. Wektory \(\ket{\Psi_k}\) możemy rozwinąć w bazie ortonormalnej:
+Nie spełnia on więc relacji \eqref{eq:projektor_operator_gestosci} dla stanu czystego. Wektory \(\ket{\Psi_k}\) możemy rozwinąć w bazie ortonormalnej:
 \begin{equation}
 	\ket{\Psi_k} = \sum_{i} c_{i}^{\pab{k}} \ket{\psi_i}.
 \end{equation}
@@ -87,7 +87,7 @@ Z normalizacji wektora \(\ket{\Psi_k}\) mamy również \(\sum_{i} \vab{c_{i}^{\p
 	S_{kn} = \braket{\Psi_k}{\Psi_n} = \sum_{i} \braket{\Psi_k}{\psi_i} \braket{\psi_i}{\Psi_n} =
 	\sum_{i} c_{i}^{*\pab{k}} c_{i}^{\pab{n}}.
 \end{equation}
-Ślad macierzy gęstości jest równy:
+Ślad operatora gęstości jest równy:
 \begin{equation}\label{eq:macierz_gestosci_mieszany_slad}
 	\Tr\Bab{\vu{\rho}} =
 	\sum_{kn} p_k \braket{\psi_n}{\Psi_k}\braket{\Psi_k}{\psi_n} =
@@ -105,46 +105,46 @@ Natomiast ślad kwadratu ma postać:
 \end{multline}
 gdzie równość zachodzi jedynie w przypadku \(p_i = 1\), a pozostałe \(p_{j \neq i} = 0\), co jest stanem czystym. We wzorach \eqref{eq:macierz_gestosci_mieszany_kwadrat} oraz \eqref{eq:macierz_gestosci_mieszany_kwadrat_slad} nierówność zachodzi dla stanu mieszanego.
 
-W fizyce statystycznej układy znajdują się w stanach mieszanych, ponieważ rzeczywiste układy kwantowe nie są izolowane, ale oddziałują w jakiś sposób z otoczeniem. Niemożliwe jest również badanie danego układu w infinitezymalnym czasie, ale każdy pomiar jest uśrednieniem badanej wielkości w czasie większym, niż czasy relaksacji układu, ale mniejszym niż zdolność rozdzielcza przyrządu \cite{b:huang_mechanika_statystyczna}. Układ taki wraz z otoczeniem opisany jest wektorem \(\Psi\pab{x,X,t}\) zależnym od współrzędnych układu \(x\), otoczenia \(X\) i czasu \(t\). W zupełnej bazie wektorów własnych hamiltonianu układu zależność od \(X\) i \(t\) można uwzględnić poprzez współrzędne \(c_{n}\pab{X,t}\) \cite{b:huang_podstawy_fizyki_statystycznej}:
-\begin{equation*}
+Możemy w inny sposób wprowadzić operator gęstości w mechanice statystycznej. Rzeczywiste układy kwantowe nie są izolowane, ale oddziałują w jakiś sposób z otoczeniem, znajdują się w stanach mieszanych. Niemożliwe jest również badanie danego układu w infinitezymalnym czasie, ale każdy pomiar jest uśrednieniem badanej wielkości w czasie większym, niż czasy relaksacji układu, ale mniejszym niż zdolność rozdzielcza przyrządu \cite{b:huang_mechanika_statystyczna}. Jeżeli układ taki wraz z otoczeniem opisany jest funkcją \(\Psi\pab{x,X,t}\) zależną od współrzędnych układu \(x\), otoczenia \(X\) i czasu \(t\). W zupełnej bazie wektorów własnych hamiltonianu układu zależność od \(X\) i \(t\) można uwzględnić poprzez współrzędne \(c_{n}\pab{X,t}\) \cite{b:huang_podstawy_fizyki_statystycznej}:
+\begin{equation}
 	\Psi\pab{x,X,t} = \sum_{n} c_{n}\pab{X,t} \psi_{n}\pab{x}.
-\end{equation*}
-Normalizacja tego wektora uwględnia również \(X\):
-\begin{gather*}
+\end{equation}
+Normalizacja tej funkcji uwględnia również współrzędne otoczenia \(X\):
+\begin{equation}
 \begin{split}
 	\braket{\Psi}{\Psi} =
 	\int \sum_{nk} c_{k}^{*}\pab{X,t}c_{n}\pab{X,t} \braket{\psi_{k}}{\psi_{n}} \d{X} =
 	\int \sum_{nk} c_{k}^{*}\pab{X,t}c_{n}\pab{X,t} \delta_{nk} \d{X} = \\ =
 	\int \sum_{n} \vab{c_{n}\pab{X,t}}^2 \d{X} = 1.
 \end{split}
-\end{gather*}
+\end{equation}
 
-Wartość oczekiwana w danym czasie oraz przy znanych zmiennych środowiska jest dana wzorem \eqref{eq:wart_ocz_wektor}:
-\begin{equation*}
-	\braket[3]{\Psi}{A}{\Psi} =
-	\sum_{nk} c_{k}^{*}\pab{X,t}c_{n}\pab{X,t} \braket[3]{\psi_k}{A}{\psi_k} =
+Wartość oczekiwana operatora \(\vu{A}\), który dotyczy tylko układu, jest dana wzorem \eqref{eq:wart_ocz_wektor}:
+\begin{equation}
+	\braket[3]{\Psi}{\vu{A}}{\Psi} =
+	\sum_{nk} c_{k}^{*}\pab{X,t}c_{n}\pab{X,t} \braket[3]{\psi_k}{\vu{A}}{\psi_k} =
 	\sum_{nk} c_{k}^{*}\pab{X,t}c_{n}\pab{X,t} A_{kn},
-\end{equation*}
-gdzie \(A_{kn}\) może być wyrażone całką:
-\begin{equation*}
+\end{equation}
+gdzie \(A_{kn}\) jest wyrażone całką:
+\begin{equation}
 	A_{kn} = \int \psi_{k}^{*}\pab{x} \vu{A} \psi_{n}\pab{x} \d{x}.
-\end{equation*}
+\end{equation}
 Obserwowana jest średnia termiczna, która jest całką po zmiennych środowiska i uśredniona po czasie opisanym powyżej:
 \begin{equation}
-	\braket[1]{A} =
-	\overline{\int \braket[3]{\Psi}{A}{\Psi} \d{X}} =
+	\braket[1]{\vu{A}} =
+	\overline{\int \braket[3]{\Psi}{\vu{A}}{\Psi} \d{X}} =
 	\sum_{nk} \overline{\int c_{k}^{*}\pab{X,t}c_{n}\pab{X,t} \d{X}} A_{kn}.
 \end{equation}
-Współczynniki \(c_{k}\pab{X,t}\) są wrażliwymi funkcjami \(X\), to znaczy, że zmiany współrzędnych \(X\) bardzo wpływają na faze tych współczynników. Możemy więc wprowadzić założenie fazy przypadkowej \cite{b:huang_mechanika_statystyczna};
-\begin{align*}
+Współczynniki \(c_{k}\pab{X,t}\) są wrażliwymi funkcjami \(X\), to znaczy, że zmiany współrzędnych \(X\) bardzo wpływają na faze tych współczynników. Możemy więc wprowadzić założenie fazy przypadkowej i zapisać \cite{b:huang_mechanika_statystyczna}:
+\begin{align}
 	\int c_{k}^{*}\pab{X,t}c_{n}\pab{X,t} \d{X} &= 0, &
 	n \neq k.
-\end{align*}
-Dla \(n = k\) faza względna nie jest losowa, ponieważ jest identyczna i całkowana funkcja jest nieujemna:
+\end{align}
+Dla \(n = k\) faza względna nie jest losowa, ponieważ jest identyczna i całkowana funkcja jest nieujemna. Całkę tę interpretujemy jako \(p_k\):
 \begin{equation*}
 	\int c_{k}^{*}\pab{X,t}c_{k}\pab{X,t} \d{X} = p_k.
 \end{equation*}
-Możemy zauważyć, że jest to element diagonalny macierzy gęstości wyrażonej wzorem \eqref{eq:macierz_gestosci_mieszany}, co łączy oba podejścia. Średnia po podstawieniu \(p_k\) wyraża się wzorem:
+Jest to wielkość występująca w definicji operatora gęstości wyrażonej wzorem \eqref{eq:macierz_gestosci_mieszany}, co łączy różne sposoby wprowadzenia operatorów gęstości. Średnia po podstawieniu \(p_k\) wyraża się wzorem:
 \begin{equation*}
 	\braket[1]{A} = \sum_{k} p_k \braket[3]{\psi_k}{A}{\psi_k}.
 \end{equation*}

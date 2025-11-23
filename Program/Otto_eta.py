@@ -29,7 +29,6 @@ def fT4(kappa, alphac, alphah, tauc, tauh, Tc, Th):
         (np.exp(alphah * tauh + alphac * tauc) - 1)
 
 # Maksymalizacja P zostala zaimplementowana jako minimalizacja -P
-#def OttoHOFuncToMin(x, params):
 def OttoHOFuncToMin(kappa, tauc, tauh, omega2, alphac, alphah, Tc, Th, zeta):
     # Wartosci temperatur i mocy dla danych parametrow
     T1 = fT1(kappa, alphac, alphah, tauc, tauh, Tc, Th)
@@ -40,7 +39,6 @@ def OttoHOFuncToMin(kappa, tauc, tauh, omega2, alphac, alphah, Tc, Th, zeta):
         tauc, tauh, zeta)
     return -P
 
-#def OttoS2FuncToMin(x, params):
 def OttoS2FuncToMin(kappa, tauc, tauh, omega2, alphac, alphah, Tc, Th, zeta):
     # Wartosci temperatur i mocy dla danych parametrow
     T1 = fT1(kappa, alphac, alphah, tauc, tauh, Tc, Th)
@@ -149,14 +147,11 @@ def OttoHarmonicOscillatorkappa(alphac, alphah, Th, zeta, grid_size):
     
     # Obliczenia dla omega2/Tc = 0.1
     for i in range(grid_size):
-        #params = (omega2, alphac, alphah, Tc_grid[i], Th, zeta)
         # Wartosci poczatkowe podczas optymalizacji
         x_init = [1, 1]
         Tc = Th / 3
         omega2 = 0.1 * Tc
         # Optymalizacja
-        #fun = lambda x: OttoHOFuncToMin(x, params)
-        # kappa, tauc, tauh, omega2, alphac, alphah, Tc, Th, zeta
         fun = lambda x: OttoHOFuncToMin(kappa_grid[i], x[0], x[1], omega2, \
             alphac, alphah, Tc, Th, zeta)
         result = optimize.minimize(fun, x_init, \
@@ -169,14 +164,11 @@ def OttoHarmonicOscillatorkappa(alphac, alphah, Th, zeta, grid_size):
 
     # Obliczenia dla omega2/Tc = 10
     for i in range(grid_size):
-        #params = (omega2, alphac, alphah, Tc_grid[i], Th, zeta)
         # Wartosci poczatkowe podczas optymalizacji
         x_init = [1, 1]
         Tc = Th / 3
         omega2 = 10 * Tc
         # Optymalizacja
-        #fun = lambda x: OttoHOFuncToMin(x, params)
-        # kappa, tauc, tauh, omega2, alphac, alphah, Tc, Th, zeta
         fun = lambda x: OttoHOFuncToMin(kappa_grid[i], x[0], x[1], omega2, \
             alphac, alphah, Tc, Th, zeta)
         result = optimize.minimize(fun, x_init, \
@@ -195,14 +187,11 @@ def OttoSpin2kappa(alphac, alphah, Th, zeta, grid_size):
     
     # Obliczenia dla omega2/Tc = 0.1
     for i in range(grid_size):
-        #params = (omega2, alphac, alphah, Tc_grid[i], Th, zeta)
         # Wartosci poczatkowe podczas optymalizacji
         x_init = [1, 1]
         Tc = Th / 3
         omega2 = 0.1 * Tc
         # Optymalizacja
-        #fun = lambda x: OttoHOFuncToMin(x, params)
-        # kappa, tauc, tauh, omega2, alphac, alphah, Tc, Th, zeta
         fun = lambda x: OttoS2FuncToMin(kappa_grid[i], x[0], x[1], omega2, \
             alphac, alphah, Tc, Th, zeta)
         result = optimize.minimize(fun, x_init, \
@@ -215,14 +204,11 @@ def OttoSpin2kappa(alphac, alphah, Th, zeta, grid_size):
 
     # Obliczenia dla omega2/Tc = 10
     for i in range(grid_size):
-        #params = (omega2, alphac, alphah, Tc_grid[i], Th, zeta)
         # Wartosci poczatkowe podczas optymalizacji
         x_init = [1, 1]
         Tc = Th / 3
         omega2 = 10 * Tc
         # Optymalizacja
-        #fun = lambda x: OttoHOFuncToMin(x, params)
-        # kappa, tauc, tauh, omega2, alphac, alphah, Tc, Th, zeta
         fun = lambda x: OttoS2FuncToMin(kappa_grid[i], x[0], x[1], omega2, \
             alphac, alphah, Tc, Th, zeta)
         result = optimize.minimize(fun, x_init, \
