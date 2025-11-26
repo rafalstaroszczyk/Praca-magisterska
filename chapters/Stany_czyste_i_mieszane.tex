@@ -21,9 +21,9 @@ Kwadraty ich modułów \(\vab{c_k}^2\) interpretujemy jako prawdopodobieństwo z
 \end{equation*}
 gdzie wprowadza się operator gęstości dla stanu czystego wyrażoną wzorem \cite{townsend_a_modern_approach_to_quantum_mechanics}:
 \begin{equation}
-	\vu{\rho} = \ketbra{\Psi}{\Psi}.
+	\vu{\rho} = \ketbra{\Psi}{\Psi}
 \end{equation}
-Jest on projektorem i spełnia relację:
+i spełnia relację:
 \begin{equation}\label{eq:projektor_operator_gestosci}
 	\vu{\rho}^2 = \ket{\Psi}\braket{\Psi}{\Psi}\bra{\Psi} = \ketbra{\Psi}{\Psi} = \vu{\rho},
 \end{equation}
@@ -41,7 +41,7 @@ Wartość oczekiwana operatora \(\vu{A}\) o wektorach własnych \(\ket{\psi_k}\)
 	\braket[1]{\vu{A}} = \sum_{k} \vab{c_{k}}^{2} a_{k} = \sum_{nk} c_{n}^{*} a_{k} \delta_{nk} c_{k} = \sum_{nk} \braket{\Psi}{\psi_{n}} \braket[3]{\psi_{n}}{\vu{A}}{\psi_{k}} \braket{\psi_{k}}{\Psi} = \\ = \bra{\Psi}\pab{\sum_{n}\ketbra{\psi_{n}}{\psi_{n}}} \vu{A} \pab{\sum_{k}\ketbra{\psi_{k}}{\psi_{k}}} \ket{\Psi} = \braket[3]{\Psi}{\vu{A}}{\Psi}.
 \end{split}
 \end{equation}
-Alternatywnie wartość oczekiwaną operatora \(\vu{A}\) możemy zapisać poprzez zastosowanie operatora gęstości \(\vu{\rho}\):
+Alternatywnie wartość oczekiwaną operatora \(\vu{A}\) możemy zapisać poprzez zastosowanie operatora gęstości \(\vu{\rho}\) \cite{zubariew}:
 \begin{multline}\label{eq:wart_ocz_macierz_czysty}
 	\braket[1]{\vu{A}} = \sum_{k} \vab{c_k}^2 a_{k} = \sum_{nk} c_{k} c_{n}^{*} \delta_{nk} a_{k} =
 	\sum_{nk} \braket{\psi_k}{\Psi} \braket{\Psi}{\psi_n} \braket[3]{\psi_n}{\vu{A}}{\psi_k} = \\ =
@@ -94,7 +94,7 @@ Z normalizacji wektora \(\ket{\Psi_k}\) mamy również \(\sum_{i} \vab{c_{i}^{\p
 	\sum_{kn} p_k c_{n}^{\pab{k}} c_{n}^{*\pab{k}} =
 	\sum_{k} p_k \sum_{n} \vab{c_{n}^{\pab{k}}}^2 = 1.
 \end{equation}
-Natomiast ślad kwadratu ma postać:
+Natomiast ślad kwadratu ma postać \cite{zubariew}:
 \begin{multline}\label{eq:macierz_gestosci_mieszany_kwadrat_slad}
 	\Tr\Bab{\vu{\rho}^2} =
 	\sum_{knm} p_k p_n S_{kn} \braket{\psi_m}{\Psi_k}\braket{\Psi_n}{\psi_m} =
@@ -137,14 +137,14 @@ Obserwowana jest średnia termiczna, która jest całką po zmiennych środowisk
 \end{equation}
 Współczynniki \(c_{k}\pab{X,t}\) są wrażliwymi funkcjami \(X\), to znaczy, że zmiany współrzędnych \(X\) bardzo wpływają na faze tych współczynników. Możemy więc wprowadzić założenie fazy przypadkowej i zapisać \cite{b:huang_mechanika_statystyczna}:
 \begin{align}
-	\int c_{k}^{*}\pab{X,t}c_{n}\pab{X,t} \d{X} &= 0, &
+	\overline{\int c_{k}^{*}\pab{X,t}c_{n}\pab{X,t} \d{X}} &= 0, &
 	n \neq k.
 \end{align}
-Dla \(n = k\) faza względna nie jest losowa, ponieważ jest identyczna i całkowana funkcja jest nieujemna. Całkę tę interpretujemy jako \(p_k\):
+Dla \(n = k\) faza względna nie jest losowa, ponieważ jest identyczna i całkowana funkcja jest nieujemna. Całkę tę po normalizacji interpretujemy jako \(p_k\):
 \begin{equation*}
-	\int c_{k}^{*}\pab{X,t}c_{k}\pab{X,t} \d{X} = p_k.
+	\inv{N}\overline{\int c_{k}^{*}\pab{X,t}c_{k}\pab{X,t} \d{X}} = p_k,
 \end{equation*}
-Jest to wielkość występująca w definicji operatora gęstości wyrażonej wzorem \eqref{eq:macierz_gestosci_mieszany}, co łączy różne sposoby wprowadzenia operatorów gęstości. Średnia po podstawieniu \(p_k\) wyraża się wzorem:
+gdzie \(N\) jest odpowiednio dobraną stałą. Jest to wielkość występująca w definicji operatora gęstości wyrażonej wzorem \eqref{eq:macierz_gestosci_mieszany}, co łączy różne sposoby wprowadzenia operatorów gęstości. Średnia po podstawieniu \(p_k\) wyraża się wzorem:
 \begin{equation*}
 	\braket[1]{A} = \sum_{k} p_k \braket[3]{\psi_k}{A}{\psi_k}.
 \end{equation*}
