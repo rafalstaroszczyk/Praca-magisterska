@@ -95,7 +95,7 @@
 
 
 %%% IMPORT PG PRESENTATION STYLE %%%
-\include{pgbeamer/pgbeamer.tex}
+\input{pgbeamer/pgbeamer.tex}
 
 
 
@@ -133,7 +133,6 @@
 \makeatother
 
 
-
 %%% DOCUMENT BEGINS HERE %%%
 
 \begin{document}
@@ -142,22 +141,45 @@
 
 %%% YOUR PRESENTATION HERE %%%
 
-\section{Silnik Carnota}
+\begin{frame}{Spis treści}
+	\tableofcontents
+\end{frame}
+
+\section{Cel pracy}
+\begin{frame}{Cel pracy}
+\begin{itemize}
+	\item Przedstawienie teorii termodynamiki kwantowych silników cieplnych
+	\item Wyprowadzenie wielkości termodynamicznych opisujących wybrane silniki kwantowe
+	\item Optymalizacja parametrów silnika
+\end{itemize}
+\end{frame}
+
+\section{Termodynamika}
+\begin{frame}
+	\begin{block}{Twierdzenie Carnota}
+		Silnik Carnota wyznacza największą sprawność dla danych temperatur
+	\end{block}
+	\begin{block}{Twierdzenie Clausiusa}
+		Dla procesu kołowego:
+		\begin{equation*}
+			\oint \frac{\dbar{Q}}{T} \leq 0
+		\end{equation*}
+	\end{block}
+\end{frame}
+
+\section{Silniki klasyczne}
 \begin{frame}{Silnik Carnota}
 \begin{columns}
 	\begin{column}{0.5\textwidth}
+		\begin{block}{Ciepła}
+			\begin{gather*}
+				Q_{1-2} = n R T_c \ln\pab{\frac{V_2}{V_1}}, \\
+				Q_{3-4} = n R T_h \ln\pab{\frac{V_4}{V_3}}
+			\end{gather*}
+		\end{block}
 		\begin{block}{Sprawność silnika}
 			\begin{equation*}
-				\eta_C = \frac{W}{Q_h} = 1 - \frac{T_{c}}{T_{h}}
-			\end{equation*}
-		\end{block}
-		\begin{block}{Twierdzenie Carnota}
-			Silnik Carnota wyznacza największą sprawność dla danych temperatur
-		\end{block}
-		\begin{block}{Twierdzenie Clausiusa}
-			Dla procesu kołowego:
-			\begin{equation*}
-				\oint \frac{\dbar{Q}}{T} \leq 0
+				\eta = 1 - \frac{T_{c}}{T_{h}}
 			\end{equation*}
 		\end{block}
 	\end{column}
@@ -165,7 +187,133 @@
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=\textwidth]{pv_silnik_carnot.pdf}
-			\caption*{Schemat silnika Carnota \footnote[frame]{\fullcite{b:pudlik_termodynamika}}}
+			\caption*{Schemat silnika Carnota}
+		\end{figure}
+	\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Silnik Otto}
+\begin{columns}
+	\begin{column}{0.5\textwidth}
+		\begin{block}{Ciepła}
+			\begin{gather*}
+				Q_{2-3} = n c_V \pab{T_3 - T_2}, \\
+				Q_{4-1} = n c_V \pab{T_1 - T_4}
+			\end{gather*}
+		\end{block}
+		\begin{block}{Sprawność silnika}
+			\begin{equation*}
+				\eta = 1 - \frac{T_4 - T_1}{T_3 - T_2} = 1 - \pab{\frac{V_2}{V_1}}^{\varkappa + 1}
+			\end{equation*}
+		\end{block}
+	\end{column}
+	\begin{column}{0.5\textwidth}
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=\textwidth]{pv_silnik_otto.pdf}
+			\caption*{Schemat silnika Otto}
+		\end{figure}
+	\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Silnik Stirlinga}
+\begin{columns}
+	\begin{column}{0.5\textwidth}
+		\begin{block}{Ciepła}
+			\begin{gather*}
+				Q_{1-2} = n R T_c \ln\pab{\frac{V_2}{V_1}}, \\
+				Q_{2-3} = n c_V \pab{T_h - T_c}, \\
+				Q_{3-4} = n R T_h \ln\pab{\frac{V_1}{V_2}}, \\
+				Q_{4-1} = n c_V \pab{T_c - T_h}
+			\end{gather*}
+		\end{block}
+		\begin{block}{Sprawność silnika}
+			\begin{equation*}
+				\eta = 1 - \frac{T_c}{T_h}
+			\end{equation*}
+		\end{block}
+	\end{column}
+	\begin{column}{0.5\textwidth}
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=\textwidth]{pv_silnik_stirling.pdf}
+			\caption*{Schemat silnika Stirlinga}
+		\end{figure}
+	\end{column}
+\end{columns}
+\end{frame}
+
+\section{Warunki endoodwracalne}
+\begin{frame}{Warunki endoodwracalne}
+\begin{columns}
+	\begin{column}{0.5\textwidth}
+		\begin{block}{}
+			\begin{itemize}
+				\item Równowaga wewnętrzna
+				\item Nierównowaga z otoczeniem
+			\end{itemize}
+			\begin{gather*}
+				x = T_{h} - T_{hw}, \\
+				y = T_{cw} - T_{c}
+			\end{gather*}
+			\begin{gather*}
+				Q_h \propto x, \\
+				Q_c \propto y
+			\end{gather*}
+		\end{block}
+	\end{column}
+	\begin{column}{0.5\textwidth}
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=\textwidth]{schemat_endo_carnot.pdf}
+			\caption*{Schemat warunków endoodwracalnych}
+		\end{figure}
+	\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Endoodwracalny silnik Carnota}
+\begin{columns}
+	\begin{column}{0.5\textwidth}
+		content...
+	\end{column}
+	\begin{column}{0.5\textwidth}
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=\textwidth]{pv_silnik_endo_carnot.pdf}
+			\caption*{Schemat silnika Carnota}
+		\end{figure}
+	\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Endoodwracalny silnik Otto}
+\begin{columns}
+	\begin{column}{0.5\textwidth}
+		content...
+	\end{column}
+	\begin{column}{0.5\textwidth}
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=\textwidth]{pv_silnik_endo_otto.pdf}
+			\caption*{Schemat silnika Otto}
+		\end{figure}
+	\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Endoodwracalny silnik Stirlinga}
+\begin{columns}
+	\begin{column}{0.5\textwidth}
+		content...
+	\end{column}
+	\begin{column}{0.5\textwidth}
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=\textwidth]{pv_silnik_endo_stirling.pdf}
+			\caption*{Schemat silnika Stirlinga}
 		\end{figure}
 	\end{column}
 \end{columns}

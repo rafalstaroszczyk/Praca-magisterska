@@ -1,0 +1,43 @@
+\tikzsetnextfilename{pv_silnik_endo_carnot}
+\begin{tikzpicture}
+	\begin{axis}[width=\textwidth,
+		xlabel=$V$,
+		ylabel=$p$,
+		axis x line=bottom,
+		axis y line=middle,
+		xmin=0,
+		xmax=1.2,
+		ymin=0,
+		ymax=1.2,
+		ticks=none,
+		every axis x label/.style={at={(current axis.right of origin)},anchor=north east},
+		every axis y label/.style={at={(current axis.above origin)},anchor=north east},
+		declare function={
+			r = 2;
+			tau = 2;
+			f = 3;
+			kappa = 1 + 2/f;
+			V1 = 1;
+			V2 = 1/r;
+			V3 = 1/r * tau^(-1/(kappa-1));
+			V4 = tau^(-1/(kappa-1));
+			p1 = 1/r * tau^(-kappa/(kappa-1));
+			p2 = tau^(-kappa/(kappa-1));
+			p3 = 1;
+			p4 = 1/r;
+		}]
+		\addplot[mark=*] coordinates {(V1,p1)} node[anchor=south west]{$1$};
+		\addplot[mark=*] coordinates {(V2,p2)} node[anchor=north east]{$2$};
+		\addplot[mark=*] coordinates {(V3,p3)} node[anchor=south east]{$3$};
+		\addplot[mark=*] coordinates {(V4,p4)} node[anchor=south west]{$4$};
+		\addplot[domain=V2:V1] {1/r * tau^(-kappa/(kappa-1)) / x}             node [pos=0.3, below, sloped] {$T_{cw}$};
+		\addplot[domain=V3:V2] {1/r^kappa * tau^(-kappa/(kappa-1)) / x^kappa} node [pos=0.5, below, sloped] {$Q=0$};
+		\addplot[domain=V3:V4] {1/r * tau^(-1/(kappa-1)) / x}                 node [pos=0.5, above, sloped] {$T_{hw}$};
+		\addplot[domain=V4:V1] {1/r * tau^(-kappa/(kappa-1)) / x^kappa}       node [pos=0.5, above, sloped] {$Q=0$};
+		\draw[line width=0.3mm, -{Stealth[length=5mm, open]}] (0.4,0.7) node[anchor=south west]{$Q_{3-4}$} -- (0.3,0.6);
+		\draw[line width=0.3mm, -{Stealth[length=5mm, open]}] (0.75,0.1) -- (0.75,0.025) node[anchor=south west]{$Q_{1-2}$};
+		
+		\addplot[domain=V2:V1, dashed] {0.6*1/r * tau^(-kappa/(kappa-1)) / x}             node [pos=0.3, below, sloped] {$T_c$};
+		\addplot[domain=1.1*V3:1.1*V4, dashed] {1.2*1/r * tau^(-1/(kappa-1)) / x}                 node [pos=0.5, above, sloped] {$T_h$};
+	\end{axis}
+\end{tikzpicture}
