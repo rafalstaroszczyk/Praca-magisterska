@@ -140,14 +140,19 @@ Współczynniki \(c_{k}\pab{X,t}\) są wrażliwymi funkcjami \(X\), to znaczy, �
 	\overline{\int c_{k}^{*}\pab{X,t}c_{n}\pab{X,t} \d{X}} &= 0, &
 	n \neq k.
 \end{align}
-Dla \(n = k\) faza względna nie jest losowa, ponieważ jest identyczna i całkowana funkcja jest nieujemna. Całkę tę po normalizacji interpretujemy jako \(p_k\):
-\begin{equation*}
-	\inv{N}\overline{\int c_{k}^{*}\pab{X,t}c_{k}\pab{X,t} \d{X}} = p_k,
-\end{equation*}
-gdzie \(N\) jest odpowiednio dobraną stałą. Jest to wielkość występująca w definicji operatora gęstości wyrażonej wzorem \eqref{eq:macierz_gestosci_mieszany}, co łączy różne sposoby wprowadzenia operatorów gęstości. Średnia po podstawieniu \(p_k\) wyraża się wzorem:
-\begin{equation*}
-	\braket[1]{A} = \sum_{k} p_k \braket[3]{\psi_k}{A}{\psi_k}.
-\end{equation*}
+Dla \(n = k\) faza względna nie jest losowa, ponieważ jest identyczna i całkowana funkcja jest nieujemna. Całkę tę interpretujemy jako \(p_k\):
+\begin{equation}
+	\overline{\int c_{k}^{*}\pab{X,t}c_{k}\pab{X,t} \d{X}} = p_k.
+\end{equation}
+Jest to wielkość występująca w definicji operatora gęstości wyrażonej wzorem \eqref{eq:macierz_gestosci_mieszany}, co łączy różne sposoby wprowadzenia operatorów gęstości. Średnia po podstawieniu \(p_k\) wyraża się wzorem:
+\begin{equation}
+	\braket[1]{\vu{A}} = \sum_{k} p_k \braket[3]{\psi_k}{\vu{A}}{\psi_k}.
+\end{equation}
+
+Jeśli operator gęstości nie jest znormalizowany to wartość oczekiwana operatora \(\vu{A}\) jest równa:
+\begin{equation}
+	\braket[1]{\vu{A}} = \frac{\Tr\Bab{\vu{\rho}\vu{A}}}{\Tr\Bab{\vu{\rho}}}.
+\end{equation}
 
 
 %Alternatywnie możemy rozpatrzeć stan mieszany jako niekoherentną mieszaninę stanów czystych z wagą \(p_k\):

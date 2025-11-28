@@ -1,6 +1,6 @@
-\tikzsetnextfilename{pv_silnik_endo_carnot}
+\tikzsetnextfilename{pv_silnik_endo_carnot_70}
 \begin{tikzpicture}
-	\begin{axis}[width=\textwidth,
+	\begin{axis}[width=0.7\textwidth,
 		xlabel=$V$,
 		ylabel=$p$,
 		axis x line=bottom,
@@ -37,7 +37,7 @@
 		\draw[line width=0.3mm, -{Stealth[length=5mm, open]}] (0.4,0.7) node[anchor=south west]{$Q_{3-4}$} -- (0.3,0.6);
 		\draw[line width=0.3mm, -{Stealth[length=5mm, open]}] (0.75,0.1) -- (0.75,0.025) node[anchor=south west]{$Q_{1-2}$};
 		
-		\addplot[domain=V2:V1, dashed] {0.6*1/r * tau^(-kappa/(kappa-1)) / x}             node [pos=0.3, below, sloped] {$T_c$};
-		\addplot[domain=1.1*V3:1.1*V4, dashed] {1.2*1/r * tau^(-1/(kappa-1)) / x}                 node [pos=0.5, above, sloped] {$T_h$};
+		\addplot[domain=V2:V1, dashed] {0.5*1/r * tau^(-kappa/(kappa-1)) / x}             node [pos=0.1, below, sloped] {$T_c$};
+		\addplot[domain=1.1*V3:1.1*V4, dashed] {1.3*1/r * tau^(-1/(kappa-1)) / x}                 node [pos=0.5, above, sloped] {$T_h$};
 	\end{axis}
 \end{tikzpicture}

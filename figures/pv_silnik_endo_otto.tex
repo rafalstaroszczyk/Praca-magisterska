@@ -1,6 +1,6 @@
-\tikzsetnextfilename{pv_silnik_endo_otto}
+\tikzsetnextfilename{pv_silnik_endo_otto_70}
 \begin{tikzpicture}
-	\begin{axis}[width=\textwidth,
+	\begin{axis}[width=0.7\textwidth,
 		xlabel=$V$,
 		ylabel=$p$,
 		axis x line=bottom,
@@ -38,6 +38,6 @@
 		\draw[line width=0.3mm, -{Stealth[length=5mm, open]}] (1,0.25) -- (1.1,0.25) node[anchor=north]{$Q_{4-1}$};
 		
 		\addplot[domain=0.9*V1:1.25*V1, dashed] {1.1*1/r * 1 / x}             node [pos=0.7, above, sloped] {$T_h$};
-		\addplot[domain=0.9*V2:1.1*V2, dashed] {0.7*1/r^kappa * 1/tau * 1 / x}             node [pos=0.3, below, sloped] {$T_c$};
+		\addplot[domain=0.9*V2:1.1*V2, dashed] {0.6*1/r^kappa * 1/tau * 1 / x}             node [pos=0.3, below, sloped] {$T_c$};
 	\end{axis}
 \end{tikzpicture}
