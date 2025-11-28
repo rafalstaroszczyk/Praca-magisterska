@@ -11,7 +11,10 @@
 
 % A title page generated from mojaPG
 \includepdf[pages=-]{pdf/title-page.pdf}
-\null\newpage
+%\null\newpage
+
+Oświadczam, iż praca została wytworzona samodzielnie i bez wykorzystania narzędzi GenAI.
+\newpage
 
 % An author statement generated from mojaPG
 % \includepdf[pages=-]{pdf/author-statement.pdf}
@@ -19,16 +22,19 @@
 
 \include{misc/abstract-pl.tex}
 \newpage
-\null\newpage
+%\null\newpage
 
 \include{misc/abstract-en.tex}
 \newpage
-\null\newpage
+%\null\newpage
 
 \pagenumbering{arabic}  % Start numbering on ToC
 \tableofcontents
 
 %\include{misc/list-of-symbols.tex}
+
+%\include{misc/Wstep.tex}
+%\newpage
 
 % Include chapters one-by-one
 %\include{chapters/01.tex}
@@ -44,6 +50,8 @@
 \input{chapters/Kwantowe_maszyny_cieplne.tex}
 \input{chapters/Kwantowy_Otto.tex}
 \input{chapters/Kwantowy_Stirling.tex}
+\include{misc/Podsumowanie.tex}
+\newpage
 \chapter*{Dodatki}
 \addcontentsline{toc}{chapter}{Dodatki}
 \setcounter{section}{0}
@@ -58,7 +66,7 @@
 \input{chapters/Kod.tex}
 
 
-\printbibliography[title={Wykaz literatury},heading=bibintoc]
+\printbibliography[title={Bibliografia},heading=bibintoc]
 
 \listoffigures
 \addcontentsline{toc}{chapter}{Wykaz rysunków}
