@@ -30,6 +30,7 @@
 \usetikzlibrary{calligraphy}
 \usetikzlibrary{arrows.meta}
 \usetikzlibrary{calc}
+\usetikzlibrary{3d}
 \usepackage{pgfplots}
 \usepackage{pgfplotstable}
 \pgfplotsset{compat=1.9}
@@ -132,6 +133,17 @@
 }
 \makeatother
 
+%\expandafter\def\expandafter\normalsize\expandafter{%
+%	\normalsize%
+%	\setlength\abovedisplayskip{0pt}%
+%	\setlength\belowdisplayskip{8pt}%
+%	\setlength\abovedisplayshortskip{-8pt}%
+%	\setlength\belowdisplayshortskip{2pt}%
+%}
+
+\BeforeBeginEnvironment{align*}{\vspace{-\baselineskip}}
+\BeforeBeginEnvironment{gather*}{\vspace{-\baselineskip}}
+\BeforeBeginEnvironment{multline*}{\vspace{-\baselineskip}}
 
 %%% DOCUMENT BEGINS HERE %%%
 
@@ -256,9 +268,7 @@
 			\end{itemize}
 			\begin{gather*}
 				x = T_{h} - T_{hw}, \\
-				y = T_{cw} - T_{c}
-			\end{gather*}
-			\begin{gather*}
+				y = T_{cw} - T_{c}, \\
 				Q_h \propto x, \\
 				Q_c \propto y
 			\end{gather*}
@@ -277,46 +287,303 @@
 \begin{frame}{Endoodwracalny silnik Carnota}
 \begin{columns}
 	\begin{column}{0.5\textwidth}
-		content...
+		\begin{block}{Przemiany izotermiczne}
+			\begin{gather*}
+				Q_{1-2} = \alpha_c \tau_c \pab{T_c - T_{cw}} = - \alpha_c \tau_c y, \\
+				Q_{3-4} = \alpha_h \tau_h \pab{T_h - T_{hw}} =   \alpha_h \tau_h x.
+			\end{gather*}
+			\begin{gather*}
+				\frac{Q_{1-2}}{T_{cw}} = -\frac{Q_{3-4}}{T_{hw}}, \\
+				\frac{\tau_h}{\tau_c} = \frac{\alpha_c y \pab{T_h - x}}{\alpha_h x \pab{T_c + y}}
+			\end{gather*}
+		\end{block}
 	\end{column}
 	\begin{column}{0.5\textwidth}
 		\begin{figure}[H]
 			\centering
-			\includegraphics[width=\textwidth]{pv_silnik_endo_carnot.pdf}
+			\includegraphics[width=\textwidth]{pv_silnik_endo_carnot_70.pdf}
 			\caption*{Schemat silnika Carnota}
 		\end{figure}
 	\end{column}
 \end{columns}
 \end{frame}
 
+\begin{frame}{Endoodwracalny silnik Carnota}
+\begin{block}{Moc silnika}
+	\begin{equation*}
+		P\pab{x,y} = \frac{\alpha_h \alpha_c xy}{\zeta} \frac{T_h-T_c-x-y}{\alpha_h T_c x + \alpha_c T_h y + \pab{\alpha_h-\alpha_c}xy}
+	\end{equation*}
+\end{block}
+\begin{block}{Warunki maksimum}
+	\begin{align*}
+		\pdv{P}{x} &= 0, &
+		\pdv{P}{y} &= 0, \\
+		\pdv[order=2]{P}{x} &< 0, &
+		\pdv[order=2]{P}{x}\pdv[order=2]{P}{y} - \pdv{P}{x,y}\pdv{P}{y,x} &> 0
+	\end{align*}
+\end{block}
+\end{frame}
+
+\begin{frame}{Endoodwracalny silnik Carnota}
+\begin{block}{Rozwiązanie}
+	\begin{align*}
+		\frac{x_0}{T_h} &= \frac{1 - \sqrt{\frac{T_c}{T_h}}}{1 + \sqrt{\frac{\alpha_h}{\alpha_c}}}, &
+		\frac{y_0}{T_c} &= \frac{\sqrt{\frac{T_h}{T_c}} - 1}{1 + \sqrt{\frac{\alpha_c}{\alpha_h}}}
+	\end{align*}
+\end{block}
+\begin{block}{Sprawność i moc w punkcie maksymalnej mocy}
+	\begin{gather*}
+		\eta = 1 - \frac{T_{cw}}{T_{hw}} = 1 - \sqrt{\frac{T_c}{T_h}}, \\
+		P = \frac{\alpha_h \alpha_c}{\zeta}\pab{\frac{\sqrt{T_h}-\sqrt{T_c}}{\sqrt{\alpha_h}+\sqrt{\alpha_c}}}^2
+	\end{gather*}
+\end{block}
+\end{frame}
+
 \begin{frame}{Endoodwracalny silnik Otto}
 \begin{columns}
 	\begin{column}{0.5\textwidth}
-		content...
+		\begin{block}{Zmiana temperatury}
+			\begin{gather*}
+				\odv{T}{t} = -\alpha_h \pab{T-T_h}, \\
+				T\pab{t=0} = T_2, \\
+				T\pab{t=\tau_h} = T_3
+			\end{gather*}
+			\begin{gather*}
+				\odv{T}{t} = -\alpha_c \pab{T-T_c}, \\
+				T\pab{t=0} = T_4, \\
+				T\pab{t=\tau_h} = T_1
+			\end{gather*}
+			\begin{equation*}
+				\frac{T_1}{T_2} = \frac{T_4}{T_3} = \kappa
+			\end{equation*}
+		\end{block}
 	\end{column}
 	\begin{column}{0.5\textwidth}
 		\begin{figure}[H]
 			\centering
-			\includegraphics[width=\textwidth]{pv_silnik_endo_otto.pdf}
+			\includegraphics[width=\textwidth]{pv_silnik_endo_otto_70.pdf}
 			\caption*{Schemat silnika Otto}
 		\end{figure}
 	\end{column}
 \end{columns}
 \end{frame}
 
+\begin{frame}{Endoodwracalny silnik Otto}
+\begin{block}{Temperatury}
+	\begin{align*}
+		T_1 &= \frac{
+			T_c e^{\alpha_h \tau_h} \pab{e^{\alpha_c \tau_c} - 1} + \kappa T_h \pab{e^{\alpha_h \tau_h} - 1}
+		}{
+			e^{\alpha_h \tau_h + \alpha_c \tau_c} - 1
+		}, \\
+		T_2 &= \frac{
+			T_c e^{\alpha_h \tau_h} \pab{e^{\alpha_c \tau_c} - 1} + \kappa T_h \pab{e^{\alpha_h \tau_h} - 1}
+		}{
+			\kappa \pab{e^{\alpha_h \tau_h + \alpha_c \tau_c} - 1}
+		}, \\
+		T_3 &= \frac{
+			T_c \pab{e^{\alpha_c \tau_c} - 1} + \kappa T_h e^{\alpha_c \tau_c} \pab{e^{\alpha_h \tau_h} - 1}
+		}{
+			\kappa \pab{e^{\alpha_h \tau_h + \alpha_c \tau_c} - 1}
+		}, \\
+		T_4 &= \frac{
+			T_c \pab{e^{\alpha_c \tau_c} - 1} + \kappa T_h e^{\alpha_c \tau_c} \pab{e^{\alpha_h \tau_h} - 1}
+		}{
+			e^{\alpha_h \tau_h + \alpha_c \tau_c} - 1
+		}
+	\end{align*}
+\end{block}
+\end{frame}
+
+\begin{frame}{Endoodwracalny silnik Otto}
+\begin{block}{Ciepła}
+	\begin{align*}
+		Q_{2-3} &= n c_V \pab{T_3 - T_2} =
+			n c_V \frac{
+				\pab{\kappa T_h - T_c}\pab{e^{\alpha_h \tau_h} - 1}\pab{e^{\alpha_c \tau_c} - 1}
+			}{
+				\kappa \pab{e^{\alpha_h \tau_h - \alpha_c \tau_c} - 1}
+			}, \\
+		Q_{4-1} &= n c_V \pab{T_1 - T_4} =
+			- n c_V \frac{
+				\pab{\kappa T_h - T_c}\pab{e^{\alpha_h \tau_h} - 1}\pab{e^{\alpha_c \tau_c} - 1}
+			}{
+				e^{\alpha_h \tau_h - \alpha_c \tau_c} - 1
+			}
+	\end{align*}
+\end{block}
+\begin{block}{Moc}
+	\begin{multline*}
+		P = \frac{n c_V}{\zeta\pab{\tau_h + \tau_c}}
+		\frac{\pab{1 - \kappa}\pab{\kappa T_h - T_c}}{\kappa} \\
+		\sinh\pab{\frac{\alpha_h \tau_h}{2}}
+		\sinh\pab{\frac{\alpha_c \tau_c}{2}}
+		\cosh\pab{\frac{\alpha_h \tau_h + \alpha_c \tau_c}{2}}
+	\end{multline*}
+\end{block}
+\begin{block}{Sprawność}
+	\begin{equation*}
+		\eta = 1 - \kappa = 1 - \sqrt{\frac{T_c}{T_h}}
+	\end{equation*}
+\end{block}
+\end{frame}
+
 \begin{frame}{Endoodwracalny silnik Stirlinga}
 \begin{columns}
 	\begin{column}{0.5\textwidth}
-		content...
+		\begin{block}{Ciepła}
+			\begin{align*}
+				Q_{1-2} &= nRT_{cw} \ln\pab{\frac{V_2}{V_1}}, \\
+				Q_{3-4} &= nRT_{hw} \ln\pab{\frac{V_1}{V_2}}
+			\end{align*}
+		\end{block}
+		\begin{block}{Entropia}
+			\begin{gather*}
+				\frac{Q_{1-2}}{T_{cw}} + \frac{Q_{3-4}}{T_{hw}} = 0, \\
+				\Delta S_{2-3} + \Delta S_{4-1} = 0
+			\end{gather*}
+		\end{block}
+		\begin{block}{Sprawność}
+			\begin{equation*}
+				\eta = 1 - \frac{T_{cw}}{T_{hw}} = 1 - \sqrt{\frac{T_c}{T_h}}
+			\end{equation*}
+		\end{block}
 	\end{column}
 	\begin{column}{0.5\textwidth}
 		\begin{figure}[H]
 			\centering
-			\includegraphics[width=\textwidth]{pv_silnik_endo_stirling.pdf}
+			\includegraphics[width=\textwidth]{pv_silnik_endo_stirling_70.pdf}
 			\caption*{Schemat silnika Stirlinga}
 		\end{figure}
 	\end{column}
 \end{columns}
+\end{frame}
+
+\section{Mechanika kwantowa}
+\begin{frame}{Oscylator harmoniczny}
+\begin{columns}
+	\begin{column}{0.5\textwidth}
+		\begin{block}{Klasyczny hamiltonian}
+			\begin{equation*}
+				\mathcal{H} = \frac{p^2}{2m} + \inv{2} m \omega^2 q^2
+			\end{equation*}
+		\end{block}
+		\begin{block}{Kwantowy hamiltonian}
+			\begin{multline*}
+				\ham = \frac{\vu{p}^2}{2m} + \inv{2} m \omega^2 \vu{q}^2 = \\ = -\frac{\hbar^2}{2m}\pdv[order=2]{}{q} + \inv{2} m \omega^2 q^2
+			\end{multline*}
+		\end{block}
+		\begin{block}{Energia}
+			\begin{equation*}
+				E_n = \hbar\omega\pab{n + \inv{2}}
+			\end{equation*}
+		\end{block}
+	\end{column}
+	\begin{column}{0.5\textwidth}
+		\begin{figure}
+			\centering
+			\input{figures/osc_harm.tex}
+		\end{figure}
+	\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Układ o spinie \(\inv{2}\)}
+\begin{columns}
+	\begin{column}{0.5\textwidth}
+		\begin{block}{Zagadnienie własne}
+			\begin{align*}
+				\vu{S}^2 \ket{s m_s} &= \hbar^2 s\pab{s+1} \ket{s m_s}, \\
+				\vu{S}_z \ket{s m_s} &= \hbar m_s \ket{s m_s}
+			\end{align*}
+		\end{block}
+		\begin{block}{Hamiltonian}
+			\begin{equation*}
+				\ham = - \vu{\mu} \cdot \vb{B} = - \gamma \vu{S} \cdot \vb{B}
+			\end{equation*}
+		\end{block}
+		\begin{block}{Energia}
+			\begin{align*}
+				E_{\uparrow} &= -\frac{\hbar\omega}{2}, &
+				E_{\downarrow} &= \frac{\hbar\omega}{2}
+			\end{align*}
+		\end{block}
+	\end{column}
+	\begin{column}{0.5\textwidth}
+		\begin{figure}
+			\centering
+			\input{figures/spin_3_2.tex}
+			\caption*{Stany dla \(s=\frac{3}{2}\)}
+		\end{figure}
+		\begin{figure}
+			\centering
+			\input{figures/spin_1_2.tex}
+			\caption*{Stany dla \(s=\frac{1}{2}\)}
+		\end{figure}
+	\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Termodynamika}
+\begin{columns}
+	\begin{column}{0.5\textwidth}
+		\begin{block}{Oscylator harmoniczny}
+			\begin{gather*}
+				p_n = \inv{Z} \exp\pab{-\frac{E_n}{k_B T}}, \\
+				Z = \frac{\exp\pab{-\frac{\hbar\omega}{2 k_B T}}}{1-\exp\pab{-\frac{\hbar\omega}{2 k_B T}}}, \\
+				U = \frac{\hbar\omega}{2}\ctgh\pab{\frac{\hbar\omega}{2 k_B T}}, \\
+				S = \frac{\hbar\omega}{2T}\ctgh\pab{\frac{\hbar\omega}{2 k_B T}} - \\ -
+				k_B\ln\Bab{2\sinh\pab{\frac{\hbar\omega}{2 k_B T}}}
+			\end{gather*}
+		\end{block}
+	\end{column}
+	\begin{column}{0.5\textwidth}
+		\begin{block}{Układ o spinie \(\inv{2}\)}
+			\begin{gather*}
+				p_{m_s} = \inv{Z} \exp\pab{-\frac{E_{m_s}}{k_B T}}, \\
+				Z = 2 \cosh\pab{\frac{\hbar\omega}{2 k_B T}}, \\
+				U = -\frac{\hbar\omega}{2}\tgh\pab{\frac{\hbar\omega}{2 k_B T}}, \\
+				S = -\frac{\hbar\omega}{2T}\tgh\pab{\frac{\hbar\omega}{2 k_B T}} + \\ +
+				k_B \ln\Bab{2\cosh\pab{\frac{\hbar\omega}{2 k_B T}}}
+			\end{gather*}
+		\end{block}
+	\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Oscylator harmoniczny}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.8\textwidth]{wykres_osc_harm.pdf}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Układ o spinie \(\inv{2}\)}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.8\textwidth]{wykres_spin.pdf}
+	\end{figure}
+\end{frame}
+
+\section{Silniki kwantowe}
+\begin{frame}{Silnik Otto}
+	\begin{block}{Ciepła przemian}
+		\begin{align*}
+			Q_{1-2} &= 0, &
+			Q_{2-3} &= \frac{\hbar\omega_2}{2}\Bab{\ctgh\pab{\frac{\hbar\omega_2}{2 k_B T_3}} - \ctgh\pab{\frac{\hbar\omega_2}{2 k_B T_2}}}, \\
+			Q_{3-4} &= 0, &
+			Q_{4-1} &= \frac{\hbar\omega_1}{2}\Bab{\ctgh\pab{\frac{\hbar\omega_1}{2 k_B T_1}} - \ctgh\pab{\frac{\hbar\omega_1}{2 k_B T_4}}}.
+		\end{align*}
+	\end{block}
+	\begin{block}{Praca}
+		\begin{equation*}
+			- W = \frac{\hbar\omega_2}{2}\pab{1-\kappa}\Bab{\ctgh\pab{\frac{\hbar\omega_2}{2 k_B T_3}} - \ctgh\pab{\frac{\hbar\omega_2}{2 k_B T_2}}}.
+		\end{equation*}
+	\end{block}
+\end{frame}
+
+\begin{frame}{Silnik Stirlinga}
+	content...
 \end{frame}
 
 \end{document}

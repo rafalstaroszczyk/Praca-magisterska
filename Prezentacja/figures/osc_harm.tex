@@ -1,0 +1,35 @@
+\begin{tikzpicture}
+	\begin{axis}[
+		width=\textwidth,
+		height=\textheight,
+		xmin=-3.5,
+		xmax= 3.5,
+		axis lines=center,
+		ticks=none]
+		\addplot[black, samples=100] {0.5*x^2};
+		% n=0
+		\addplot[black, samples=100]
+			{1/2 + 0.5*(1*sqrt(pi))^(-1/2) * (1) * exp(-0.5*x^2)};
+		% n=1
+		\addplot[black, samples=100]
+			{3/2 + 0.5*(2*sqrt(pi))^(-1/2) * (2*x) * exp(-0.5*x^2)};
+		% n=2
+		\addplot[black, samples=100]
+			{5/2 + 0.5*(8*sqrt(pi))^(-1/2) * (4*x^2-2) * exp(-0.5*x^2)};
+		% n=3
+		\addplot[black, samples=100]
+			{7/2 + 0.5*(48*sqrt(pi))^(-1/2) * (8*x^3-12*x) * exp(-0.5*x^2)};
+		% n=4
+		\addplot[black, samples=100]
+			{9/2 + 0.5*(384*sqrt(pi))^(-1/2) * (16*x^4-48*x^2+12) * exp(-0.5*x^2)};
+		% n=5
+		\addplot[black, samples=100]
+			{11/2 + 0.5*(3840*sqrt(pi))^(-1/2) * (32*x^5-160*x^3+120*x) * exp(-0.5*x^2)};
+		\addplot[dotted] {1/2};
+		\addplot[dotted] {3/2};
+		\addplot[dotted] {5/2};
+		\addplot[dotted] {7/2};
+		\addplot[dotted] {9/2};
+		\addplot[dotted] {11/2};
+	\end{axis}
+\end{tikzpicture}
