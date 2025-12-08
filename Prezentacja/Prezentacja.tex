@@ -111,6 +111,7 @@
 \usepackage{xpatch}
 \usepackage{refcount}
 \usepackage{expl3}
+\usepackage{subcaption}
 
 % Define \smartfootcite to merge identical citations
 \makeatletter
@@ -566,7 +567,7 @@
 \end{frame}
 
 \section{Silniki kwantowe}
-\begin{frame}{Silnik Otto}
+\begin{frame}{Silnik Otto z osc. harm.}
 	\begin{block}{Ciepła przemian}
 		\begin{align*}
 			Q_{1-2} &= 0, &
@@ -582,8 +583,204 @@
 	\end{block}
 \end{frame}
 
-\begin{frame}{Silnik Stirlinga}
-	content...
+\begin{frame}{Silnik Otto z osc. harm.}
+\begin{columns}
+	\begin{column}{0.4\textwidth}
+		\begin{block}{Sprawność}
+			\begin{equation*}
+				\eta = \frac{-W}{Q_{2-3}} = 1 - \kappa = 1 - \frac{\omega_1}{\omega_2}
+			\end{equation*}
+		\end{block}
+	\end{column}
+	\begin{column}{0.6\textwidth}
+		\begin{block}{Moc}
+			\begin{multline*}
+				P = \frac{-W}{\zeta\pab{\tau_h + \tau_c}} = \frac{\hbar\omega_2\pab{1-\kappa}}{2\zeta\pab{\tau_h + \tau_c}} \\ \bab{\ctgh\pab{\frac{\hbar\omega_2}{2 k_B T_3}} - \ctgh\pab{\frac{\hbar\omega_2}{2 k_B T_2}}}
+			\end{multline*}
+		\end{block}
+	\end{column}
+\end{columns}
+\begin{figure}
+	\centering
+	\begin{subfigure}{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{wykres_otto_harm_osc_PT_01.pdf}
+	\end{subfigure}
+	\begin{subfigure}{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{wykres_otto_harm_osc_PT_10.pdf}
+	\end{subfigure}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Silnik Otto ze spinem \(\inv{2}\)}
+	\begin{block}{Ciepła przemian}
+		\begin{align*}
+			Q_{1-2} &= 0, &
+			Q_{2-3} &= \frac{\hbar\omega_2}{2}\Bab{\tgh\pab{\frac{\hbar\omega_2}{2 k_B T_2}} - \tgh\pab{\frac{\hbar\omega_2}{2 k_B T_3}}}, \\
+			Q_{3-4} &= 0, &
+			Q_{4-1} &= \frac{\hbar\omega_1}{2}\Bab{\tgh\pab{\frac{\hbar\omega_1}{2 k_B T_4}} - \tgh\pab{\frac{\hbar\omega_1}{2 k_B T_1}}}.
+		\end{align*}
+	\end{block}
+	\begin{block}{Praca}
+		\begin{equation*}
+			- W = \frac{\hbar\omega_2}{2}\pab{1-\kappa}\Bab{\tgh\pab{\frac{\hbar\omega_2}{2 k_B T_2}} - \tgh\pab{\frac{\hbar\omega_2}{2 k_B T_3}}}.
+		\end{equation*}
+	\end{block}
+\end{frame}
+
+\begin{frame}{Silnik Otto ze spinem \(\inv{2}\)}
+	\begin{columns}
+		\begin{column}{0.4\textwidth}
+			\begin{block}{Sprawność}
+				\begin{equation*}
+					\eta = \frac{-W}{Q_{2-3}} = 1 - \kappa = 1 - \frac{\omega_1}{\omega_2}
+				\end{equation*}
+			\end{block}
+		\end{column}
+		\begin{column}{0.6\textwidth}
+			\begin{block}{Moc}
+				\begin{multline*}
+					P = \frac{-W}{\zeta\pab{\tau_h + \tau_c}} = \frac{\hbar\omega_2\pab{1-\kappa}}{2\zeta\pab{\tau_h + \tau_c}} \\ \bab{\tgh\pab{\frac{\hbar\omega_2}{2 k_B T_2}} - \tgh\pab{\frac{\hbar\omega_2}{2 k_B T_3}}}
+				\end{multline*}
+			\end{block}
+		\end{column}
+	\end{columns}
+	\begin{figure}
+		\centering
+		\begin{subfigure}{0.45\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{wykres_otto_spin_pol_PT_01.pdf}
+		\end{subfigure}
+		\begin{subfigure}{0.45\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{wykres_otto_spin_pol_PT_10.pdf}
+		\end{subfigure}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Silnik Stirlinga z osc. harm.}
+	\begin{block}{Ciepła przemian}
+		\begin{align*}
+			Q_{1-2} &=
+			k_B T_c \ln\bab{2\sinh\pab{\frac{\hbar\omega_1}{2 k_B T_c}}} -
+			k_B T_c \ln\bab{2\sinh\pab{\frac{\hbar\omega_2}{2 k_B T_c}}} + \\ &+
+			\frac{\hbar\omega_2}{2} \ctgh\pab{\frac{\hbar\omega_2}{2 k_B T_c}} -
+			\frac{\hbar\omega_1}{2} \ctgh\pab{\frac{\hbar\omega_1}{2 k_B T_c}}, \\
+			Q_{2-3} &=
+			\frac{\hbar\omega_2}{2} \ctgh\pab{\frac{\hbar\omega_2}{2 k_B T_h}} -
+			\frac{\hbar\omega_2}{2} \ctgh\pab{\frac{\hbar\omega_2}{2 k_B T_c}}, \\
+			Q_{3-4} &=
+			k_B T_h \ln\bab{2\sinh\pab{\frac{\hbar\omega_2}{2 k_B T_h}}} -
+			k_B T_h \ln\bab{2\sinh\pab{\frac{\hbar\omega_1}{2 k_B T_h}}} + \\ &+
+			\frac{\hbar\omega_1}{2} \ctgh\pab{\frac{\hbar\omega_1}{2 k_B T_h}} -
+			\frac{\hbar\omega_2}{2} \ctgh\pab{\frac{\hbar\omega_2}{2 k_B T_h}}, \\
+			Q_{4-1} &=
+			\frac{\hbar\omega_1}{2} \ctgh\pab{\frac{\hbar\omega_1}{2 k_B T_c}} -
+			\frac{\hbar\omega_1}{2} \ctgh\pab{\frac{\hbar\omega_1}{2 k_B T_h}}
+		\end{align*}
+	\end{block}
+\end{frame}
+
+\begin{frame}{Silnik Stirlinga z osc. harm.}
+	\begin{block}{Praca}
+		\begin{equation*}
+			-W =
+			k_B T_h \ln\bab{\frac{
+			\sinh\pab{\frac{\hbar\omega_2}{2 k_B T_h}} }{
+			\sinh\pab{\frac{\hbar\omega_1}{2 k_B T_h}} }} +
+			k_B T_c \ln\bab{\frac{
+			\sinh\pab{\frac{\hbar\omega_1}{2 k_B T_c}} }{
+			\sinh\pab{\frac{\hbar\omega_2}{2 k_B T_c}} }}
+		\end{equation*}
+	\end{block}
+	\begin{figure}
+		\centering
+		\begin{subfigure}{0.45\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{wykres_3d_stirling_harm_osc_45.pdf}
+		\end{subfigure}
+		\begin{subfigure}{0.45\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{wykres_3d_stirling_harm_osc_90.pdf}
+		\end{subfigure}
+		
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Silnik Stirlinga ze spinem \(\inv{2}\)}
+	\begin{block}{Ciepła przemian}
+		\begin{align*}
+			Q_{1-2} &=
+			k_B T_c \ln\bab{2\cosh\pab{\frac{\hbar\omega_2}{2 k_B T_c}}} -
+			k_B T_c \ln\bab{2\cosh\pab{\frac{\hbar\omega_1}{2 k_B T_c}}} + \\ &+
+			\frac{\hbar\omega_1}{2} \tgh\pab{\frac{\hbar\omega_1}{2 k_B T_c}} -
+			\frac{\hbar\omega_2}{2} \tgh\pab{\frac{\hbar\omega_2}{2 k_B T_c}}, \\
+			Q_{2-3} &=
+			\frac{\hbar\omega_2}{2} \tgh\pab{\frac{\hbar\omega_2}{2 k_B T_c}} -
+			\frac{\hbar\omega_2}{2} \tgh\pab{\frac{\hbar\omega_2}{2 k_B T_h}}, \\
+			Q_{3-4} &=
+			k_B T_h \ln\bab{2\cosh\pab{\frac{\hbar\omega_1}{2 k_B T_h}}} -
+			k_B T_h \ln\bab{2\cosh\pab{\frac{\hbar\omega_2}{2 k_B T_h}}} + \\ &+
+			\frac{\hbar\omega_2}{2} \tgh\pab{\frac{\hbar\omega_2}{2 k_B T_h}} -
+			\frac{\hbar\omega_1}{2} \tgh\pab{\frac{\hbar\omega_1}{2 k_B T_h}}, \\
+			Q_{4-1} &=
+			\frac{\hbar\omega_1}{2} \tgh\pab{\frac{\hbar\omega_1}{2 k_B T_h}} -
+			\frac{\hbar\omega_1}{2} \tgh\pab{\frac{\hbar\omega_1}{2 k_B T_c}}
+		\end{align*}
+	\end{block}
+\end{frame}
+
+\begin{frame}{Silnik Stirlinga ze spinem \(\inv{2}\)}
+	\begin{block}{Praca}
+		\begin{equation*}
+			-W =
+			k_B T_h \ln\bab{\frac{
+			\cosh\pab{\frac{\hbar\omega_1}{2 k_B T_h}} }{
+			\cosh\pab{\frac{\hbar\omega_2}{2 k_B T_h}} }} +
+			k_B T_c \ln\bab{\frac{
+			\cosh\pab{\frac{\hbar\omega_2}{2 k_B T_c}} }{
+			\cosh\pab{\frac{\hbar\omega_1}{2 k_B T_c}} }}
+		\end{equation*}
+	\end{block}
+	\begin{figure}
+		\centering
+		\begin{subfigure}{0.45\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{wykres_3d_stirling_spin_pol_45.pdf}
+		\end{subfigure}
+		\begin{subfigure}{0.45\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{wykres_3d_stirling_spin_pol_90.pdf}
+		\end{subfigure}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Silnik Stirlinga bez regeneratora}
+	\begin{figure}
+		\centering
+		\begin{subfigure}{0.45\textwidth}
+			\centering
+			\includegraphics[width=0.7\textwidth]{wykres_3d_stirling_harm_osc_bezreg_45.pdf}
+		\end{subfigure}
+		\begin{subfigure}{0.45\textwidth}
+			\centering
+			\includegraphics[width=0.7\textwidth]{wykres_3d_stirling_harm_osc_bezreg_90.pdf}
+		\end{subfigure}
+		\caption{Silnik Stirlinga z oscylatorem harmonicznym}
+	\end{figure}
+	\begin{figure}
+		\centering
+		\begin{subfigure}{0.45\textwidth}
+			\centering
+			\includegraphics[width=0.7\textwidth]{wykres_3d_stirling_spin_pol_bezreg_45.pdf}
+		\end{subfigure}
+		\begin{subfigure}{0.45\textwidth}
+			\centering
+			\includegraphics[width=0.7\textwidth]{wykres_3d_stirling_spin_pol_bezreg_90.pdf}
+		\end{subfigure}
+		\caption{Silnik Stirlinga ze spinem \(\inv{2}\)}
+	\end{figure}
 \end{frame}
 
 \end{document}
