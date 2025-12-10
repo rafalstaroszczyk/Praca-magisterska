@@ -3,7 +3,7 @@
 % Copyleft 2019
 
 % traditional screen
-\documentclass{beamer}
+\documentclass[aspectratio=1610]{beamer}
 
 % wide screen
 %\documentclass[aspectratio=169]{beamer}
@@ -103,7 +103,7 @@
 %%% YOUR OPTIONS HERE %%%
 
 \title[Silniki kwantowe]{Maszyny cieplne z perspektywy mechaniki kwantowej}
-\author{Rafał Staroszczyk}
+\author{Rafał Staroszczyk \\ \small promotor: dr Piotr Weber}
 \date{}
 
 \setbeamercovered{transparent}
@@ -165,20 +165,38 @@
 	\item Wyprowadzenie wielkości termodynamicznych opisujących wybrane silniki kwantowe
 	\item Optymalizacja parametrów silnika
 \end{itemize}
+\begin{figure}
+	\centering
+	\begin{subfigure}{0.3\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{pv_silnik_carnot.pdf}
+		\caption*{Silnik Carnota}
+	\end{subfigure}
+	\begin{subfigure}{0.3\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{pv_silnik_otto.pdf}
+		\caption*{Silnik Otto}
+	\end{subfigure}
+	\begin{subfigure}{0.3\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{pv_silnik_stirling.pdf}
+		\caption*{Silnik Stirlinga}
+	\end{subfigure}
+\end{figure}
 \end{frame}
 
-\section{Termodynamika}
-\begin{frame}
-	\begin{block}{Twierdzenie Carnota}
-		Silnik Carnota wyznacza największą sprawność dla danych temperatur
-	\end{block}
-	\begin{block}{Twierdzenie Clausiusa}
-		Dla procesu kołowego:
-		\begin{equation*}
-			\oint \frac{\dbar{Q}}{T} \leq 0
-		\end{equation*}
-	\end{block}
-\end{frame}
+%\section{Termodynamika}
+%\begin{frame}
+%	\begin{block}{Twierdzenie Carnota}
+%		Silnik Carnota wyznacza największą sprawność dla danych temperatur
+%	\end{block}
+%	\begin{block}{Twierdzenie Clausiusa}
+%		Dla procesu kołowego:
+%		\begin{equation*}
+%			\oint \frac{\dbar{Q}}{T} \leq 0
+%		\end{equation*}
+%	\end{block}
+%\end{frame}
 
 \section{Silniki klasyczne}
 \begin{frame}{Silnik Carnota}
@@ -270,8 +288,8 @@
 			\begin{gather*}
 				x = T_{h} - T_{hw}, \\
 				y = T_{cw} - T_{c}, \\
-				Q_h \propto x, \\
-				Q_c \propto y
+				\dot{Q_h} \propto x, \\
+				\dot{Q_c} \propto y
 			\end{gather*}
 		\end{block}
 	\end{column}
@@ -414,13 +432,13 @@
 	\end{align*}
 \end{block}
 \begin{block}{Moc}
-	\begin{multline*}
+	\begin{equation*}
 		P = \frac{n c_V}{\zeta\pab{\tau_h + \tau_c}}
-		\frac{\pab{1 - \kappa}\pab{\kappa T_h - T_c}}{\kappa} \\
+		\frac{\pab{1 - \kappa}\pab{\kappa T_h - T_c}}{\kappa}
 		\sinh\pab{\frac{\alpha_h \tau_h}{2}}
 		\sinh\pab{\frac{\alpha_c \tau_c}{2}}
 		\cosh\pab{\frac{\alpha_h \tau_h + \alpha_c \tau_c}{2}}
-	\end{multline*}
+	\end{equation*}
 \end{block}
 \begin{block}{Sprawność}
 	\begin{equation*}
@@ -470,9 +488,9 @@
 			\end{equation*}
 		\end{block}
 		\begin{block}{Kwantowy hamiltonian}
-			\begin{multline*}
-				\ham = \frac{\vu{p}^2}{2m} + \inv{2} m \omega^2 \vu{q}^2 = \\ = -\frac{\hbar^2}{2m}\pdv[order=2]{}{q} + \inv{2} m \omega^2 q^2
-			\end{multline*}
+			\begin{equation*}
+				\ham = \frac{\vu{p}^2}{2m} + \frac{m \omega^2}{2} \vu{q}^2 =  -\frac{\hbar^2}{2m}\pdv[order=2]{}{q} + \frac{m \omega^2}{2} q^2
+			\end{equation*}
 		\end{block}
 		\begin{block}{Energia}
 			\begin{equation*}
@@ -489,80 +507,134 @@
 \end{columns}
 \end{frame}
 
+%\begin{frame}{Układ o spinie \(\inv{2}\)}
+%\begin{columns}
+%	\begin{column}{0.5\textwidth}
+%		\begin{block}{Zagadnienie własne}
+%			\begin{align*}
+%				\vu{S}^2 \ket{s m_s} &= \hbar^2 s\pab{s+1} \ket{s m_s}, \\
+%				\vu{S}_z \ket{s m_s} &= \hbar m_s \ket{s m_s}
+%			\end{align*}
+%		\end{block}
+%		\begin{block}{Hamiltonian}
+%			\begin{equation*}
+%				\ham = - \vu{\mu} \cdot \vb{B} = - \gamma \vu{S} \cdot \vb{B}
+%			\end{equation*}
+%		\end{block}
+%		\begin{block}{Energia}
+%			\begin{align*}
+%				E_{\uparrow} &= -\frac{\hbar\omega}{2}, &
+%				E_{\downarrow} &= \frac{\hbar\omega}{2}
+%			\end{align*}
+%		\end{block}
+%	\end{column}
+%	\begin{column}{0.5\textwidth}
+%		\begin{figure}
+%			\centering
+%			\input{figures/spin_3_2.tex}
+%			\caption*{Stany dla \(s=\frac{3}{2}\)}
+%		\end{figure}
+%		\begin{figure}
+%			\centering
+%			\input{figures/spin_1_2.tex}
+%			\caption*{Stany dla \(s=\frac{1}{2}\)}
+%		\end{figure}
+%	\end{column}
+%\end{columns}
+%\end{frame}
+
 \begin{frame}{Układ o spinie \(\inv{2}\)}
+\begin{block}{
 \begin{columns}
-	\begin{column}{0.5\textwidth}
-		\begin{block}{Zagadnienie własne}
-			\begin{align*}
-				\vu{S}^2 \ket{s m_s} &= \hbar^2 s\pab{s+1} \ket{s m_s}, \\
-				\vu{S}_z \ket{s m_s} &= \hbar m_s \ket{s m_s}
-			\end{align*}
-		\end{block}
-		\begin{block}{Hamiltonian}
-			\begin{equation*}
-				\ham = - \vu{\mu} \cdot \vb{B} = - \gamma \vu{S} \cdot \vb{B}
-			\end{equation*}
-		\end{block}
-		\begin{block}{Energia}
-			\begin{align*}
-				E_{\uparrow} &= -\frac{\hbar\omega}{2}, &
-				E_{\downarrow} &= \frac{\hbar\omega}{2}
-			\end{align*}
-		\end{block}
+	\begin{column}{0.3\textwidth}\centering
+		Zagadnienie własne
 	\end{column}
-	\begin{column}{0.5\textwidth}
-		\begin{figure}
-			\centering
-			\input{figures/spin_3_2.tex}
-			\caption*{Stany dla \(s=\frac{3}{2}\)}
-		\end{figure}
-		\begin{figure}
-			\centering
-			\input{figures/spin_1_2.tex}
-			\caption*{Stany dla \(s=\frac{1}{2}\)}
-		\end{figure}
+	\begin{column}{0.3\textwidth}\centering
+		Hamiltonian
+	\end{column}
+	\begin{column}{0.3\textwidth}\centering
+		Energia
+	\end{column}
+\end{columns}}
+\begin{columns}
+	\begin{column}{0.3\textwidth}
+		\begin{align*}
+			\vu{S}^2 \ket{s m_s} &= \hbar^2 s\pab{s+1} \ket{s m_s}, \\
+			\vu{S}_z \ket{s m_s} &= \hbar m_s \ket{s m_s}
+		\end{align*}
+	\end{column}
+	\begin{column}{0.3\textwidth}\vspace{-\baselineskip}
+		\begin{equation*}
+			\ham = - \vu{\mu} \cdot \vb{B} = - \gamma \vu{S} \cdot \vb{B}
+		\end{equation*}
+	\end{column}
+	\begin{column}{0.3\textwidth}
+		\begin{align*}
+			E_{\uparrow} &= -\frac{\hbar\omega}{2}, &
+			E_{\downarrow} &= \frac{\hbar\omega}{2}
+		\end{align*}
 	\end{column}
 \end{columns}
+\end{block}
+\begin{figure}
+	\centering
+	\begin{subfigure}{0.45\textwidth}
+		\centering
+		\input{figures/spin_3_2.tex}
+		\caption*{Stany dla \(s=\frac{3}{2}\)}
+	\end{subfigure}
+	\begin{subfigure}{0.45\textwidth}
+		\centering
+		\input{figures/spin_1_2.tex}
+		\caption*{Stany dla \(s=\frac{1}{2}\)}
+	\end{subfigure}
+\end{figure}
 \end{frame}
 
 \begin{frame}{Termodynamika}
+\begin{block}{
+\begin{columns}
+	\begin{column}{0.5\textwidth}\centering
+		Oscylator harmoniczny
+	\end{column}
+	\begin{column}{0.5\textwidth}\centering
+		Układ o spinie \(\inv{2}\)
+	\end{column}
+\end{columns}}
 \begin{columns}
 	\begin{column}{0.5\textwidth}
-		\begin{block}{Oscylator harmoniczny}
-			\begin{gather*}
-				p_n = \inv{Z} \exp\pab{-\frac{E_n}{k_B T}}, \\
-				Z = \frac{\exp\pab{-\frac{\hbar\omega}{2 k_B T}}}{1-\exp\pab{-\frac{\hbar\omega}{2 k_B T}}}, \\
-				U = \frac{\hbar\omega}{2}\ctgh\pab{\frac{\hbar\omega}{2 k_B T}}, \\
-				S = \frac{\hbar\omega}{2T}\ctgh\pab{\frac{\hbar\omega}{2 k_B T}} - \\ -
-				k_B\ln\Bab{2\sinh\pab{\frac{\hbar\omega}{2 k_B T}}}
-			\end{gather*}
-		\end{block}
+		\begin{align*}
+			p_n &= \inv{Z} \exp\pab{-\frac{E_n}{k_B T}}, \\
+			Z &= \frac{\exp\pab{-\frac{\hbar\omega}{2 k_B T}}}{1-\exp\pab{-\frac{\hbar\omega}{2 k_B T}}}, \\
+			U &= \frac{\hbar\omega}{2}\ctgh\pab{\frac{\hbar\omega}{2 k_B T}}, \\
+			S &= \frac{\hbar\omega}{2T}\ctgh\pab{\frac{\hbar\omega}{2 k_B T}} - \\ &-
+			k_B\ln\Bab{2\sinh\pab{\frac{\hbar\omega}{2 k_B T}}}
+		\end{align*}
 	\end{column}
 	\begin{column}{0.5\textwidth}
-		\begin{block}{Układ o spinie \(\inv{2}\)}
-			\begin{gather*}
-				p_{m_s} = \inv{Z} \exp\pab{-\frac{E_{m_s}}{k_B T}}, \\
-				Z = 2 \cosh\pab{\frac{\hbar\omega}{2 k_B T}}, \\
-				U = -\frac{\hbar\omega}{2}\tgh\pab{\frac{\hbar\omega}{2 k_B T}}, \\
-				S = -\frac{\hbar\omega}{2T}\tgh\pab{\frac{\hbar\omega}{2 k_B T}} + \\ +
-				k_B \ln\Bab{2\cosh\pab{\frac{\hbar\omega}{2 k_B T}}}
-			\end{gather*}
-		\end{block}
+		\begin{align*}
+			p_{m_s} &= \inv{Z} \exp\pab{-\frac{E_{m_s}}{k_B T}}, \\
+			Z &= 2 \cosh\pab{\frac{\hbar\omega}{2 k_B T}}, \\
+			U &= -\frac{\hbar\omega}{2}\tgh\pab{\frac{\hbar\omega}{2 k_B T}}, \\
+			S &= -\frac{\hbar\omega}{2T}\tgh\pab{\frac{\hbar\omega}{2 k_B T}} + \\ &+
+			k_B \ln\Bab{2\cosh\pab{\frac{\hbar\omega}{2 k_B T}}}
+		\end{align*}
 	\end{column}
 \end{columns}
+\end{block}
 \end{frame}
 
 \begin{frame}{Oscylator harmoniczny}
 	\begin{figure}
 		\centering
-		\includegraphics[width=0.8\textwidth]{wykres_osc_harm.pdf}
+		\includegraphics[width=0.7\textwidth]{wykres_osc_harm.pdf}
 	\end{figure}
 \end{frame}
 
 \begin{frame}{Układ o spinie \(\inv{2}\)}
 	\begin{figure}
 		\centering
-		\includegraphics[width=0.8\textwidth]{wykres_spin.pdf}
+		\includegraphics[width=0.7\textwidth]{wykres_spin.pdf}
 	\end{figure}
 \end{frame}
 
@@ -584,22 +656,46 @@
 \end{frame}
 
 \begin{frame}{Silnik Otto z osc. harm.}
+%\begin{columns}
+%	\begin{column}{0.4\textwidth}
+%		\begin{block}{Sprawność}
+%			\begin{equation*}
+%				\eta = \frac{-W}{Q_{2-3}} = 1 - \kappa = 1 - \frac{\omega_1}{\omega_2}
+%			\end{equation*}
+%		\end{block}
+%	\end{column}
+%	\begin{column}{0.6\textwidth}
+%		\begin{block}{Moc}
+%			\begin{multline*}
+%				P = \frac{-W}{\zeta\pab{\tau_h + \tau_c}} = \frac{\hbar\omega_2\pab{1-\kappa}}{2\zeta\pab{\tau_h + \tau_c}} \\ \bab{\ctgh\pab{\frac{\hbar\omega_2}{2 k_B T_3}} - \ctgh\pab{\frac{\hbar\omega_2}{2 k_B T_2}}}
+%			\end{multline*}
+%		\end{block}
+%	\end{column}
+%\end{columns}
+\begin{block}{
 \begin{columns}
-	\begin{column}{0.4\textwidth}
-		\begin{block}{Sprawność}
-			\begin{equation*}
-				\eta = \frac{-W}{Q_{2-3}} = 1 - \kappa = 1 - \frac{\omega_1}{\omega_2}
-			\end{equation*}
-		\end{block}
+	\begin{column}{0.35\textwidth}\centering
+		Sprawność
 	\end{column}
-	\begin{column}{0.6\textwidth}
-		\begin{block}{Moc}
-			\begin{multline*}
-				P = \frac{-W}{\zeta\pab{\tau_h + \tau_c}} = \frac{\hbar\omega_2\pab{1-\kappa}}{2\zeta\pab{\tau_h + \tau_c}} \\ \bab{\ctgh\pab{\frac{\hbar\omega_2}{2 k_B T_3}} - \ctgh\pab{\frac{\hbar\omega_2}{2 k_B T_2}}}
-			\end{multline*}
-		\end{block}
+	\begin{column}{0.65\textwidth}\centering
+		Moc
+	\end{column}
+\end{columns}}
+\begin{columns}
+	\begin{column}{0.35\textwidth}
+		\begin{equation*}
+			\eta = \frac{-W}{Q_{2-3}} = 1 - \kappa = 1 - \frac{\omega_1}{\omega_2}
+		\end{equation*}
+	\end{column}
+	\begin{column}{0.65\textwidth}
+		\begin{equation*}
+			P = \frac{\hbar\omega_2\pab{1-\kappa}}{2\zeta\pab{\tau_h + \tau_c}}
+			\bab{\ctgh\pab{\frac{\hbar\omega_2}{2 k_B T_3}} - \ctgh\pab{\frac{\hbar\omega_2}{2 k_B T_2}}}
+		\end{equation*}
 	\end{column}
 \end{columns}
+\end{block}
+
 \begin{figure}
 	\centering
 	\begin{subfigure}{0.45\textwidth}
@@ -630,33 +726,56 @@
 \end{frame}
 
 \begin{frame}{Silnik Otto ze spinem \(\inv{2}\)}
-	\begin{columns}
-		\begin{column}{0.4\textwidth}
-			\begin{block}{Sprawność}
-				\begin{equation*}
-					\eta = \frac{-W}{Q_{2-3}} = 1 - \kappa = 1 - \frac{\omega_1}{\omega_2}
-				\end{equation*}
-			\end{block}
-		\end{column}
-		\begin{column}{0.6\textwidth}
-			\begin{block}{Moc}
-				\begin{multline*}
-					P = \frac{-W}{\zeta\pab{\tau_h + \tau_c}} = \frac{\hbar\omega_2\pab{1-\kappa}}{2\zeta\pab{\tau_h + \tau_c}} \\ \bab{\tgh\pab{\frac{\hbar\omega_2}{2 k_B T_2}} - \tgh\pab{\frac{\hbar\omega_2}{2 k_B T_3}}}
-				\end{multline*}
-			\end{block}
-		\end{column}
-	\end{columns}
-	\begin{figure}
+%\begin{columns}
+%	\begin{column}{0.4\textwidth}
+%		\begin{block}{Sprawność}
+%			\begin{equation*}
+%				\eta = \frac{-W}{Q_{2-3}} = 1 - \kappa = 1 - \frac{\omega_1}{\omega_2}
+%			\end{equation*}
+%		\end{block}
+%	\end{column}
+%	\begin{column}{0.6\textwidth}
+%		\begin{block}{Moc}
+%			\begin{multline*}
+%				P = \frac{-W}{\zeta\pab{\tau_h + \tau_c}} = \frac{\hbar\omega_2\pab{1-\kappa}}{2\zeta\pab{\tau_h + \tau_c}} \\ \bab{\tgh\pab{\frac{\hbar\omega_2}{2 k_B T_2}} - \tgh\pab{\frac{\hbar\omega_2}{2 k_B T_3}}}
+%			\end{multline*}
+%		\end{block}
+%	\end{column}
+%\end{columns}
+\begin{block}{
+\begin{columns}
+	\begin{column}{0.35\textwidth}
+		Sprawność
+	\end{column}
+	\begin{column}{0.65\textwidth}
+		Moc
+	\end{column}
+\end{columns}}
+\begin{columns}
+	\begin{column}{0.35\textwidth}
+		\begin{equation*}
+			\eta = \frac{-W}{Q_{2-3}} = 1 - \kappa = 1 - \frac{\omega_1}{\omega_2}
+		\end{equation*}
+	\end{column}
+	\begin{column}{0.65\textwidth}
+		\begin{equation*}
+			P = \frac{\hbar\omega_2\pab{1-\kappa}}{2\zeta\pab{\tau_h + \tau_c}} \bab{\tgh\pab{\frac{\hbar\omega_2}{2 k_B T_2}} - \tgh\pab{\frac{\hbar\omega_2}{2 k_B T_3}}}
+		\end{equation*}
+	\end{column}
+\end{columns}
+\end{block}
+
+\begin{figure}
+	\centering
+	\begin{subfigure}{0.45\textwidth}
 		\centering
-		\begin{subfigure}{0.45\textwidth}
-			\centering
-			\includegraphics[width=\textwidth]{wykres_otto_spin_pol_PT_01.pdf}
-		\end{subfigure}
-		\begin{subfigure}{0.45\textwidth}
-			\centering
-			\includegraphics[width=\textwidth]{wykres_otto_spin_pol_PT_10.pdf}
-		\end{subfigure}
-	\end{figure}
+		\includegraphics[width=\textwidth]{wykres_otto_spin_pol_PT_01.pdf}
+	\end{subfigure}
+	\begin{subfigure}{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{wykres_otto_spin_pol_PT_10.pdf}
+	\end{subfigure}
+\end{figure}
 \end{frame}
 
 \begin{frame}{Silnik Stirlinga z osc. harm.}
@@ -665,19 +784,19 @@
 			Q_{1-2} &=
 			k_B T_c \ln\bab{2\sinh\pab{\frac{\hbar\omega_1}{2 k_B T_c}}} -
 			k_B T_c \ln\bab{2\sinh\pab{\frac{\hbar\omega_2}{2 k_B T_c}}} + \\ &+
-			\frac{\hbar\omega_2}{2} \ctgh\pab{\frac{\hbar\omega_2}{2 k_B T_c}} -
-			\frac{\hbar\omega_1}{2} \ctgh\pab{\frac{\hbar\omega_1}{2 k_B T_c}}, \\
+			\mathcolor{blue}{\frac{\hbar\omega_2}{2} \ctgh\pab{\frac{\hbar\omega_2}{2 k_B T_c}}} -
+			\mathcolor{red}{\frac{\hbar\omega_1}{2} \ctgh\pab{\frac{\hbar\omega_1}{2 k_B T_c}}}, \\
 			Q_{2-3} &=
-			\frac{\hbar\omega_2}{2} \ctgh\pab{\frac{\hbar\omega_2}{2 k_B T_h}} -
-			\frac{\hbar\omega_2}{2} \ctgh\pab{\frac{\hbar\omega_2}{2 k_B T_c}}, \\
+			\mathcolor{cyan}{\frac{\hbar\omega_2}{2} \ctgh\pab{\frac{\hbar\omega_2}{2 k_B T_h}}} -
+			\mathcolor{blue}{\frac{\hbar\omega_2}{2} \ctgh\pab{\frac{\hbar\omega_2}{2 k_B T_c}}}, \\
 			Q_{3-4} &=
 			k_B T_h \ln\bab{2\sinh\pab{\frac{\hbar\omega_2}{2 k_B T_h}}} -
 			k_B T_h \ln\bab{2\sinh\pab{\frac{\hbar\omega_1}{2 k_B T_h}}} + \\ &+
-			\frac{\hbar\omega_1}{2} \ctgh\pab{\frac{\hbar\omega_1}{2 k_B T_h}} -
-			\frac{\hbar\omega_2}{2} \ctgh\pab{\frac{\hbar\omega_2}{2 k_B T_h}}, \\
+			\mathcolor{green}{\frac{\hbar\omega_1}{2} \ctgh\pab{\frac{\hbar\omega_1}{2 k_B T_h}}} -
+			\mathcolor{cyan}{\frac{\hbar\omega_2}{2} \ctgh\pab{\frac{\hbar\omega_2}{2 k_B T_h}}}, \\
 			Q_{4-1} &=
-			\frac{\hbar\omega_1}{2} \ctgh\pab{\frac{\hbar\omega_1}{2 k_B T_c}} -
-			\frac{\hbar\omega_1}{2} \ctgh\pab{\frac{\hbar\omega_1}{2 k_B T_h}}
+			\mathcolor{red}{\frac{\hbar\omega_1}{2} \ctgh\pab{\frac{\hbar\omega_1}{2 k_B T_c}}} -
+			\mathcolor{green}{\frac{\hbar\omega_1}{2} \ctgh\pab{\frac{\hbar\omega_1}{2 k_B T_h}}}
 		\end{align*}
 	\end{block}
 \end{frame}
@@ -714,19 +833,19 @@
 			Q_{1-2} &=
 			k_B T_c \ln\bab{2\cosh\pab{\frac{\hbar\omega_2}{2 k_B T_c}}} -
 			k_B T_c \ln\bab{2\cosh\pab{\frac{\hbar\omega_1}{2 k_B T_c}}} + \\ &+
-			\frac{\hbar\omega_1}{2} \tgh\pab{\frac{\hbar\omega_1}{2 k_B T_c}} -
-			\frac{\hbar\omega_2}{2} \tgh\pab{\frac{\hbar\omega_2}{2 k_B T_c}}, \\
+			\mathcolor{red}{\frac{\hbar\omega_1}{2} \tgh\pab{\frac{\hbar\omega_1}{2 k_B T_c}}} -
+			\mathcolor{blue}{\frac{\hbar\omega_2}{2} \tgh\pab{\frac{\hbar\omega_2}{2 k_B T_c}}}, \\
 			Q_{2-3} &=
-			\frac{\hbar\omega_2}{2} \tgh\pab{\frac{\hbar\omega_2}{2 k_B T_c}} -
-			\frac{\hbar\omega_2}{2} \tgh\pab{\frac{\hbar\omega_2}{2 k_B T_h}}, \\
+			\mathcolor{blue}{\frac{\hbar\omega_2}{2} \tgh\pab{\frac{\hbar\omega_2}{2 k_B T_c}}} -
+			\mathcolor{cyan}{\frac{\hbar\omega_2}{2} \tgh\pab{\frac{\hbar\omega_2}{2 k_B T_h}}}, \\
 			Q_{3-4} &=
 			k_B T_h \ln\bab{2\cosh\pab{\frac{\hbar\omega_1}{2 k_B T_h}}} -
 			k_B T_h \ln\bab{2\cosh\pab{\frac{\hbar\omega_2}{2 k_B T_h}}} + \\ &+
-			\frac{\hbar\omega_2}{2} \tgh\pab{\frac{\hbar\omega_2}{2 k_B T_h}} -
-			\frac{\hbar\omega_1}{2} \tgh\pab{\frac{\hbar\omega_1}{2 k_B T_h}}, \\
+			\mathcolor{cyan}{\frac{\hbar\omega_2}{2} \tgh\pab{\frac{\hbar\omega_2}{2 k_B T_h}}} -
+			\mathcolor{green}{\frac{\hbar\omega_1}{2} \tgh\pab{\frac{\hbar\omega_1}{2 k_B T_h}}}, \\
 			Q_{4-1} &=
-			\frac{\hbar\omega_1}{2} \tgh\pab{\frac{\hbar\omega_1}{2 k_B T_h}} -
-			\frac{\hbar\omega_1}{2} \tgh\pab{\frac{\hbar\omega_1}{2 k_B T_c}}
+			\mathcolor{green}{\frac{\hbar\omega_1}{2} \tgh\pab{\frac{\hbar\omega_1}{2 k_B T_h}}} -
+			\mathcolor{red}{\frac{\hbar\omega_1}{2} \tgh\pab{\frac{\hbar\omega_1}{2 k_B T_c}}}
 		\end{align*}
 	\end{block}
 \end{frame}
@@ -761,11 +880,11 @@
 		\centering
 		\begin{subfigure}{0.45\textwidth}
 			\centering
-			\includegraphics[width=0.7\textwidth]{wykres_3d_stirling_harm_osc_bezreg_45.pdf}
+			\includegraphics[width=0.6\textwidth]{wykres_3d_stirling_harm_osc_bezreg_45.pdf}
 		\end{subfigure}
 		\begin{subfigure}{0.45\textwidth}
 			\centering
-			\includegraphics[width=0.7\textwidth]{wykres_3d_stirling_harm_osc_bezreg_90.pdf}
+			\includegraphics[width=0.6\textwidth]{wykres_3d_stirling_harm_osc_bezreg_90.pdf}
 		\end{subfigure}
 		\caption{Silnik Stirlinga z oscylatorem harmonicznym}
 	\end{figure}
@@ -773,14 +892,48 @@
 		\centering
 		\begin{subfigure}{0.45\textwidth}
 			\centering
-			\includegraphics[width=0.7\textwidth]{wykres_3d_stirling_spin_pol_bezreg_45.pdf}
+			\includegraphics[width=0.6\textwidth]{wykres_3d_stirling_spin_pol_bezreg_45.pdf}
 		\end{subfigure}
 		\begin{subfigure}{0.45\textwidth}
 			\centering
-			\includegraphics[width=0.7\textwidth]{wykres_3d_stirling_spin_pol_bezreg_90.pdf}
+			\includegraphics[width=0.6\textwidth]{wykres_3d_stirling_spin_pol_bezreg_90.pdf}
 		\end{subfigure}
 		\caption{Silnik Stirlinga ze spinem \(\inv{2}\)}
 	\end{figure}
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Bibliografia}
+	\nocite{b:huang_podstawy_fizyki_statystycznej}
+	\nocite{b:huang_mechanika_statystyczna}
+	\nocite{b:pudlik_termodynamika}
+	\nocite{b:kondepudi_prigogine_modern_thermodynamics}
+	\nocite{guminski}
+	\nocite{curzon}
+	\nocite{endo_otto}
+	\nocite{endo_stirling}
+	\nocite{davydov_mechanika_kwantowa}
+	\nocite{townsend_a_modern_approach_to_quantum_mechanics}
+	\nocite{zubariew}
+	\nocite{anders}
+	\nocite{myers}
+	\nocite{deffner_quantum_thermodynamics}
+	\nocite{strasberg}
+	\nocite{lobejko}
+	\nocite{rezek}
+	\nocite{kieu}
+	\nocite{huang_stirling}
+	\nocite{Louisell}
+	\nocite{griffiths_kwant}
+	\nocite{yuan}
+	\printbibliography
+\end{frame}
+
+\begin{frame}[plain]
+\begin{center}\huge
+	Dziękuję \\
+	za \\
+	uwagę
+\end{center}
 \end{frame}
 
 \end{document}
